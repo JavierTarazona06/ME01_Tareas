@@ -1,0 +1,37 @@
+1. Universidad de California, Los Ángeles (UCLA)
+Método: Programación entera y algoritmo heurístico basado en el problema de asignación cuadrática.​
+
+Descripción: La Anderson School of Management de la UCLA implementó un sistema automatizado para la programación de cursos. El proceso se dividió en dos subproblemas: primero, la programación de cursos básicos utilizando un algoritmo de programación entera; segundo, la generación del horario mediante un algoritmo heurístico para resolver una variante del problema de asignación cuadrática. Este sistema ha sido utilizado durante varios años, permitiendo generar horarios de manera más rápida y eficiente en comparación con el proceso manual. 
+
+https://pubsonline.informs.org/doi/10.1287/inte.27.4.67
+
+2. Universidad de Zagreb (Croacia)
+Método: Optimización por colonia de hormigas (ACO)​
+
+Descripción: La Facultad de Ingeniería Eléctrica y Computación de la Universidad de Zagreb aplicó la metaheurística de optimización por colonia de hormigas (ACO) para resolver problemas de programación de cursos altamente restringidos. Diseñaron un grafo de construcción eficiente en memoria y un procedimiento sofisticado de construcción de soluciones. El sistema desarrollado se utilizó con éxito para la programación de cursos en su institución.​
+SpringerLink
+
+Referencia: 
+https://link.springer.com/chapter/10.1007/978-3-642-15387-7_14
+
+3. Universidad de Sfax (Túnez)
+Método: Programación matemática y heurísticas​
+
+Descripción: La Universidad de Sfax abordó el problema de programación de cursos mediante la formulación matemática del problema y el desarrollo de procedimientos heurísticos. Se enfocaron en problemas de optimización combinatoria, como la teoría de grafos y la programación matemática, aplicando estos enfoques al diseño de horarios universitarios.​
+
+https://link.springer.com/article/10.1007/s11518-008-5079-5
+
+
+4. Universidad de Ilorin (Nigeria)
+Método: Sistema automatizado de asignación de cursos en línea​
+
+Descripción: El Departamento de Ciencias de la Computación de la Universidad de Ilorin desarrolló un sistema automatizado de gestión de asignación de cursos en línea para los docentes. Este sistema tiene como objetivo facilitar y agilizar el proceso de asignación de cursos, abordando problemas como la asignación manual ineficiente y la sobrecarga de trabajo para los docentes.
+
+https://www.schoolthesis.com/design-and-implementation-of-an-automated-online-course-allocation-management-system-for-lecturers-a-case-study-of-department-of-computer-science-university-of-ilorin/
+
+5. Universidad de Córdoba (España)
+Método: Sistema de recomendación híbrido con optimización genética​
+
+Descripción: La Universidad de Córdoba implementó un sistema de recomendación híbrido que combina filtrado colaborativo y filtrado basado en contenido, utilizando múltiples criterios relacionados con la información del estudiante y del curso. Se desarrolló un algoritmo genético para descubrir automáticamente la configuración óptima del sistema de recomendación, mejorando la fiabilidad de las recomendaciones de cursos electivos para los estudiantes.
+
+https://arxiv.org/abs/2402.08371​​
