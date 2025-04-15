@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[style=ieee]{biblatex} % Establecer el estilo de las referencias como IEEE
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titletoc}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue, % Color del texto del enlace
+    urlcolor=blue % Color del enlace
+}
+
+\usepackage{longtable} % Agrega el paquete longtable
+
+\definecolor{mygreen}{RGB}{0,128,0}
+
+\usepackage{array} % Para personalizar la tabla
+\usepackage{booktabs} % Para líneas horizontales de mejor calidad
+\usepackage{graphicx} % Paquete para incluir imágenes
+\usepackage{float}
+
+% Definir márgenes
+\usepackage[margin=1in]{geometry}
+
+\renewcommand{\contentsname}{\textcolor{mygreen}{Tabla de Contenidos}}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    % Logo de la Universidad
+    \includegraphics[width=0.48\textwidth]{logo_universidad.png}
+    \par\vspace{2cm}
+
+    % Nombre de la Universidad y detalles del curso
+    {\Large \textbf{Universidad Nacional de Colombia} \par}
+    \vspace{0.5cm}
+    {\large Ingeniería de Sistemas y Computación \par}
+    {\large 2025969 Modelos estocásticos y simulación en computación y comunicaciones \par}
+    \vspace{3cm}
+
+    % Detalles del laboratorio y actividad
+    {\large \textbf{Tarea 6} \par}
+    {\large El problema de la programación académica en la UNAL \par}
+    \vspace{3cm}
+
+    % Lista de integrantes
+    {\large \textbf{Integrantes:} \par}
+    \vspace{0.5cm}
+    \begin{tabular}{ll}
+    Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
+    Yenifer & @unal.edu.co \\
+    Jefferson & @unal.edu.co \\
+    \end{tabular}
+    \par\vspace{3cm}
+
+    % Fecha
+    {\large Abril 15 de 2024 \par}
+\end{titlepage}
+
+\tableofcontents % Inserta la tabla de contenidos
+
+\newpage % Salto de página para separar la tabla de contenidos del contenido del documento
+
+% Contenido del artículo----------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Intro --------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Introducción}\label{sec:ejemplo}
+Aquí empieza el contenido del artículo de la sección \ref{sec:ejemplo} y también hay una referencia [\ref{ref:bienUniv}].
+
+%---------------------------------------------------------------------------------
+% Marco Teórico ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Marco Teórico}\label{sec:ejemplo}
+Aquí empieza el contenido del artículo de la sección \ref{sec:ejemplo} y también hay una referencia [\ref{ref:bienUniv}].
+
+%---------------------------------------------------------------------------------
+% Descripción y Justificación del Problema a Resolver ----------------------------
+%---------------------------------------------------------------------------------
+
+\section{Descripción y Justificación del Problema a Resolver}\label{sec:ejemplo}
+Aquí empieza el contenido del artículo de la sección \ref{sec:ejemplo} y también hay una referencia [\ref{ref:bienUniv}].
+
+%---------------------------------------------------------------------------------
+% Diseño de la solución ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Diseño }\label{sec:ejemplo}
+Aquí empieza el contenido del artículo de la sección \ref{sec:ejemplo} y también hay una referencia [\ref{ref:bienUniv}].
+
+
+
+\renewcommand{\tablename}{Tabla}
+\begin{table}[htbp]
+  \centering
+  \caption{Ejemplo de tabla 4x3 con contorno marcado \label{tab:Prueba}}
+  \begin{tabular}{|c|c|c|c|} % 4 columnas, todas centradas y con contorno marcado
+    \hline
+    Encabezado 1 & Encabezado 2 & Encabezado 3 & Encabezado 4 \\
+    \hline
+    Celda 1 & Celda 2 & Celda 3 & Celda 4 \\
+    \hline
+    Celda 5 & Celda 6 & Celda 7 & Celda 8 \\
+    \hline
+    Celda 9 & Celda 10 & Celda 11 & Celda 12 \\
+    \hline
+  \end{tabular}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Nivel de Agua en los Embalses}
+\label{tab:NivelAgua}
+\begin{tabular}{|p{0.333\linewidth}|p{0.333\linewidth}|p{0.333\linewidth}|}
+\hline
+\textbf{Fecha} & \textbf{Estado} & \textbf{Nivel de los embalses/Capacidad} \\
+\hline
+Abril 2024 & Inicio Racionamiento & 14\% \\
+\hline
+Junio 2024 & Condiciones Actuales Escasez & 30\% \\
+\hline
+Ideal & Capacidad Completa & 100\% \\
+\hline
+\end{tabular}
+\end{table}
+
+Así mismo hay una tabla \ref{tab:Prueba}.
+
+Tabla larga y personalizable en \ref{tab:anaTab}
+
+\renewcommand{\tablename}{Tabla}
+\begin{longtable}{|p{3.5cm}|p{3cm}|p{3cm}|p{5cm}|} % 4 columnas, todas centradas y con contorno marcado
+  \caption{Análisis Stakeholders\label{tab:anaTab}} \\
+  \hline
+  \textbf{Stakeholder} & \textbf{Necesidades} & \textbf{Intereses} & \textbf{Impacto} \\
+  \hline
+  \endfirsthead % Encabezado de la primera página
+  \hline
+  \textbf{Stakeholder} & \textbf{Necesidades} & \textbf{Intereses} & \textbf{Impacto} \\
+  \hline
+  \endhead % Encabezado de las siguientes páginas
+  CD1 & CD2 & CD3 & CD4 \\
+  \hline
+  CD5 & CD6 & CD7 & CD8 \\
+  \hline
+\end{longtable}
+
+
+Y hay una figura \ref{fig:ejemplo}.\\
+
+\renewcommand{\figurename}{Figura}
+\begin{figure}[htbp]
+  \centering
+  \includegraphics[width=0.3\textwidth]{logo_universidad.png}
+  %\includegraphics[scale=0.2]{logo_universidad.png}
+  \caption{Descripción de la figura.}
+  \label{fig:ejemplo}
+\end{figure}
+
+Por último una lista:
+
+\begin{itemize}
+  \item Item 1
+  \item Item 2
+  \item Item 3\\\\
+\end{itemize}
+
+
+Use la siguiente página para documentar las referencias en formato IEEE: 
+\href{https://www.citethisforme.com/}{https://www.citethisforme.com/}
+
+\section{Referencias}
+\renewcommand{\refname}{}
+\begin{thebibliography}{9}
+
+\bibitem{ref} \label{ref:bienUniv}D. N. de B. Universitario, “Dirección Nacional de Bienestar Universitario,” contador de visitas. [Online]. Available: \href{https://bienestar.unal.edu.co/index.php}{https://bienestar.unal.edu.co/index.php}. [Accessed: 05-Mar-2023].  
+
+
+
+\end{thebibliography}
+
+\end{document}
