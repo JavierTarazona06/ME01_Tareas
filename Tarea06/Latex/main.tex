@@ -347,32 +347,61 @@ Para cada curso, el módulo va a realizar lo siguiente:
 
 \begin{enumerate}
   \item \textbf{Selección de docente:} Se elige aleatoriamente un docente disponible 
-        (no asignado a otro curso en el mismo horario) y se marca como programado.
+        (que no esté asignado a otro curso en el mismo horario) y se marca como programado.
+  
   \item \textbf{Selección de aula:} Se selecciona aleatoriamente un aula disponible 
-        (no ocupada en el horario asignado) y se marca como programado.
-  \item \textbf{Selección de horario:} Se selecciona aleatoriamente un horario. 
-      Para garantizar una distribución fiel, se propone:
+        (que no esté ocupada en el horario asignado) y se marca como ocupada.
+
+  \item \textbf{Selección de horario:} Se selecciona aleatoriamente un horario. Para garantizar 
+        una distribución balanceada de clases a lo largo de la semana, se propone el siguiente 
+        esquema de asignación adaptativa:
 
   \begin{itemize}
-    \item Llevar un conteo de asignaciones por día de la semana.
-    \item Asignar los días de forma \textbf{ponderada inversamente} a la frecuencia actual de 
-          asignación, priorizando los días con menor carga entre lunes y jueves (descartar viernes
-          y sábado).
-    \item Para que los \textbf{viernes y sábados tengan menor probabilidad} de selección, cuando 
-          falte el 10\% de cursos por asignar, incluir el viernes y sábado en el pool de opciones.
+    \item Llevar un conteo de asignaciones por cada día de la semana.
+    \item Definir una función de probabilidad que asigne mayor peso a los días menos cargados.
+    \item Aplicar una probabilidad ponderada inversamente a la carga actual de cada día:
+      $$
+      P(dia_{i}) \propto \frac{1}{1 + asignaciones:dia_{i}}
+      $$
+    \item Excluir los días viernes y sábado inicialmente. Estos se incluirán únicamente cuando 
+          reste el 5\% de los cursos por asignar.
   \end{itemize}
 
-  Una posible función de probabilidad adaptativa sería:
-  $$
-  P(dia_{i}) \propto \frac{1}{1 + numAsignaciones:dia_{i}}
-  $$
-
-  \item Se marca el curso como programado y se pasa al siguiente.
+  \item \textbf{Creación de la clase:} Se registra la asignación como un nuevo diccionario en 
+        la colección \texttt{clases}, la cual contiene los siguientes campos: 
+        \texttt{codigo\_clase} generado aleatoriamente, \texttt{codigo\_curso}, 
+        \texttt{cedula\_docente}, 
+        \texttt{horario} y \texttt{aula} (identificada como \texttt{edificio+aula\_id}).
+        Además, se asigna el número de \texttt{cupos} como un valor aleatorio entre 30 y 60, 
+        calibrado de modo que el promedio de cupos se acerque al valor proporcionado por el usuario.
 \end{enumerate}
 
 
 
-\subsubsection{Modelo Estocástico}
+\textbf{Módulo de Estudiantes}
+
+Aquí se definirán los deseos de los estudiantes.
+
+\begin{itemize}
+  \item \textbf{Estudiante:} Lista de diccionarios con
+        \begin{itemize}
+          \item Cédula estudiante (int)
+          \item Nombre estudiante (str)
+          \item Lista de deseos de tamaño n donde cada elemento es un código de clase.
+        \end{itemize}
+\end{itemize}
+
+Para cada estudiante se crea una lista de deseos seleccionando aleatoriamente, bajo una distribución 
+uniforme, un código de clase y agregándolo a dicha lista.
+
+\subsubsection{Modelo Estocástico: Proceso de Asignación}
+
+Ahora bien, una vez que la oferta de clases ya está construida y los estudiantes también están 
+definidos junto con sus preferencias, sigue el proceso de asignación y selección de asignaturas.
+
+
+\textbf{}
+
 
 
 
@@ -389,7 +418,17 @@ Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y tambié
 %---------------------------------------------------------------------------------
 
 \section{Manual Usuario}\label{sec:man_u}
-Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y también hay una referencia [\ref{ref:bienUniv}].
+
+\textbf{Datos de entrada}
+
+\begin{itemize}
+  \item Número de cursos
+  \item Número de docentes, debe ser mayor o igual al número de cursos
+  \item Número de aulas, debe ser mayor o igual al número de cursos
+  \item Número de estudiantes
+  \item Máximo número de materias deseadas de un estudiante (Predeterminado=9).
+  \item Promedio de número de cupos de las clases (Predeterminado 40).
+\end{itemize}
 
 
 %---------------------------------------------------------------------------------
