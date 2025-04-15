@@ -126,7 +126,76 @@ También puede implicar si es una solución centralizada (administración asigna
 \subsubsection{Referencia}
 Nombre del artículo o proyecto, universidad, y si es posible, enlace o fuente bibliográfica.
 
-\subsection{Bunded Probabilistic Serial (BPS): Yenifer}
+\subsection{Bundled Probabilistic Serial (BPS)}
+
+\subsubsection{Contextualización del problema y la solución}
+
+La asignación de horarios de cursos en instituciones educativas es un desafío complejo, especialmente cuando los estudiantes tienen preferencias sobre combinaciones de cursos que se ajusten a sus necesidades y restricciones personales. Los métodos tradicionales, como el orden de llegada (First-Come, First-Served - FCFS), suelen resultar en asignaciones ineficientes y generan envidia entre los estudiantes debido a la falta de equidad en el proceso. Para abordar estas limitaciones, se ha propuesto el mecanismo Bundled Probabilistic Serial (BPS), que busca asignar cursos de manera más justa y eficiente, considerando las preferencias de los estudiantes sobre paquetes de cursos.
+
+\subsubsection{Descripción general de la solución}
+
+El BPS es un mecanismo de asignación aleatoria que permite a los estudiantes expresar sus preferencias sobre combinaciones de cursos (paquetes) en lugar de cursos individuales. Este enfoque reconoce que los estudiantes valoran ciertos conjuntos de cursos que se ajustan a sus horarios y objetivos académicos. El BPS asigna probabilidades a cada estudiante para recibir diferentes paquetes de cursos, basándose en sus preferencias declaradas. Posteriormente, se realiza una asignación determinista mediante una lotería que respeta estas probabilidades, garantizando una distribución equitativa y eficiente de los cursos disponibles.
+
+\subsubsection{Naturaleza de la solución}
+
+El BPS es un mecanismo de naturaleza estocástica, ya que asigna probabilidades a los estudiantes para recibir ciertos paquetes de cursos. Sin embargo, la implementación final es determinista, ya que se utiliza una lotería para realizar la asignación concreta de cursos a cada estudiante. Este enfoque combina la equidad y eficiencia de los mecanismos aleatorios con la necesidad de asignaciones deterministas en la práctica. Además, el BPS satisface propiedades deseables como la eficiencia ordinal, la equidad (ausencia de envidia) y una forma débil de resistencia a la manipulación estratégica.
+
+\subsubsection{Funcionamiento del sistema}
+
+El algoritmo \textit{Bundled Probabilistic Serial} (BPS) está diseñado para abordar el problema de asignación de paquetes de cursos, donde cada paquete representa una combinación de recursos indivisibles (por ejemplo, horarios de cursos, laboratorios o seminarios). A continuación, se describe detalladamente el proceso de asignación mediante BPS:
+
+\begin{itemize}
+    \item \textbf{Elicitación de preferencias:} Los estudiantes deben expresar sus preferencias sobre los paquetes de cursos. Este proceso puede ser complejo, ya que el número de paquetes posibles crece exponencialmente con la cantidad de cursos disponibles.
+
+    Para simplificar la tarea, el sistema proporciona una interfaz que permite clasificar paquetes en función de atributos clave (como horarios compatibles, cursos obligatorios y electivos preferidos). Además, se pueden emplear técnicas de reducción dimensional, como la agrupación de cursos en categorías o la limitación del número de opciones permitidas.
+
+    \item \textbf{Consumo simultáneo de paquetes:} El mecanismo se basa en un enfoque similar al proceso de ``simultaneous eating'' del algoritmo \textit{Probabilistic Serial Rule} (PS).
+
+    Durante un intervalo continuo de tiempo, todos los estudiantes comienzan a ``consumir'' su paquete de cursos preferido al mismo ritmo. Cuando un paquete alcanza su capacidad (por ejemplo, si uno de sus cursos se llena), el estudiante detiene su consumo de dicho paquete y pasa al siguiente en su lista de preferencias. Este proceso se repite hasta que se agotan todas las capacidades disponibles en la oferta académica.
+
+    \item \textbf{Asignación de probabilidades:} Al finalizar el proceso de consumo, cada estudiante acumula una fracción de probabilidad asociada a cada paquete consumido. Estas probabilidades representan el tiempo relativo dedicado a consumir cada paquete antes de que dejara de estar disponible.
+
+    \item \textbf{Descomposición en asignaciones deterministas:} Una vez calculadas las probabilidades, el sistema convierte estas fracciones en una asignación determinista a través de un proceso de descomposición de matriz probabilística.
+
+    \begin{itemize}
+        \item Cada fila de la matriz representa a un estudiante, y cada columna a un paquete de cursos.
+        \item Los valores en la matriz indican la probabilidad acumulada de que un estudiante reciba un paquete específico.
+        \item Para transformar esta matriz en asignaciones concretas, se utiliza el algoritmo de Birkhoff–von Neumann, que permite descomponer la matriz en una combinación convexa de matrices de permutación.
+    \end{itemize}
+
+    \item \textbf{Lotería para asignación final:} Con base en la descomposición anterior, se realiza una lotería que asigna a cada estudiante un paquete de forma determinista, respetando las probabilidades acumuladas. Este procedimiento garantiza una asignación factible, acorde con las capacidades y preferencias declaradas por los estudiantes.
+\end{itemize}
+
+\subsubsection{Propiedades adicionales y consideraciones}
+
+\begin{itemize}
+    \item \textbf{Velocidad uniforme:} En el proceso de consumo simultáneo, todos los estudiantes consumen a la misma velocidad. No obstante, esta puede ajustarse si se incorporan factores de prioridad (por ejemplo, año académico, urgencia de graduación, etc.).
+
+    \item \textbf{Eficiencia y justicia:} BPS garantiza eficiencia ordinal, es decir, no se puede mejorar la asignación de un estudiante sin perjudicar a otro. Asimismo, promueve una distribución justa basada en preferencias declaradas.
+
+    \item \textbf{Resistencia a la manipulación:} Aunque BPS no es completamente estrategia-proof, los incentivos para manipular preferencias son bajos. Las estrategias subóptimas tienden a resultar en asignaciones menos favorables, especialmente en comparación con mecanismos como RSD.
+\end{itemize}
+
+\subsubsection{Resultados del proceso}
+
+Al concluir el proceso de asignación, se observan los siguientes resultados:
+
+\begin{itemize}
+    \item Cada estudiante recibe una asignación determinista que refleja sus preferencias y cumple con las restricciones de capacidad.
+    
+    \item Los paquetes asignados optimizan el uso de los recursos académicos, minimizando cursos no utilizados y asignaciones ineficientes.
+
+    \item Estudios realizados en la Universidad Técnica de Múnich demuestran que BPS mejora significativamente la equidad y la satisfacción estudiantil frente a métodos tradicionales como \textit{first-come, first-served} (FCFS).
+\end{itemize}
+
+\subsubsection{Impacto}
+
+La implementación del BPS en la Universidad Técnica de Múnich ha demostrado mejoras significativas en comparación con métodos tradicionales como FCFS. Se observaron asignaciones más equitativas, una mayor satisfacción de los estudiantes y una reducción en la envidia entre los participantes. Además, el BPS permitió una mejor utilización de la capacidad de los cursos y facilitó la gestión de las preferencias complejas de los estudiantes sobre combinaciones de cursos.
+
+\subsubsection{Referencia}
+
+Bichler, M., Merting, S., & Uzunoglu, A. (2018). Assigning Course Schedules: About Preference Elicitation, Fairness, and Truthfulness. arXiv preprint arXiv:1812.02630. Disponible en: https://arxiv.org/abs/1812.02630
+
 \subsection{Random Serial Dictatorship (RSD): Jefferson}
 
 \subsection{Probabilistic Serial Rule (PBS)}
@@ -227,6 +296,100 @@ cada integrante de obtener el recurso en una asignación final. Aquí hay dos ca
 \subsubsection{Referencia}
 Vea [\ref{ref:PBS}].
 
+\subsection{Asignación de Cursos Universitarios mediante Mercados Competitivos}\label{sec:descr}
+
+\subsubsection{Contextualización de la solución}
+
+En contextos universitarios, cada semestre se asignan horarios de cursos a millones de estudiantes. Este entorno se caracteriza por la diversidad de preferencias de los alumnos y por restricciones severas derivadas de la capacidad limitada de los cursos, los horarios, los requisitos académicos y otros factores, como la prioridad basada en la antigüedad o la pertenencia a determinados departamentos o programas.
+
+Los métodos tradicionales, tales como el \textit{first-come-first-served} o los mecanismos simples de subasta, han demostrado ser ineficientes y pueden generar resultados poco equitativos, donde estudiantes con conexiones o ventajas estructurales obtienen todas las plazas deseadas, mientras que otros quedan con asignaciones subóptimas.
+
+En respuesta a estos desafíos, Kornbluth y Kushnir proponen un novedoso mecanismo de asignación determinístico: el mecanismo de Pseudo-Mercado con Prioridades (PMP). Esta solución adopta la idea de equilibrio competitivo, pero adaptada a un entorno sin transferencias monetarias reales. El mecanismo emplea “dinero ficticio”, asignado casi equitativamente a los estudiantes, permitiendo traducir las preferencias cardinales declaradas en precios implícitos para cada curso.
+
+Además, se incorpora explícitamente una estructura de prioridades para respetar elementos clave como la antigüedad o la pertenencia a ciertos grupos. Esto da lugar a un “corte” de prioridad: los estudiantes con mayor prioridad pueden acceder a ciertos cursos sin costo, mientras que quienes están por debajo deben “pagar” una fracción de su presupuesto ficticio. Así, el sistema busca minimizar el error de mercado, maximizar la utilidad global y garantizar un trato justo.
+
+\subsubsection{Descripción General de la Solución}
+
+El mecanismo PMP se compone de los siguientes pasos fundamentales:
+
+\begin{itemize}
+    \item \textbf{Recolección de preferencias:} Se solicita a cada estudiante que informe sus preferencias sobre los horarios y combinaciones de cursos aceptables (respetando restricciones como traslapes o prerrequisitos), utilizando un lenguaje de reporte diseñado para evitar sobrecarga cognitiva.
+    
+    \item \textbf{Asignación de presupuestos ficticios:} Cada alumno recibe un presupuesto dentro de un intervalo casi uniforme, por ejemplo $[1, 1 + \beta]$, donde $\beta$ es pequeño. Esto asegura equidad y refleja ligeras diferencias en la prioridad.
+    
+    \item \textbf{Cálculo del equilibrio competitivo aproximado:} Con base en las preferencias y presupuestos, se calcula una asignación de cursos junto con un vector de precios por curso y nivel de prioridad. Se utiliza una parametrización que reduce la dimensión efectiva del problema y facilita la búsqueda de un equilibrio donde el error de mercado no supere un valor teórico $\alpha$.
+    
+    \item \textbf{Optimización en dos fases:}
+    \begin{itemize}
+        \item \textit{Fase I:} Se ajustan los precios mediante un algoritmo inspirado en el proceso de tâtonnement (ajuste gradual de precios) para equilibrar oferta y demanda, minimizando el error de mercado.
+        
+        \item \textit{Fase II:} Una vez alcanzado el umbral teórico, se refina la asignación ajustando localmente los precios de los cursos sobreasignados para asegurar que no se exceda el límite de $k - 1$ asignaciones adicionales (siendo $k$ el número máximo de cursos que puede tomar un estudiante).
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Naturaleza de la Solución}
+
+La propuesta PMP es determinística y se fundamenta en conceptos de equilibrio competitivo, adaptados a un entorno sin transacciones monetarias reales. Sus características principales incluyen:
+
+\begin{itemize}
+    \item \textbf{Enfoque de pseudo-mercado:} El uso de dinero ficticio permite representar presupuestos casi iguales y calcular precios de equilibrio que respetan restricciones de capacidad y mejoran las asignaciones.
+    
+    \item \textbf{Integración de prioridades:} La estructura de prioridades (por ejemplo, por año académico o pertenencia a programas) influye directamente en los precios, permitiendo acceso preferente o gratuito a estudiantes con mayor prioridad.
+    
+    \item \textbf{Uso de preferencias cardinales:} A diferencia de mecanismos ordinales (como Gale–Shapley), PMP considera la intensidad de las preferencias, logrando asignaciones más eficientes y mayor satisfacción promedio.
+    
+    \item \textbf{Propiedades teóricas deseables:} El mecanismo garantiza estabilidad aproximada, eficiencia de Pareto y minimización de la envidia (limitada a un curso y entre estudiantes de similar prioridad).
+\end{itemize}
+
+\subsubsection{Funcionamiento del Sistema}
+
+El funcionamiento del PMP se desarrolla en varias etapas:
+
+\begin{enumerate}
+    \item \textbf{Reporte de preferencias y presupuestos:}
+    \begin{itemize}
+        \item Los estudiantes registran sus preferencias sobre combinaciones válidas de cursos, indicando la utilidad asociada a cada opción.
+        \item Se les asigna un presupuesto ficticio (e.g., entre $1$ y $1 + \beta$) que representa la cantidad de “créditos” disponibles para “pagar” por los cursos deseados.
+    \end{itemize}
+
+    \item \textbf{Cálculo de precios por prioridad:}
+
+    Se define un vector de precios por curso y nivel de prioridad mediante la fórmula:
+
+    \[
+    p_{c,r}(t) = \max(t_c - (r - 1)b, 0)
+    \]
+
+    donde $t \in [0, Rb]^M$, $R$ es el número de niveles de prioridad y $b$ es el incremento de precio. Esta estructura genera un punto de corte (\textit{cutoff}) que determina qué estudiantes acceden sin costo y quiénes deben pagar, según su prioridad.
+
+    \item \textbf{Fase I – Ajuste de precios y asignación inicial:}
+
+    Se realiza un ajuste iterativo de precios vía tâtonnement, con el objetivo de igualar la demanda con la capacidad y minimizar el error de mercado.
+
+    \item \textbf{Fase II – Refinamiento y control de sobreasignaciones:}
+
+    Se ajustan los precios de cursos con sobreasignación para que no excedan el límite permitido de asignaciones adicionales ($\leq k - 1$). Si no se obtiene mejora, puede reiniciarse la fase con nuevos precios iniciales.
+\end{enumerate}
+
+\subsubsection{Resultados o Impacto}
+
+Las simulaciones realizadas con datos reales de asignación de cursos demuestran que el mecanismo PMP ofrece mejoras significativas:
+
+\begin{itemize}
+    \item \textbf{Mayor utilidad promedio:} PMP logra la utilidad media estudiantil más alta en todas las categorías académicas, especialmente en primer y segundo año (mejoras del 9\% y 7\%, respectivamente).
+
+    \item \textbf{Reducción de la desigualdad en la satisfacción:} Se observa una disminución considerable en la desviación estándar de las utilidades, con una mejora del 11.16\% en estudiantes de primer año, indicando mayor equidad.
+
+    \item \textbf{Menor envidia:} Solo el 1.26\% de los estudiantes manifiesta envidia (deseo por el horario de otro estudiante con la misma o menor prioridad), frente a porcentajes superiores al 7\% en mecanismos como DA o RSD.
+
+    \item \textbf{Control efectivo del error de mercado:} El error promedio se mantiene en torno a 14 asientos, muy por debajo del umbral teórico ($\alpha \approx 43.5$), demostrando la eficiencia del mecanismo.
+
+    \item \textbf{Robustez y resistencia a manipulaciones:} En mercados grandes, PMP es prácticamente inmune a manipulaciones estratégicas, mostrando que es estrategia-proof en el largo plazo.
+\end{itemize}
+
+\subsubsection{Referencia}
+
+Kornbluth, D. \& Kushnir, A. (2023). \textit{Undergraduate Course Allocation through Competitive Markets}. Carnegie Mellon University / Harvard University.
 
 %---------------------------------------------------------------------------------
 % Descripción y Justificación del Problema a Resolver ----------------------------
