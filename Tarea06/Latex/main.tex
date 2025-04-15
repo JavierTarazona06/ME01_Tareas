@@ -461,9 +461,82 @@ Para abordar la solución, se presentan las áreas y abstracciones que se van a 
 
 \subsection{Metodología}
 
+Para el desarrollo se abordará el problema en fases. Y el programa se realizará a través de módulos
+bajo una arquitectura de componentes.
+
+\subsubsection{Preparación}
+
+\textbf{Módulo de Oferta}
+
+Este módulo tiene como objetivo generar una oferta académica simulada de cursos a partir de una base 
+de datos inicial, seleccionando aleatoriamente docentes, aulas y horarios bajo una distribución 
+uniforme. Esta etapa corresponde a una primera aproximación estocástica del sistema, sin aún aplicar 
+criterios de optimización o restricciones complejas.\\
+
+Constantes del programa (Se pueden tomar de una base de datos o emularlas):
+\begin{itemize}
+  \item \textbf{Cursos:} Lista de diccionarios, donde cada elemento representa un curso con los siguientes atributos:
+    \begin{itemize}
+      \item \texttt{codigo} (int): identificador único del curso.
+      \item \texttt{nombre} (str): nombre del curso.
+      \item \texttt{creditos} (int): número de créditos académicos del curso.
+      \item \texttt{programado} (bool): si ya se programó el curso.
+    \end{itemize}
+    
+  \item \textbf{Docentes:} Lista de diccionarios, cada uno con:
+    \begin{itemize}
+      \item \texttt{cedula} (int): identificador del docente.
+      \item \texttt{nombre} (str): nombre completo del docente.
+      \item \texttt{programado} (bool): si ya se agendó a un curso.
+    \end{itemize}
+
+  \item \textbf{Aulas:} Lista de diccionarios, cada uno con:
+    \begin{itemize}
+      \item \texttt{edificio} (int): número del edificio.
+      \item \texttt{aula\_id} (str): identificador del aula.
+      \item \texttt{tipo} (str): tipo de espacio (e.g., ``laboratorio'', ``salón'').
+      \item \texttt{programado} (bool): si ya se agendó a un curso.
+    \end{itemize}
+
+  \item \textbf{Horarios disponibles:} Lista de diccionarios con:
+    \begin{itemize}
+      \item \texttt{dia} (str): día de la semana, de lunes a sábado.
+      \item \texttt{franja} (str): intervalo de tiempo disponible 
+            (e.g., 7-9, 9-11, 11-13, 14-16, 16-18, 18-20, 7-13, 14-18).
+    \end{itemize}
+\end{itemize}
+
+Para cada curso, el módulo va a realizar lo siguiente:
+
+\begin{enumerate}
+  \item \textbf{Selección de docente:} Se elige aleatoriamente un docente disponible 
+        (no asignado a otro curso en el mismo horario) y se marca como programado.
+  \item \textbf{Selección de aula:} Se selecciona aleatoriamente un aula disponible 
+        (no ocupada en el horario asignado) y se marca como programado.
+  \item \textbf{Selección de horario:} Se selecciona aleatoriamente un horario. 
+      Para garantizar una distribución fiel, se propone:
+
+  \begin{itemize}
+    \item Llevar un conteo de asignaciones por día de la semana.
+    \item Asignar los días de forma \textbf{ponderada inversamente} a la frecuencia actual de 
+          asignación, priorizando los días con menor carga entre lunes y jueves (descartar viernes
+          y sábado).
+    \item Para que los \textbf{viernes y sábados tengan menor probabilidad} de selección, cuando 
+          falte el 10\% de cursos por asignar, incluir el viernes y sábado en el pool de opciones.
+  \end{itemize}
+
+  Una posible función de probabilidad adaptativa sería:
+  $$
+  P(dia_{i}) \propto \frac{1}{1 + numAsignaciones:dia_{i}}
+  $$
+
+  \item Se marca el curso como programado y se pasa al siguiente.
+\end{enumerate}
+
+
+
 \subsubsection{Modelo Estocástico}
 
-Al ser un modelo estocástico, se deben incluir elementos de incertidumbre, es decir aleatoriedad.
 
 
 %---------------------------------------------------------------------------------
