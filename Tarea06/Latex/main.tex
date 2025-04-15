@@ -37,7 +37,7 @@
     {\Large \textbf{Universidad Nacional de Colombia} \par}
     \vspace{0.5cm}
     {\large Ingeniería de Sistemas y Computación \par}
-    {\large 2025969 Modelos estocásticos y simulación en computación y comunicaciones \par}
+    {\large 2025969 Modelos estocásticos y simulación en computación y comunicaciones (01)\par}
     \vspace{3cm}
 
     % Detalles del laboratorio y actividad
@@ -79,7 +79,7 @@ Aquí si empieza el contenido del artículo de la sección \ref{sec:intr} y tamb
 \section{Marco Teórico}\label{sec:marc}
 Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y también hay una referencia [\ref{ref:bienUniv}].
 
-\subsection{Ejemplo Docuemntación}
+\subsection{Ejemplo Documentación}
 
 \subsubsection{Contextualización de la solución}
 
@@ -128,21 +128,179 @@ Nombre del artículo o proyecto, universidad, y si es posible, enlace o fuente b
 
 \subsection{Bunded Probabilistic Serial (BPS): Yenifer}
 \subsection{Random Serial Dictatorship (RSD): Jefferson}
-\subsection{Bunded Probabilistic Serial (PBS): Javier}
+
+\subsection{Probabilistic Serial Rule (PBS)}
+
+\subsubsection{Descripción general de la solución}
+
+Propuesto por Bogomolnaia y Moulin (2001), el algoritmo Probabilistic Serial Rule, también llamado 
+Probabilistic Serial Mechanism, es un 
+mecanismo de asignación aleatoria para repartir bienes indivisibles (como cupos en asignaturas) 
+respetando las preferencias de los participantes bajo un enfoque equitativo.
+
+Algunos entornos donde el mismo se puede aplicar se encuentran en la asignación de cursos a estudiantes,
+como en el caso de la Universidad de París y en la Universidad de Tsinghua, reparto de turnos o 
+recursos indivisibles, y asignación de cupos de movilidad internacional o servicios públicos.
+
+Se podría decir entonces que se usa cuando un grupo de personas desea obtener uno (o varios) 
+recursos limitados y los mismos no se pueden dividir, es decir, son discretos. Y se quiere una 
+asignación que sea justa y eficiente en promedio, sin usar dinero ni intercambios, es decir, una 
+solución equitativa que sea directa.
+
+\subsubsection{Naturaleza de la solución}
+
+Este algoritmo tiene una intuición muy práctica. Suponga un proceso en el cual se encuentran 
+participantes de un buffet. En el mismo, cada uno empieza a comer de forma simultánea y de 
+forma continua el plato que desee comer, es decir, su preferido. Una vez que dicho plato termina,
+los integrantes pasan a comer su segundo plato preferido y así sucesivamente hasta que se terminan 
+los platos.\\
+
+Esta solución cuenta con unas ventajas y otras desventajas.\\
+
+\textbf{Ventajas}
+
+\begin{itemize}
+  \item El método es eficiente, ya que maximiza el bienestar de los integrantes según preferencias.
+        Ellos mismos buscan el "orden".
+  \item Es justo y equitativo, ya que ningún integrante tiene prioridades.
+  \item No es un método manipulable por los integrantes como el RSD, ya que, en principio, hacer una 
+        estrategia es una mala idea por parte de los participantes, pues no hay prioridad. Suponga que
+        la mejor opción es seleccionar lo que más quieren, porque de lo contrario se pueden quedar sin 
+        dicho recurso una vez se realice la repartición simultánea (Weak Strategy-Proofness).
+\end{itemize}
+
+\textbf{Desventajas}
+
+\begin{itemize}
+  \item La asignación que se realiza es netamente probabilística y no determinista, pues depende 
+        de las elecciones aleatorias de los integrantes y sus preferencias subjetivas. Usualmente, el
+        método viene con una segunda etapa de ronda de sorteos (\textit{lottery decomposition}).
+  \item Su carácter de paralelismo y varias variables hace que sea más difícil de implementar que
+        RSD o BPS.
+\end{itemize}
+
+\subsubsection{Funcionamiento del sistema}
+
+De forma generalizada, tenemos $n$ integrantes de un evento con $m$ recursos para escoger, y cada uno con 
+una disponibilidad de $d_{m}$. Cada integrante va a consumir, de forma paralela, un elemento de $m$, 
+reduciendo su
+disponibilidad asociada $d_{m}$ bajo una velocidad uniforme, es decir, todos a la misma velocidad.
+Cuando $d_{m}$ es cero, los integrantes consumen su siguiente recurso $m$ preferido. Y así se continúa
+hasta que todos los $d_{m}$ sean iguales a 0.
+
+Como lo puede notar, este proceso no determina una asignación exacta, sino que es una asignación
+probabilística. Otra forma de verlo es como una lotería justa, porque cada integrante tiene una 
+probabilidad de obtener el recurso según sus preferencias y su comportamiento.
+
+Al final del proceso, hay una interpretación probabilística y una fase de sorteo. En este punto, cada
+integrante tiene una fracción de cada recurso $m$; este valor acumulado es la probabilidad de 
+cada integrante de obtener el recurso en una asignación final. Aquí hay dos casos:\\
+
+\begin{itemize}
+  \item \textbf{Caso 1: Los integrantes pueden recibir varios recursos}\\
+        Se asigna cada recurso de forma individual según la probabilidad registrada.
+  \item \textbf{Caso 2: Cada integrante debe recibir exactamente un recurso}\\
+        Hay que descomponer la matriz de probabilidades en una combinación convexa de matrices
+        de permutación (Ej: Algoritmo de Birkhoff) para generar una asignación determinista a partir de las probabilidades.
+\end{itemize}
+
+\textbf{Consideraciones}
+
+\begin{itemize}
+  \item A pesar de que se señaló que la velocidad debe ser uniforme, se pueden plantear prioridades para
+        ciertos integrantes aumentando su velocidad.
+  \item Se asume que los agentes son neutralmente riesgosos. Es decir, que su satisfacción se mide 
+        por el valor esperado de la utilidad obtenida de la asignación final. Es decir, que el mecanismo
+        se basa en las preferencias que expresan los agentes en vez de su actitud frente al riesgo.
+  \item Hay una resistencia a la manipulación si un agente conoce las preferencias de los otros
+        y encuentra satisfacción en el riesgo. Pero este beneficio está acotado a lo sumo al 50\% de
+        ganancia adicional, es decir, un factor de $\frac{3}{2}$.
+  \item El método presenta equilibrio de Nash; hay perfiles de preferencias en los que ningún agente 
+        puede mejorar unilateralmente su resultado.
+  \item Bajo comparación lexicográfica decreciente, se puede calcular una respuesta óptima en tiempo 
+        razonable a la manipulación estratégica. Pero cuando hay que maximizar la utilidad esperada
+        para cada agente (si hay más de dos agentes), el problema se vuelve NP-Hard. Esto hace al 
+        método más robusto contra manipulaciones.
+\end{itemize}
+
+
+\subsubsection{Referencia}
+Vea [\ref{ref:PBS}].
+
 
 %---------------------------------------------------------------------------------
 % Descripción y Justificación del Problema a Resolver ----------------------------
 %---------------------------------------------------------------------------------
 
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
-Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y también hay una referencia [\ref{ref:bienUniv}].
+
+La Universidad Nacional de Colombia, como uno de sus fines misionales, tiene por objetivo impartir 
+conocimiento al país, en particular a su comunidad de estudiantes mediante la docencia. Para 
+realizarlo, se ofrecen cursos (asignaturas) como actividades académicas; sin embargo, dicha oferta 
+requiere recursos y la sincronización de horarios, docentes y aulas. Y al mismo tiempo, dicho proceso 
+se ve entorpecido por la falta de recursos, la pésima administración, las garantías académicas que se 
+usan con poca conciencia por integrantes de la comunidad estudiantil, como la libre inscripción y 
+cancelación, o el aprovechamiento del sistema mediante estrategias de manipulación.
+
+Aora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
+que emplee algoritmos y las condiciones de la Universidad para encontrar una estrategia y solución 
+óptima al problema real.
+
+\subsection{Objetivo Principal}
+
+\begin{itemize}
+  \item Formular \textit{un modelo estocástico} que describa el problema de planificación académica 
+        en la Universidad Nacional.
+  \item \textit{Simular} ese modelo para encontrar al menos \textit{una solución óptima} 
+        que contribuya a mitigar el caos descrito.
+\end{itemize}
+
+\textbf{Variables que afectan:}
+
+\begin{itemize}
+  \item Mala administración.
+  \item Insuficiencia de recursos (humanos, físicos, logísticos).
+  \item Comportamiento estratégico o irresponsable de estudiantes (inscripción y cancelación masiva).
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Diseño de la solución ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
 \section{Diseño de la solución}\label{sec:dis}
-Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y también hay una referencia [\ref{ref:bienUniv}].
+
+Para abordar la solución, se presentan las áreas y abstracciones que se van a abordar.
+
+\begin{itemize}
+  \item La oferta.
+        \begin{itemize}
+          \item Cursos.
+          \item Docentes.
+          \item Salones (y laboratorios).
+          \item Horarios.
+        \end{itemize}
+  \item Demanda fluctuante y mal gestionada.
+        \begin{itemize}
+          \item Preferencias no explicitas.
+          \item Manipulación.
+          \item Cancelaciones y sobreinscripción.
+        \end{itemize}
+  \item Solución.Problemas
+        \begin{itemize}
+          \item Falta de coordinación.
+          \item Falta de mecanismos eficientes de asignación.
+        \end{itemize}
+  \item \textbf{Objetivo esperado.}
+        \begin{itemize}
+          \item Obtener una planificación justa, óptima y automatizada.
+        \end{itemize}
+\end{itemize}
+
+\subsection{Metodología}
+
+\subsubsection{Modelo Estocástico}
+
+Al ser un modelo estocástico, se deben incluir elementos de incertidumbre, es decir aleatoriedad.
 
 
 %---------------------------------------------------------------------------------
@@ -173,7 +331,7 @@ Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y tambié
 % Experimentación ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
-\section{Experimentación}\label{sec:man_t}
+\section{Experimentación}\label{sec:exp}
 Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y también hay una referencia [\ref{ref:bienUniv}].
 
 \subsection{Análisis de resultados}
@@ -269,6 +427,10 @@ Use la siguiente página para documentar las referencias en formato IEEE:
 \begin{thebibliography}{9}
 
 \bibitem{ref} \label{ref:bienUniv}D. N. de B. Universitario, “Dirección Nacional de Bienestar Universitario,” contador de visitas. [Online]. Available: \href{https://bienestar.unal.edu.co/index.php}{https://bienestar.unal.edu.co/index.php}. [Accessed: 05-Mar-2023].  
+
+\bibitem{ref} \label{ref:PBS} A. Bogomolnaia and H. Moulin, “A new solution to the random 
+assignment problem,” Journal of Economic Theory, vol. 100, no. 2, pp. 295–328, 2001, doi: 
+10.1006/jeth.2000.2710.
 
 
 
