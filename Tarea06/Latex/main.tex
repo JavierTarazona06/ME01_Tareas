@@ -51,7 +51,7 @@
     \begin{tabular}{ll}
     Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
     Yenifer & @unal.edu.co \\
-    Jefferson & @unal.edu.co \\
+    Jefferson Duvan Ramirez Castañeda & @unal.edu.co \\
     \end{tabular}
     \par\vspace{3cm}
 
@@ -194,9 +194,78 @@ La implementación del BPS en la Universidad Técnica de Múnich ha demostrado m
 
 \subsubsection{Referencia}
 
-Vease [\ref{ref:BPS}].
+% Bichler, M., Merting, S., & Uzunoglu, A. (2018). Assigning Course Schedules: About Preference Elicitation, Fairness, and Truthfulness. arXiv preprint arXiv:1812.02630. Disponible en: https://arxiv.org/abs/1812.02630
 
-\subsection{Random Serial Dictatorship (RSD): Jefferson}
+\subsection{Random Serial Dictatorship (RSD)}
+
+\subsubsection{Descripción general de la solución}
+
+El algoritmo \textit{Random Serial Dictatorship} (RSD), también conocido como 
+\textit{Random Priority}, ha sido implementado en prestigiosas 
+instituciones como Harvard, la Universidad de Boston y diversas 
+universidades públicas de Turquía. Se trata de un mecanismo de asignación 
+aleatoria que busca repartir recursos indivisibles como cupos en asignaturasde 
+forma justa, aunque no necesariamente eficiente en diferentes sentidos.
+
+En este mecanismo, los participantes son ordenados aleatoriamente, y cada uno, en su 
+turno, elige su opción preferida entre las disponibles. Esta simplicidad lo hace 
+especialmente útil en contextos donde la transparencia y la facilidad de implementación 
+son prioritarias. En entornos universitarios, como el caso de la Universidad Nacional, 
+RSD podría ser utilizado para asignar cupos de materias, turnos de laboratorios o 
+incluso recursos como intercambios académicos.
+
+\subsubsection{Naturaleza de la solución}
+
+El funcionamiento de RSD se puede entender como una fila de personas que toman decisiones 
+por turnos. Imaginemos que hay varios estudiantes haciendo fila para inscribir materias. 
+Un estudiante es seleccionado aleatoriamente, y este escoge su materia preferida entre 
+las que aún tienen cupo. Luego se selecciona al siguiente estudiante y así sucesivamente 
+hasta que no queden más cupos.
+
+Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.
+
+\textbf{Ventajas}
+\begin{itemize}
+    \item \textbf{Simplicidad y transparencia}: Fácil de explicar, implementar y verificar, tanto para la administración como para los estudiantes.
+    \item \textbf{Estrategia óptima}: Para cada estudiante, lo mejor que puede hacer es revelar sus verdaderas preferencias, lo cual se conoce como \textit{estrategia dominante}.
+    \item \textbf{Misma probabilidad}: Dado que el orden se determina aleatoriamente, todos los participantes tienen la misma probabilidad de obtener una posición favorable.
+\end{itemize}
+
+\textbf{Desventajas}
+\begin{itemize}
+    \item \textbf{Ineficiencia ex-post}: Puede dar lugar a asignaciones que no son óptimas en términos del bienestar total. Por ejemplo, puede haber una reasignación alternativa en la que todos estén mejor sin violar las restricciones.
+    \item \textbf{Sensibilidad al azar}: Los resultados pueden variar significativamente entre ejecuciones, lo cual puede percibirse como injusto desde una perspectiva individual.
+    \item \textbf{No equitativo en preferencias}: Aunque el mecanismo es justo en cuanto al orden, no garantiza resultados equitativos respecto a la satisfacción de preferencias.
+\end{itemize}
+
+\subsubsection{Funcionamiento del sistema}
+
+Formalmente, el mecanismo opera sobre un conjunto de $n$ agentes (por ejemplo, estudiantes) y $m$ recursos indivisibles (como cupos en materias). Se genera una permutación aleatoria de los agentes, $\pi = (\pi_1, \pi_2, \ldots, \pi_n)$, la cual define el orden de elección.
+
+\begin{enumerate}
+    \item Se inicializan los recursos con su disponibilidad total.
+    \item El agente $\pi_1$ selecciona su recurso más preferido entre los disponibles.
+    \item Se actualiza la disponibilidad y el turno pasa al agente $\pi_2$.
+    \item El proceso continúa hasta que todos los agentes han elegido o los recursos se han agotado.
+\end{enumerate}
+
+Este procedimiento produce una asignación determinista una vez fijado el orden, pero el mecanismo completo es aleatorio en el sentido de que el orden de los agentes varía en cada ejecución.
+
+\subsubsection{Consideraciones}
+
+\begin{itemize}
+    \item \textbf{Dominio restringido}: Aunque el método funciona en entornos de recursos indivisibles, no se adapta bien cuando hay complementariedad entre recursos (por ejemplo, dos materias que deben tomarse juntas).
+    \item \textbf{No enmascara inequidades estructurales}: Si bien todos los estudiantes tienen la misma probabilidad de ser seleccionados primero, aquellos con preferencias más comunes pueden quedar sistemáticamente desfavorecidos.
+    \item \textbf{Factible de implementar}: A diferencia de algoritmos más sofisticados como BPS o PBS, este mecanismo puede implementarse con facilidad en los sistemas actuales de la Universidad, sirviendo incluso como una solución de transición.
+\end{itemize}
+
+\subsubsection{Referencia}
+
+% Bogomolnaia, A., \& Moulin, H. (2001). A new solution to the random assignment problem. \textit{Journal of Economic Theory}, 100(2), 295–328.
+
+% Abdulkadiroğlu, A., \& Sönmez, T. (1998). Random serial dictatorship and the core from random endowments in house allocation problems. \textit{Econometrica}, 66(3), 689–701.
+
+Vease [\ref{ref:RSD1}],[\ref{ref:RSD2}].
 
 \subsection{Probabilistic Serial Rule (PBS)}
 
@@ -230,6 +299,8 @@ Esta solución cuenta con unas ventajas y otras desventajas.\\
 
 \begin{itemize}
   \item El método es eficiente, ya que maximiza el bienestar de los integrantes según preferencias.
+  Además no tiene en cuenta otros aspectos como las notas de semestres anteriores para determinar la
+  asignación de citas.
         Ellos mismos buscan el "orden".
   \item Es justo y equitativo, ya que ningún integrante tiene prioridades.
   \item No es un método manipulable por los integrantes como el RSD, ya que, en principio, hacer una 
@@ -296,7 +367,7 @@ cada integrante de obtener el recurso en una asignación final. Aquí hay dos ca
 \subsubsection{Referencia}
 Vea [\ref{ref:PBS}].
 
-\subsection{Asignación de Cursos Universitarios mediante Mercados Competitivos}\label{sec:descr}
+\subsection{Asignación de Cursos Universitarios mediante Mercados Competitivos}
 
 \subsubsection{Contextualización de la solución}
 
@@ -390,6 +461,65 @@ Las simulaciones realizadas con datos reales de asignación de cursos demuestran
 \subsubsection{Referencia}
 
 Vease [\ref{ref:Mercados}].
+
+\subsection{Asignación de Cursos Universitarios mediante Aprendizaje Automático}
+
+\subsubsection{Contextualización de la solución}
+
+La asignación de cursos en universidades a menudo enfrenta restricciones complejas y preferencias diversas por parte de los estudiantes. Tradicionalmente, este problema se ha abordado mediante métodos como optimización combinatoria o mecanismos económicos. Sin embargo, dichas soluciones no escalan bien con grandes poblaciones estudiantiles ni se adaptan con facilidad a contextos dinámicos.
+
+Frente a estas limitaciones, se propone una solución basada en aprendizaje automático (*machine learning*) que aprende a asignar cursos de manera eficiente y equitativa, observando ejemplos anteriores de asignaciones exitosas y adaptándose a nuevas situaciones sin requerir una modelación manual detallada.
+
+\subsubsection{Descripción general de la solución}
+
+El sistema propuesto se basa en un enfoque de \textit{policy learning}, donde un modelo de aprendizaje supervisado o por refuerzo aprende una política de asignación de cursos. El proceso consta de las siguientes etapas:
+
+\begin{itemize}
+  \item \textbf{Representación del estado:} Cada estudiante y curso se representa mediante vectores de características que incluyen historial académico, preferencias declaradas, y restricciones del sistema.
+  \item \textbf{Modelo de predicción:} Se entrena un modelo (por ejemplo, una red neuronal o un árbol de decisión) que predice la utilidad o conveniencia de asignar un curso a un estudiante dado el estado del sistema.
+  \item \textbf{Optimización de la política:} A partir del modelo aprendido, se ejecuta una política que selecciona asignaciones maximizando una función de utilidad global (ej. satisfacción estudiantil o cobertura equitativa).
+  \item \textbf{Entrenamiento iterativo:} El modelo se entrena de manera iterativa con datos simulados y reales, refinando sus decisiones conforme recibe retroalimentación del entorno.
+\end{itemize}
+
+\subsubsection{Naturaleza de la solución}
+
+La solución se caracteriza por los siguientes aspectos clave:
+
+\begin{itemize}
+  \item \textbf{Aprendizaje basado en datos:} A diferencia de enfoques deterministas o basados en reglas fijas, esta propuesta aprende directamente de los datos históricos y de simulaciones.
+  \item \textbf{Adaptabilidad:} El sistema puede ajustarse automáticamente ante cambios en la oferta académica, aumento en la población estudiantil o nuevas reglas institucionales.
+  \item \textbf{Escalabilidad:} Al utilizar modelos eficientes de aprendizaje automático, la solución se escala a miles de estudiantes y cursos sin pérdida significativa de rendimiento.
+  \item \textbf{Optimización multiobjetivo:} La política considera múltiples objetivos, como maximizar la utilidad total, reducir la desigualdad y evitar conflictos de horario.
+\end{itemize}
+
+\subsubsection{Funcionamiento del sistema}
+
+El sistema funciona en ciclos semestrales y consta de los siguientes pasos operativos:
+
+\begin{enumerate}
+  \item \textbf{Recolección de datos:} Se recopilan preferencias estudiantiles, disponibilidad de cursos y restricciones del semestre.
+  \item \textbf{Entrenamiento del modelo:} Se entrena o actualiza el modelo de asignación con base en datos anteriores y simulaciones.
+  \item \textbf{Predicción y asignación:} El modelo predice la utilidad de asignar cada curso a cada estudiante y ejecuta la política de asignación.
+  \item \textbf{Evaluación y retroalimentación:} Se mide el rendimiento (utilidad, equidad, eficiencia) y se usa la retroalimentación para mejorar el modelo en siguientes iteraciones.
+\end{enumerate}
+
+\subsubsection{Resultados o impacto}
+
+Según los autores, la aplicación del modelo de aprendizaje automático ha mostrado resultados prometedores:
+
+\begin{itemize}
+  \item \textbf{Mayor utilidad global:} Se observa un incremento significativo en la satisfacción promedio estudiantil frente a métodos base.
+  \item \textbf{Reducción en el conflicto de horarios:} La tasa de solapamientos de cursos asignados disminuyó considerablemente.
+  \item \textbf{Menor desigualdad:} El sistema tiende a favorecer asignaciones más equitativas, evitando concentrar beneficios en estudiantes con ventajas previas.
+  \item \textbf{Robustez ante cambios:} El modelo mantiene su eficacia incluso ante variaciones sustanciales en las preferencias o en la oferta académica.
+\end{itemize}
+
+\subsubsection{Referencia}
+
+Vease [\ref{ref:AprendizajeAutomatico}].
+
+% Kornbluth, D., & Kushnir, A. (2023). \textit{Machine Learning-powered Course Allocation}. Carnegie Mellon University / Harvard University.
+
 
 %---------------------------------------------------------------------------------
 % Descripción y Justificación del Problema a Resolver ----------------------------
@@ -867,12 +997,28 @@ Use la siguiente página para documentar las referencias en formato IEEE:
 arXiv preprint arXiv:1812.02630, 2018. [En línea]. Disponible en: 
 https://arxiv.org/abs/1812.02630
 
+\bibitem{ref} \label{ref:RSD1} 
+A. Bogomolnaia y H. Moulin, 
+“A new solution to the random assignment problem,” 
+\textit{Journal of Economic Theory}, vol. 100, no. 2, pp. 295–328, 2001. [En línea]. Disponible en: https://doi.org/10.1006/jeth.2000.2723
+
+\bibitem{ref} \label{ref:RSD2} 
+A. Abdulkadiroğlu y T. Sönmez, 
+“Random serial dictatorship and the core from random endowments in house allocation problems,” 
+\textit{Econometrica}, vol. 66, no. 3, pp. 689–701, 1998. [En línea]. Disponible en: https://doi.org/10.2307/2998575
+
 \bibitem{ref} \label{ref:PBS} A. Bogomolnaia and H. Moulin, “A new solution to the random 
 assignment problem,” Journal of Economic Theory, vol. 100, no. 2, pp. 295–328, 2001, doi: 
 10.1006/jeth.2000.2710.
 
 \bibitem{ref} \label{ref:Mercados} Kornbluth, D. \& Kushnir, A. (2023). \textit{Undergraduate Course Allocation through 
 Competitive Markets}. Carnegie Mellon University / Harvard University.
+
+\bibitem{ref:Kornbluth2023} \label{ref:AprendizajeAutomatico} 
+D. Kornbluth y A. Kushnir, 
+\textit{“Machine Learning-powered Course Allocation”}, 
+Carnegie Mellon University / Harvard University, 2023. [En línea]. Disponible en: https://www.andrew.cmu.edu/user/dkornblu/CourseAllocation.pdf
+
 
 
 
