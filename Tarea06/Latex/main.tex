@@ -563,88 +563,7 @@ uniforme, un código de clase y agregándolo a dicha lista.
 Ahora bien, una vez que la oferta de clases ya está construida y los estudiantes también están 
 definidos junto con sus preferencias, sigue el proceso de asignación y selección de asignaturas. 
 Para realizar dicho proceso, se plantean tres escenarios donde la asignación se realiza mediante 
-los algoritmos Bundled Probabilistic Serial, Random Serial Dictatorship y Probabilistic Serial Rule.
-
-
-\textbf{Bundled Probabilistic Serial (BPS)}
-
-\begin{itemize}
-  
-  \item \textbf{Inicialización}
-        \begin{itemize}
-
-          \item Se crea la lista de asignaciones vacía para cada estudiante
-          \item Se crea un diccionario de probabilidades de asignar la asigantura en su lista de deseos.
-                La probabilidad para la asigantura $a_{i}$ en la lista de deseos será 
-                $$
-                P[a_{i}] = \frac{1}{posicion(a_{i}, listaDeseos)}
-                $$
-
-                Donde $posicion(a_{i}, listaDeseos)$ es la posición de dicha asignatura en la lista de
-                deseos.
-
-                Dicha probabilidad se guarda así: 
-                $$
-                probabilidadesAsignaturas[(cedulaEstudiante,codClase)] = P[a_{i}]
-                $$
-          \item Se inciializa en 0 la suma de estudiantes que no pueden inscribir
-
-        \end{itemize}
-
-  \item \textbf{Iteración}
-        \begin{itemize}
-          \item La iteración se realiza para cada estudiante y se vuelve a repetir hasta que no hayan 
-                mas cupos, todos los estudiantes ya no tengan materias en sus listas de deseos
-                o el número de estudianets que no pudieron isncribir sea igual al número de estudiantes.
-          \item En el estudiante $i$, va a consumir su materia con mayor probabilidad si tiene
-                cupos disponibles (si no, pasa a la siguiente y suma un estudiante que no pudo inscribir).
-                Entonces, se reducen los cupos 
-                en uno, se elimina la clase de la 
-                lista de deseos y se agrega a la lista de inscritas. La probabilidad de sus 
-                materias deseadas se actualiza nuevamente así como en la inicialización y la de la
-                materia inscrita se pone en 0.
-        \end{itemize}
-
-\end{itemize}
-
-
-\textbf{Bundled Probabilistic Serial (BPS) Ajustado}
-
-\begin{itemize}
-  
-  \item \textbf{Inicialización}
-        \begin{itemize}
-          \item Para cada estudiante, se crea una lista vacía de asignaciones y una lista de 
-          \textit{bundles} (grupos de clases deseadas a partir de su lista de deseos de asiganturas
-          -> crear la combinación respectiva de 1 a n materias: parámetro de entrada).
-          \item Se asigna una función de utilidad o prioridad a cada bundle, normalmente derivada 
-          de las preferencias del estudiante. Donde $b_{i}$ es un bundle, esto es:
-          $$
-          P[b_{i}] = \frac{1}{posicion(a_{i}, listaDeseosBundle)}
-          $$
-          \item Se inicializa una matriz de consumo $C[e,b] = 0$ donde $e$ es el estudiante y $b$ 
-          un bundle.
-        \end{itemize}
-
-  \item \textbf{Consumo continuo}
-        \begin{itemize}
-          \item Se simula un avance en el tiempo continuo. En cada instante, cada estudiante consume 
-          su bundle preferido disponible a una tasa uniforme.
-          \item Si el bundle contiene varias clases, sólo se puede consumir si todas las clases del 
-          bundle tienen cupos disponibles.
-          \item A medida que un bundle es consumido por varios estudiantes, los cupos de sus clases 
-          se reducen proporcionalmente. Si algún curso del bundle se agota, se detiene su consumo 
-          para todos.
-        \end{itemize}
-
-  \item \textbf{Finalización y redondeo}
-        \begin{itemize}
-          \item Al terminar la fase de consumo, se aplica una técnica de \textit{rounding} para 
-          convertir las fracciones consumidas en asignaciones definitivas (por ejemplo, mediante el 
-          método de Birkhoff von Neumann).
-        \end{itemize}
-
-\end{itemize}
+los algoritmos Bundled Probabilistic Serial, Random Serial Dictatorship y Probabilistic Serial Rule.\\
 
 
 \textbf{Probabilistic Serial Rule (PS)}
@@ -685,39 +604,16 @@ los algoritmos Bundled Probabilistic Serial, Random Serial Dictatorship y Probab
         \end{itemize}
 \end{itemize}
 
+\subsubsection{Métricas}
 
-\textbf{Random Serial Dictatorship (RSD)}
+En este punto ya se tiene la preparación del entorno y la simulación de asignación de asignaturas, 
+es decir, los estudiantes ya pudieron inscribir las materias que estuvieron a su alcance. Ahora 
+queda por determinar si dicha solución fue óptima o no. Con este objetivo, se analizarán cuatro 
+métricas: porcentaje de estudiantes que obtuvieron su primera, segunda y tercera opción; equidad 
+(medida como la desviación estándar de la satisfacción); número de conflictos de horario; y 
+eficiencia de Pareto.\\
 
-\begin{itemize}
-  \item \textbf{Inicialización}
-        \begin{itemize}
-          \item Para cada estudiante, se crea una lista vacía de asignaciones.
-          \item Cada estudiante dispone de una lista ordenada de preferencias de asignaturas.
-          \item Para cada asignatura, se conoce la capacidad inicial (número de cupos disponibles).
-        \end{itemize}
-  
-  \item \textbf{Determinación del orden aleatorio}
-        \begin{itemize}
-          \item Se genera una permutación aleatoria de todos los estudiantes, definiendo un orden 
-          secuencial.
-        \end{itemize}
-  
-  \item \textbf{Asignación secuencial}
-        \begin{itemize}
-          \item Siguiendo el orden aleatorio, cada estudiante elige la asignatura de mayor preferencia 
-          que aún disponga de cupos.
-          \item Una vez seleccionada una asignatura, se asigna al estudiante y se reduce la capacidad 
-          de dicha asignatura en uno.
-          \item Si la asignatura preferida del estudiante ya no tiene cupos disponibles, se evalúan sus 
-          siguientes preferencias, en orden, hasta encontrar una asignatura con cupos.
-        \end{itemize}
-  
-  \item \textbf{Finalización}
-        \begin{itemize}
-          \item El proceso se repite hasta que se hayan evaluado todos los estudiantes o hasta que 
-          ninguno pueda seleccionar una asignatura (por agotarse las capacidades).
-        \end{itemize}
-\end{itemize}
+
 
 
 
