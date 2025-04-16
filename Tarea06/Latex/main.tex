@@ -478,15 +478,13 @@ Constantes del programa (Se pueden tomar de una base de datos o emularlas):
   \item \textbf{Cursos:} Lista de diccionarios, donde cada elemento representa un curso con los siguientes atributos:
     \begin{itemize}
       \item \texttt{codigo} (int): identificador único del curso.
-      \item \texttt{nombre} (str): nombre del curso.
-      \item \texttt{creditos} (int): número de créditos académicos del curso.
       \item \texttt{programado} (bool): si ya se programó el curso.
+      \item \texttt{numGrupos} (int): numero de grupos que el curso puede tener.
     \end{itemize}
     
   \item \textbf{Docentes:} Lista de diccionarios, cada uno con:
     \begin{itemize}
       \item \texttt{cedula} (int): identificador del docente.
-      \item \texttt{nombre} (str): nombre completo del docente.
       \item \texttt{programado} (bool): si ya se agendó a un curso.
     \end{itemize}
 
@@ -494,19 +492,20 @@ Constantes del programa (Se pueden tomar de una base de datos o emularlas):
     \begin{itemize}
       \item \texttt{edificio} (int): número del edificio.
       \item \texttt{aula\_id} (str): identificador del aula.
-      \item \texttt{tipo} (str): tipo de espacio (e.g., ``laboratorio'', ``salón'').
       \item \texttt{programado} (bool): si ya se agendó a un curso.
     \end{itemize}
 
   \item \textbf{Horarios disponibles:} Lista de diccionarios con:
     \begin{itemize}
-      \item \texttt{dia} (str): día de la semana, de lunes a sábado.
+      \item \texttt{ID}
+      \item \texttt{dia} (list[int]): día(s) de la semana, de lunes a sábado.
       \item \texttt{franja} (str): intervalo de tiempo disponible 
             (e.g., 7-9, 9-11, 11-13, 14-16, 16-18, 18-20, 7-13, 14-18).
     \end{itemize}
 \end{itemize}
 
-Para cada curso, el módulo va a realizar lo siguiente:
+Para cada curso (hasta que los grupos que puede tener sean cero), 
+el módulo va a realizar lo siguiente:
 
 \begin{enumerate}
   \item \textbf{Selección de docente:} Se elige aleatoriamente un docente disponible 
@@ -537,6 +536,22 @@ Para cada curso, el módulo va a realizar lo siguiente:
         \texttt{horario} y \texttt{aula} (identificada como \texttt{edificio+aula\_id}).
         Además, se asigna el número de \texttt{cupos} como un valor aleatorio entre 30 y 60, 
         calibrado de modo que el promedio de cupos se acerque al valor proporcionado por el usuario.
+        También se asigna el número de grupo \texttt{grupo} con base a la clase, y se resta uno 
+        a la cantidad de
+        grupos del curso.\\
+
+        Es así que la clase queda de la siguiente forma:\\
+
+        \textbf{Clase:} Lista de diccionarios con:
+        \begin{itemize}
+          \item \texttt{codigo\_clase} (int)
+          \item \texttt{codigo\_curso} (int): código del curso asociado
+          \item \texttt{cedula\_docente} (int): código del docente asociado
+          \item \texttt{horario} (Tuple[str, str]): horario asociado Dia: str, franja Horaria: str.
+          \item \texttt{edificio+aula\_id} (str): aula asociada
+          \item \texttt{grupo} (int): búmero de grupo
+          \item \texttt{cupos} (int): cupos asociados
+        \end{itemize}
 \end{enumerate}
 
 
@@ -549,27 +564,40 @@ Aquí se definirán los deseos de los estudiantes.
   \item \textbf{Estudiante:} Lista de diccionarios con
         \begin{itemize}
           \item Cédula estudiante (int)
-          \item Nombre estudiante (str)
-          \item Numero de materias que desea inscribir (int), menor o igual al tamaño
+          \item P.A.P.I estudiante (int)
+          \item Numero de materias que va inscribir (int), menor o igual al tamaño
                 de la lista de desos.
+          \item Tamaño de la lista de deseos (int)
           \item Lista de deseos/preferencias de tamaño n donde cada elemento es un código de clase.
           \item Lista de asignaciones, las asiganturas que tiene inscritas
         \end{itemize}
 \end{itemize}
 
-Para cada estudiante se define el número de materias que va a isncribir de forma aleatoria
-entre 3 y el número del parámetro de entrada. Se crea una lista de deseos tomando un Numero
+\textbf{*Nota:} El estudiante quiere inscribir 5 materias, pero puede tener 10 opcionadas.
+10 va a ser el tanaño de la lista de preferencias.\\
+
+Para cada estudiante se define un P.A.P.I aleatorio siguiendo una distribución
+Gaussiano con valor medio 3.8 y una desviación estandar acorde.
+
+Para cada estudiante, se define el número de materias que va a isncribir de forma aleatoria
+entre 3 y el número del parámetro de entrada. Se crea una lista de deseos de un tamaño 
+que se consigue tomando un Numero
 aleatorio del parámetro de entrada y seleccionando aleatoriamente, bajo una distribución 
-uniforme, un código de clase y agregándolo a dicha lista. Si esa asigantura tiene conflcito de
-horario con una de las ya seleccionadas se descarta (se reduce en uno el número de materias
-que va a inscribir).
+uniforme, un código de clase y agregándolo a dicha lista (entre 3 y el parámetro de entrada).
+
+Ahora se deben asignar clases a la lista de deseos. Para esto en un ciclo for
+desde 0 hasta $tamanioListaDeseos$. Tomar n curso aleatorio del pool, guardar sus clases en una 
+lista de elegibles. Se toma una clase de esa lista aleatoriamente si presenta conflicto de horario 
+con las ya seleccionadas, elimina la clase de elegibles y toma otra clase. Si definitivamente tiene 
+conflictos con todas las clases de ese curso, descarta
+esta elección. Independientemente de si selecciono o no una materia como deseada, el contador 
+se reduce.
 
 \subsubsection{Modelo Estocástico: Proceso de Asignación}
 
 Ahora bien, una vez que la oferta de clases ya está construida y los estudiantes también están 
 definidos junto con sus preferencias, sigue el proceso de asignación y selección de asignaturas. 
-Para realizar dicho proceso, se plantean tres escenarios donde la asignación se realiza mediante 
-los algoritmos Bundled Probabilistic Serial, Random Serial Dictatorship y Probabilistic Serial Rule.\\
+Se uará el algoritmo Probabilistic Serial Rule porque la teoría indicea que es Pareto-Eficiente.\\
 
 
 \textbf{Probabilistic Serial Rule (PS)}
@@ -604,9 +632,10 @@ los algoritmos Bundled Probabilistic Serial, Random Serial Dictatorship y Probab
           \item Al finalizar el proceso, cada entrada $C[e,a]$ representa la fracción de la 
           asignatura $a$ "consumida" por el estudiante $e$. Dichas fracciones se interpretan como 
           las probabilidades de asignación.
-          \item Se aplicará una técnica de \textit{rounding} (por ejemplo, mediante el método 
-          de Birkhoff von Neumann) para convertir la asignación fraccional en asignaciones definitivas, 
+          \item Se aplicará una técnica de \textit{rounding} (Greedy Fraccional) para convertir 
+          la asignación fraccional en asignaciones definitivas, 
           asignando a cada estudiante una o más asignaturas según se requiera.
+          \item Para ese método se van a ordenar a los estudiantes por P.A.P.I.
         \end{itemize}
 \end{itemize}
 
@@ -640,17 +669,19 @@ eso equivale a haber recibido su primera opción). Lo anterior calculado mediant
 
 La equidad se puede medir calculando la desviación estándar de la ``satisfacción'' entre los 
 estudiantes. Para ello, asignamos un valor a cada asignatura recibida, basado en la posición de 
-la preferencia, según el siguiente esquema:
+la preferencia:
 
-\begin{itemize}
-    \item \textbf{1.0} para la primera opción,
-    \item \textbf{0.75} para la segunda,
-    \item \textbf{0.5} para la tercera,
-    \item \textbf{0.25} para la cuarta,
-    \item \textbf{0.10} para la quinta,
-    \item \textbf{0.05} para las demás,
-    \item \textbf{0} para ninguna asignación.
-\end{itemize}
+Sea $aS_{i}$ las asiganturas que el estudiante pudo inscribir y $m$ dicha cantidad:
+
+$$
+satisfaccion = \sum_{i=0}^{m-1}(\frac{1}{posicion(aS_{i}, listaPreferencias) + 1}) * 
+                \frac{1}{maximoPosibleEstudiante}
+$$
+
+Donde $maximoPosibleEstudiante$ es el grado de satisfacción que corresponde a las primeras n 
+materias que el estudiantes piensa inscribir.\\
+
+\textbf{Explicación}\\
 
 La satisfacción de cada estudiante se obtiene sumando los valores correspondientes a cada 
 asignatura que le fue asignada. Por ejemplo, si un estudiante obtiene sus primeras cinco opciones, 
@@ -675,29 +706,24 @@ $$
 S_{\mathrm{norm}} = \frac{satisfaccionObtenida}{maximoPosibleEstudiante}
 $$
 
-De este modo, la satisfacción normalizada tendrá siempre un rango entre 0 y 1, independientemente de la cantidad de asignaturas esperadas.
+De este modo, la satisfacción normalizada tendrá siempre un rango entre 0 y 1, independientemente 
+de la cantidad de asignaturas esperadas.
 
-Finalmente, se calcula la desviación estándar de los valores $S_{\mathrm{norm}}$ de todos los estudiantes:
+La cantidad del maximo posible de estudiante e calcularía así:
+
+$$
+maximoPosibleEstudiante = \sum_{i=1}^{n}(\frac{1}{i})
+$$
+
+Donde n es la cantidad de materias que el estudiante va a inscribir.\\
+
+Finalmente, se calcula la desviación estándar de los valores $S_{\mathrm{norm}}$ de todos los 
+estudiantes:
 \begin{itemize}
     \item Un valor cercano a 0 (por ejemplo, 0 a 0.1) indicaría \textbf{alta equidad}, pues todos tienen niveles de satisfacción similares.
     \item Valores intermedios (por ejemplo, de 0.2 a 0.5) indican una variabilidad moderada.
     \item Valores mayores (por encima de 0.5) señalarían una gran disparidad en la asignación, es decir, \textbf{baja equidad}.
 \end{itemize}
-
-\textbf{Eficiencia de Pareto}\\
-
-Una asignación es Pareto eficiente si no existe otra asignación (o re-asignación) en la que 
-al menos un estudiante pueda estar mejor sin que ningún otro resulte peor.
-Esta métrica es compleja de calcular de forma óptima, dado que implica considerar posibles 
-re-asignaciones.
-
-Para evaluar la eficiencia de Pareto se va a comparar la asignación actual con asignaciones 
-generadas por posibles swaps entre estudiantes. Si se encuentra un swap que mejora la 
-satisfacción de un estudiante sin empeorar la de otro, la asignación no es Pareto eficiente.
-
-Se va a escribir una función que recorra pares de estudiantes y verifique si existe un 
-intercambio de asignaturas (o un ajuste) que mejore su posición en sus preferencias 
-sin empeorar la del otro.
 
 
 %---------------------------------------------------------------------------------
@@ -721,7 +747,7 @@ sin empeorar la del otro.
   \item Número de aulas, debe ser mayor o igual al número de cursos.
   \item Número de estudiantes.
   \item Máximo número de materias deseadas de un estudiante (Predeterminado=9).
-  \item Máximo número de materias que un estudiante va a inscribir.
+  \item Máximo número de materias que un estudiante va a inscribir (mayor o igual a 3).
   \item Promedio de número de cupos de las clases (Predeterminado 40).
   \item Tiempo de simulación
 \end{itemize}

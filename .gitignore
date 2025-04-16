@@ -417,6 +417,7 @@ cython_debug/
 
 # IDEs
 .idea/                 # PyCharm project settings
+*.idea/
 *.iml
 
 # OSX
