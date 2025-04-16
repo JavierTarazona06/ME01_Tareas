@@ -550,13 +550,19 @@ Aquí se definirán los deseos de los estudiantes.
         \begin{itemize}
           \item Cédula estudiante (int)
           \item Nombre estudiante (str)
-          \item Lista de deseos de tamaño n donde cada elemento es un código de clase.
+          \item Numero de materias que desea inscribir (int), menor o igual al tamaño
+                de la lista de desos.
+          \item Lista de deseos/preferencias de tamaño n donde cada elemento es un código de clase.
           \item Lista de asignaciones, las asiganturas que tiene inscritas
         \end{itemize}
 \end{itemize}
 
-Para cada estudiante se crea una lista de deseos seleccionando aleatoriamente, bajo una distribución 
-uniforme, un código de clase y agregándolo a dicha lista.
+Para cada estudiante se define el número de materias que va a isncribir de forma aleatoria
+entre 3 y el número del parámetro de entrada. Se crea una lista de deseos tomando un Numero
+aleatorio del parámetro de entrada y seleccionando aleatoriamente, bajo una distribución 
+uniforme, un código de clase y agregándolo a dicha lista. Si esa asigantura tiene conflcito de
+horario con una de las ya seleccionadas se descarta (se reduce en uno el número de materias
+que va a inscribir).
 
 \subsubsection{Modelo Estocástico: Proceso de Asignación}
 
@@ -608,13 +614,90 @@ los algoritmos Bundled Probabilistic Serial, Random Serial Dictatorship y Probab
 
 En este punto ya se tiene la preparación del entorno y la simulación de asignación de asignaturas, 
 es decir, los estudiantes ya pudieron inscribir las materias que estuvieron a su alcance. Ahora 
-queda por determinar si dicha solución fue óptima o no. Con este objetivo, se analizarán cuatro 
+queda por determinar si dicha solución fue óptima o no. Con este objetivo, se analizarán tres 
 métricas: porcentaje de estudiantes que obtuvieron su primera, segunda y tercera opción; equidad 
-(medida como la desviación estándar de la satisfacción); número de conflictos de horario; y 
+(medida como la desviación estándar de la satisfacción) y 
 eficiencia de Pareto.\\
 
+\textbf{Porcentaje de estudiantes que obtuvieron su primera, segunda, tercera opción:}\\
 
+Esta métrica evalúa la calidad de la asignación desde la perspectiva de la preferencia. 
+Para cada estudiante, se determina en qué posición de su lista de preferencias quedó la 
+asignatura asignada (por ejemplo, si se le asignó la asignatura que figura en la posición 1, 
+eso equivale a haber recibido su primera opción). Lo anterior calculado mediante los siguientes pasos:
 
+\begin{itemize}
+  \item Por cada estudiante, y por cada asignatura en su lista de deseos, tomar las que en efecto 
+        fueron asignadas y tomar su ranking (indica el número de opción/preferencia, si la 1, 2, 3...).
+  \item Contar los estudiantes que en efecto tuvieron la primera, seguna y tercera.
+  \item Calcular los porcentajes. Por ejemplo:
+        $$
+        porcentaje:primeraOpcion = \frac{numEstudiantesPrimeraOpcion}{totalEstudiantes}
+        $$
+\end{itemize}
+
+\textbf{Equidad (Desviación estándar de la satisfacción)}\\
+
+La equidad se puede medir calculando la desviación estándar de la ``satisfacción'' entre los 
+estudiantes. Para ello, asignamos un valor a cada asignatura recibida, basado en la posición de 
+la preferencia, según el siguiente esquema:
+
+\begin{itemize}
+    \item \textbf{1.0} para la primera opción,
+    \item \textbf{0.75} para la segunda,
+    \item \textbf{0.5} para la tercera,
+    \item \textbf{0.25} para la cuarta,
+    \item \textbf{0.10} para la quinta,
+    \item \textbf{0.05} para las demás,
+    \item \textbf{0} para ninguna asignación.
+\end{itemize}
+
+La satisfacción de cada estudiante se obtiene sumando los valores correspondientes a cada 
+asignatura que le fue asignada. Por ejemplo, si un estudiante obtiene sus primeras cinco opciones, 
+su satisfacción sería
+$$
+1.0 + 0.75 + 0.5 + 0.25 + 0.10 = 2.6.
+$$
+En cambio, otro que reciba asignaciones desde la sexta opción en adelante tendrá una 
+satisfacción mucho menor, digamos, 0.3.
+
+Ahora bien, para hacer comparables las satisfacciones entre estudiantes con distintos números 
+de asignaturas deseadas, se puede normalizar la satisfacción dividiendo la suma obtenida 
+entre el valor máximo posible para ese estudiante. Por ejemplo:
+
+\begin{itemize}
+    \item Si un estudiante deseaba 1 asignatura, el valor máximo posible es 1.
+    \item Si deseaba 5 asignaturas, el máximo sería 2.6.
+\end{itemize}
+
+La satisfacción normalizada, $S_{\mathrm{norm}}$, se calcula como:
+$$
+S_{\mathrm{norm}} = \frac{satisfaccionObtenida}{maximoPosibleEstudiante}
+$$
+
+De este modo, la satisfacción normalizada tendrá siempre un rango entre 0 y 1, independientemente de la cantidad de asignaturas esperadas.
+
+Finalmente, se calcula la desviación estándar de los valores $S_{\mathrm{norm}}$ de todos los estudiantes:
+\begin{itemize}
+    \item Un valor cercano a 0 (por ejemplo, 0 a 0.1) indicaría \textbf{alta equidad}, pues todos tienen niveles de satisfacción similares.
+    \item Valores intermedios (por ejemplo, de 0.2 a 0.5) indican una variabilidad moderada.
+    \item Valores mayores (por encima de 0.5) señalarían una gran disparidad en la asignación, es decir, \textbf{baja equidad}.
+\end{itemize}
+
+\textbf{Eficiencia de Pareto}\\
+
+Una asignación es Pareto eficiente si no existe otra asignación (o re-asignación) en la que 
+al menos un estudiante pueda estar mejor sin que ningún otro resulte peor.
+Esta métrica es compleja de calcular de forma óptima, dado que implica considerar posibles 
+re-asignaciones.
+
+Para evaluar la eficiencia de Pareto se va a comparar la asignación actual con asignaciones 
+generadas por posibles swaps entre estudiantes. Si se encuentra un swap que mejora la 
+satisfacción de un estudiante sin empeorar la de otro, la asignación no es Pareto eficiente.
+
+Se va a escribir una función que recorra pares de estudiantes y verifique si existe un 
+intercambio de asignaturas (o un ajuste) que mejore su posición en sus preferencias 
+sin empeorar la del otro.
 
 
 %---------------------------------------------------------------------------------
@@ -634,14 +717,14 @@ Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y tambié
 \textbf{Datos de entrada}
 
 \begin{itemize}
-  \item Número de cursos
-  \item Número de docentes, debe ser mayor o igual al número de cursos
-  \item Número de aulas, debe ser mayor o igual al número de cursos
-  \item Número de estudiantes
+  \item Número de cursos.
+  \item Número de docentes, debe ser mayor o igual al número de cursos.
+  \item Número de aulas, debe ser mayor o igual al número de cursos.
+  \item Número de estudiantes.
   \item Máximo número de materias deseadas de un estudiante (Predeterminado=9).
+  \item Máximo número de materias que un estudiante va a inscribir.
   \item Promedio de número de cupos de las clases (Predeterminado 40).
-  \item Método de asignación (BPS, RSD, PBS).
-    \item Si elige BPS, debe elegir, el número maximo de asignaturas por Bundle.
+  \item Tiempo de simulación
 \end{itemize}
 
 
@@ -664,9 +747,39 @@ Aquí empieza el contenido del artículo de la sección \ref{sec:intr} y tambié
 
 \subsubsection{Escenario 1}
 
+Resultados del escenario sin modificaciones.
+
+
 \subsubsection{Escenario 2}
 
+En este escenario se evalúa el impacto de otorgar prioridad de inscripción a un subconjunto 
+específico de estudiantes. Para ello, se selecciona aleatoriamente un grupo que representa el 
+20\% del total de estudiantes. Este grupo realiza primero el proceso de asignación de materias 
+mediante el mecanismo base (PS) y su respectivo redondeo.
+
+El 80\% restante de estudiantes entra al proceso de asignación únicamente una vez que el grupo 
+prioritario ha completado su selección y ya no tiene materias adicionales por consumir. 
+De este modo, se simula una política de inscripción diferenciada en dos etapas, en la que se 
+garantiza prioridad efectiva para un subconjunto determinado.
+
 \subsubsection{Escenario 3}
+
+En este escenario se simula la cancelación temporal de un subconjunto de asignaturas. Se define 
+una probabilidad de cancelación por clase (por ejemplo, un 30\%), y se selecciona aleatoriamente 
+el conjunto de clases que serán excluidas inicialmente.
+
+Durante la primera ejecución de la simulación, dichas clases tienen cupo igual a cero 
+(aunque en realidad conservan su disponibilidad), lo que las hace no seleccionables. Una vez 
+finalizado este primer proceso de asignación, se vuelve a ejecutar la simulación 
+incluyendo ahora las clases previamente canceladas (volviendo desde la primera prioridad), 
+manteniendo las decisiones y variables 
+que se hayan modificado en la primera fase (por ejemplo, asignaciones ya efectuadas, 
+preferencias agotadas, etc.).
+
+Solo en esta segunda etapa se realiza el redondeo final, considerando la asignación con el 
+universo completo de clases. Este escenario permite analizar el impacto de cancelaciones 
+temporales sobre la equidad, eficiencia y estabilidad del proceso de asignación.
+
 
 
 \renewcommand{\tablename}{Tabla}
