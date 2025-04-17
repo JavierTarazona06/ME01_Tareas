@@ -5,7 +5,7 @@ from typing import Dict, Optional
 from tools.FileManager import JSON_man
 from codeStats.distributions import Normal
 from codeStats.toolsStats import UtilsStats
-from constants.program import CURSOS_CT, DOCENTES_CT, AULAS_CT
+from constants.program import CURSOS_CT, DOCENTES_CT, AULAS_CT, ESTUDIANTES_CT
 
 
 class Utils:
@@ -116,20 +116,13 @@ class Curso:
             num_grupos_avg: Optional[float] = None,
             num_grupos_dev: Optional[float] = None
     ) -> Dict[str, Dict]:
-
         cursos = {}
 
         # Generar lista de número de grupos para cada curso
-        if num_grupos_avg is not None and num_grupos_dev is not None:
-            # Distribución normal truncada para los grupos
-            numero_grupos = Normal.generar_enteros_normal_truncada(
-                cantidad_cursos, num_grupos_min, num_grupos_max,
-                num_grupos_avg, num_grupos_dev
-            )
-        else:
-            # Distribución uniforme entre num_grupos_min y num_grupos_max
-            numero_grupos = [random.randint(num_grupos_min, num_grupos_max)
-                             for _ in range(cantidad_cursos)]
+        numero_grupos = Normal.generar_numeros_normal(
+            cantidad_cursos, num_grupos_min, num_grupos_max,
+            num_grupos_avg, num_grupos_dev
+        )
 
         # Crear los codigos de los cursos
         codigos_unicos = list(Utils.generar_codigos_unicos_pro(
@@ -204,7 +197,8 @@ class Aula:
 
         return aulas
 
-class Horaio:
+
+class Horario:
 
     @staticmethod
     def crear_horarios():
@@ -233,10 +227,13 @@ class Horaio:
 class Clase:
     @staticmethod
     def crear_clases(
-            docentes:dict, aulas:dict, horarios:dict, cursos: Dict,
+            docentes: dict, aulas: dict, horarios: dict, cursos: Dict,
             num_cupos_min: int, num_cupos_max: int,
             num_cupos_avg: float, num_cupos_dev: float
     ) -> Dict[str, Dict]:
+        """
+        Los cursos se modifican
+        """
         clases = {}
 
         # Crear base de docentes y aulas elegibles
@@ -251,10 +248,11 @@ class Clase:
         codigos_clases = set()
         flag_5percent = False
         for cod_curso, curso in cursos.items():
+            cursos[cod_curso]["clases_asociadas"] = []
             for grupo in range(curso["num_grupos"]):
 
                 # Si faltan el 5% de cursos por asignar, agregue los viernes y sábados
-                if (conteo_cursos/cantidad_cursos) >= 0.95 and not flag_5percent:
+                if (conteo_cursos / cantidad_cursos) >= 0.95 and not flag_5percent:
                     asignaciones_horarios.update(
                         {key: 0 for key in horarios.keys() if int(key) > 16}
                     )
@@ -284,48 +282,109 @@ class Clase:
                     "cedula_docente": docente_id_seleccionado,
                     "horario": horario_id_seleccionado,
                     "codigo_aula": aula_id_seleccionada,
-                    "grupo": grupo+1,
+                    "grupo": grupo + 1,
                     "cupos": 0
                 }
+
+                cursos[cod_curso]["clases_asociadas"].append(new_class_code)
 
             conteo_cursos += 1
 
         # Generar lista de números de cupos para cada curso
-        if num_cupos_avg is not None and num_cupos_dev is not None:
-            # Distribución normal truncada para los cupos
-            numero_cupos = Normal.generar_enteros_normal_truncada(
-                len(clases.items()), num_cupos_min, num_cupos_max,
-                num_cupos_avg, num_cupos_dev
-            )
-        else:
-            # Distribución uniforme
-            numero_cupos = [random.randint(num_cupos_min, num_cupos_max)
-                             for _ in range(len(clases.items()))]
+        numero_cupos = Normal.generar_numeros_normal(
+            len(clases.items()), num_cupos_min, num_cupos_max,
+            num_cupos_avg, num_cupos_dev
+        )
 
         for it, cod_clase in enumerate(clases.keys()):
             clases[cod_clase]["cupos"] = numero_cupos[it]
 
-
         return clases
 
 
-def generar_base_datos():
-    cursos_dict = Curso.crear_cursos(
-        CURSOS_CT["cantidad"], CURSOS_CT["num_grupos_min"],
-        CURSOS_CT["num_grupos_max"], CURSOS_CT["num_grupos_avg"],
-        CURSOS_CT["num_grupos_dev"]
-    )
-    JSON_man.dict2json(cursos_dict, "data/cursos.json")
+class Estudiante:
 
-    docentes_dict = Docente.crear_docentes(
-        DOCENTES_CT["cantidad"]
-    )
-    JSON_man.dict2json(docentes_dict, "data/docentes.json")
+    @staticmethod
+    def crear_estudiantes(
+            cantidad_estudiantes: int, cedulas_existentes: set,
+            papi_avg: float, papi_dev: float, cursos: Dict,
+            clases: Dict
+    ):
+        estudiantes_dict = {}
 
-    aulas_dict = Aula.crear_aulas(
-        AULAS_CT["cantidad"]
-    )
-    JSON_man.dict2json(aulas_dict, "data/aulas.json")
+        # Generar lista de P.A.P.I's para cada estudiante
+        papi_list = Normal.generar_numeros_normal(
+            cantidad_elementos=cantidad_estudiantes, minimo=0, maximo=5,
+            media=papi_avg, desviacion=papi_dev, to_int=False
+        )
 
-    horarios_dict = Horaio.crear_horarios()
-    JSON_man.dict2json(horarios_dict, "data/horarios.json")
+        if (ESTUDIANTES_CT["materias_a_inscribir"] >
+                ESTUDIANTES_CT["materias_deseadas"]):
+            raise ValueError("Las materias que un estudiante va a inscribir "
+                             "tienen que ser menor o igual a las materias "
+                             "que el estduainte desea")
+
+        for it_estudiante in range(cantidad_estudiantes):
+
+            # Creacion Cedula
+            cedula = Utils.generar_codigo_unico(cedulas_existentes, letras=False)
+            cedulas_existentes.add(cedula)
+
+            # Materias a inscribir y deseadas
+            while True:
+                cantidad_materias = random.randint(
+                    3, ESTUDIANTES_CT["materias_a_inscribir"]
+                )
+                cantidad_materias_deseadas = random.randint(
+                    3, ESTUDIANTES_CT["materias_deseadas"]
+                )
+
+                if cantidad_materias <= cantidad_materias_deseadas:
+                    break
+
+            # Lista de deseos de materias
+            lista_preferencias = []
+            cursos_elegibles = list(cursos.keys())
+            horarios_tomados = set()
+
+            for i in range(cantidad_materias_deseadas):
+                if len(cursos_elegibles) == 0:
+                    break
+                curso_seleccionado_id = cursos_elegibles[
+                    random.randint(0, len(cursos_elegibles)-1)
+                ]
+                cursos_elegibles.remove(curso_seleccionado_id)
+                curso_seleccionado:Dict = cursos[curso_seleccionado_id]
+
+                clases_elegibles = list(curso_seleccionado["clases_asociadas"].copy())
+                while True:
+                    if len(clases_elegibles) == 0:
+                        break
+                    clase_seleccionada_id = clases_elegibles[
+                        random.randint(0, len(clases_elegibles)-1)
+                    ]
+                    clases_elegibles.remove(clase_seleccionada_id)
+                    clase_seleccionada: Dict = clases[clase_seleccionada_id]
+
+                    if not (clase_seleccionada["horario"] in horarios_tomados):
+                        horarios_tomados.add(clase_seleccionada["horario"])
+                        lista_preferencias.append(clase_seleccionada_id)
+                        break
+
+            cantidad_materias_deseadas = len(lista_preferencias)
+            if cantidad_materias > cantidad_materias_deseadas:
+                cantidad_materias = cantidad_materias_deseadas
+
+            # Lista de materias asignadas
+            asignaciones = []
+
+            estudiantes_dict[cedula] = {
+                "cedula": cedula,
+                "p.a.p.i": papi_list[it_estudiante],
+                "cantidad_materias_inscribir": cantidad_materias,
+                "cantidad_materias_deseadas": cantidad_materias_deseadas,
+                "lista_preferencias": lista_preferencias,
+                "lista_materias_asignadas": asignaciones
+            }
+
+        return estudiantes_dict

@@ -610,6 +610,8 @@ Constantes del programa (Se pueden tomar de una base de datos o emularlas):
       \item \texttt{codigo} (str): identificador único del curso.
       \item \texttt{programado} (bool): si ya se programó el curso.
       \item \texttt{numGrupos} (int): numero de grupos que el curso puede tener.
+      \item \texttt{clases\_asociadas} (list[str]): lista de codigos de las clases 
+            relacionadas, que se crearán mas tarde
     \end{itemize}
     
   \item \textbf{Docentes:} Lista de diccionarios, cada uno con:
@@ -669,7 +671,10 @@ el módulo va a realizar lo siguiente:
         calibrado de modo que el promedio de cupos se acerque al valor proporcionado por el usuario.
         También se asigna el número de grupo \texttt{grupo} con base a la clase, y se resta uno 
         a la cantidad de
-        grupos del curso.\\
+        grupos del curso.
+        
+        De la misma forma, se agrega el código de la clase a la lista de clases\_asociadas 
+        del curso correspondiente\\
 
         Es así que la clase queda de la siguiente forma:\\
 
@@ -694,13 +699,17 @@ Aquí se definirán los deseos de los estudiantes.
 \begin{itemize}
   \item \textbf{Estudiante:} Lista de diccionarios con
         \begin{itemize}
-          \item Cédula estudiante (str)
-          \item P.A.P.I estudiante (int)
-          \item Numero de materias que va inscribir (int), menor o igual al tamaño
+          \item cedula (str): Cédula estudiante
+          \item p.a.p.i (float): P.A.P.I estudiante 
+          \item cantidad\_materias\_inscribir (int): 
+                Numero de materias que va inscribir, menor o igual al tamaño
                 de la lista de desos.
-          \item Tamaño de la lista de deseos (int)
-          \item Lista de deseos/preferencias de tamaño n donde cada elemento es un código de clase.
-          \item Lista de asignaciones, las asiganturas que tiene inscritas
+          \item cantidad\_materias\_deseadas (int): Tamaño de la lista de deseos
+          \item lista\_preferencias (list[str]): Lista de deseos/preferencias de tamaño 
+                n donde cada elemento es un 
+                código de clase.
+          \item lista\_materias\_asignadas (list[str]): Lista de asignaciones, las 
+                asiganturas que tiene inscritas
         \end{itemize}
 \end{itemize}
 
@@ -880,10 +889,16 @@ estudiantes:
   \item Desviación estandar de número de grupos por curso.
   \item Número de docentes, debe ser mayor o igual al número de cursos por maximo de grupos.
   \item Número de aulas, debe ser mayor o igual al número de cursos por maximo de grupos.
+  \item Número máximo de cupos por curso.
+  \item Número mínimo de cupos por curso.
+  \item Promedio de número de cupos por curso.
+  \item Desviación estandar de número de cupos por curso.
   \item Número de estudiantes.
-  \item Máximo número de materias deseadas de un estudiante (Predeterminado=9).
-  \item Máximo número de materias que un estudiante va a inscribir (mayor o igual a 3).
-  \item Promedio de número de cupos de las clases (Predeterminado 40).
+  \item Promedio de P.A.P.I de los estudiantes
+  \item Desviación estandar de P.A.P.I de los estudiantes
+  \item Máximo número de materias que un estudiante va a inscribir (mayor o igual a 3, 
+        menor o igual a lista de deseos).
+  \item Máximo número de materias deseadas de un estudiante (Predeterminado=9, mayor o igual a 3).
   \item Tiempo de simulación
 \end{itemize}
 
