@@ -4,6 +4,7 @@ from typing import Dict, Optional
 
 from tools.FileManager import JSON_man
 from codeStats.distributions import Normal
+from codeStats.toolsStats import UtilsStats
 from constants.program import CURSOS_CT, DOCENTES_CT, AULAS_CT
 
 
@@ -232,25 +233,77 @@ class Horaio:
 class Clase:
     @staticmethod
     def crear_clases(
-            docentes:dict, aulas:dict, horarios:dict, cursos: Dict
+            docentes:dict, aulas:dict, horarios:dict, cursos: Dict,
+            num_cupos_min: int, num_cupos_max: int,
+            num_cupos_avg: float, num_cupos_dev: float
     ) -> Dict[str, Dict]:
         clases = {}
 
+        # Crear base de docentes y aulas elegibles
         docentes_IDs_elegibles = [docente["cedula"] for docente in docentes.values()]
         aulas_IDs_elegibles = [aula["IDs"] for aula in aulas.values()]
 
-        # Seleccionar docente aleatorio
-        docente_id_seleccionado = docentes_IDs_elegibles[
-            random.randint(0, len(docentes_IDs_elegibles)-1)
-        ]
-        docentes_IDs_elegibles.remove(docente_id_seleccionado)
+        # Crear diccionarios de asignaciones por franja horaria
+        asignaciones_horarios = {key: 0 for key in horarios.keys() if int(key) < 17}
 
-        # Seleccionar aula aleatoria
-        aula_id_seleccionada = aulas_IDs_elegibles[
-            random.randint(0, len(aulas_IDs_elegibles)-1)
-        ]
-        aulas_IDs_elegibles.remove(aula_id_seleccionada)
+        cantidad_cursos = len(cursos.items())
+        conteo_cursos = 0
+        codigos_clases = set()
+        flag_5percent = False
+        for cod_curso, curso in cursos.items():
+            for grupo in range(curso["num_grupos"]):
 
+                # Si faltan el 5% de cursos por asignar, agregue los viernes y sábados
+                if (conteo_cursos/cantidad_cursos) >= 0.95 and not flag_5percent:
+                    asignaciones_horarios.update(
+                        {key: 0 for key in horarios.keys() if int(key) > 16}
+                    )
+                    flag_5percent = True
+
+                # Seleccionar docente aleatorio
+                docente_id_seleccionado = UtilsStats.pick_random_element_list(
+                    docentes_IDs_elegibles
+                )
+
+                # Seleccionar aula aleatoria
+                aula_id_seleccionada = UtilsStats.pick_random_element_list(
+                    aulas_IDs_elegibles
+                )
+
+                # Seleccionar clase aleatoria
+                horario_id_seleccionado = UtilsStats.pick_prob_adaptativa_inversa(
+                    asignaciones_horarios
+                )
+
+                new_class_code = Utils.generar_codigo_unico(codigos_clases)
+                codigos_clases.add(new_class_code)
+
+                clases[new_class_code] = {
+                    "codigo_clase": new_class_code,
+                    "codigo_curso": cod_curso,
+                    "cedula_docente": docente_id_seleccionado,
+                    "horario": horario_id_seleccionado,
+                    "codigo_aula": aula_id_seleccionada,
+                    "grupo": grupo+1,
+                    "cupos": 0
+                }
+
+            conteo_cursos += 1
+
+        # Generar lista de números de cupos para cada curso
+        if num_cupos_avg is not None and num_cupos_dev is not None:
+            # Distribución normal truncada para los cupos
+            numero_cupos = Normal.generar_enteros_normal_truncada(
+                len(clases.items()), num_cupos_min, num_cupos_max,
+                num_cupos_avg, num_cupos_dev
+            )
+        else:
+            # Distribución uniforme
+            numero_cupos = [random.randint(num_cupos_min, num_cupos_max)
+                             for _ in range(len(clases.items()))]
+
+        for it, cod_clase in enumerate(clases.keys()):
+            clases[cod_clase]["cupos"] = numero_cupos[it]
 
 
         return clases

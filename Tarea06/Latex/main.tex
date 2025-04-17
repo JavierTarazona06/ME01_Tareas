@@ -679,8 +679,8 @@ el módulo va a realizar lo siguiente:
           \item \texttt{codigo\_curso} (str): código del curso asociado
           \item \texttt{cedula\_docente} (str): código del docente asociado
           \item \texttt{horario} (Tuple[str, str]): horario asociado Dia: str, franja Horaria: str.
-          \item \texttt{edificio+aula\_id} (str): aula asociada
-          \item \texttt{grupo} (int): búmero de grupo
+          \item \texttt{codigo\_aula} (str): aula asociada, edificio\+aula\_id
+          \item \texttt{grupo} (int): número de grupo
           \item \texttt{cupos} (int): cupos asociados
         \end{itemize}
 \end{enumerate}
@@ -874,14 +874,20 @@ estudiantes:
 
 \begin{itemize}
   \item Número de cursos.
-  \item Número de docentes, debe ser mayor o igual al número de cursos.
-  \item Número de aulas, debe ser mayor o igual al número de cursos.
+  \item Número máximo de grupos por curso.
+  \item Número mínimo de grupos por curso.
+  \item Promedio de número de grupos por curso.
+  \item Desviación estandar de número de grupos por curso.
+  \item Número de docentes, debe ser mayor o igual al número de cursos por maximo de grupos.
+  \item Número de aulas, debe ser mayor o igual al número de cursos por maximo de grupos.
   \item Número de estudiantes.
   \item Máximo número de materias deseadas de un estudiante (Predeterminado=9).
   \item Máximo número de materias que un estudiante va a inscribir (mayor o igual a 3).
   \item Promedio de número de cupos de las clases (Predeterminado 40).
   \item Tiempo de simulación
 \end{itemize}
+
+Todos los parámetros de entrada son opcionales.
 
 
 %---------------------------------------------------------------------------------
