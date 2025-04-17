@@ -607,27 +607,28 @@ Constantes del programa (Se pueden tomar de una base de datos o emularlas):
 \begin{itemize}
   \item \textbf{Cursos:} Lista de diccionarios, donde cada elemento representa un curso con los siguientes atributos:
     \begin{itemize}
-      \item \texttt{codigo} (int): identificador único del curso.
+      \item \texttt{codigo} (str): identificador único del curso.
       \item \texttt{programado} (bool): si ya se programó el curso.
       \item \texttt{numGrupos} (int): numero de grupos que el curso puede tener.
     \end{itemize}
     
   \item \textbf{Docentes:} Lista de diccionarios, cada uno con:
     \begin{itemize}
-      \item \texttt{cedula} (int): identificador del docente.
+      \item \texttt{cedula} (str): identificador del docente.
       \item \texttt{programado} (bool): si ya se agendó a un curso.
     \end{itemize}
 
   \item \textbf{Aulas:} Lista de diccionarios, cada uno con:
     \begin{itemize}
-      \item \texttt{edificio} (int): número del edificio.
+      \item \texttt{edificio} (str): número del edificio.
       \item \texttt{aula\_id} (str): identificador del aula.
+      \item \texttt{IDs} (edificio+aula\_id): identificador del aula.
       \item \texttt{programado} (bool): si ya se agendó a un curso.
     \end{itemize}
 
   \item \textbf{Horarios disponibles:} Lista de diccionarios con:
     \begin{itemize}
-      \item \texttt{ID}
+      \item \texttt{ID} (str)
       \item \texttt{dia} (list[int]): día(s) de la semana, de lunes a sábado.
       \item \texttt{franja} (str): intervalo de tiempo disponible 
             (e.g., 7-9, 9-11, 11-13, 14-16, 16-18, 18-20, 7-13, 14-18).
@@ -674,12 +675,12 @@ el módulo va a realizar lo siguiente:
 
         \textbf{Clase:} Lista de diccionarios con:
         \begin{itemize}
-          \item \texttt{codigo\_clase} (int)
-          \item \texttt{codigo\_curso} (int): código del curso asociado
-          \item \texttt{cedula\_docente} (int): código del docente asociado
+          \item \texttt{codigo\_clase} (str)
+          \item \texttt{codigo\_curso} (str): código del curso asociado
+          \item \texttt{cedula\_docente} (str): código del docente asociado
           \item \texttt{horario} (Tuple[str, str]): horario asociado Dia: str, franja Horaria: str.
-          \item \texttt{edificio+aula\_id} (str): aula asociada
-          \item \texttt{grupo} (int): búmero de grupo
+          \item \texttt{codigo\_aula} (str): aula asociada, edificio\+aula\_id
+          \item \texttt{grupo} (int): número de grupo
           \item \texttt{cupos} (int): cupos asociados
         \end{itemize}
 \end{enumerate}
@@ -693,7 +694,7 @@ Aquí se definirán los deseos de los estudiantes.
 \begin{itemize}
   \item \textbf{Estudiante:} Lista de diccionarios con
         \begin{itemize}
-          \item Cédula estudiante (int)
+          \item Cédula estudiante (str)
           \item P.A.P.I estudiante (int)
           \item Numero de materias que va inscribir (int), menor o igual al tamaño
                 de la lista de desos.
@@ -873,14 +874,20 @@ estudiantes:
 
 \begin{itemize}
   \item Número de cursos.
-  \item Número de docentes, debe ser mayor o igual al número de cursos.
-  \item Número de aulas, debe ser mayor o igual al número de cursos.
+  \item Número máximo de grupos por curso.
+  \item Número mínimo de grupos por curso.
+  \item Promedio de número de grupos por curso.
+  \item Desviación estandar de número de grupos por curso.
+  \item Número de docentes, debe ser mayor o igual al número de cursos por maximo de grupos.
+  \item Número de aulas, debe ser mayor o igual al número de cursos por maximo de grupos.
   \item Número de estudiantes.
   \item Máximo número de materias deseadas de un estudiante (Predeterminado=9).
   \item Máximo número de materias que un estudiante va a inscribir (mayor o igual a 3).
   \item Promedio de número de cupos de las clases (Predeterminado 40).
   \item Tiempo de simulación
 \end{itemize}
+
+Todos los parámetros de entrada son opcionales.
 
 
 %---------------------------------------------------------------------------------
