@@ -133,21 +133,21 @@ class PBS:
 
             # Recuperar las fracciones elegidas por el estudiante actual en todas
             #   sus clases elegidas
-            asignaturas_fraccionales_elegidas: list = list(
-                self.estudiantes[estudiante["cedula"]]["diccionario_consumo"].keys()
-            )
+            asignaturas_fraccionales_elegidas: list = [{k: v} for k, v in
+                                  self.estudiantes[estudiante["cedula"]][
+                                      "diccionario_consumo"].items()]
 
             # Ordenar las clases por preferencia de mayor a menor
             asignaturas_fraccionales_elegidas: list = sorted(
                 asignaturas_fraccionales_elegidas,
-                key=lambda d: list(d.values())[0],
+                key=lambda x: list(x.values())[0],
                 reverse=True
             )
 
             for dict_elements in asignaturas_fraccionales_elegidas:
                 # TODO: Revisar esto:
                 codigo_clase, fraccion = dict_elements.items()
-                codigo_clase, fraccion = codigo_clase[0], fraccion[0]
+                # codigo_clase, fraccion = codigo_clase[0], fraccion[0]
                 if self.clases["codigo_clase"]["cupos"] >= 1:
                     self.estudiantes[estudiante["cedula"]][
                         "lista_materias_asignadas"].append(codigo_clase)
