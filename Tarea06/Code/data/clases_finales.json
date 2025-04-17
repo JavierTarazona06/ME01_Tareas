@@ -6,7 +6,8 @@
     "horario": "7",
     "codigo_aula": "400122",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "1AMNKX2R4P": {
     "codigo_clase": "1AMNKX2R4P",
@@ -15,7 +16,8 @@
     "horario": "4",
     "codigo_aula": "295401",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "0095LXY5ON": {
     "codigo_clase": "0095LXY5ON",
@@ -24,7 +26,8 @@
     "horario": "3",
     "codigo_aula": "107840",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "KGGUK14EFD": {
     "codigo_clase": "KGGUK14EFD",
@@ -33,7 +36,8 @@
     "horario": "8",
     "codigo_aula": "317613",
     "grupo": 4,
-    "cupos": 40
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "HN28E0XKPZ": {
     "codigo_clase": "HN28E0XKPZ",
@@ -42,7 +46,8 @@
     "horario": "15",
     "codigo_aula": "111591",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "EMOXRCFAXT": {
     "codigo_clase": "EMOXRCFAXT",
@@ -51,7 +56,8 @@
     "horario": "14",
     "codigo_aula": "216277",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "9EC1BDL3P6": {
     "codigo_clase": "9EC1BDL3P6",
@@ -60,7 +66,8 @@
     "horario": "4",
     "codigo_aula": "252710",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "FKW8373IEK": {
     "codigo_clase": "FKW8373IEK",
@@ -69,7 +76,8 @@
     "horario": "16",
     "codigo_aula": "271194",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "HHVJ7DJD1U": {
     "codigo_clase": "HHVJ7DJD1U",
@@ -78,7 +86,8 @@
     "horario": "9",
     "codigo_aula": "579477",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "MXJ1GEXW58": {
     "codigo_clase": "MXJ1GEXW58",
@@ -87,7 +96,8 @@
     "horario": "13",
     "codigo_aula": "350963",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "COE0KQOVPF": {
     "codigo_clase": "COE0KQOVPF",
@@ -96,7 +106,8 @@
     "horario": "13",
     "codigo_aula": "689103",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "I2XT9IZJNE": {
     "codigo_clase": "I2XT9IZJNE",
@@ -105,7 +116,8 @@
     "horario": "10",
     "codigo_aula": "834561",
     "grupo": 4,
-    "cupos": 39
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "6A7KG8SUVD": {
     "codigo_clase": "6A7KG8SUVD",
@@ -114,7 +126,8 @@
     "horario": "9",
     "codigo_aula": "510114",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "6YXNTV9TG6": {
     "codigo_clase": "6YXNTV9TG6",
@@ -123,7 +136,8 @@
     "horario": "11",
     "codigo_aula": "564682",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "14J6TA6AD4": {
     "codigo_clase": "14J6TA6AD4",
@@ -132,7 +146,8 @@
     "horario": "15",
     "codigo_aula": "093482",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "G4U4HWC564": {
     "codigo_clase": "G4U4HWC564",
@@ -141,7 +156,8 @@
     "horario": "11",
     "codigo_aula": "318981",
     "grupo": 4,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "EFI2AK4QHB": {
     "codigo_clase": "EFI2AK4QHB",
@@ -150,7 +166,8 @@
     "horario": "14",
     "codigo_aula": "740548",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "5FIBXH7LH5": {
     "codigo_clase": "5FIBXH7LH5",
@@ -159,7 +176,8 @@
     "horario": "2",
     "codigo_aula": "928232",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "L17LNQJHNI": {
     "codigo_clase": "L17LNQJHNI",
@@ -168,7 +186,8 @@
     "horario": "1",
     "codigo_aula": "618554",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "ZYZWR0YOI9": {
     "codigo_clase": "ZYZWR0YOI9",
@@ -177,7 +196,8 @@
     "horario": "1",
     "codigo_aula": "654369",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "DHVN4I3UOM": {
     "codigo_clase": "DHVN4I3UOM",
@@ -186,7 +206,8 @@
     "horario": "12",
     "codigo_aula": "089447",
     "grupo": 1,
-    "cupos": 38
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "0TJ5MQ3UEC": {
     "codigo_clase": "0TJ5MQ3UEC",
@@ -195,7 +216,8 @@
     "horario": "5",
     "codigo_aula": "492504",
     "grupo": 2,
-    "cupos": 38
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "C8410RCXRQ": {
     "codigo_clase": "C8410RCXRQ",
@@ -204,7 +226,8 @@
     "horario": "2",
     "codigo_aula": "943384",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "9XF4GTIKQC": {
     "codigo_clase": "9XF4GTIKQC",
@@ -213,7 +236,8 @@
     "horario": "6",
     "codigo_aula": "790310",
     "grupo": 4,
-    "cupos": 40
+    "cupos": 39,
+    "cupos_fraccional": 0.0
   },
   "5ZPYT27VZU": {
     "codigo_clase": "5ZPYT27VZU",
@@ -222,7 +246,8 @@
     "horario": "2",
     "codigo_aula": "643658",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "MOMEITO8TM": {
     "codigo_clase": "MOMEITO8TM",
@@ -231,7 +256,8 @@
     "horario": "5",
     "codigo_aula": "914971",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "DMFZXOWGPB": {
     "codigo_clase": "DMFZXOWGPB",
@@ -240,7 +266,8 @@
     "horario": "3",
     "codigo_aula": "705082",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 39,
+    "cupos_fraccional": 0.0
   },
   "QX0IX1H7CD": {
     "codigo_clase": "QX0IX1H7CD",
@@ -249,7 +276,8 @@
     "horario": "13",
     "codigo_aula": "550865",
     "grupo": 4,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "1IF0PXDWGN": {
     "codigo_clase": "1IF0PXDWGN",
@@ -258,7 +286,8 @@
     "horario": "6",
     "codigo_aula": "111111",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 33,
+    "cupos_fraccional": 0.0
   },
   "3SBME41IYK": {
     "codigo_clase": "3SBME41IYK",
@@ -267,7 +296,8 @@
     "horario": "13",
     "codigo_aula": "083701",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "9WAA8ASE6R": {
     "codigo_clase": "9WAA8ASE6R",
@@ -276,7 +306,8 @@
     "horario": "8",
     "codigo_aula": "959707",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "OX5R40XKTG": {
     "codigo_clase": "OX5R40XKTG",
@@ -285,7 +316,8 @@
     "horario": "4",
     "codigo_aula": "493921",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "5B5QOKJERP": {
     "codigo_clase": "5B5QOKJERP",
@@ -294,7 +326,8 @@
     "horario": "5",
     "codigo_aula": "869972",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "S6CQHG2O9J": {
     "codigo_clase": "S6CQHG2O9J",
@@ -303,7 +336,8 @@
     "horario": "5",
     "codigo_aula": "442546",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "QGS3AGV9F3": {
     "codigo_clase": "QGS3AGV9F3",
@@ -312,7 +346,8 @@
     "horario": "9",
     "codigo_aula": "979965",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "OOR2AB3673": {
     "codigo_clase": "OOR2AB3673",
@@ -321,7 +356,8 @@
     "horario": "3",
     "codigo_aula": "577116",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "8FBCP9VY7I": {
     "codigo_clase": "8FBCP9VY7I",
@@ -330,7 +366,8 @@
     "horario": "1",
     "codigo_aula": "836178",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "ZFTYKJ5R2W": {
     "codigo_clase": "ZFTYKJ5R2W",
@@ -339,7 +376,8 @@
     "horario": "11",
     "codigo_aula": "215615",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "N1VUDJ8XC2": {
     "codigo_clase": "N1VUDJ8XC2",
@@ -348,7 +386,8 @@
     "horario": "15",
     "codigo_aula": "698916",
     "grupo": 4,
-    "cupos": 40
+    "cupos": 39,
+    "cupos_fraccional": 0.0
   },
   "8U6K3UNZ7I": {
     "codigo_clase": "8U6K3UNZ7I",
@@ -357,7 +396,8 @@
     "horario": "11",
     "codigo_aula": "196488",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "ZX5IEEK8UQ": {
     "codigo_clase": "ZX5IEEK8UQ",
@@ -366,7 +406,8 @@
     "horario": "8",
     "codigo_aula": "954365",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "LGB3B8UPA3": {
     "codigo_clase": "LGB3B8UPA3",
@@ -375,7 +416,8 @@
     "horario": "13",
     "codigo_aula": "008378",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "DWO6B15H9J": {
     "codigo_clase": "DWO6B15H9J",
@@ -384,7 +426,8 @@
     "horario": "11",
     "codigo_aula": "247793",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "HRJBULOIEX": {
     "codigo_clase": "HRJBULOIEX",
@@ -393,7 +436,8 @@
     "horario": "10",
     "codigo_aula": "413221",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "T0YUTPF1D4": {
     "codigo_clase": "T0YUTPF1D4",
@@ -402,7 +446,8 @@
     "horario": "1",
     "codigo_aula": "226159",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "DNLWNQBTQJ": {
     "codigo_clase": "DNLWNQBTQJ",
@@ -411,7 +456,8 @@
     "horario": "12",
     "codigo_aula": "604210",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 34,
+    "cupos_fraccional": 0.0
   },
   "D227Q9TOWU": {
     "codigo_clase": "D227Q9TOWU",
@@ -420,7 +466,8 @@
     "horario": "4",
     "codigo_aula": "503076",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 40,
+    "cupos_fraccional": 40.0
   },
   "UNQZB2J4PY": {
     "codigo_clase": "UNQZB2J4PY",
@@ -429,7 +476,8 @@
     "horario": "1",
     "codigo_aula": "042231",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "BKFMZ5QXY6": {
     "codigo_clase": "BKFMZ5QXY6",
@@ -438,7 +486,8 @@
     "horario": "5",
     "codigo_aula": "899299",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "CUVSKW0QTI": {
     "codigo_clase": "CUVSKW0QTI",
@@ -447,7 +496,8 @@
     "horario": "7",
     "codigo_aula": "813700",
     "grupo": 4,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "AKWR7Y49TY": {
     "codigo_clase": "AKWR7Y49TY",
@@ -456,7 +506,8 @@
     "horario": "11",
     "codigo_aula": "664961",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "E7XGJ9X4Z3": {
     "codigo_clase": "E7XGJ9X4Z3",
@@ -465,7 +516,8 @@
     "horario": "3",
     "codigo_aula": "020319",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "VE14B73AFM": {
     "codigo_clase": "VE14B73AFM",
@@ -474,7 +526,8 @@
     "horario": "14",
     "codigo_aula": "619097",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "D5DWHSR873": {
     "codigo_clase": "D5DWHSR873",
@@ -483,7 +536,8 @@
     "horario": "10",
     "codigo_aula": "298723",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "WLGIVKCUNB": {
     "codigo_clase": "WLGIVKCUNB",
@@ -492,7 +546,8 @@
     "horario": "3",
     "codigo_aula": "041858",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "HZAUSFWUHN": {
     "codigo_clase": "HZAUSFWUHN",
@@ -501,7 +556,8 @@
     "horario": "9",
     "codigo_aula": "800166",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "WQKZOR5F3B": {
     "codigo_clase": "WQKZOR5F3B",
@@ -510,7 +566,8 @@
     "horario": "6",
     "codigo_aula": "854924",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "FXQ2V4JK4R": {
     "codigo_clase": "FXQ2V4JK4R",
@@ -519,7 +576,8 @@
     "horario": "1",
     "codigo_aula": "323086",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "S1291QUMWM": {
     "codigo_clase": "S1291QUMWM",
@@ -528,7 +586,8 @@
     "horario": "12",
     "codigo_aula": "330118",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "W8YHDJPAZY": {
     "codigo_clase": "W8YHDJPAZY",
@@ -537,7 +596,8 @@
     "horario": "15",
     "codigo_aula": "897749",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "GUVZID6ZWS": {
     "codigo_clase": "GUVZID6ZWS",
@@ -546,7 +606,8 @@
     "horario": "7",
     "codigo_aula": "361080",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "TC4N0UBVP4": {
     "codigo_clase": "TC4N0UBVP4",
@@ -555,7 +616,8 @@
     "horario": "4",
     "codigo_aula": "379329",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "LV9NMV429B": {
     "codigo_clase": "LV9NMV429B",
@@ -564,7 +626,8 @@
     "horario": "7",
     "codigo_aula": "516106",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "SI2N28UAYX": {
     "codigo_clase": "SI2N28UAYX",
@@ -573,7 +636,8 @@
     "horario": "10",
     "codigo_aula": "764751",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "PUT3K5JM1D": {
     "codigo_clase": "PUT3K5JM1D",
@@ -582,7 +646,8 @@
     "horario": "4",
     "codigo_aula": "971690",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "GHHU1BJTO4": {
     "codigo_clase": "GHHU1BJTO4",
@@ -591,7 +656,8 @@
     "horario": "13",
     "codigo_aula": "577549",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "VT4XVUUD6S": {
     "codigo_clase": "VT4XVUUD6S",
@@ -600,7 +666,8 @@
     "horario": "13",
     "codigo_aula": "935117",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "P5E6Z00ZKA": {
     "codigo_clase": "P5E6Z00ZKA",
@@ -609,7 +676,8 @@
     "horario": "9",
     "codigo_aula": "257663",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "FQRESIXRPW": {
     "codigo_clase": "FQRESIXRPW",
@@ -618,7 +686,8 @@
     "horario": "12",
     "codigo_aula": "251731",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "NJGXPAKHSF": {
     "codigo_clase": "NJGXPAKHSF",
@@ -627,7 +696,8 @@
     "horario": "6",
     "codigo_aula": "185047",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "A0MR70VVO9": {
     "codigo_clase": "A0MR70VVO9",
@@ -636,7 +706,8 @@
     "horario": "6",
     "codigo_aula": "962396",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "QW7PLUBSAP": {
     "codigo_clase": "QW7PLUBSAP",
@@ -645,7 +716,8 @@
     "horario": "2",
     "codigo_aula": "852325",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "VY6U7GUE8V": {
     "codigo_clase": "VY6U7GUE8V",
@@ -654,7 +726,8 @@
     "horario": "7",
     "codigo_aula": "897132",
     "grupo": 4,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "EYWASOX7GV": {
     "codigo_clase": "EYWASOX7GV",
@@ -663,7 +736,8 @@
     "horario": "15",
     "codigo_aula": "241584",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "QF0TL1GGFQ": {
     "codigo_clase": "QF0TL1GGFQ",
@@ -672,7 +746,8 @@
     "horario": "5",
     "codigo_aula": "539313",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "K58NQN9H8O": {
     "codigo_clase": "K58NQN9H8O",
@@ -681,7 +756,8 @@
     "horario": "14",
     "codigo_aula": "655234",
     "grupo": 1,
-    "cupos": 38
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "8GXSR20UJA": {
     "codigo_clase": "8GXSR20UJA",
@@ -690,7 +766,8 @@
     "horario": "9",
     "codigo_aula": "598406",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "KV9R8ZVT3Z": {
     "codigo_clase": "KV9R8ZVT3Z",
@@ -699,7 +776,8 @@
     "horario": "15",
     "codigo_aula": "106191",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "6EQRW6T3RZ": {
     "codigo_clase": "6EQRW6T3RZ",
@@ -708,7 +786,8 @@
     "horario": "16",
     "codigo_aula": "722052",
     "grupo": 4,
-    "cupos": 40
+    "cupos": 39,
+    "cupos_fraccional": 0.0
   },
   "TD3BFL64QL": {
     "codigo_clase": "TD3BFL64QL",
@@ -717,7 +796,8 @@
     "horario": "14",
     "codigo_aula": "603089",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "G7G6VUD6RT": {
     "codigo_clase": "G7G6VUD6RT",
@@ -726,7 +806,8 @@
     "horario": "3",
     "codigo_aula": "178271",
     "grupo": 2,
-    "cupos": 38
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "DZ8OWU34U7": {
     "codigo_clase": "DZ8OWU34U7",
@@ -735,7 +816,8 @@
     "horario": "7",
     "codigo_aula": "649372",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "A750GS8YIF": {
     "codigo_clase": "A750GS8YIF",
@@ -744,7 +826,8 @@
     "horario": "8",
     "codigo_aula": "532842",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "D86MUIT8QY": {
     "codigo_clase": "D86MUIT8QY",
@@ -753,7 +836,8 @@
     "horario": "7",
     "codigo_aula": "294671",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "9DXQBX9EN7": {
     "codigo_clase": "9DXQBX9EN7",
@@ -762,7 +846,8 @@
     "horario": "3",
     "codigo_aula": "339203",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "VUTM39GXCQ": {
     "codigo_clase": "VUTM39GXCQ",
@@ -771,7 +856,8 @@
     "horario": "16",
     "codigo_aula": "124081",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "SRKMD3SSCV": {
     "codigo_clase": "SRKMD3SSCV",
@@ -780,7 +866,8 @@
     "horario": "16",
     "codigo_aula": "185941",
     "grupo": 3,
-    "cupos": 38
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "WWL2QVMDZ0": {
     "codigo_clase": "WWL2QVMDZ0",
@@ -789,7 +876,8 @@
     "horario": "8",
     "codigo_aula": "186365",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "5QCV3YUWZT": {
     "codigo_clase": "5QCV3YUWZT",
@@ -798,7 +886,8 @@
     "horario": "9",
     "codigo_aula": "221759",
     "grupo": 1,
-    "cupos": 41
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "0NAZ2QB7I0": {
     "codigo_clase": "0NAZ2QB7I0",
@@ -807,7 +896,8 @@
     "horario": "1",
     "codigo_aula": "019094",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "WVFQ1ACLCH": {
     "codigo_clase": "WVFQ1ACLCH",
@@ -816,7 +906,8 @@
     "horario": "9",
     "codigo_aula": "506454",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "LFN1GG2BFS": {
     "codigo_clase": "LFN1GG2BFS",
@@ -825,7 +916,8 @@
     "horario": "16",
     "codigo_aula": "492630",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "BR0J0FDBH1": {
     "codigo_clase": "BR0J0FDBH1",
@@ -834,7 +926,8 @@
     "horario": "4",
     "codigo_aula": "834368",
     "grupo": 1,
-    "cupos": 41
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "I6TD4240T1": {
     "codigo_clase": "I6TD4240T1",
@@ -843,7 +936,8 @@
     "horario": "6",
     "codigo_aula": "190399",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "JCGGRISTCB": {
     "codigo_clase": "JCGGRISTCB",
@@ -852,7 +946,8 @@
     "horario": "10",
     "codigo_aula": "815268",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "44TRI9CLBX": {
     "codigo_clase": "44TRI9CLBX",
@@ -861,7 +956,8 @@
     "horario": "13",
     "codigo_aula": "102044",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "5J3S1D202L": {
     "codigo_clase": "5J3S1D202L",
@@ -870,7 +966,8 @@
     "horario": "2",
     "codigo_aula": "465948",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "DZVN0X4VDO": {
     "codigo_clase": "DZVN0X4VDO",
@@ -879,7 +976,8 @@
     "horario": "1",
     "codigo_aula": "183539",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "S0GPY1HAN2": {
     "codigo_clase": "S0GPY1HAN2",
@@ -888,7 +986,8 @@
     "horario": "15",
     "codigo_aula": "746326",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 35,
+    "cupos_fraccional": 0.0
   },
   "V2SW6BTAXO": {
     "codigo_clase": "V2SW6BTAXO",
@@ -897,7 +996,8 @@
     "horario": "3",
     "codigo_aula": "716097",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "N5M7UYFY0Z": {
     "codigo_clase": "N5M7UYFY0Z",
@@ -906,7 +1006,8 @@
     "horario": "2",
     "codigo_aula": "849242",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "ZHB1YE2JTI": {
     "codigo_clase": "ZHB1YE2JTI",
@@ -915,7 +1016,8 @@
     "horario": "11",
     "codigo_aula": "505032",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "BCPVCPO5AM": {
     "codigo_clase": "BCPVCPO5AM",
@@ -924,7 +1026,8 @@
     "horario": "1",
     "codigo_aula": "540310",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "HRMB8KYQG1": {
     "codigo_clase": "HRMB8KYQG1",
@@ -933,7 +1036,8 @@
     "horario": "7",
     "codigo_aula": "599355",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "UV8UFIHEIC": {
     "codigo_clase": "UV8UFIHEIC",
@@ -942,7 +1046,8 @@
     "horario": "9",
     "codigo_aula": "579325",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "JCAKXSKQRO": {
     "codigo_clase": "JCAKXSKQRO",
@@ -951,7 +1056,8 @@
     "horario": "2",
     "codigo_aula": "071696",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "3OOINJOI3F": {
     "codigo_clase": "3OOINJOI3F",
@@ -960,7 +1066,8 @@
     "horario": "5",
     "codigo_aula": "484277",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "5VDNULPR7M": {
     "codigo_clase": "5VDNULPR7M",
@@ -969,7 +1076,8 @@
     "horario": "10",
     "codigo_aula": "587315",
     "grupo": 3,
-    "cupos": 39
+    "cupos": 39,
+    "cupos_fraccional": 39.0
   },
   "ZBYDI8S8B6": {
     "codigo_clase": "ZBYDI8S8B6",
@@ -978,7 +1086,8 @@
     "horario": "13",
     "codigo_aula": "939364",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   },
   "WALHRR2W9G": {
     "codigo_clase": "WALHRR2W9G",
@@ -987,7 +1096,8 @@
     "horario": "30",
     "codigo_aula": "596736",
     "grupo": 1,
-    "cupos": 40
+    "cupos": 39,
+    "cupos_fraccional": 0.0
   },
   "NMPPAXMOC7": {
     "codigo_clase": "NMPPAXMOC7",
@@ -996,7 +1106,8 @@
     "horario": "20",
     "codigo_aula": "008118",
     "grupo": 2,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "EKK4T7701G": {
     "codigo_clase": "EKK4T7701G",
@@ -1005,7 +1116,8 @@
     "horario": "27",
     "codigo_aula": "807446",
     "grupo": 3,
-    "cupos": 40
+    "cupos": 38,
+    "cupos_fraccional": 0.0
   },
   "HNDEF8R69M": {
     "codigo_clase": "HNDEF8R69M",
@@ -1014,7 +1126,8 @@
     "horario": "21",
     "codigo_aula": "765418",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 36,
+    "cupos_fraccional": 0.0
   },
   "WIUDW6VDFG": {
     "codigo_clase": "WIUDW6VDFG",
@@ -1023,6 +1136,7 @@
     "horario": "24",
     "codigo_aula": "770778",
     "grupo": 2,
-    "cupos": 40
+    "cupos": 37,
+    "cupos_fraccional": 0.0
   }
 }
