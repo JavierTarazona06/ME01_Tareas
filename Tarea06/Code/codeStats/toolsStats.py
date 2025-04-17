@@ -56,19 +56,15 @@ class PBS:
         self.estudiantes = copy.deepcopy(estudiantes)
         self.clases = copy.deepcopy(clases)
 
-        # Agregar cupos fraccional
-        for clase_id in clases_IDs:
-            self.clases[clase_id]["cupos_fraccional"] = (
-                self.clases[clase_id]["cupos"].copy()
-            )
+        for cid, clase in self.clases.items():
+            clase["cupos_fraccional"] = float(clase["cupos"])
 
-        diccionario_consumo = {}
-
-        for cedula in estudiantes_IDs:
-            for clase_id in clases_IDs:
-                diccionario_consumo[(cedula, clase_id)] = 0
-
-        self.diccionario_consumo = diccionario_consumo
+        # Diccionario de consumo (cedula, clase) → 0.0
+        self.diccionario_consumo = {
+            (e, c): 0.0
+            for e in self.estudiantes.keys()
+            for c in self.clases.keys()
+        }
 
     def run_algo(
             self, delta_t: float = 0.1,
@@ -119,39 +115,40 @@ class PBS:
 
         return self.diccionario_consumo
 
-    def round_greedy(self) -> tuple[dict[str, dict], dict[str, dict]]:
+    def round_greedy(self):
         """
-        First run "run_algo"
+        Tras run_algo(), asigna cupos enteros según fracciones consumidas,
+        respetando orden de preferencias y límite de materias a inscribir.
         """
-        estudiantes_ordenados = sorted(
+        # Cada estudiante solo puede inscribir hasta X materias
+        cuotas = {
+            est["cedula"]: est["cantidad_materias_inscribir"]
+            for est in self.estudiantes.values()
+        }
+
+        # Para cada estudiante, ordenamos sus fracciones consumidas
+        for est in sorted(
             self.estudiantes.values(),
-            key=lambda e: e["p.a.p.i"],
-            reverse=True  # Para ordenar de mayor a menor
-        )
-
-        for estudiante in estudiantes_ordenados:
-
-            # Recuperar las fracciones elegidas por el estudiante actual en todas las clases
-            asignaturas_fraccionales_elegidas: list = [
-                {codigo_clase: self.diccionario_consumo[(estudiante["cedula"], codigo_clase)]}
-                for (cedula, codigo_clase) in self.diccionario_consumo.keys()
-                if cedula == estudiante["cedula"]
+            key=lambda e: e["p.a.p.i"], reverse=True
+        ):
+            ced = est["cedula"]
+            # Obtener tuplas (clase, cantidad_fraccional) con consumo > 0
+            consumos = [
+                (clase, self.diccionario_consumo[(ced, clase)])
+                for clase in est["lista_preferencias"]
+                if self.diccionario_consumo[(ced, clase)] > 0
             ]
+            # Orden descendente por fracción consumida
+            consumos.sort(key=lambda x: x[1], reverse=True)
 
-            # Ordenar las clases por preferencia de mayor a menor
-            asignaturas_fraccionales_elegidas: list = sorted(
-                asignaturas_fraccionales_elegidas,
-                key=lambda d: list(d.values())[0],
-                reverse=True
-            )
-
-            for dict_elements in asignaturas_fraccionales_elegidas:
-                # TODO: Revisar esto:
-                codigo_clase, fraccion = dict_elements.items()
-                codigo_clase, fraccion = codigo_clase[0], fraccion[0]
-                if self.clases["codigo_clase"]["cupos"] >= 1:
-                    self.estudiantes[estudiante["cedula"]]["lista_materias_asignadas"].append(codigo_clase)
-                    self.clases["codigo_clase"]["cupos"] -= 1
+            for clase_id, frac in consumos:
+                if cuotas[ced] <= 0:
+                    break
+                # Si aún hay cupos enteros disponibles
+                if self.clases[clase_id]["cupos"] >= 1:
+                    est["lista_materias_asignadas"].append(clase_id)
+                    self.clases[clase_id]["cupos"] -= 1
+                    cuotas[ced] -= 1
 
         return self.estudiantes, self.clases
 
