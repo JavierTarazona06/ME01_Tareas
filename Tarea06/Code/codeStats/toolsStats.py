@@ -62,18 +62,17 @@ class PBS:
                 self.clases[clase_id]["cupos"].copy()
             )
 
-        diccionario_consumo = {}
-
+        # Diccionario de consumo
         for cedula in estudiantes_IDs:
-            for clase_id in clases_IDs:
-                diccionario_consumo[(cedula, clase_id)] = 0
-
-        self.diccionario_consumo = diccionario_consumo
+            self.estudiantes[cedula]["diccionario_consumo"] = {}
 
     def run_algo(
             self, delta_t: float = 0.1,
             min_delta: float = 1e-6, max_iter: int = 10000
-    ) -> dict[tuple[str, str], int]:
+    ) -> dict[str, dict]:
+        """
+        Corre algoritmo PS y devuelve a la lista -> objeto de estudiantes
+        """
 
         iteracion = 0
         estudiantes_ordenados = sorted(
@@ -106,9 +105,10 @@ class PBS:
 
                 # Actualizar capacidad y registro de consumo para el estudiante
                 self.clases[asignatura_actual]["cupos_fraccional"] -= consumo
-                self.diccionario_consumo[
-                    (estudiante["cedula"], asignatura_actual)
-                ] += consumo
+                self.estudiantes[estudiante["cedula"]]["diccionario_consumo"][
+                    "asignatura_actual"] = \
+                    self.estudiantes[estudiante["cedula"]][
+                        "diccionario_consumo"].get("asignatura_actual", 0.0) + consumo
 
                 progreso = True
 
@@ -117,7 +117,7 @@ class PBS:
 
             iteracion += 1
 
-        return self.diccionario_consumo
+        return self.estudiantes
 
     def round_greedy(self) -> tuple[dict[str, dict], dict[str, dict]]:
         """
@@ -131,12 +131,11 @@ class PBS:
 
         for estudiante in estudiantes_ordenados:
 
-            # Recuperar las fracciones elegidas por el estudiante actual en todas las clases
-            asignaturas_fraccionales_elegidas: list = [
-                {codigo_clase: self.diccionario_consumo[(estudiante["cedula"], codigo_clase)]}
-                for (cedula, codigo_clase) in self.diccionario_consumo.keys()
-                if cedula == estudiante["cedula"]
-            ]
+            # Recuperar las fracciones elegidas por el estudiante actual en todas
+            #   sus clases elegidas
+            asignaturas_fraccionales_elegidas: list = list(
+                self.estudiantes[estudiante["cedula"]]["diccionario_consumo"].keys()
+            )
 
             # Ordenar las clases por preferencia de mayor a menor
             asignaturas_fraccionales_elegidas: list = sorted(
@@ -150,7 +149,8 @@ class PBS:
                 codigo_clase, fraccion = dict_elements.items()
                 codigo_clase, fraccion = codigo_clase[0], fraccion[0]
                 if self.clases["codigo_clase"]["cupos"] >= 1:
-                    self.estudiantes[estudiante["cedula"]]["lista_materias_asignadas"].append(codigo_clase)
+                    self.estudiantes[estudiante["cedula"]][
+                        "lista_materias_asignadas"].append(codigo_clase)
                     self.clases["codigo_clase"]["cupos"] -= 1
 
         return self.estudiantes, self.clases
