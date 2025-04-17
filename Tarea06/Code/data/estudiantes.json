@@ -1,1513 +1,1488 @@
 {
-  "0209783949": {
-    "cedula": "0209783949",
-    "p.a.p.i": 2.72,
+  "9581833479": {
+    "cedula": "9581833479",
+    "p.a.p.i": 1.66,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "MA8A5M7OR2",
+      "PQHOH9TMF8",
+      "WHQ7TEF67W",
+      "LJBVUZB9LV",
+      "HJPZ6EQPPY"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2069213429": {
+    "cedula": "2069213429",
+    "p.a.p.i": 2.55,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "JPFF7JA40U",
+      "7MICTA94KL",
+      "14FXMZPXT9",
+      "B5NGNPM6V2",
+      "7K6FZXJQEE"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6558585314": {
+    "cedula": "6558585314",
+    "p.a.p.i": 3.63,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "S14PRCPXP1",
+      "MF0QTX9K19",
+      "VQJ6SPXBY3",
+      "MW2ZN4I8H5",
+      "B7BO91LBN2",
+      "GDU27Z9AZO",
+      "Y4678IEW5A"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6378974250": {
+    "cedula": "6378974250",
+    "p.a.p.i": 2.89,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "CQZ9P11XNT",
+      "6Y1UUM3NL8",
+      "918I20Y7GH",
+      "58CA3PHNSX",
+      "SR1JXIOD6S"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9741130882": {
+    "cedula": "9741130882",
+    "p.a.p.i": 3.15,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "KFE45YJ8Z6",
+      "7MICTA94KL",
+      "VTFVXNQPMC",
+      "6ZENSO6T7S"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "7856189793": {
+    "cedula": "7856189793",
+    "p.a.p.i": 3.29,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "DUKS4AG1KY",
-      "HBXWH5QIIR",
-      "ZTC8OUNQRD",
-      "I1M3LIDSF1",
-      "K56G9JSY94",
-      "F1GYW30E7Z",
-      "IGR2G8B2NS"
+      "4W7D2UVXUB",
+      "6V5QGQR08O",
+      "QG1LPWKJSH",
+      "R5ZCY0GXFD",
+      "3ZP2G8ARQX",
+      "6ZENSO6T7S",
+      "JPFF7JA40U"
     ],
     "lista_materias_asignadas": []
   },
-  "1712014727": {
-    "cedula": "1712014727",
-    "p.a.p.i": 3.82,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "TYOF72HBCD",
-      "L2EK69TORZ",
-      "C1AIG0SFGC",
-      "LBYCSY4ZLM",
-      "MUPD2I5B54"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1832115166": {
-    "cedula": "1832115166",
-    "p.a.p.i": 4.91,
-    "cantidad_materias_inscribir": 3,
+  "5218876691": {
+    "cedula": "5218876691",
+    "p.a.p.i": 3.97,
+    "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 6,
     "lista_preferencias": [
-      "SFSALFTD3A",
-      "QSN1UX3Z03",
-      "36JH8DKZE5",
-      "QIH41401GU",
-      "HBXWH5QIIR",
-      "EUX7SDRYNL"
+      "SR1JXIOD6S",
+      "8P9TO3IYZM",
+      "2PRWCKSWAC",
+      "6ZENSO6T7S",
+      "MA8A5M7OR2",
+      "6Y1UUM3NL8"
     ],
     "lista_materias_asignadas": []
   },
-  "4274416211": {
-    "cedula": "4274416211",
-    "p.a.p.i": 3.68,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 3,
-    "lista_preferencias": [
-      "DJMRB5LJRV",
-      "LBYCSY4ZLM",
-      "MGJX22UEE5"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6237960771": {
-    "cedula": "6237960771",
-    "p.a.p.i": 3.79,
+  "7331184201": {
+    "cedula": "7331184201",
+    "p.a.p.i": 3.15,
     "cantidad_materias_inscribir": 5,
     "cantidad_materias_deseadas": 8,
     "lista_preferencias": [
-      "99WFAMSNB2",
-      "I1M3LIDSF1",
-      "N5PF0B2LMB",
-      "F1GYW30E7Z",
-      "DJMRB5LJRV",
-      "TGYGG0DKRK",
-      "29OSKBOB9A",
-      "84VVVM000P"
+      "JPFF7JA40U",
+      "JBOJQG1142",
+      "7MICTA94KL",
+      "9AGQ0J8M1P",
+      "918I20Y7GH",
+      "PKT5XDPAJP",
+      "5YL2GBN9ZU",
+      "8NZUFJXYFS"
     ],
     "lista_materias_asignadas": []
   },
-  "4884974262": {
-    "cedula": "4884974262",
-    "p.a.p.i": 4.19,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "K56G9JSY94",
-      "1YCCIOC02G",
-      "LCNSBW449C",
-      "95KVPKBGCF"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "8964228968": {
-    "cedula": "8964228968",
-    "p.a.p.i": 4.47,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "J5OPRVQB6U",
-      "QSN1UX3Z03",
-      "QIH41401GU",
-      "MGJX22UEE5",
-      "CQCRHWX0SL",
-      "Y58GDQ4HR4"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2458388044": {
-    "cedula": "2458388044",
-    "p.a.p.i": 2.66,
+  "5343447330": {
+    "cedula": "5343447330",
+    "p.a.p.i": 3.97,
     "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 9,
+    "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "NMH7DGZU98",
-      "69EWVVRIDW",
-      "6WAFGTICVG",
-      "ULL15TGKUA",
-      "N5PF0B2LMB",
-      "HBXWH5QIIR",
-      "C35211PEJ1",
-      "TEIBULQQEF",
-      "YSLHWWYAGR"
+      "JM87E4MB77",
+      "THW08UXIWP",
+      "R5ZCY0GXFD",
+      "JPFF7JA40U",
+      "14FXMZPXT9",
+      "99G2Z8158A",
+      "QG1LPWKJSH"
     ],
     "lista_materias_asignadas": []
   },
-  "3694384005": {
-    "cedula": "3694384005",
-    "p.a.p.i": 2.23,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 3,
-    "lista_preferencias": [
-      "DP0L9Q49SP",
-      "02MH4TY2EH",
-      "XNUNLHJDQK"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1201254953": {
-    "cedula": "1201254953",
-    "p.a.p.i": 3.31,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "327L4V4ZBV",
-      "VQDDILLJWY",
-      "T23JXQA7FG",
-      "EUX7SDRYNL"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0123637693": {
-    "cedula": "0123637693",
-    "p.a.p.i": 2.59,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 8,
-    "lista_preferencias": [
-      "63ABFN4WP2",
-      "FQZW7WIZ0C",
-      "YBA2XR6N1W",
-      "F5HLEVX5NB",
-      "EDUBV23890",
-      "L2EK69TORZ",
-      "MXB9S692D2",
-      "NMH7DGZU98"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "3859049923": {
-    "cedula": "3859049923",
-    "p.a.p.i": 3.76,
-    "cantidad_materias_inscribir": 3,
+  "6557101798": {
+    "cedula": "6557101798",
+    "p.a.p.i": 4.79,
+    "cantidad_materias_inscribir": 5,
     "cantidad_materias_deseadas": 5,
     "lista_preferencias": [
-      "32MEUBSY5Z",
-      "MXB9S692D2",
-      "95KVPKBGCF",
-      "O60CGYX7DH",
-      "1JPU1XJGS5"
+      "6ZENSO6T7S",
+      "HJPZ6EQPPY",
+      "PTUFBJXYNF",
+      "6V5QGQR08O",
+      "25ISVL1M0X"
     ],
     "lista_materias_asignadas": []
   },
-  "5406420972": {
-    "cedula": "5406420972",
-    "p.a.p.i": 4.13,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "Y58GDQ4HR4",
-      "LCNSBW449C",
-      "F5HLEVX5NB",
-      "N5PF0B2LMB",
-      "NMH7DGZU98",
-      "29OSKBOB9A"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9501649767": {
-    "cedula": "9501649767",
-    "p.a.p.i": 3.67,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "FGRI56PLXW",
-      "DUKS4AG1KY",
-      "AS09UKX3O6",
-      "F5HLEVX5NB",
-      "YAEARSR9Z3",
-      "J5OPRVQB6U"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1255660360": {
-    "cedula": "1255660360",
-    "p.a.p.i": 2.97,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "82P0ORES6F",
-      "LBYCSY4ZLM",
-      "IPHXDLQDY7",
-      "YAEARSR9Z3"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "4837164553": {
-    "cedula": "4837164553",
-    "p.a.p.i": 4.51,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "63ABFN4WP2",
-      "W2TQTI9I2D",
-      "YBA2XR6N1W",
-      "LCNSBW449C",
-      "5KOIQOV92B"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "3430639862": {
-    "cedula": "3430639862",
-    "p.a.p.i": 3.7,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "0XGDT7CXQB",
-      "YC8HRJO0EI",
-      "QVVKGFDSQ6",
-      "XNUNLHJDQK"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1186477477": {
-    "cedula": "1186477477",
-    "p.a.p.i": 3.7,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "YAEARSR9Z3",
-      "AS09UKX3O6",
-      "ZVHUGSZ0UR",
-      "DP0L9Q49SP",
-      "FM4AON7L1T",
-      "PEIL2I0WFP"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5603685912": {
-    "cedula": "5603685912",
+  "6783722018": {
+    "cedula": "6783722018",
     "p.a.p.i": 3.32,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 8,
     "lista_preferencias": [
-      "32N8OCZVZU",
-      "Y58GDQ4HR4",
-      "CQCRHWX0SL",
-      "F5HLEVX5NB",
-      "70V4I0KB93"
+      "MCZVKB6KT0",
+      "IH00CJCI0Y",
+      "LJBVUZB9LV",
+      "256SIV6QW4",
+      "JPFF7JA40U",
+      "Q95R115V70",
+      "MW2ZN4I8H5",
+      "YAYH85RHD6"
     ],
     "lista_materias_asignadas": []
   },
-  "8594136654": {
-    "cedula": "8594136654",
-    "p.a.p.i": 2.13,
+  "4393426747": {
+    "cedula": "4393426747",
+    "p.a.p.i": 4.86,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "QG1LPWKJSH",
+      "J3PKDED12Q",
+      "7RKIW9ZYLP",
+      "RR0J32PN6L",
+      "X39LQU4FVB",
+      "JBOJQG1142",
+      "IH00CJCI0Y",
+      "MCZVKB6KT0"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "1268393271": {
+    "cedula": "1268393271",
+    "p.a.p.i": 4.55,
     "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "MGJX22UEE5",
-      "834D9F1NYT",
-      "84VVVM000P",
-      "EBNSO8H5LR",
-      "O60CGYX7DH",
-      "C35211PEJ1",
-      "70V4I0KB93",
-      "36JH8DKZE5",
-      "MXB9S692D2"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6192978061": {
-    "cedula": "6192978061",
-    "p.a.p.i": 3.44,
-    "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 4,
     "lista_preferencias": [
-      "NMH7DGZU98",
-      "82P0ORES6F",
-      "YC8HRJO0EI",
-      "7RLWKINPYE"
+      "KZ8QXZG0G6",
+      "COM4LZBJZ9",
+      "1H1H9RCQXV",
+      "THW08UXIWP"
     ],
     "lista_materias_asignadas": []
   },
-  "3481302883": {
-    "cedula": "3481302883",
-    "p.a.p.i": 4.93,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "DP0L9Q49SP",
-      "DUKS4AG1KY",
-      "9ZQE0REI59",
-      "RJ20FCMYEC",
-      "32N8OCZVZU",
-      "QZU28N32JP"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "7552855330": {
-    "cedula": "7552855330",
-    "p.a.p.i": 4.59,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "L2EK69TORZ",
-      "AH80S91QFB",
-      "W2TQTI9I2D",
-      "EDUBV23890",
-      "4T3JXJEV5B",
-      "VPDVXTGLUK",
-      "58EPK9ZJS5",
-      "F5HLEVX5NB",
-      "U98TJL4ADO"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "7079816595": {
-    "cedula": "7079816595",
-    "p.a.p.i": 3.81,
+  "5023997934": {
+    "cedula": "5023997934",
+    "p.a.p.i": 4.86,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "002DG0JUHN",
-      "2YK831HA9L",
-      "9YGQE1CHVJ",
-      "KG2ET1QNO7",
-      "AJMOHMN44Q",
-      "YBA2XR6N1W",
-      "C1AIG0SFGC"
+      "AE24AMC47F",
+      "2PRWCKSWAC",
+      "MCZVKB6KT0",
+      "GDU27Z9AZO",
+      "8P9TO3IYZM",
+      "PKT5XDPAJP",
+      "ASP5KEZRB4"
     ],
     "lista_materias_asignadas": []
   },
-  "9752327085": {
-    "cedula": "9752327085",
-    "p.a.p.i": 3.96,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "VKNLVH90YC",
-      "W8Y5C3FA77",
-      "LCNSBW449C",
-      "DJMRB5LJRV",
-      "CQCRHWX0SL"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0845264555": {
-    "cedula": "0845264555",
-    "p.a.p.i": 4.42,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "95KVPKBGCF",
-      "5KOIQOV92B",
-      "2YK831HA9L",
-      "YAEARSR9Z3",
-      "1T8CQSVMRM",
-      "69EWVVRIDW"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2413386289": {
-    "cedula": "2413386289",
-    "p.a.p.i": 3.98,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "WFM8IONO3W",
-      "YAEARSR9Z3",
-      "Y58GDQ4HR4",
-      "NHUCWMFR5M",
-      "VQDDILLJWY",
-      "0UF46QYGJ3",
-      "F28H9C4XSO",
-      "36JH8DKZE5",
-      "QSN1UX3Z03"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2076474046": {
-    "cedula": "2076474046",
-    "p.a.p.i": 4.44,
+  "4758257252": {
+    "cedula": "4758257252",
+    "p.a.p.i": 2.03,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 3,
     "lista_preferencias": [
-      "EUX7SDRYNL",
-      "63ABFN4WP2",
-      "F1GYW30E7Z"
+      "LDI4TV54JJ",
+      "6ZENSO6T7S",
+      "IMIZTY7EA0"
     ],
     "lista_materias_asignadas": []
   },
-  "0314612574": {
-    "cedula": "0314612574",
-    "p.a.p.i": 3.45,
+  "6958792587": {
+    "cedula": "6958792587",
+    "p.a.p.i": 4.26,
     "cantidad_materias_inscribir": 5,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "YAEARSR9Z3",
-      "95KVPKBGCF",
-      "TEIBULQQEF",
-      "6WAFGTICVG",
-      "YBA2XR6N1W",
-      "327L4V4ZBV",
-      "0XGDT7CXQB"
+      "O6BDV6UGWF",
+      "8NZUFJXYFS",
+      "X3MYQDDX1J",
+      "IJ86ZOAJ8J",
+      "MCXRU4I85F",
+      "B7BO91LBN2",
+      "DASY9Q1EYV"
     ],
     "lista_materias_asignadas": []
   },
-  "9182075192": {
-    "cedula": "9182075192",
-    "p.a.p.i": 4.16,
+  "5525231849": {
+    "cedula": "5525231849",
+    "p.a.p.i": 4.4,
     "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "LCNSBW449C",
-      "VPDVXTGLUK",
-      "58EPK9ZJS5",
-      "L2EK69TORZ",
-      "FM4AON7L1T",
-      "2YK831HA9L",
-      "YAEARSR9Z3"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9792041133": {
-    "cedula": "9792041133",
-    "p.a.p.i": 3.69,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "W2TQTI9I2D",
-      "327L4V4ZBV",
-      "ZVHUGSZ0UR",
-      "GMJLZA9RDQ"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9959203219": {
-    "cedula": "9959203219",
-    "p.a.p.i": 2.99,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "7RLWKINPYE",
-      "YAEARSR9Z3",
-      "A09OOAAZN3",
-      "5KOIQOV92B",
-      "FQZW7WIZ0C",
-      "QZU28N32JP",
-      "ZTC8OUNQRD"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2924818481": {
-    "cedula": "2924818481",
-    "p.a.p.i": 3.64,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "CQCRHWX0SL",
-      "XNUNLHJDQK",
-      "WFM8IONO3W",
-      "327L4V4ZBV",
-      "Y58GDQ4HR4",
-      "I1M3LIDSF1",
-      "VQDDILLJWY"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5199099459": {
-    "cedula": "5199099459",
-    "p.a.p.i": 3.56,
-    "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 5,
     "lista_preferencias": [
-      "0UF46QYGJ3",
-      "2YK831HA9L",
-      "ZTC8OUNQRD",
-      "NMH7DGZU98",
-      "TYOF72HBCD"
+      "DJZRTSUZ1B",
+      "VIUUQZO9VK",
+      "5YL2GBN9ZU",
+      "4W7D2UVXUB",
+      "JM87E4MB77"
     ],
     "lista_materias_asignadas": []
   },
-  "6194175873": {
-    "cedula": "6194175873",
-    "p.a.p.i": 3.76,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
+  "2199688226": {
+    "cedula": "2199688226",
+    "p.a.p.i": 1.27,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 5,
     "lista_preferencias": [
-      "MND821U69W",
-      "N5PF0B2LMB",
-      "FGRI56PLXW",
-      "NRSDE97AX7",
-      "U98TJL4ADO",
-      "FQZW7WIZ0C",
-      "XNUNLHJDQK"
+      "P6NFFX7A2R",
+      "LJBVUZB9LV",
+      "SSOKOWQHQH",
+      "6ZENSO6T7S",
+      "EUJFKFU9VD"
     ],
     "lista_materias_asignadas": []
   },
-  "8787394364": {
-    "cedula": "8787394364",
-    "p.a.p.i": 4.0,
-    "cantidad_materias_inscribir": 3,
+  "1987956243": {
+    "cedula": "1987956243",
+    "p.a.p.i": 2.56,
+    "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 9,
     "lista_preferencias": [
-      "2YK831HA9L",
-      "LCNSBW449C",
-      "TGYGG0DKRK",
-      "T23JXQA7FG",
-      "EUX7SDRYNL",
-      "0AZ9Z2PWB2",
-      "C1AIG0SFGC",
-      "O60CGYX7DH",
-      "MND821U69W"
+      "WHQ7TEF67W",
+      "LDI4TV54JJ",
+      "YHAM6DJVIF",
+      "S9FCNYATPL",
+      "99G2Z8158A",
+      "VA0WITWX4O",
+      "8P9TO3IYZM",
+      "GDU27Z9AZO",
+      "YLSZ80D0YR"
     ],
     "lista_materias_asignadas": []
   },
-  "9529776938": {
-    "cedula": "9529776938",
-    "p.a.p.i": 3.1,
+  "5613831482": {
+    "cedula": "5613831482",
+    "p.a.p.i": 4.14,
     "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "S14PRCPXP1",
+      "50L95PLS25",
+      "Q6FI4T43YJ",
+      "8P9TO3IYZM",
+      "VA0WITWX4O",
+      "HJPZ6EQPPY",
+      "M88KXJZ8XV"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4405226527": {
+    "cedula": "4405226527",
+    "p.a.p.i": 3.86,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "LJNTE4UVDV",
+      "C4AR9B11VI",
+      "MCZVKB6KT0",
+      "YHAM6DJVIF",
+      "7RKIW9ZYLP",
+      "MLI189HXGI"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3910956809": {
+    "cedula": "3910956809",
+    "p.a.p.i": 3.51,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "S5RAMCB9J9",
+      "DJZRTSUZ1B",
+      "77VZPLJ7VD",
+      "HJPZ6EQPPY",
+      "99G2Z8158A",
+      "JM87E4MB77",
+      "YHAM6DJVIF"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2002772519": {
+    "cedula": "2002772519",
+    "p.a.p.i": 4.31,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "BTCY8GIY8Q",
+      "MCZVKB6KT0",
+      "HJPZ6EQPPY",
+      "OMCFSZRY75",
+      "2PRWCKSWAC",
+      "7RKIW9ZYLP",
+      "5YL2GBN9ZU",
+      "J3PKDED12Q"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "0992524576": {
+    "cedula": "0992524576",
+    "p.a.p.i": 3.53,
+    "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 5,
     "lista_preferencias": [
-      "M0QJUM73OG",
-      "36JH8DKZE5",
-      "HBXWH5QIIR",
-      "002DG0JUHN",
-      "DUKS4AG1KY"
+      "8P9TO3IYZM",
+      "LDI4TV54JJ",
+      "O6BDV6UGWF",
+      "2MUGTHMYZS",
+      "TQ9M22XJXO"
     ],
     "lista_materias_asignadas": []
   },
-  "8857393672": {
-    "cedula": "8857393672",
+  "4710324322": {
+    "cedula": "4710324322",
+    "p.a.p.i": 4.27,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "03VJ74GHP1",
+      "16EQIV2DRS",
+      "HJPZ6EQPPY",
+      "QG1LPWKJSH",
+      "CQPRYEJNTJ",
+      "LBHT30LPFX",
+      "491LPWCPBI",
+      "SSOKOWQHQH"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4495288866": {
+    "cedula": "4495288866",
+    "p.a.p.i": 2.91,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "CQPRYEJNTJ",
+      "IVFWDHP4WY",
+      "OMCFSZRY75",
+      "JM87E4MB77"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4213202905": {
+    "cedula": "4213202905",
+    "p.a.p.i": 3.27,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "7HWKXEUFNS",
+      "MLI189HXGI",
+      "MA8A5M7OR2",
+      "Y4678IEW5A",
+      "SSOKOWQHQH"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2952226344": {
+    "cedula": "2952226344",
+    "p.a.p.i": 4.24,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "2PRWCKSWAC",
+      "Y4678IEW5A",
+      "THW08UXIWP",
+      "LJBVUZB9LV",
+      "58CA3PHNSX",
+      "ASP5KEZRB4",
+      "O6BDV6UGWF"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2559088243": {
+    "cedula": "2559088243",
+    "p.a.p.i": 4.5,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "6ZENSO6T7S",
+      "SSOKOWQHQH",
+      "ASP5KEZRB4",
+      "LJBVUZB9LV"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "5035719481": {
+    "cedula": "5035719481",
     "p.a.p.i": 4.72,
     "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "QZU28N32JP",
-      "MXB9S692D2",
-      "0UF46QYGJ3",
-      "YAEARSR9Z3",
-      "EDUBV23890",
-      "69EWVVRIDW",
-      "FXPO7KR7VM"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6725740082": {
-    "cedula": "6725740082",
-    "p.a.p.i": 3.13,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "ZTC8OUNQRD",
-      "Y58GDQ4HR4",
-      "C1AIG0SFGC",
-      "QVVKGFDSQ6",
-      "CQCRHWX0SL",
-      "YBA2XR6N1W",
-      "TDCYGNMAKY"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0996540130": {
-    "cedula": "0996540130",
-    "p.a.p.i": 3.89,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "ULL15TGKUA",
-      "ZTC8OUNQRD",
-      "HBXWH5QIIR",
-      "EBNSO8H5LR",
-      "FM4AON7L1T",
-      "7RLWKINPYE",
-      "T23JXQA7FG"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "7220835146": {
-    "cedula": "7220835146",
-    "p.a.p.i": 3.04,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "29OSKBOB9A",
-      "FQZW7WIZ0C",
-      "RD66FYTEV3",
-      "3SGJC8HVEC",
-      "PEIL2I0WFP",
-      "4T3JXJEV5B",
-      "VKNLVH90YC"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6118272025": {
-    "cedula": "6118272025",
-    "p.a.p.i": 4.0,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 8,
-    "lista_preferencias": [
-      "DUKS4AG1KY",
-      "NHUCWMFR5M",
-      "YAEARSR9Z3",
-      "70V4I0KB93",
-      "0UF46QYGJ3",
-      "32N8OCZVZU",
-      "LCNSBW449C",
-      "TDCYGNMAKY"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "8489122509": {
-    "cedula": "8489122509",
-    "p.a.p.i": 3.46,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "AS09UKX3O6",
-      "Q40FWFIGDY",
-      "YSLHWWYAGR",
-      "F5HLEVX5NB",
-      "9ZQE0REI59"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6074931946": {
-    "cedula": "6074931946",
-    "p.a.p.i": 4.77,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "W8Y5C3FA77",
-      "ULL15TGKUA",
-      "YAEARSR9Z3",
-      "FXFX2LO394",
-      "YSLHWWYAGR"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5886481816": {
-    "cedula": "5886481816",
-    "p.a.p.i": 4.39,
-    "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 4,
     "lista_preferencias": [
-      "IPHXDLQDY7",
-      "W2TQTI9I2D",
-      "36JH8DKZE5",
-      "0XGDT7CXQB"
+      "IMIZTY7EA0",
+      "YLSZ80D0YR",
+      "B5NGNPM6V2",
+      "QFJK0ZFR3O"
     ],
     "lista_materias_asignadas": []
   },
-  "9680036990": {
-    "cedula": "9680036990",
-    "p.a.p.i": 4.37,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "TYOF72HBCD",
-      "C1AIG0SFGC",
-      "ZTC8OUNQRD",
-      "70V4I0KB93",
-      "IPHXDLQDY7"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2453370957": {
-    "cedula": "2453370957",
-    "p.a.p.i": 4.19,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "327L4V4ZBV",
-      "AJMOHMN44Q",
-      "YBA2XR6N1W",
-      "N5PF0B2LMB",
-      "TDCYGNMAKY",
-      "2YK831HA9L",
-      "TEIBULQQEF"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2933831967": {
-    "cedula": "2933831967",
-    "p.a.p.i": 4.2,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "02MH4TY2EH",
-      "GGKKQ2SKU0",
-      "82P0ORES6F",
-      "AJMOHMN44Q",
-      "CC763PCJHY",
-      "A09OOAAZN3",
-      "EUX7SDRYNL"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "4622538795": {
-    "cedula": "4622538795",
-    "p.a.p.i": 4.11,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 8,
-    "lista_preferencias": [
-      "0XGDT7CXQB",
-      "327L4V4ZBV",
-      "GYAE4GUZFS",
-      "N5PF0B2LMB",
-      "GMJLZA9RDQ",
-      "LCNSBW449C",
-      "84VVVM000P",
-      "1YCCIOC02G"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9360642800": {
-    "cedula": "9360642800",
-    "p.a.p.i": 3.0,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 8,
-    "lista_preferencias": [
-      "Q40FWFIGDY",
-      "AH80S91QFB",
-      "0UF46QYGJ3",
-      "WFM8IONO3W",
-      "I1M3LIDSF1",
-      "QSN1UX3Z03",
-      "KMRB99HQV6",
-      "3SGJC8HVEC"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5505018878": {
-    "cedula": "5505018878",
-    "p.a.p.i": 2.57,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "AS09UKX3O6",
-      "QI1ZSYS06E",
-      "03MLOGAM0P",
-      "ROP5WDOLKL",
-      "AJMOHMN44Q",
-      "M0QJUM73OG"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2035913719": {
-    "cedula": "2035913719",
-    "p.a.p.i": 2.74,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "AH80S91QFB",
-      "EUX7SDRYNL",
-      "99WFAMSNB2",
-      "QSN1UX3Z03",
-      "DUKS4AG1KY",
-      "W2TQTI9I2D",
-      "CQCRHWX0SL",
-      "QI1ZSYS06E",
-      "C35211PEJ1"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9241245138": {
-    "cedula": "9241245138",
-    "p.a.p.i": 4.52,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "32N8OCZVZU",
-      "FGRI56PLXW",
-      "GGKKQ2SKU0",
-      "84VVVM000P",
-      "W2TQTI9I2D"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1032089775": {
-    "cedula": "1032089775",
-    "p.a.p.i": 4.22,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "FQZW7WIZ0C",
-      "WFM8IONO3W",
-      "AS09UKX3O6",
-      "XNUNLHJDQK",
-      "1T8CQSVMRM",
-      "5KOIQOV92B",
-      "32MEUBSY5Z"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0118601675": {
-    "cedula": "0118601675",
-    "p.a.p.i": 4.15,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "32MEUBSY5Z",
-      "326Q6VKC2E",
-      "02MH4TY2EH",
-      "K56G9JSY94",
-      "F28H9C4XSO"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1481516156": {
-    "cedula": "1481516156",
-    "p.a.p.i": 4.0,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "Y58GDQ4HR4",
-      "F5HLEVX5NB",
-      "C1AIG0SFGC",
-      "QIH41401GU",
-      "FXFX2LO394"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9935867288": {
-    "cedula": "9935867288",
-    "p.a.p.i": 3.66,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 3,
-    "lista_preferencias": [
-      "327L4V4ZBV",
-      "M0QJUM73OG",
-      "LCNSBW449C"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "8455488009": {
-    "cedula": "8455488009",
-    "p.a.p.i": 3.72,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "1JPU1XJGS5",
-      "FXFX2LO394",
-      "ZTC8OUNQRD",
-      "0UF46QYGJ3",
-      "QPCE4G4HZ3",
-      "CC763PCJHY"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "4563106977": {
-    "cedula": "4563106977",
-    "p.a.p.i": 4.22,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "MUPD2I5B54",
-      "327L4V4ZBV",
-      "C35211PEJ1",
-      "TDCYGNMAKY"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9563942070": {
-    "cedula": "9563942070",
-    "p.a.p.i": 2.67,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 8,
-    "lista_preferencias": [
-      "VQDDILLJWY",
-      "TYOF72HBCD",
-      "WFM8IONO3W",
-      "DUKS4AG1KY",
-      "LBYCSY4ZLM",
-      "5KOIQOV92B",
-      "0AZ9Z2PWB2",
-      "95KVPKBGCF"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "7303393996": {
-    "cedula": "7303393996",
-    "p.a.p.i": 4.41,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "MXB9S692D2",
-      "DJMRB5LJRV",
-      "N5PF0B2LMB",
-      "K56G9JSY94",
-      "ZVHUGSZ0UR",
-      "2YK831HA9L",
-      "DP0L9Q49SP"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5547214042": {
-    "cedula": "5547214042",
-    "p.a.p.i": 3.68,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "9YGQE1CHVJ",
-      "TDCYGNMAKY",
-      "ROP5WDOLKL",
-      "95KVPKBGCF",
-      "82P0ORES6F",
-      "2YK831HA9L"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0644567018": {
-    "cedula": "0644567018",
-    "p.a.p.i": 2.33,
+  "4409611096": {
+    "cedula": "4409611096",
+    "p.a.p.i": 3.84,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 4,
     "lista_preferencias": [
-      "J5OPRVQB6U",
-      "03MLOGAM0P",
-      "NRSDE97AX7",
-      "GGKKQ2SKU0"
+      "J3PKDED12Q",
+      "5YL2GBN9ZU",
+      "KFE45YJ8Z6",
+      "X3MYQDDX1J"
     ],
     "lista_materias_asignadas": []
   },
-  "1890636343": {
-    "cedula": "1890636343",
-    "p.a.p.i": 4.54,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 3,
-    "lista_preferencias": [
-      "0XGDT7CXQB",
-      "0UF46QYGJ3",
-      "YAEARSR9Z3"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "7098531561": {
-    "cedula": "7098531561",
-    "p.a.p.i": 2.65,
+  "2940397791": {
+    "cedula": "2940397791",
+    "p.a.p.i": 2.84,
     "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "WFM8IONO3W",
-      "ZP6FHMOJF7",
-      "DJMRB5LJRV",
-      "FXFX2LO394",
-      "1T8CQSVMRM",
-      "L2EK69TORZ"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "8686971738": {
-    "cedula": "8686971738",
-    "p.a.p.i": 4.7,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "WFM8IONO3W",
-      "VQDDILLJWY",
-      "002DG0JUHN",
-      "KMRB99HQV6",
-      "U98TJL4ADO",
-      "0UF46QYGJ3",
-      "ROP5WDOLKL"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1545307061": {
-    "cedula": "1545307061",
-    "p.a.p.i": 3.41,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "W2TQTI9I2D",
-      "PEIL2I0WFP",
-      "T23JXQA7FG",
-      "KG2ET1QNO7",
-      "QIH41401GU",
-      "36JH8DKZE5"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1670601123": {
-    "cedula": "1670601123",
-    "p.a.p.i": 4.46,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "FM4AON7L1T",
-      "ZTC8OUNQRD",
-      "6WAFGTICVG",
-      "3TMRSWYWJ7",
-      "36JH8DKZE5",
-      "CQCRHWX0SL",
-      "ULL15TGKUA"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5875203555": {
-    "cedula": "5875203555",
-    "p.a.p.i": 3.88,
-    "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 5,
     "lista_preferencias": [
-      "1YCCIOC02G",
-      "QPCE4G4HZ3",
-      "VKNLVH90YC",
-      "36JH8DKZE5",
-      "MXB9S692D2"
+      "SSOKOWQHQH",
+      "1JXY2Y72IA",
+      "5YL2GBN9ZU",
+      "25ISVL1M0X",
+      "14FXMZPXT9"
     ],
     "lista_materias_asignadas": []
   },
-  "2058754633": {
-    "cedula": "2058754633",
-    "p.a.p.i": 4.1,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "DUKS4AG1KY",
-      "DP0L9Q49SP",
-      "1JPU1XJGS5",
-      "NHUCWMFR5M",
-      "0AZ9Z2PWB2",
-      "YAEARSR9Z3",
-      "DJMRB5LJRV",
-      "TDCYGNMAKY",
-      "J5OPRVQB6U"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1806047838": {
-    "cedula": "1806047838",
-    "p.a.p.i": 3.74,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "IPHXDLQDY7",
-      "QPCE4G4HZ3",
-      "FQZW7WIZ0C",
-      "0XGDT7CXQB",
-      "DJMRB5LJRV",
-      "RD66FYTEV3"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0318160410": {
-    "cedula": "0318160410",
-    "p.a.p.i": 4.44,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "DJMRB5LJRV",
-      "58EPK9ZJS5",
-      "ZTC8OUNQRD",
-      "LCNSBW449C",
-      "03MLOGAM0P"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "4783920034": {
-    "cedula": "4783920034",
-    "p.a.p.i": 4.21,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "Y58GDQ4HR4",
-      "GMJLZA9RDQ",
-      "W2TQTI9I2D",
-      "YSLHWWYAGR",
-      "DP0L9Q49SP",
-      "QVVKGFDSQ6",
-      "2YK831HA9L"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2966702478": {
-    "cedula": "2966702478",
-    "p.a.p.i": 4.83,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 4,
-    "lista_preferencias": [
-      "F5HLEVX5NB",
-      "KMRB99HQV6",
-      "QPCE4G4HZ3",
-      "EUX7SDRYNL"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "9296961780": {
-    "cedula": "9296961780",
-    "p.a.p.i": 3.86,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
-    "lista_preferencias": [
-      "YBA2XR6N1W",
-      "82P0ORES6F",
-      "YSLHWWYAGR",
-      "0XGDT7CXQB",
-      "RJ20FCMYEC",
-      "W2TQTI9I2D",
-      "N5PF0B2LMB"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "8229389556": {
-    "cedula": "8229389556",
-    "p.a.p.i": 3.05,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 8,
-    "lista_preferencias": [
-      "YSLHWWYAGR",
-      "TLQ9ZD2T56",
-      "1T8CQSVMRM",
-      "TYOF72HBCD",
-      "DJMRB5LJRV",
-      "PEIL2I0WFP",
-      "002DG0JUHN",
-      "QPCE4G4HZ3"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6841409615": {
-    "cedula": "6841409615",
-    "p.a.p.i": 4.53,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "32N8OCZVZU",
-      "LCNSBW449C",
-      "IPHXDLQDY7",
-      "DUKS4AG1KY",
-      "DJMRB5LJRV",
-      "F1GYW30E7Z"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5373440033": {
-    "cedula": "5373440033",
-    "p.a.p.i": 3.13,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "002DG0JUHN",
-      "YSLHWWYAGR",
-      "DUKS4AG1KY",
-      "N5PF0B2LMB",
-      "EUX7SDRYNL"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1740336698": {
-    "cedula": "1740336698",
+  "8831670719": {
+    "cedula": "8831670719",
     "p.a.p.i": 4.65,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "EBNSO8H5LR",
-      "WFM8IONO3W",
-      "FQZW7WIZ0C",
-      "ZTC8OUNQRD",
-      "002DG0JUHN"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "4586734247": {
-    "cedula": "4586734247",
-    "p.a.p.i": 3.31,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "29OSKBOB9A",
-      "L2EK69TORZ",
-      "TDCYGNMAKY",
-      "QVVKGFDSQ6",
-      "95KVPKBGCF"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1913724771": {
-    "cedula": "1913724771",
-    "p.a.p.i": 3.89,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "FXPO7KR7VM",
-      "99WFAMSNB2",
-      "RJ20FCMYEC",
-      "MUPD2I5B54",
-      "Y58GDQ4HR4"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "1010238174": {
-    "cedula": "1010238174",
-    "p.a.p.i": 4.47,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 4,
     "lista_preferencias": [
-      "I1M3LIDSF1",
-      "HBXWH5QIIR",
-      "QIH41401GU",
-      "YSLHWWYAGR"
+      "918I20Y7GH",
+      "LXU6YE8L30",
+      "SR1JXIOD6S",
+      "25ISVL1M0X"
     ],
     "lista_materias_asignadas": []
   },
-  "2054296359": {
-    "cedula": "2054296359",
-    "p.a.p.i": 3.59,
+  "4669965586": {
+    "cedula": "4669965586",
+    "p.a.p.i": 3.97,
     "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 9,
+    "cantidad_materias_deseadas": 3,
     "lista_preferencias": [
-      "KG2ET1QNO7",
-      "Q40FWFIGDY",
-      "QIH41401GU",
-      "O60CGYX7DH",
-      "ULL15TGKUA",
-      "0AZ9Z2PWB2",
-      "36JH8DKZE5",
-      "75WZ0K7IS1",
-      "RD66FYTEV3"
+      "B7BO91LBN2",
+      "MY0XWVEXZ8",
+      "YHAM6DJVIF"
     ],
     "lista_materias_asignadas": []
   },
-  "3405402154": {
-    "cedula": "3405402154",
-    "p.a.p.i": 3.38,
+  "1268720117": {
+    "cedula": "1268720117",
+    "p.a.p.i": 3.8,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "MA8A5M7OR2",
+      "OMCFSZRY75",
+      "COM4LZBJZ9",
+      "MCXRU4I85F",
+      "CQPRYEJNTJ",
+      "6KRU5OEYLG"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4904919771": {
+    "cedula": "4904919771",
+    "p.a.p.i": 3.85,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "X3MYQDDX1J",
+      "OMCFSZRY75",
+      "6Y1UUM3NL8",
+      "8NZUFJXYFS",
+      "MA8A5M7OR2"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "7034576038": {
+    "cedula": "7034576038",
+    "p.a.p.i": 3.21,
     "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "J3PKDED12Q",
+      "LDI4TV54JJ",
+      "VA0WITWX4O",
+      "IMIZTY7EA0",
+      "6ZENSO6T7S",
+      "SSOKOWQHQH",
+      "58CA3PHNSX",
+      "2L1US54K7C"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "8639255782": {
+    "cedula": "8639255782",
+    "p.a.p.i": 2.03,
+    "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "O60CGYX7DH",
-      "DP0L9Q49SP",
-      "0AZ9Z2PWB2",
-      "32N8OCZVZU",
-      "AH80S91QFB",
-      "MND821U69W",
-      "TLQ9ZD2T56"
+      "77VZPLJ7VD",
+      "8NZUFJXYFS",
+      "AE24AMC47F",
+      "YHAM6DJVIF",
+      "DMTOCCLLRJ",
+      "4W7D2UVXUB",
+      "PKT5XDPAJP"
     ],
     "lista_materias_asignadas": []
   },
-  "5923371510": {
-    "cedula": "5923371510",
-    "p.a.p.i": 3.5,
+  "2335092107": {
+    "cedula": "2335092107",
+    "p.a.p.i": 4.24,
     "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "V8I07ZP4NQ",
+      "EUJFKFU9VD",
+      "MA8A5M7OR2",
+      "S5RAMCB9J9",
+      "9AGQ0J8M1P"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "8404870678": {
+    "cedula": "8404870678",
+    "p.a.p.i": 3.95,
+    "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 4,
     "lista_preferencias": [
-      "QIH41401GU",
-      "99WFAMSNB2",
-      "82P0ORES6F",
-      "ZVHUGSZ0UR"
+      "TQ9M22XJXO",
+      "B7BO91LBN2",
+      "491LPWCPBI",
+      "MF0QTX9K19"
     ],
     "lista_materias_asignadas": []
   },
-  "8753766413": {
-    "cedula": "8753766413",
-    "p.a.p.i": 2.64,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "ZP6FHMOJF7",
-      "MND821U69W",
-      "YBA2XR6N1W",
-      "FXPO7KR7VM",
-      "0UF46QYGJ3"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "2132394199": {
-    "cedula": "2132394199",
-    "p.a.p.i": 3.63,
-    "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 5,
-    "lista_preferencias": [
-      "MND821U69W",
-      "V6JNYATFAQ",
-      "ROP5WDOLKL",
-      "0AZ9Z2PWB2",
-      "99WFAMSNB2"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0389156593": {
-    "cedula": "0389156593",
+  "0795779508": {
+    "cedula": "0795779508",
     "p.a.p.i": 3.75,
     "cantidad_materias_inscribir": 5,
-    "cantidad_materias_deseadas": 7,
+    "cantidad_materias_deseadas": 6,
     "lista_preferencias": [
-      "36JH8DKZE5",
-      "5KOIQOV92B",
-      "VPDVXTGLUK",
-      "FM4AON7L1T",
-      "99WFAMSNB2",
-      "ZP6FHMOJF7",
-      "PEIL2I0WFP"
+      "JPFF7JA40U",
+      "EEPCZNM6DQ",
+      "BTCY8GIY8Q",
+      "99G2Z8158A",
+      "QFJK0ZFR3O",
+      "KPTJI41X75"
     ],
     "lista_materias_asignadas": []
   },
-  "5705739788": {
-    "cedula": "5705739788",
-    "p.a.p.i": 3.37,
+  "2432100823": {
+    "cedula": "2432100823",
+    "p.a.p.i": 3.04,
     "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 8,
     "lista_preferencias": [
-      "TDCYGNMAKY",
-      "6WAFGTICVG",
-      "1T8CQSVMRM",
-      "F28H9C4XSO",
-      "4T3JXJEV5B",
-      "A09OOAAZN3",
-      "ULL15TGKUA",
-      "NMH7DGZU98"
+      "Q6FI4T43YJ",
+      "25ISVL1M0X",
+      "C4AR9B11VI",
+      "MY0XWVEXZ8",
+      "1H1H9RCQXV",
+      "PKT5XDPAJP",
+      "MAZFTOCXOX",
+      "A2NTPBK6HZ"
     ],
     "lista_materias_asignadas": []
   },
-  "6378104801": {
-    "cedula": "6378104801",
-    "p.a.p.i": 3.45,
+  "5700638774": {
+    "cedula": "5700638774",
+    "p.a.p.i": 3.11,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "VIUUQZO9VK",
+      "256SIV6QW4",
+      "1H1H9RCQXV",
+      "7MICTA94KL",
+      "JBOJQG1142",
+      "03VJ74GHP1"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9157293241": {
+    "cedula": "9157293241",
+    "p.a.p.i": 2.92,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "MCZVKB6KT0",
+      "TQ9M22XJXO",
+      "JBOJQG1142",
+      "KZ8QXZG0G6",
+      "PTUFBJXYNF",
+      "DJZRTSUZ1B"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "5000989440": {
+    "cedula": "5000989440",
+    "p.a.p.i": 4.28,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "QFJK0ZFR3O",
+      "25ISVL1M0X",
+      "491LPWCPBI",
+      "6Y1UUM3NL8"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3771094804": {
+    "cedula": "3771094804",
+    "p.a.p.i": 4.06,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "491LPWCPBI",
+      "YHAM6DJVIF",
+      "7MICTA94KL",
+      "OMCFSZRY75",
+      "SSOKOWQHQH",
+      "2PRWCKSWAC",
+      "MCXRU4I85F"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6165035255": {
+    "cedula": "6165035255",
+    "p.a.p.i": 4.73,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "DJZRTSUZ1B",
+      "77VZPLJ7VD",
+      "R5ZCY0GXFD",
+      "LDI4TV54JJ",
+      "CQZ9P11XNT",
+      "99G2Z8158A",
+      "C4AR9B11VI"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2501829761": {
+    "cedula": "2501829761",
+    "p.a.p.i": 3.1,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "SNISBNGHOI",
+      "WH776Z3TWQ",
+      "YHAM6DJVIF",
+      "AE24AMC47F",
+      "KPTJI41X75",
+      "RF7KWTFAB0",
+      "8NZUFJXYFS",
+      "GDU27Z9AZO"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4308239152": {
+    "cedula": "4308239152",
+    "p.a.p.i": 4.46,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "03VJ74GHP1",
+      "YHAM6DJVIF",
+      "4W7D2UVXUB",
+      "IH00CJCI0Y",
+      "DMTOCCLLRJ"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9757451144": {
+    "cedula": "9757451144",
+    "p.a.p.i": 2.21,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "SSOKOWQHQH",
+      "C4AR9B11VI",
+      "3ZP2G8ARQX",
+      "SR1JXIOD6S",
+      "THW08UXIWP",
+      "S14PRCPXP1",
+      "C6C10RSN43",
+      "918I20Y7GH"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2591656167": {
+    "cedula": "2591656167",
+    "p.a.p.i": 2.63,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "MLI189HXGI",
+      "OMCFSZRY75",
+      "EEPCZNM6DQ",
+      "DABVXJINBV",
+      "VA0WITWX4O",
+      "IJ86ZOAJ8J",
+      "MCZVKB6KT0"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "7724463453": {
+    "cedula": "7724463453",
+    "p.a.p.i": 2.96,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 9,
+    "lista_preferencias": [
+      "2P0HG1Z4UM",
+      "LDI4TV54JJ",
+      "VQJ6SPXBY3",
+      "8NZUFJXYFS",
+      "RR0J32PN6L",
+      "VTFVXNQPMC",
+      "CQZ9P11XNT",
+      "H0ABCESYDG",
+      "WHQ7TEF67W"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9784749157": {
+    "cedula": "9784749157",
+    "p.a.p.i": 2.25,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "RR0J32PN6L",
+      "7RKIW9ZYLP",
+      "KFE45YJ8Z6",
+      "MCZVKB6KT0",
+      "LJBVUZB9LV",
+      "3ZP2G8ARQX",
+      "YHAM6DJVIF"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9382493737": {
+    "cedula": "9382493737",
+    "p.a.p.i": 3.18,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "B7BO91LBN2",
+      "YLSZ80D0YR",
+      "RF7KWTFAB0",
+      "2L1US54K7C",
+      "TQ9M22XJXO",
+      "CQZ9P11XNT",
+      "VA0WITWX4O",
+      "SV1AQASRZV"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4314098120": {
+    "cedula": "4314098120",
+    "p.a.p.i": 4.42,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "8NZUFJXYFS",
+      "EUJFKFU9VD",
+      "Q6FI4T43YJ",
+      "16EQIV2DRS"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "7235137180": {
+    "cedula": "7235137180",
+    "p.a.p.i": 3.04,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "UTX44TR3QL",
+      "2PRWCKSWAC",
+      "V8I07ZP4NQ",
+      "LBHT30LPFX",
+      "QG1LPWKJSH",
+      "C6C10RSN43",
+      "7MICTA94KL"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2210030394": {
+    "cedula": "2210030394",
+    "p.a.p.i": 2.68,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 6,
     "lista_preferencias": [
-      "ZP6FHMOJF7",
-      "75WZ0K7IS1",
-      "Y58GDQ4HR4",
-      "YBA2XR6N1W",
-      "32MEUBSY5Z",
-      "KG2ET1QNO7"
+      "TQ9M22XJXO",
+      "MY0XWVEXZ8",
+      "4W7D2UVXUB",
+      "JBOJQG1142",
+      "P6NFFX7A2R",
+      "YHAM6DJVIF"
     ],
     "lista_materias_asignadas": []
   },
-  "3461847024": {
-    "cedula": "3461847024",
-    "p.a.p.i": 2.32,
-    "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 8,
+  "5737799904": {
+    "cedula": "5737799904",
+    "p.a.p.i": 4.28,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "3SGJC8HVEC",
-      "I1M3LIDSF1",
-      "82P0ORES6F",
-      "TDCYGNMAKY",
-      "0XGDT7CXQB",
-      "VKNLVH90YC",
-      "1T8CQSVMRM",
-      "AH80S91QFB"
+      "4W7D2UVXUB",
+      "8P9TO3IYZM",
+      "KFE45YJ8Z6",
+      "DASY9Q1EYV",
+      "COM4LZBJZ9",
+      "MY0XWVEXZ8",
+      "S9FCNYATPL"
     ],
     "lista_materias_asignadas": []
   },
-  "4647351364": {
-    "cedula": "4647351364",
-    "p.a.p.i": 3.67,
+  "4806810742": {
+    "cedula": "4806810742",
+    "p.a.p.i": 4.08,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "58CA3PHNSX",
+      "P6NFFX7A2R",
+      "KFE45YJ8Z6"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "7755709027": {
+    "cedula": "7755709027",
+    "p.a.p.i": 3.92,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "2L1US54K7C",
+      "HJPZ6EQPPY",
+      "8NZUFJXYFS",
+      "8P9TO3IYZM",
+      "IH00CJCI0Y",
+      "SR1JXIOD6S",
+      "P6NFFX7A2R"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "0369085323": {
+    "cedula": "0369085323",
+    "p.a.p.i": 3.57,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "LJBVUZB9LV",
+      "A2NTPBK6HZ",
+      "THW08UXIWP",
+      "X39LQU4FVB",
+      "77VZPLJ7VD"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "8848124793": {
+    "cedula": "8848124793",
+    "p.a.p.i": 4.53,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 9,
+    "lista_preferencias": [
+      "WHQ7TEF67W",
+      "SV1AQASRZV",
+      "2P0HG1Z4UM",
+      "QFJK0ZFR3O",
+      "256SIV6QW4",
+      "6ZENSO6T7S",
+      "X39LQU4FVB",
+      "MCXRU4I85F",
+      "S5RAMCB9J9"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "0798371930": {
+    "cedula": "0798371930",
+    "p.a.p.i": 2.69,
     "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "834D9F1NYT",
-      "HBXWH5QIIR",
-      "75WZ0K7IS1",
-      "C1AIG0SFGC",
-      "F5HLEVX5NB",
-      "FM4AON7L1T",
-      "DP0L9Q49SP"
+      "C6C10RSN43",
+      "8NZUFJXYFS",
+      "JPFF7JA40U",
+      "PNG8LQVCPF",
+      "HJPZ6EQPPY",
+      "LDI4TV54JJ",
+      "4W7D2UVXUB"
     ],
     "lista_materias_asignadas": []
   },
-  "3161782828": {
-    "cedula": "3161782828",
-    "p.a.p.i": 4.37,
+  "9204022523": {
+    "cedula": "9204022523",
+    "p.a.p.i": 2.67,
     "cantidad_materias_inscribir": 4,
-    "cantidad_materias_deseadas": 7,
+    "cantidad_materias_deseadas": 6,
     "lista_preferencias": [
-      "C1AIG0SFGC",
-      "A09OOAAZN3",
-      "N5PF0B2LMB",
-      "DP0L9Q49SP",
-      "DJMRB5LJRV",
-      "0XGDT7CXQB",
-      "TDCYGNMAKY"
+      "PTUFBJXYNF",
+      "YAYH85RHD6",
+      "50L95PLS25",
+      "GDU27Z9AZO",
+      "S5RAMCB9J9",
+      "MCZVKB6KT0"
     ],
     "lista_materias_asignadas": []
   },
-  "8756624191": {
-    "cedula": "8756624191",
-    "p.a.p.i": 3.74,
+  "7921767372": {
+    "cedula": "7921767372",
+    "p.a.p.i": 3.44,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "FQMD6MUEQ6",
+      "X39LQU4FVB",
+      "JPFF7JA40U",
+      "B5NGNPM6V2",
+      "PKT5XDPAJP",
+      "ZMJVYRQF1O"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3334682051": {
+    "cedula": "3334682051",
+    "p.a.p.i": 4.68,
     "cantidad_materias_inscribir": 3,
     "cantidad_materias_deseadas": 5,
     "lista_preferencias": [
-      "YSLHWWYAGR",
-      "CQCRHWX0SL",
-      "32N8OCZVZU",
-      "DJMRB5LJRV",
-      "63ABFN4WP2"
+      "ASP5KEZRB4",
+      "SSOKOWQHQH",
+      "DJZRTSUZ1B",
+      "LBHT30LPFX",
+      "WHQ7TEF67W"
     ],
     "lista_materias_asignadas": []
   },
-  "7847040240": {
-    "cedula": "7847040240",
-    "p.a.p.i": 4.92,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 6,
-    "lista_preferencias": [
-      "84VVVM000P",
-      "QVVKGFDSQ6",
-      "ULL15TGKUA",
-      "69EWVVRIDW",
-      "VQDDILLJWY",
-      "IHU9VM9J76"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "6083136638": {
-    "cedula": "6083136638",
-    "p.a.p.i": 3.87,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "I1M3LIDSF1",
-      "DP0L9Q49SP",
-      "KG2ET1QNO7",
-      "ZTC8OUNQRD",
-      "2YK831HA9L",
-      "EDUBV23890",
-      "ZVHUGSZ0UR",
-      "EBNSO8H5LR",
-      "1JPU1XJGS5"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "5399286424": {
-    "cedula": "5399286424",
-    "p.a.p.i": 2.85,
-    "cantidad_materias_inscribir": 3,
-    "cantidad_materias_deseadas": 9,
-    "lista_preferencias": [
-      "DUKS4AG1KY",
-      "C35211PEJ1",
-      "YBA2XR6N1W",
-      "63ABFN4WP2",
-      "9YGQE1CHVJ",
-      "ROP5WDOLKL",
-      "MXB9S692D2",
-      "KG2ET1QNO7",
-      "YSLHWWYAGR"
-    ],
-    "lista_materias_asignadas": []
-  },
-  "0181477479": {
-    "cedula": "0181477479",
-    "p.a.p.i": 4.56,
-    "cantidad_materias_inscribir": 3,
+  "4462719963": {
+    "cedula": "4462719963",
+    "p.a.p.i": 4.0,
+    "cantidad_materias_inscribir": 5,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "DUKS4AG1KY",
-      "HBXWH5QIIR",
-      "CQCRHWX0SL",
-      "1JPU1XJGS5",
-      "QIH41401GU",
-      "QI1ZSYS06E",
-      "TYOF72HBCD"
+      "JBOJQG1142",
+      "Q95R115V70",
+      "14FXMZPXT9",
+      "GDU27Z9AZO",
+      "MCXRU4I85F",
+      "IVFWDHP4WY",
+      "PKT5XDPAJP"
     ],
     "lista_materias_asignadas": []
   },
-  "3527126644": {
-    "cedula": "3527126644",
-    "p.a.p.i": 3.94,
-    "cantidad_materias_inscribir": 3,
+  "4213777160": {
+    "cedula": "4213777160",
+    "p.a.p.i": 3.74,
+    "cantidad_materias_inscribir": 5,
     "cantidad_materias_deseadas": 6,
     "lista_preferencias": [
-      "TYOF72HBCD",
-      "KG2ET1QNO7",
-      "ZVHUGSZ0UR",
-      "82P0ORES6F",
-      "EUX7SDRYNL",
-      "K56G9JSY94"
+      "YLSZ80D0YR",
+      "KZ8QXZG0G6",
+      "JBOJQG1142",
+      "50L95PLS25",
+      "Y4678IEW5A",
+      "MCXRU4I85F"
     ],
     "lista_materias_asignadas": []
   },
-  "8199970109": {
-    "cedula": "8199970109",
-    "p.a.p.i": 2.96,
+  "0395230057": {
+    "cedula": "0395230057",
+    "p.a.p.i": 1.68,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "THW08UXIWP",
+      "JM87E4MB77",
+      "CQZ9P11XNT",
+      "6ZENSO6T7S",
+      "J3PKDED12Q"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9142126163": {
+    "cedula": "9142126163",
+    "p.a.p.i": 3.76,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "GDU27Z9AZO",
+      "7MICTA94KL",
+      "Y4678IEW5A"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "1449561817": {
+    "cedula": "1449561817",
+    "p.a.p.i": 3.06,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "H0ABCESYDG",
+      "JBOJQG1142",
+      "JPFF7JA40U",
+      "V8I07ZP4NQ",
+      "9AGQ0J8M1P"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "8367809219": {
+    "cedula": "8367809219",
+    "p.a.p.i": 3.77,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "LDI4TV54JJ",
+      "25ISVL1M0X",
+      "J3PKDED12Q"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3150420647": {
+    "cedula": "3150420647",
+    "p.a.p.i": 3.02,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "2MUGTHMYZS",
+      "VTFVXNQPMC",
+      "IMIZTY7EA0"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2242830711": {
+    "cedula": "2242830711",
+    "p.a.p.i": 4.05,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "SNISBNGHOI",
+      "4W7D2UVXUB",
+      "O6BDV6UGWF",
+      "KZ8QXZG0G6",
+      "491LPWCPBI"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "0200288219": {
+    "cedula": "0200288219",
+    "p.a.p.i": 2.21,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 9,
+    "lista_preferencias": [
+      "JBOJQG1142",
+      "MCZVKB6KT0",
+      "DJZRTSUZ1B",
+      "2PRWCKSWAC",
+      "HJPZ6EQPPY",
+      "QFJK0ZFR3O",
+      "H0ABCESYDG",
+      "JM87E4MB77",
+      "Y4678IEW5A"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2971506137": {
+    "cedula": "2971506137",
+    "p.a.p.i": 4.08,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "2MUGTHMYZS",
+      "VA0WITWX4O",
+      "Q95R115V70"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2410961412": {
+    "cedula": "2410961412",
+    "p.a.p.i": 4.56,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "CQZ9P11XNT",
+      "MLI189HXGI",
+      "TQ9M22XJXO"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3708567235": {
+    "cedula": "3708567235",
+    "p.a.p.i": 4.18,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "DASY9Q1EYV",
+      "80GLSHPQG5",
+      "HJPZ6EQPPY",
+      "MCZVKB6KT0",
+      "14FXMZPXT9"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2437061860": {
+    "cedula": "2437061860",
+    "p.a.p.i": 4.75,
     "cantidad_materias_inscribir": 4,
     "cantidad_materias_deseadas": 7,
     "lista_preferencias": [
-      "002DG0JUHN",
-      "ZTC8OUNQRD",
-      "0UF46QYGJ3",
-      "C1AIG0SFGC",
-      "IGR2G8B2NS",
-      "KG2ET1QNO7",
-      "Q40FWFIGDY"
+      "14FXMZPXT9",
+      "MLI189HXGI",
+      "X3MYQDDX1J",
+      "KFE45YJ8Z6",
+      "C4AR9B11VI",
+      "2PRWCKSWAC",
+      "LJBVUZB9LV"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3867890648": {
+    "cedula": "3867890648",
+    "p.a.p.i": 3.61,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "DABVXJINBV",
+      "X39LQU4FVB",
+      "DJZRTSUZ1B",
+      "OMCFSZRY75",
+      "LJNTE4UVDV"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4668304035": {
+    "cedula": "4668304035",
+    "p.a.p.i": 3.31,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "AE24AMC47F",
+      "9AGQ0J8M1P",
+      "LJNTE4UVDV",
+      "PKT5XDPAJP",
+      "YAYH85RHD6"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6770215151": {
+    "cedula": "6770215151",
+    "p.a.p.i": 2.93,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "SSOKOWQHQH",
+      "HJPZ6EQPPY",
+      "WHQ7TEF67W",
+      "Q95R115V70",
+      "8NZUFJXYFS",
+      "BTCY8GIY8Q",
+      "GTLCAF0DW3",
+      "JPFF7JA40U"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "5226299718": {
+    "cedula": "5226299718",
+    "p.a.p.i": 3.96,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "MCZVKB6KT0",
+      "CQZ9P11XNT",
+      "SSOKOWQHQH",
+      "ZMJVYRQF1O",
+      "4W7D2UVXUB"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "1532426415": {
+    "cedula": "1532426415",
+    "p.a.p.i": 2.99,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "7HWKXEUFNS",
+      "14FXMZPXT9",
+      "256SIV6QW4"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "0269987997": {
+    "cedula": "0269987997",
+    "p.a.p.i": 4.89,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "LXU6YE8L30",
+      "3ZP2G8ARQX",
+      "LJBVUZB9LV",
+      "PQHOH9TMF8",
+      "YHAM6DJVIF",
+      "JM87E4MB77"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3539647880": {
+    "cedula": "3539647880",
+    "p.a.p.i": 4.52,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "H0ABCESYDG",
+      "4W7D2UVXUB",
+      "AE24AMC47F",
+      "V8I07ZP4NQ"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6714550970": {
+    "cedula": "6714550970",
+    "p.a.p.i": 4.82,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "25ISVL1M0X",
+      "Y4678IEW5A",
+      "B7BO91LBN2",
+      "HJPZ6EQPPY",
+      "DJZRTSUZ1B",
+      "KZ8QXZG0G6",
+      "LDI4TV54JJ"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3729659358": {
+    "cedula": "3729659358",
+    "p.a.p.i": 4.13,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "LBHT30LPFX",
+      "MY0XWVEXZ8",
+      "MCZVKB6KT0",
+      "ZMJVYRQF1O",
+      "AE24AMC47F",
+      "HJPZ6EQPPY",
+      "99G2Z8158A"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "3994063596": {
+    "cedula": "3994063596",
+    "p.a.p.i": 4.13,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 4,
+    "lista_preferencias": [
+      "EUJFKFU9VD",
+      "JBOJQG1142",
+      "MY0XWVEXZ8",
+      "UTX44TR3QL"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9777548999": {
+    "cedula": "9777548999",
+    "p.a.p.i": 3.71,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "TQ9M22XJXO",
+      "6KRU5OEYLG",
+      "QG1LPWKJSH",
+      "DASY9Q1EYV",
+      "ZMJVYRQF1O"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6995028907": {
+    "cedula": "6995028907",
+    "p.a.p.i": 3.62,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "MW2ZN4I8H5",
+      "IH00CJCI0Y",
+      "THW08UXIWP",
+      "ZMJVYRQF1O",
+      "LXU6YE8L30",
+      "25ISVL1M0X",
+      "918I20Y7GH",
+      "7RKIW9ZYLP"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9334476139": {
+    "cedula": "9334476139",
+    "p.a.p.i": 2.85,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 8,
+    "lista_preferencias": [
+      "LDI4TV54JJ",
+      "YAYH85RHD6",
+      "LBHT30LPFX",
+      "TQ9M22XJXO",
+      "S5RAMCB9J9",
+      "SSOKOWQHQH",
+      "MCXRU4I85F",
+      "99G2Z8158A"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "0347707950": {
+    "cedula": "0347707950",
+    "p.a.p.i": 3.46,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 3,
+    "lista_preferencias": [
+      "PQHOH9TMF8",
+      "UTX44TR3QL",
+      "VA0WITWX4O"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "1133467912": {
+    "cedula": "1133467912",
+    "p.a.p.i": 4.47,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 9,
+    "lista_preferencias": [
+      "JBOJQG1142",
+      "A2NTPBK6HZ",
+      "6V5QGQR08O",
+      "KFE45YJ8Z6",
+      "RF7KWTFAB0",
+      "S14PRCPXP1",
+      "RR0J32PN6L",
+      "VIUUQZO9VK",
+      "6KRU5OEYLG"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "6358196014": {
+    "cedula": "6358196014",
+    "p.a.p.i": 4.23,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "P6NFFX7A2R",
+      "AE24AMC47F",
+      "8NZUFJXYFS",
+      "A2NTPBK6HZ",
+      "HJPZ6EQPPY"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "4322141310": {
+    "cedula": "4322141310",
+    "p.a.p.i": 3.47,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "C4AR9B11VI",
+      "SSOKOWQHQH",
+      "918I20Y7GH",
+      "RR0J32PN6L",
+      "MLI189HXGI",
+      "MY0XWVEXZ8",
+      "OMCFSZRY75"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "8716967625": {
+    "cedula": "8716967625",
+    "p.a.p.i": 4.5,
+    "cantidad_materias_inscribir": 4,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "COM4LZBJZ9",
+      "JBOJQG1142",
+      "EUJFKFU9VD",
+      "KFE45YJ8Z6",
+      "77VZPLJ7VD",
+      "8NZUFJXYFS",
+      "RR0J32PN6L"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "9382612717": {
+    "cedula": "9382612717",
+    "p.a.p.i": 4.01,
+    "cantidad_materias_inscribir": 3,
+    "cantidad_materias_deseadas": 5,
+    "lista_preferencias": [
+      "DASY9Q1EYV",
+      "LJBVUZB9LV",
+      "80GLSHPQG5",
+      "X39LQU4FVB",
+      "16EQIV2DRS"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "2071217562": {
+    "cedula": "2071217562",
+    "p.a.p.i": 2.67,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 7,
+    "lista_preferencias": [
+      "JM87E4MB77",
+      "Y4678IEW5A",
+      "IMIZTY7EA0",
+      "SSOKOWQHQH",
+      "6Y1UUM3NL8",
+      "1JXY2Y72IA",
+      "YAYH85RHD6"
+    ],
+    "lista_materias_asignadas": []
+  },
+  "8758576950": {
+    "cedula": "8758576950",
+    "p.a.p.i": 3.07,
+    "cantidad_materias_inscribir": 5,
+    "cantidad_materias_deseadas": 6,
+    "lista_preferencias": [
+      "JPFF7JA40U",
+      "FQMD6MUEQ6",
+      "X39LQU4FVB",
+      "VTFVXNQPMC",
+      "03VJ74GHP1",
+      "VA0WITWX4O"
     ],
     "lista_materias_asignadas": []
   }
