@@ -134,47 +134,55 @@ def scenario3(estudiantes, clases, cancel_frac=0.3):
     return sat, use, porcentajes, equidad, eficiencia
 
 
-def simulate(n = 1):
-    results = []
+def simulate(n=1):
+    historial = []
     for i in range(n):
         print(f"Simulación {i+1}/{n}")
         cursos, docentes, aulas, horarios, clases, estudiantes = generate_base_data()
         sat, use, porcentajes, equidad, eficiencia = scenario0(estudiantes, clases)
-        results.append({
-            'satisfaccion': sat,
-            'uso': use,
+        historial.append({
+            'iteración': i+1,
+            'satisfacción': sat,
+            'uso_cupos': use,
             'porcentajes': porcentajes,
             'equidad': equidad,
-            'eficiencia': eficiencia
+            'eficiencia_pareto': eficiencia
         })
 
-    # Calcular promedios y guardar resultados
-    avg_satisfaccion = sum(r['satisfaccion'] for r in results) / n
-    avg_uso = sum(r['uso'] for r in results) / n
+    # Calcular promedios
+    avg_satisfaccion = sum(r['satisfacción'] for r in historial) / n
+    avg_uso         = sum(r['uso_cupos']    for r in historial) / n
     avg_porcentajes = {
-        'primera_opcion': sum(r['porcentajes']['primera_opcion'] for r in results) / n,
-        'segunda_opcion': sum(r['porcentajes']['segunda_opcion'] for r in results) / n,
-        'tercera_opcion': sum(r['porcentajes']['tercera_opcion'] for r in results) / n,
-        'las_tres': sum(r['porcentajes']['las_tres'] for r in results) / n
+        'primera_opcion': sum(r['porcentajes']['primera_opcion'] for r in historial) / n,
+        'segunda_opcion': sum(r['porcentajes']['segunda_opcion'] for r in historial) / n,
+        'tercera_opcion': sum(r['porcentajes']['tercera_opcion'] for r in historial) / n,
+        'las_tres':       sum(r['porcentajes']['las_tres']          for r in historial) / n
     }
-    avg_equidad = sum(r['equidad'] for r in results) / n
-    avg_eficiencia = sum(r['eficiencia'] for r in results) / n
+    avg_equidad     = sum(r['equidad']     for r in historial) / n
+    avg_eficiencia  = sum(r['eficiencia_pareto'] for r in historial) / n
+
+    resumen = {
+        'numero_iteraciones': n,
+        'promedios': {
+            'satisfacción_media': avg_satisfaccion,
+            'uso_cupos':          avg_uso,
+            'porcentajes':        avg_porcentajes,
+            'equidad':            avg_equidad,
+            'eficiencia_pareto':  avg_eficiencia
+        },
+        'iteraciones': historial
+    }
+    print("Resumen de la simulación:")
+    print("Satisfacción media:", avg_satisfaccion)
+    print("Uso de cupos:", avg_uso)
+    print("Porcentaje de estudiantes que obtuvieron:")
+    print(" - Primera opción:", avg_porcentajes['primera_opcion'])
+    print(" - Segunda opción:", avg_porcentajes['segunda_opcion'])
+    print(" - Tercera opción:", avg_porcentajes['tercera_opcion'])
+    print(" - Las tres primeras opciones:", avg_porcentajes['las_tres'])
+    print("Equidad:", avg_equidad)
+    print("Eficiencia de Pareto:", avg_eficiencia)
     
-    # Imprimir resultados   
-    print("Resultados promedio de la simulación:")
-    print(f" - Satisfacción promedio: {avg_satisfaccion:.2%}")
-    print(f" - Uso promedio de cupos: {avg_uso:.2%}")
-    print(f" - Porcentaje de estudiantes que obtuvieron:")
-    print(f"   - Primera opción: {avg_porcentajes['primera_opcion']:.2%}")
-    print(f"   - Segunda opción: {avg_porcentajes['segunda_opcion']:.2%}")
-    print(f"   - Tercera opción: {avg_porcentajes['tercera_opcion']:.2%}")
-    print(f"   - Las tres primeras opciones: {avg_porcentajes['las_tres']:.2%}")
-    print(f" - Equidad promedio: {avg_equidad:.2%}")
-    print(f" - Eficiencia de pareto promedio: {avg_eficiencia:.2%}")
-    
-def main():
-    simulate(10) 
-    
-    
-if __name__ == '__main__':
-    main()
+    JSON_man.dict2json(resumen, data_path('simulation_results.json'))
+    print("Resultados de la simulación guardados en:", data_path('simulation_results.json'))
+    return resumen

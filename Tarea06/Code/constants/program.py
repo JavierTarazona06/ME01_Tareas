@@ -29,3 +29,7 @@ ESTUDIANTES_CT = {
     "materias_a_inscribir": 5,
     "materias_deseadas": 9
 }
+
+CONSUMO_CT = 10000
+
+ITERACIONES_CT = 10

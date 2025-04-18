@@ -1,7 +1,7 @@
 import copy
 import random
 from typing import Any, Dict, Tuple
-
+from constants.program import CONSUMO_CT
 
 class UtilsStats:
     @staticmethod
@@ -69,7 +69,7 @@ class PBS:
 
     def run_algo(
             self, delta_t: float = 0.1,
-            min_delta: float = 1e-6, max_iter: int = 10000
+            min_delta: float = 1e-6, max_iter: int = CONSUMO_CT
     ) -> dict[tuple[str, str], int]:
 
         iteracion = 0

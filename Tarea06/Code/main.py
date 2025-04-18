@@ -2,6 +2,9 @@
 from test import *
 from tools.FileManager import JSON_man
 from codeStats.metrics import imprimir_metricas
+from test import create_and_save_clases, create_estudiantes
+from testPS import simulate
+from constants.program import ITERACIONES_CT
 
 def main():
     print("!")
@@ -24,7 +27,6 @@ def main():
     create_estudiantes(docentes, cursos, clases)
     estudiantes = JSON_man.json2dict("data/estudiantes.json")
 
-    imprimir_metricas(estudiantes)
-
+    simulate(ITERACIONES_CT)
 
 main()
