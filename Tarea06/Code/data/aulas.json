@@ -1,1202 +1,2402 @@
 {
-  "771677": {
-    "edificio": "771",
-    "aula_id": "677",
-    "IDs": "771677",
-    "programado": false
-  },
-  "628935": {
-    "edificio": "628",
-    "aula_id": "935",
-    "IDs": "628935",
-    "programado": false
-  },
-  "942116": {
-    "edificio": "942",
-    "aula_id": "116",
-    "IDs": "942116",
-    "programado": false
-  },
-  "989629": {
-    "edificio": "989",
-    "aula_id": "629",
-    "IDs": "989629",
-    "programado": false
-  },
-  "519461": {
-    "edificio": "519",
-    "aula_id": "461",
-    "IDs": "519461",
-    "programado": false
-  },
-  "915754": {
-    "edificio": "915",
-    "aula_id": "754",
-    "IDs": "915754",
-    "programado": false
-  },
-  "475944": {
-    "edificio": "475",
-    "aula_id": "944",
-    "IDs": "475944",
-    "programado": false
-  },
-  "725698": {
-    "edificio": "725",
-    "aula_id": "698",
-    "IDs": "725698",
-    "programado": false
-  },
-  "608211": {
-    "edificio": "608",
-    "aula_id": "211",
-    "IDs": "608211",
-    "programado": false
-  },
-  "185318": {
-    "edificio": "185",
-    "aula_id": "318",
-    "IDs": "185318",
-    "programado": false
-  },
-  "323636": {
-    "edificio": "323",
-    "aula_id": "636",
-    "IDs": "323636",
-    "programado": false
-  },
-  "263852": {
-    "edificio": "263",
-    "aula_id": "852",
-    "IDs": "263852",
-    "programado": false
-  },
-  "988002": {
-    "edificio": "988",
-    "aula_id": "002",
-    "IDs": "988002",
-    "programado": false
-  },
-  "222585": {
-    "edificio": "222",
-    "aula_id": "585",
-    "IDs": "222585",
-    "programado": false
-  },
-  "049957": {
-    "edificio": "049",
-    "aula_id": "957",
-    "IDs": "049957",
-    "programado": false
-  },
-  "076433": {
-    "edificio": "076",
-    "aula_id": "433",
-    "IDs": "076433",
-    "programado": false
-  },
-  "460780": {
-    "edificio": "460",
-    "aula_id": "780",
-    "IDs": "460780",
-    "programado": false
-  },
-  "422018": {
-    "edificio": "422",
-    "aula_id": "018",
-    "IDs": "422018",
-    "programado": false
-  },
-  "142134": {
-    "edificio": "142",
-    "aula_id": "134",
-    "IDs": "142134",
-    "programado": false
-  },
-  "745675": {
-    "edificio": "745",
-    "aula_id": "675",
-    "IDs": "745675",
-    "programado": false
-  },
-  "406808": {
-    "edificio": "406",
-    "aula_id": "808",
-    "IDs": "406808",
-    "programado": false
-  },
-  "351009": {
-    "edificio": "351",
-    "aula_id": "009",
-    "IDs": "351009",
-    "programado": false
-  },
-  "337289": {
-    "edificio": "337",
-    "aula_id": "289",
-    "IDs": "337289",
-    "programado": false
-  },
-  "947389": {
-    "edificio": "947",
-    "aula_id": "389",
-    "IDs": "947389",
-    "programado": false
-  },
-  "575183": {
-    "edificio": "575",
-    "aula_id": "183",
-    "IDs": "575183",
-    "programado": false
-  },
-  "343468": {
-    "edificio": "343",
-    "aula_id": "468",
-    "IDs": "343468",
-    "programado": false
-  },
-  "158317": {
-    "edificio": "158",
-    "aula_id": "317",
-    "IDs": "158317",
-    "programado": false
-  },
-  "147532": {
-    "edificio": "147",
-    "aula_id": "532",
-    "IDs": "147532",
-    "programado": false
-  },
-  "893649": {
-    "edificio": "893",
-    "aula_id": "649",
-    "IDs": "893649",
-    "programado": false
-  },
-  "646182": {
-    "edificio": "646",
-    "aula_id": "182",
-    "IDs": "646182",
-    "programado": false
-  },
-  "327015": {
-    "edificio": "327",
-    "aula_id": "015",
-    "IDs": "327015",
-    "programado": false
-  },
-  "780336": {
-    "edificio": "780",
-    "aula_id": "336",
-    "IDs": "780336",
-    "programado": false
-  },
-  "590758": {
-    "edificio": "590",
-    "aula_id": "758",
-    "IDs": "590758",
-    "programado": false
-  },
-  "986256": {
-    "edificio": "986",
-    "aula_id": "256",
-    "IDs": "986256",
-    "programado": false
-  },
-  "437821": {
-    "edificio": "437",
-    "aula_id": "821",
-    "IDs": "437821",
-    "programado": false
-  },
-  "013961": {
-    "edificio": "013",
-    "aula_id": "961",
-    "IDs": "013961",
-    "programado": false
-  },
-  "131835": {
-    "edificio": "131",
-    "aula_id": "835",
-    "IDs": "131835",
-    "programado": false
-  },
-  "545925": {
-    "edificio": "545",
-    "aula_id": "925",
-    "IDs": "545925",
-    "programado": false
-  },
-  "138654": {
-    "edificio": "138",
-    "aula_id": "654",
-    "IDs": "138654",
-    "programado": false
-  },
-  "925208": {
-    "edificio": "925",
-    "aula_id": "208",
-    "IDs": "925208",
-    "programado": false
-  },
-  "993029": {
-    "edificio": "993",
-    "aula_id": "029",
-    "IDs": "993029",
-    "programado": false
-  },
-  "262795": {
-    "edificio": "262",
-    "aula_id": "795",
-    "IDs": "262795",
-    "programado": false
-  },
-  "923190": {
-    "edificio": "923",
-    "aula_id": "190",
-    "IDs": "923190",
-    "programado": false
-  },
-  "968113": {
-    "edificio": "968",
-    "aula_id": "113",
-    "IDs": "968113",
-    "programado": false
-  },
-  "108907": {
-    "edificio": "108",
-    "aula_id": "907",
-    "IDs": "108907",
-    "programado": false
-  },
-  "555904": {
-    "edificio": "555",
-    "aula_id": "904",
-    "IDs": "555904",
-    "programado": false
-  },
-  "991444": {
-    "edificio": "991",
-    "aula_id": "444",
-    "IDs": "991444",
-    "programado": false
-  },
-  "541572": {
-    "edificio": "541",
-    "aula_id": "572",
-    "IDs": "541572",
-    "programado": false
-  },
-  "252691": {
-    "edificio": "252",
-    "aula_id": "691",
-    "IDs": "252691",
-    "programado": false
-  },
-  "846678": {
-    "edificio": "846",
-    "aula_id": "678",
-    "IDs": "846678",
-    "programado": false
-  },
-  "622810": {
-    "edificio": "622",
-    "aula_id": "810",
-    "IDs": "622810",
-    "programado": false
-  },
-  "496995": {
-    "edificio": "496",
-    "aula_id": "995",
-    "IDs": "496995",
-    "programado": false
-  },
-  "428749": {
-    "edificio": "428",
-    "aula_id": "749",
-    "IDs": "428749",
-    "programado": false
-  },
-  "636145": {
-    "edificio": "636",
-    "aula_id": "145",
-    "IDs": "636145",
-    "programado": false
-  },
-  "257832": {
-    "edificio": "257",
-    "aula_id": "832",
-    "IDs": "257832",
-    "programado": false
-  },
-  "143946": {
-    "edificio": "143",
-    "aula_id": "946",
-    "IDs": "143946",
-    "programado": false
-  },
-  "789249": {
-    "edificio": "789",
-    "aula_id": "249",
-    "IDs": "789249",
-    "programado": false
-  },
-  "810997": {
-    "edificio": "810",
-    "aula_id": "997",
-    "IDs": "810997",
-    "programado": false
-  },
-  "065032": {
-    "edificio": "065",
-    "aula_id": "032",
-    "IDs": "065032",
-    "programado": false
-  },
-  "617106": {
-    "edificio": "617",
-    "aula_id": "106",
-    "IDs": "617106",
-    "programado": false
-  },
-  "840131": {
-    "edificio": "840",
-    "aula_id": "131",
-    "IDs": "840131",
-    "programado": false
-  },
-  "307781": {
-    "edificio": "307",
-    "aula_id": "781",
-    "IDs": "307781",
-    "programado": false
-  },
-  "347606": {
-    "edificio": "347",
-    "aula_id": "606",
-    "IDs": "347606",
-    "programado": false
-  },
-  "368961": {
-    "edificio": "368",
-    "aula_id": "961",
-    "IDs": "368961",
-    "programado": false
-  },
-  "388942": {
-    "edificio": "388",
-    "aula_id": "942",
-    "IDs": "388942",
-    "programado": false
-  },
-  "133095": {
-    "edificio": "133",
-    "aula_id": "095",
-    "IDs": "133095",
-    "programado": false
-  },
-  "632058": {
-    "edificio": "632",
-    "aula_id": "058",
-    "IDs": "632058",
-    "programado": false
-  },
-  "629725": {
-    "edificio": "629",
-    "aula_id": "725",
-    "IDs": "629725",
-    "programado": false
-  },
-  "571099": {
-    "edificio": "571",
-    "aula_id": "099",
-    "IDs": "571099",
-    "programado": false
-  },
-  "976625": {
-    "edificio": "976",
-    "aula_id": "625",
-    "IDs": "976625",
-    "programado": false
-  },
-  "142443": {
-    "edificio": "142",
-    "aula_id": "443",
-    "IDs": "142443",
-    "programado": false
-  },
-  "372157": {
-    "edificio": "372",
-    "aula_id": "157",
-    "IDs": "372157",
-    "programado": false
-  },
-  "837502": {
-    "edificio": "837",
-    "aula_id": "502",
-    "IDs": "837502",
-    "programado": false
-  },
-  "381896": {
-    "edificio": "381",
-    "aula_id": "896",
-    "IDs": "381896",
-    "programado": false
-  },
-  "077471": {
-    "edificio": "077",
-    "aula_id": "471",
-    "IDs": "077471",
-    "programado": false
-  },
-  "760948": {
-    "edificio": "760",
-    "aula_id": "948",
-    "IDs": "760948",
-    "programado": false
-  },
-  "956005": {
-    "edificio": "956",
-    "aula_id": "005",
-    "IDs": "956005",
-    "programado": false
-  },
-  "895124": {
-    "edificio": "895",
-    "aula_id": "124",
-    "IDs": "895124",
-    "programado": false
-  },
-  "752184": {
-    "edificio": "752",
-    "aula_id": "184",
-    "IDs": "752184",
-    "programado": false
-  },
-  "510659": {
-    "edificio": "510",
-    "aula_id": "659",
-    "IDs": "510659",
-    "programado": false
-  },
-  "946515": {
-    "edificio": "946",
-    "aula_id": "515",
-    "IDs": "946515",
-    "programado": false
-  },
-  "744793": {
-    "edificio": "744",
-    "aula_id": "793",
-    "IDs": "744793",
-    "programado": false
-  },
-  "634385": {
-    "edificio": "634",
-    "aula_id": "385",
-    "IDs": "634385",
-    "programado": false
-  },
-  "958581": {
-    "edificio": "958",
-    "aula_id": "581",
-    "IDs": "958581",
-    "programado": false
-  },
-  "174196": {
-    "edificio": "174",
-    "aula_id": "196",
-    "IDs": "174196",
-    "programado": false
-  },
-  "594641": {
-    "edificio": "594",
-    "aula_id": "641",
-    "IDs": "594641",
-    "programado": false
-  },
-  "968401": {
-    "edificio": "968",
-    "aula_id": "401",
-    "IDs": "968401",
-    "programado": false
-  },
-  "662834": {
-    "edificio": "662",
-    "aula_id": "834",
-    "IDs": "662834",
-    "programado": false
-  },
-  "028830": {
-    "edificio": "028",
-    "aula_id": "830",
-    "IDs": "028830",
-    "programado": false
-  },
-  "100017": {
-    "edificio": "100",
-    "aula_id": "017",
-    "IDs": "100017",
-    "programado": false
-  },
-  "901417": {
-    "edificio": "901",
-    "aula_id": "417",
-    "IDs": "901417",
-    "programado": false
-  },
-  "985498": {
-    "edificio": "985",
-    "aula_id": "498",
-    "IDs": "985498",
-    "programado": false
-  },
-  "757725": {
-    "edificio": "757",
-    "aula_id": "725",
-    "IDs": "757725",
-    "programado": false
-  },
-  "484432": {
-    "edificio": "484",
-    "aula_id": "432",
-    "IDs": "484432",
-    "programado": false
-  },
-  "597796": {
-    "edificio": "597",
-    "aula_id": "796",
-    "IDs": "597796",
-    "programado": false
-  },
-  "688336": {
-    "edificio": "688",
-    "aula_id": "336",
-    "IDs": "688336",
-    "programado": false
-  },
-  "735268": {
-    "edificio": "735",
-    "aula_id": "268",
-    "IDs": "735268",
-    "programado": false
-  },
-  "585402": {
-    "edificio": "585",
-    "aula_id": "402",
-    "IDs": "585402",
-    "programado": false
-  },
-  "667616": {
-    "edificio": "667",
-    "aula_id": "616",
-    "IDs": "667616",
-    "programado": false
-  },
-  "556290": {
-    "edificio": "556",
-    "aula_id": "290",
-    "IDs": "556290",
-    "programado": false
-  },
-  "683477": {
-    "edificio": "683",
-    "aula_id": "477",
-    "IDs": "683477",
-    "programado": false
-  },
-  "381307": {
-    "edificio": "381",
-    "aula_id": "307",
-    "IDs": "381307",
-    "programado": false
-  },
-  "503386": {
-    "edificio": "503",
-    "aula_id": "386",
-    "IDs": "503386",
-    "programado": false
-  },
-  "056602": {
-    "edificio": "056",
-    "aula_id": "602",
-    "IDs": "056602",
-    "programado": false
-  },
-  "925146": {
-    "edificio": "925",
-    "aula_id": "146",
-    "IDs": "925146",
-    "programado": false
-  },
-  "902592": {
-    "edificio": "902",
-    "aula_id": "592",
-    "IDs": "902592",
-    "programado": false
-  },
-  "132563": {
-    "edificio": "132",
-    "aula_id": "563",
-    "IDs": "132563",
-    "programado": false
-  },
-  "888530": {
-    "edificio": "888",
-    "aula_id": "530",
-    "IDs": "888530",
-    "programado": false
-  },
-  "020254": {
-    "edificio": "020",
-    "aula_id": "254",
-    "IDs": "020254",
-    "programado": false
-  },
-  "645938": {
-    "edificio": "645",
-    "aula_id": "938",
-    "IDs": "645938",
-    "programado": false
-  },
-  "504435": {
-    "edificio": "504",
-    "aula_id": "435",
-    "IDs": "504435",
-    "programado": false
-  },
-  "295467": {
-    "edificio": "295",
-    "aula_id": "467",
-    "IDs": "295467",
-    "programado": false
-  },
-  "327664": {
-    "edificio": "327",
-    "aula_id": "664",
-    "IDs": "327664",
-    "programado": false
-  },
-  "972383": {
-    "edificio": "972",
-    "aula_id": "383",
-    "IDs": "972383",
-    "programado": false
-  },
-  "836316": {
-    "edificio": "836",
-    "aula_id": "316",
-    "IDs": "836316",
-    "programado": false
-  },
-  "509512": {
-    "edificio": "509",
-    "aula_id": "512",
-    "IDs": "509512",
-    "programado": false
-  },
-  "269226": {
-    "edificio": "269",
-    "aula_id": "226",
-    "IDs": "269226",
-    "programado": false
-  },
-  "487998": {
-    "edificio": "487",
-    "aula_id": "998",
-    "IDs": "487998",
-    "programado": false
-  },
-  "802697": {
-    "edificio": "802",
-    "aula_id": "697",
-    "IDs": "802697",
-    "programado": false
-  },
-  "164086": {
-    "edificio": "164",
-    "aula_id": "086",
-    "IDs": "164086",
-    "programado": false
-  },
-  "035246": {
-    "edificio": "035",
-    "aula_id": "246",
-    "IDs": "035246",
-    "programado": false
-  },
-  "927414": {
-    "edificio": "927",
-    "aula_id": "414",
-    "IDs": "927414",
-    "programado": false
-  },
-  "336421": {
-    "edificio": "336",
-    "aula_id": "421",
-    "IDs": "336421",
-    "programado": false
-  },
-  "264288": {
-    "edificio": "264",
-    "aula_id": "288",
-    "IDs": "264288",
-    "programado": false
-  },
-  "747625": {
-    "edificio": "747",
-    "aula_id": "625",
-    "IDs": "747625",
-    "programado": false
-  },
-  "927853": {
-    "edificio": "927",
-    "aula_id": "853",
-    "IDs": "927853",
-    "programado": false
-  },
-  "872974": {
-    "edificio": "872",
-    "aula_id": "974",
-    "IDs": "872974",
-    "programado": false
-  },
-  "620883": {
-    "edificio": "620",
-    "aula_id": "883",
-    "IDs": "620883",
-    "programado": false
-  },
-  "669601": {
-    "edificio": "669",
-    "aula_id": "601",
-    "IDs": "669601",
-    "programado": false
-  },
-  "182150": {
-    "edificio": "182",
-    "aula_id": "150",
-    "IDs": "182150",
-    "programado": false
-  },
-  "362309": {
-    "edificio": "362",
-    "aula_id": "309",
-    "IDs": "362309",
-    "programado": false
-  },
-  "650582": {
-    "edificio": "650",
-    "aula_id": "582",
-    "IDs": "650582",
-    "programado": false
-  },
-  "503180": {
-    "edificio": "503",
-    "aula_id": "180",
-    "IDs": "503180",
-    "programado": false
-  },
-  "368424": {
-    "edificio": "368",
-    "aula_id": "424",
-    "IDs": "368424",
-    "programado": false
-  },
-  "818707": {
-    "edificio": "818",
-    "aula_id": "707",
-    "IDs": "818707",
-    "programado": false
-  },
-  "502887": {
-    "edificio": "502",
-    "aula_id": "887",
-    "IDs": "502887",
-    "programado": false
-  },
-  "522700": {
-    "edificio": "522",
-    "aula_id": "700",
-    "IDs": "522700",
-    "programado": false
-  },
-  "635274": {
-    "edificio": "635",
-    "aula_id": "274",
-    "IDs": "635274",
-    "programado": false
-  },
-  "842399": {
-    "edificio": "842",
-    "aula_id": "399",
-    "IDs": "842399",
-    "programado": false
-  },
-  "283981": {
-    "edificio": "283",
-    "aula_id": "981",
-    "IDs": "283981",
-    "programado": false
-  },
-  "018764": {
-    "edificio": "018",
-    "aula_id": "764",
-    "IDs": "018764",
-    "programado": false
-  },
-  "084056": {
-    "edificio": "084",
-    "aula_id": "056",
-    "IDs": "084056",
-    "programado": false
-  },
-  "766742": {
-    "edificio": "766",
-    "aula_id": "742",
-    "IDs": "766742",
-    "programado": false
-  },
-  "794270": {
-    "edificio": "794",
-    "aula_id": "270",
-    "IDs": "794270",
-    "programado": false
-  },
-  "763618": {
-    "edificio": "763",
-    "aula_id": "618",
-    "IDs": "763618",
-    "programado": false
-  },
-  "508655": {
-    "edificio": "508",
-    "aula_id": "655",
-    "IDs": "508655",
-    "programado": false
-  },
-  "264985": {
-    "edificio": "264",
-    "aula_id": "985",
-    "IDs": "264985",
-    "programado": false
-  },
-  "474608": {
-    "edificio": "474",
-    "aula_id": "608",
-    "IDs": "474608",
-    "programado": false
-  },
-  "868515": {
-    "edificio": "868",
-    "aula_id": "515",
-    "IDs": "868515",
-    "programado": false
-  },
-  "459277": {
-    "edificio": "459",
-    "aula_id": "277",
-    "IDs": "459277",
-    "programado": false
-  },
-  "677242": {
-    "edificio": "677",
-    "aula_id": "242",
-    "IDs": "677242",
-    "programado": false
-  },
-  "126077": {
-    "edificio": "126",
-    "aula_id": "077",
-    "IDs": "126077",
-    "programado": false
-  },
-  "849476": {
-    "edificio": "849",
-    "aula_id": "476",
-    "IDs": "849476",
-    "programado": false
-  },
-  "805605": {
-    "edificio": "805",
-    "aula_id": "605",
-    "IDs": "805605",
-    "programado": false
-  },
-  "768496": {
-    "edificio": "768",
-    "aula_id": "496",
-    "IDs": "768496",
-    "programado": false
-  },
-  "518222": {
-    "edificio": "518",
-    "aula_id": "222",
-    "IDs": "518222",
-    "programado": false
-  },
-  "802302": {
-    "edificio": "802",
-    "aula_id": "302",
-    "IDs": "802302",
-    "programado": false
-  },
-  "499857": {
-    "edificio": "499",
-    "aula_id": "857",
-    "IDs": "499857",
-    "programado": false
-  },
-  "613876": {
-    "edificio": "613",
-    "aula_id": "876",
-    "IDs": "613876",
-    "programado": false
-  },
-  "803106": {
-    "edificio": "803",
-    "aula_id": "106",
-    "IDs": "803106",
-    "programado": false
-  },
-  "604687": {
-    "edificio": "604",
-    "aula_id": "687",
-    "IDs": "604687",
-    "programado": false
-  },
-  "286676": {
-    "edificio": "286",
-    "aula_id": "676",
-    "IDs": "286676",
-    "programado": false
-  },
-  "965473": {
-    "edificio": "965",
-    "aula_id": "473",
-    "IDs": "965473",
-    "programado": false
-  },
-  "471754": {
-    "edificio": "471",
-    "aula_id": "754",
-    "IDs": "471754",
-    "programado": false
-  },
-  "574471": {
-    "edificio": "574",
-    "aula_id": "471",
-    "IDs": "574471",
-    "programado": false
-  },
-  "078492": {
-    "edificio": "078",
-    "aula_id": "492",
-    "IDs": "078492",
-    "programado": false
-  },
-  "604819": {
-    "edificio": "604",
-    "aula_id": "819",
-    "IDs": "604819",
-    "programado": false
-  },
-  "979575": {
-    "edificio": "979",
-    "aula_id": "575",
-    "IDs": "979575",
-    "programado": false
-  },
-  "559308": {
-    "edificio": "559",
-    "aula_id": "308",
-    "IDs": "559308",
-    "programado": false
-  },
-  "037268": {
-    "edificio": "037",
-    "aula_id": "268",
-    "IDs": "037268",
-    "programado": false
-  },
-  "568693": {
-    "edificio": "568",
-    "aula_id": "693",
-    "IDs": "568693",
-    "programado": false
-  },
-  "275783": {
-    "edificio": "275",
-    "aula_id": "783",
-    "IDs": "275783",
-    "programado": false
-  },
-  "243684": {
-    "edificio": "243",
-    "aula_id": "684",
-    "IDs": "243684",
-    "programado": false
-  },
-  "756383": {
-    "edificio": "756",
-    "aula_id": "383",
-    "IDs": "756383",
-    "programado": false
-  },
-  "167376": {
-    "edificio": "167",
-    "aula_id": "376",
-    "IDs": "167376",
-    "programado": false
-  },
-  "558994": {
-    "edificio": "558",
-    "aula_id": "994",
-    "IDs": "558994",
-    "programado": false
-  },
-  "268102": {
-    "edificio": "268",
-    "aula_id": "102",
-    "IDs": "268102",
-    "programado": false
-  },
-  "439852": {
+  "439906": {
     "edificio": "439",
-    "aula_id": "852",
-    "IDs": "439852",
+    "aula_id": "906",
+    "IDs": "439906",
     "programado": false
   },
-  "547978": {
-    "edificio": "547",
-    "aula_id": "978",
-    "IDs": "547978",
+  "610420": {
+    "edificio": "610",
+    "aula_id": "420",
+    "IDs": "610420",
     "programado": false
   },
-  "851661": {
+  "620051": {
+    "edificio": "620",
+    "aula_id": "051",
+    "IDs": "620051",
+    "programado": false
+  },
+  "207437": {
+    "edificio": "207",
+    "aula_id": "437",
+    "IDs": "207437",
+    "programado": false
+  },
+  "473627": {
+    "edificio": "473",
+    "aula_id": "627",
+    "IDs": "473627",
+    "programado": false
+  },
+  "630184": {
+    "edificio": "630",
+    "aula_id": "184",
+    "IDs": "630184",
+    "programado": false
+  },
+  "776172": {
+    "edificio": "776",
+    "aula_id": "172",
+    "IDs": "776172",
+    "programado": false
+  },
+  "367447": {
+    "edificio": "367",
+    "aula_id": "447",
+    "IDs": "367447",
+    "programado": false
+  },
+  "772280": {
+    "edificio": "772",
+    "aula_id": "280",
+    "IDs": "772280",
+    "programado": false
+  },
+  "879429": {
+    "edificio": "879",
+    "aula_id": "429",
+    "IDs": "879429",
+    "programado": false
+  },
+  "244569": {
+    "edificio": "244",
+    "aula_id": "569",
+    "IDs": "244569",
+    "programado": false
+  },
+  "563387": {
+    "edificio": "563",
+    "aula_id": "387",
+    "IDs": "563387",
+    "programado": false
+  },
+  "838063": {
+    "edificio": "838",
+    "aula_id": "063",
+    "IDs": "838063",
+    "programado": false
+  },
+  "535077": {
+    "edificio": "535",
+    "aula_id": "077",
+    "IDs": "535077",
+    "programado": false
+  },
+  "530179": {
+    "edificio": "530",
+    "aula_id": "179",
+    "IDs": "530179",
+    "programado": false
+  },
+  "548375": {
+    "edificio": "548",
+    "aula_id": "375",
+    "IDs": "548375",
+    "programado": false
+  },
+  "316835": {
+    "edificio": "316",
+    "aula_id": "835",
+    "IDs": "316835",
+    "programado": false
+  },
+  "159642": {
+    "edificio": "159",
+    "aula_id": "642",
+    "IDs": "159642",
+    "programado": false
+  },
+  "817511": {
+    "edificio": "817",
+    "aula_id": "511",
+    "IDs": "817511",
+    "programado": false
+  },
+  "907752": {
+    "edificio": "907",
+    "aula_id": "752",
+    "IDs": "907752",
+    "programado": false
+  },
+  "748835": {
+    "edificio": "748",
+    "aula_id": "835",
+    "IDs": "748835",
+    "programado": false
+  },
+  "851113": {
     "edificio": "851",
-    "aula_id": "661",
-    "IDs": "851661",
+    "aula_id": "113",
+    "IDs": "851113",
     "programado": false
   },
-  "632925": {
-    "edificio": "632",
-    "aula_id": "925",
-    "IDs": "632925",
+  "162028": {
+    "edificio": "162",
+    "aula_id": "028",
+    "IDs": "162028",
     "programado": false
   },
-  "740332": {
-    "edificio": "740",
-    "aula_id": "332",
-    "IDs": "740332",
+  "018012": {
+    "edificio": "018",
+    "aula_id": "012",
+    "IDs": "018012",
     "programado": false
   },
-  "373955": {
-    "edificio": "373",
-    "aula_id": "955",
-    "IDs": "373955",
+  "306971": {
+    "edificio": "306",
+    "aula_id": "971",
+    "IDs": "306971",
     "programado": false
   },
-  "540585": {
-    "edificio": "540",
-    "aula_id": "585",
-    "IDs": "540585",
+  "654487": {
+    "edificio": "654",
+    "aula_id": "487",
+    "IDs": "654487",
     "programado": false
   },
-  "704267": {
-    "edificio": "704",
-    "aula_id": "267",
-    "IDs": "704267",
+  "588018": {
+    "edificio": "588",
+    "aula_id": "018",
+    "IDs": "588018",
     "programado": false
   },
-  "294484": {
-    "edificio": "294",
-    "aula_id": "484",
-    "IDs": "294484",
+  "798810": {
+    "edificio": "798",
+    "aula_id": "810",
+    "IDs": "798810",
     "programado": false
   },
-  "571242": {
-    "edificio": "571",
-    "aula_id": "242",
-    "IDs": "571242",
+  "006230": {
+    "edificio": "006",
+    "aula_id": "230",
+    "IDs": "006230",
     "programado": false
   },
-  "593986": {
-    "edificio": "593",
-    "aula_id": "986",
-    "IDs": "593986",
+  "392333": {
+    "edificio": "392",
+    "aula_id": "333",
+    "IDs": "392333",
     "programado": false
   },
-  "977374": {
-    "edificio": "977",
-    "aula_id": "374",
-    "IDs": "977374",
+  "851016": {
+    "edificio": "851",
+    "aula_id": "016",
+    "IDs": "851016",
     "programado": false
   },
-  "930832": {
+  "135191": {
+    "edificio": "135",
+    "aula_id": "191",
+    "IDs": "135191",
+    "programado": false
+  },
+  "875224": {
+    "edificio": "875",
+    "aula_id": "224",
+    "IDs": "875224",
+    "programado": false
+  },
+  "888857": {
+    "edificio": "888",
+    "aula_id": "857",
+    "IDs": "888857",
+    "programado": false
+  },
+  "927833": {
+    "edificio": "927",
+    "aula_id": "833",
+    "IDs": "927833",
+    "programado": false
+  },
+  "175977": {
+    "edificio": "175",
+    "aula_id": "977",
+    "IDs": "175977",
+    "programado": false
+  },
+  "609002": {
+    "edificio": "609",
+    "aula_id": "002",
+    "IDs": "609002",
+    "programado": false
+  },
+  "900166": {
+    "edificio": "900",
+    "aula_id": "166",
+    "IDs": "900166",
+    "programado": false
+  },
+  "884318": {
+    "edificio": "884",
+    "aula_id": "318",
+    "IDs": "884318",
+    "programado": false
+  },
+  "732942": {
+    "edificio": "732",
+    "aula_id": "942",
+    "IDs": "732942",
+    "programado": false
+  },
+  "164628": {
+    "edificio": "164",
+    "aula_id": "628",
+    "IDs": "164628",
+    "programado": false
+  },
+  "701823": {
+    "edificio": "701",
+    "aula_id": "823",
+    "IDs": "701823",
+    "programado": false
+  },
+  "076913": {
+    "edificio": "076",
+    "aula_id": "913",
+    "IDs": "076913",
+    "programado": false
+  },
+  "244112": {
+    "edificio": "244",
+    "aula_id": "112",
+    "IDs": "244112",
+    "programado": false
+  },
+  "127396": {
+    "edificio": "127",
+    "aula_id": "396",
+    "IDs": "127396",
+    "programado": false
+  },
+  "537746": {
+    "edificio": "537",
+    "aula_id": "746",
+    "IDs": "537746",
+    "programado": false
+  },
+  "281098": {
+    "edificio": "281",
+    "aula_id": "098",
+    "IDs": "281098",
+    "programado": false
+  },
+  "702777": {
+    "edificio": "702",
+    "aula_id": "777",
+    "IDs": "702777",
+    "programado": false
+  },
+  "419604": {
+    "edificio": "419",
+    "aula_id": "604",
+    "IDs": "419604",
+    "programado": false
+  },
+  "408543": {
+    "edificio": "408",
+    "aula_id": "543",
+    "IDs": "408543",
+    "programado": false
+  },
+  "028062": {
+    "edificio": "028",
+    "aula_id": "062",
+    "IDs": "028062",
+    "programado": false
+  },
+  "246501": {
+    "edificio": "246",
+    "aula_id": "501",
+    "IDs": "246501",
+    "programado": false
+  },
+  "534188": {
+    "edificio": "534",
+    "aula_id": "188",
+    "IDs": "534188",
+    "programado": false
+  },
+  "054095": {
+    "edificio": "054",
+    "aula_id": "095",
+    "IDs": "054095",
+    "programado": false
+  },
+  "313084": {
+    "edificio": "313",
+    "aula_id": "084",
+    "IDs": "313084",
+    "programado": false
+  },
+  "930425": {
     "edificio": "930",
-    "aula_id": "832",
-    "IDs": "930832",
+    "aula_id": "425",
+    "IDs": "930425",
     "programado": false
   },
-  "161274": {
-    "edificio": "161",
-    "aula_id": "274",
-    "IDs": "161274",
+  "803299": {
+    "edificio": "803",
+    "aula_id": "299",
+    "IDs": "803299",
     "programado": false
   },
-  "312489": {
-    "edificio": "312",
-    "aula_id": "489",
-    "IDs": "312489",
+  "600209": {
+    "edificio": "600",
+    "aula_id": "209",
+    "IDs": "600209",
     "programado": false
   },
-  "342433": {
-    "edificio": "342",
+  "559732": {
+    "edificio": "559",
+    "aula_id": "732",
+    "IDs": "559732",
+    "programado": false
+  },
+  "827825": {
+    "edificio": "827",
+    "aula_id": "825",
+    "IDs": "827825",
+    "programado": false
+  },
+  "567606": {
+    "edificio": "567",
+    "aula_id": "606",
+    "IDs": "567606",
+    "programado": false
+  },
+  "094399": {
+    "edificio": "094",
+    "aula_id": "399",
+    "IDs": "094399",
+    "programado": false
+  },
+  "430626": {
+    "edificio": "430",
+    "aula_id": "626",
+    "IDs": "430626",
+    "programado": false
+  },
+  "503002": {
+    "edificio": "503",
+    "aula_id": "002",
+    "IDs": "503002",
+    "programado": false
+  },
+  "345891": {
+    "edificio": "345",
+    "aula_id": "891",
+    "IDs": "345891",
+    "programado": false
+  },
+  "224147": {
+    "edificio": "224",
+    "aula_id": "147",
+    "IDs": "224147",
+    "programado": false
+  },
+  "471387": {
+    "edificio": "471",
+    "aula_id": "387",
+    "IDs": "471387",
+    "programado": false
+  },
+  "154249": {
+    "edificio": "154",
+    "aula_id": "249",
+    "IDs": "154249",
+    "programado": false
+  },
+  "571394": {
+    "edificio": "571",
+    "aula_id": "394",
+    "IDs": "571394",
+    "programado": false
+  },
+  "300963": {
+    "edificio": "300",
+    "aula_id": "963",
+    "IDs": "300963",
+    "programado": false
+  },
+  "943876": {
+    "edificio": "943",
+    "aula_id": "876",
+    "IDs": "943876",
+    "programado": false
+  },
+  "295646": {
+    "edificio": "295",
+    "aula_id": "646",
+    "IDs": "295646",
+    "programado": false
+  },
+  "322453": {
+    "edificio": "322",
+    "aula_id": "453",
+    "IDs": "322453",
+    "programado": false
+  },
+  "311735": {
+    "edificio": "311",
+    "aula_id": "735",
+    "IDs": "311735",
+    "programado": false
+  },
+  "346775": {
+    "edificio": "346",
+    "aula_id": "775",
+    "IDs": "346775",
+    "programado": false
+  },
+  "911924": {
+    "edificio": "911",
+    "aula_id": "924",
+    "IDs": "911924",
+    "programado": false
+  },
+  "713408": {
+    "edificio": "713",
+    "aula_id": "408",
+    "IDs": "713408",
+    "programado": false
+  },
+  "795908": {
+    "edificio": "795",
+    "aula_id": "908",
+    "IDs": "795908",
+    "programado": false
+  },
+  "596101": {
+    "edificio": "596",
+    "aula_id": "101",
+    "IDs": "596101",
+    "programado": false
+  },
+  "231612": {
+    "edificio": "231",
+    "aula_id": "612",
+    "IDs": "231612",
+    "programado": false
+  },
+  "086229": {
+    "edificio": "086",
+    "aula_id": "229",
+    "IDs": "086229",
+    "programado": false
+  },
+  "703820": {
+    "edificio": "703",
+    "aula_id": "820",
+    "IDs": "703820",
+    "programado": false
+  },
+  "169782": {
+    "edificio": "169",
+    "aula_id": "782",
+    "IDs": "169782",
+    "programado": false
+  },
+  "059910": {
+    "edificio": "059",
+    "aula_id": "910",
+    "IDs": "059910",
+    "programado": false
+  },
+  "179861": {
+    "edificio": "179",
+    "aula_id": "861",
+    "IDs": "179861",
+    "programado": false
+  },
+  "758929": {
+    "edificio": "758",
+    "aula_id": "929",
+    "IDs": "758929",
+    "programado": false
+  },
+  "973672": {
+    "edificio": "973",
+    "aula_id": "672",
+    "IDs": "973672",
+    "programado": false
+  },
+  "714884": {
+    "edificio": "714",
+    "aula_id": "884",
+    "IDs": "714884",
+    "programado": false
+  },
+  "308969": {
+    "edificio": "308",
+    "aula_id": "969",
+    "IDs": "308969",
+    "programado": false
+  },
+  "037658": {
+    "edificio": "037",
+    "aula_id": "658",
+    "IDs": "037658",
+    "programado": false
+  },
+  "867494": {
+    "edificio": "867",
+    "aula_id": "494",
+    "IDs": "867494",
+    "programado": false
+  },
+  "832844": {
+    "edificio": "832",
+    "aula_id": "844",
+    "IDs": "832844",
+    "programado": false
+  },
+  "926019": {
+    "edificio": "926",
+    "aula_id": "019",
+    "IDs": "926019",
+    "programado": false
+  },
+  "162060": {
+    "edificio": "162",
+    "aula_id": "060",
+    "IDs": "162060",
+    "programado": false
+  },
+  "855913": {
+    "edificio": "855",
+    "aula_id": "913",
+    "IDs": "855913",
+    "programado": false
+  },
+  "110243": {
+    "edificio": "110",
+    "aula_id": "243",
+    "IDs": "110243",
+    "programado": false
+  },
+  "105000": {
+    "edificio": "105",
+    "aula_id": "000",
+    "IDs": "105000",
+    "programado": false
+  },
+  "642941": {
+    "edificio": "642",
+    "aula_id": "941",
+    "IDs": "642941",
+    "programado": false
+  },
+  "176008": {
+    "edificio": "176",
+    "aula_id": "008",
+    "IDs": "176008",
+    "programado": false
+  },
+  "530018": {
+    "edificio": "530",
+    "aula_id": "018",
+    "IDs": "530018",
+    "programado": false
+  },
+  "996956": {
+    "edificio": "996",
+    "aula_id": "956",
+    "IDs": "996956",
+    "programado": false
+  },
+  "937156": {
+    "edificio": "937",
+    "aula_id": "156",
+    "IDs": "937156",
+    "programado": false
+  },
+  "174271": {
+    "edificio": "174",
+    "aula_id": "271",
+    "IDs": "174271",
+    "programado": false
+  },
+  "921831": {
+    "edificio": "921",
+    "aula_id": "831",
+    "IDs": "921831",
+    "programado": false
+  },
+  "361753": {
+    "edificio": "361",
+    "aula_id": "753",
+    "IDs": "361753",
+    "programado": false
+  },
+  "763267": {
+    "edificio": "763",
+    "aula_id": "267",
+    "IDs": "763267",
+    "programado": false
+  },
+  "447990": {
+    "edificio": "447",
+    "aula_id": "990",
+    "IDs": "447990",
+    "programado": false
+  },
+  "969444": {
+    "edificio": "969",
+    "aula_id": "444",
+    "IDs": "969444",
+    "programado": false
+  },
+  "684894": {
+    "edificio": "684",
+    "aula_id": "894",
+    "IDs": "684894",
+    "programado": false
+  },
+  "012443": {
+    "edificio": "012",
+    "aula_id": "443",
+    "IDs": "012443",
+    "programado": false
+  },
+  "632415": {
+    "edificio": "632",
+    "aula_id": "415",
+    "IDs": "632415",
+    "programado": false
+  },
+  "803135": {
+    "edificio": "803",
+    "aula_id": "135",
+    "IDs": "803135",
+    "programado": false
+  },
+  "283999": {
+    "edificio": "283",
+    "aula_id": "999",
+    "IDs": "283999",
+    "programado": false
+  },
+  "980890": {
+    "edificio": "980",
+    "aula_id": "890",
+    "IDs": "980890",
+    "programado": false
+  },
+  "698365": {
+    "edificio": "698",
+    "aula_id": "365",
+    "IDs": "698365",
+    "programado": false
+  },
+  "766263": {
+    "edificio": "766",
+    "aula_id": "263",
+    "IDs": "766263",
+    "programado": false
+  },
+  "623168": {
+    "edificio": "623",
+    "aula_id": "168",
+    "IDs": "623168",
+    "programado": false
+  },
+  "352947": {
+    "edificio": "352",
+    "aula_id": "947",
+    "IDs": "352947",
+    "programado": false
+  },
+  "165512": {
+    "edificio": "165",
+    "aula_id": "512",
+    "IDs": "165512",
+    "programado": false
+  },
+  "340891": {
+    "edificio": "340",
+    "aula_id": "891",
+    "IDs": "340891",
+    "programado": false
+  },
+  "860114": {
+    "edificio": "860",
+    "aula_id": "114",
+    "IDs": "860114",
+    "programado": false
+  },
+  "509431": {
+    "edificio": "509",
+    "aula_id": "431",
+    "IDs": "509431",
+    "programado": false
+  },
+  "141871": {
+    "edificio": "141",
+    "aula_id": "871",
+    "IDs": "141871",
+    "programado": false
+  },
+  "847991": {
+    "edificio": "847",
+    "aula_id": "991",
+    "IDs": "847991",
+    "programado": false
+  },
+  "219084": {
+    "edificio": "219",
+    "aula_id": "084",
+    "IDs": "219084",
+    "programado": false
+  },
+  "902094": {
+    "edificio": "902",
+    "aula_id": "094",
+    "IDs": "902094",
+    "programado": false
+  },
+  "979402": {
+    "edificio": "979",
+    "aula_id": "402",
+    "IDs": "979402",
+    "programado": false
+  },
+  "603940": {
+    "edificio": "603",
+    "aula_id": "940",
+    "IDs": "603940",
+    "programado": false
+  },
+  "289884": {
+    "edificio": "289",
+    "aula_id": "884",
+    "IDs": "289884",
+    "programado": false
+  },
+  "118749": {
+    "edificio": "118",
+    "aula_id": "749",
+    "IDs": "118749",
+    "programado": false
+  },
+  "948354": {
+    "edificio": "948",
+    "aula_id": "354",
+    "IDs": "948354",
+    "programado": false
+  },
+  "723842": {
+    "edificio": "723",
+    "aula_id": "842",
+    "IDs": "723842",
+    "programado": false
+  },
+  "500874": {
+    "edificio": "500",
+    "aula_id": "874",
+    "IDs": "500874",
+    "programado": false
+  },
+  "769041": {
+    "edificio": "769",
+    "aula_id": "041",
+    "IDs": "769041",
+    "programado": false
+  },
+  "004743": {
+    "edificio": "004",
+    "aula_id": "743",
+    "IDs": "004743",
+    "programado": false
+  },
+  "919922": {
+    "edificio": "919",
+    "aula_id": "922",
+    "IDs": "919922",
+    "programado": false
+  },
+  "459980": {
+    "edificio": "459",
+    "aula_id": "980",
+    "IDs": "459980",
+    "programado": false
+  },
+  "890292": {
+    "edificio": "890",
+    "aula_id": "292",
+    "IDs": "890292",
+    "programado": false
+  },
+  "860215": {
+    "edificio": "860",
+    "aula_id": "215",
+    "IDs": "860215",
+    "programado": false
+  },
+  "745409": {
+    "edificio": "745",
+    "aula_id": "409",
+    "IDs": "745409",
+    "programado": false
+  },
+  "944308": {
+    "edificio": "944",
+    "aula_id": "308",
+    "IDs": "944308",
+    "programado": false
+  },
+  "886824": {
+    "edificio": "886",
+    "aula_id": "824",
+    "IDs": "886824",
+    "programado": false
+  },
+  "446550": {
+    "edificio": "446",
+    "aula_id": "550",
+    "IDs": "446550",
+    "programado": false
+  },
+  "391271": {
+    "edificio": "391",
+    "aula_id": "271",
+    "IDs": "391271",
+    "programado": false
+  },
+  "122088": {
+    "edificio": "122",
+    "aula_id": "088",
+    "IDs": "122088",
+    "programado": false
+  },
+  "279356": {
+    "edificio": "279",
+    "aula_id": "356",
+    "IDs": "279356",
+    "programado": false
+  },
+  "264066": {
+    "edificio": "264",
+    "aula_id": "066",
+    "IDs": "264066",
+    "programado": false
+  },
+  "521786": {
+    "edificio": "521",
+    "aula_id": "786",
+    "IDs": "521786",
+    "programado": false
+  },
+  "214725": {
+    "edificio": "214",
+    "aula_id": "725",
+    "IDs": "214725",
+    "programado": false
+  },
+  "938510": {
+    "edificio": "938",
+    "aula_id": "510",
+    "IDs": "938510",
+    "programado": false
+  },
+  "145804": {
+    "edificio": "145",
+    "aula_id": "804",
+    "IDs": "145804",
+    "programado": false
+  },
+  "268465": {
+    "edificio": "268",
+    "aula_id": "465",
+    "IDs": "268465",
+    "programado": false
+  },
+  "534394": {
+    "edificio": "534",
+    "aula_id": "394",
+    "IDs": "534394",
+    "programado": false
+  },
+  "817168": {
+    "edificio": "817",
+    "aula_id": "168",
+    "IDs": "817168",
+    "programado": false
+  },
+  "462509": {
+    "edificio": "462",
+    "aula_id": "509",
+    "IDs": "462509",
+    "programado": false
+  },
+  "781256": {
+    "edificio": "781",
+    "aula_id": "256",
+    "IDs": "781256",
+    "programado": false
+  },
+  "954354": {
+    "edificio": "954",
+    "aula_id": "354",
+    "IDs": "954354",
+    "programado": false
+  },
+  "712187": {
+    "edificio": "712",
+    "aula_id": "187",
+    "IDs": "712187",
+    "programado": false
+  },
+  "399041": {
+    "edificio": "399",
+    "aula_id": "041",
+    "IDs": "399041",
+    "programado": false
+  },
+  "762599": {
+    "edificio": "762",
+    "aula_id": "599",
+    "IDs": "762599",
+    "programado": false
+  },
+  "271601": {
+    "edificio": "271",
+    "aula_id": "601",
+    "IDs": "271601",
+    "programado": false
+  },
+  "619234": {
+    "edificio": "619",
+    "aula_id": "234",
+    "IDs": "619234",
+    "programado": false
+  },
+  "113718": {
+    "edificio": "113",
+    "aula_id": "718",
+    "IDs": "113718",
+    "programado": false
+  },
+  "252834": {
+    "edificio": "252",
+    "aula_id": "834",
+    "IDs": "252834",
+    "programado": false
+  },
+  "527339": {
+    "edificio": "527",
+    "aula_id": "339",
+    "IDs": "527339",
+    "programado": false
+  },
+  "172845": {
+    "edificio": "172",
+    "aula_id": "845",
+    "IDs": "172845",
+    "programado": false
+  },
+  "426176": {
+    "edificio": "426",
+    "aula_id": "176",
+    "IDs": "426176",
+    "programado": false
+  },
+  "061578": {
+    "edificio": "061",
+    "aula_id": "578",
+    "IDs": "061578",
+    "programado": false
+  },
+  "630298": {
+    "edificio": "630",
+    "aula_id": "298",
+    "IDs": "630298",
+    "programado": false
+  },
+  "889433": {
+    "edificio": "889",
     "aula_id": "433",
-    "IDs": "342433",
+    "IDs": "889433",
     "programado": false
   },
-  "997518": {
-    "edificio": "997",
-    "aula_id": "518",
-    "IDs": "997518",
+  "772087": {
+    "edificio": "772",
+    "aula_id": "087",
+    "IDs": "772087",
     "programado": false
   },
-  "950662": {
+  "928626": {
+    "edificio": "928",
+    "aula_id": "626",
+    "IDs": "928626",
+    "programado": false
+  },
+  "270985": {
+    "edificio": "270",
+    "aula_id": "985",
+    "IDs": "270985",
+    "programado": false
+  },
+  "411278": {
+    "edificio": "411",
+    "aula_id": "278",
+    "IDs": "411278",
+    "programado": false
+  },
+  "352059": {
+    "edificio": "352",
+    "aula_id": "059",
+    "IDs": "352059",
+    "programado": false
+  },
+  "873681": {
+    "edificio": "873",
+    "aula_id": "681",
+    "IDs": "873681",
+    "programado": false
+  },
+  "508079": {
+    "edificio": "508",
+    "aula_id": "079",
+    "IDs": "508079",
+    "programado": false
+  },
+  "645396": {
+    "edificio": "645",
+    "aula_id": "396",
+    "IDs": "645396",
+    "programado": false
+  },
+  "950215": {
     "edificio": "950",
-    "aula_id": "662",
-    "IDs": "950662",
+    "aula_id": "215",
+    "IDs": "950215",
     "programado": false
   },
-  "660306": {
-    "edificio": "660",
-    "aula_id": "306",
-    "IDs": "660306",
+  "853096": {
+    "edificio": "853",
+    "aula_id": "096",
+    "IDs": "853096",
     "programado": false
   },
-  "280745": {
-    "edificio": "280",
-    "aula_id": "745",
-    "IDs": "280745",
+  "582966": {
+    "edificio": "582",
+    "aula_id": "966",
+    "IDs": "582966",
     "programado": false
   },
-  "468138": {
-    "edificio": "468",
+  "677777": {
+    "edificio": "677",
+    "aula_id": "777",
+    "IDs": "677777",
+    "programado": false
+  },
+  "804486": {
+    "edificio": "804",
+    "aula_id": "486",
+    "IDs": "804486",
+    "programado": false
+  },
+  "593626": {
+    "edificio": "593",
+    "aula_id": "626",
+    "IDs": "593626",
+    "programado": false
+  },
+  "792440": {
+    "edificio": "792",
+    "aula_id": "440",
+    "IDs": "792440",
+    "programado": false
+  },
+  "962045": {
+    "edificio": "962",
+    "aula_id": "045",
+    "IDs": "962045",
+    "programado": false
+  },
+  "172950": {
+    "edificio": "172",
+    "aula_id": "950",
+    "IDs": "172950",
+    "programado": false
+  },
+  "364675": {
+    "edificio": "364",
+    "aula_id": "675",
+    "IDs": "364675",
+    "programado": false
+  },
+  "510538": {
+    "edificio": "510",
+    "aula_id": "538",
+    "IDs": "510538",
+    "programado": false
+  },
+  "000560": {
+    "edificio": "000",
+    "aula_id": "560",
+    "IDs": "000560",
+    "programado": false
+  },
+  "438104": {
+    "edificio": "438",
+    "aula_id": "104",
+    "IDs": "438104",
+    "programado": false
+  },
+  "451137": {
+    "edificio": "451",
+    "aula_id": "137",
+    "IDs": "451137",
+    "programado": false
+  },
+  "626377": {
+    "edificio": "626",
+    "aula_id": "377",
+    "IDs": "626377",
+    "programado": false
+  },
+  "058139": {
+    "edificio": "058",
+    "aula_id": "139",
+    "IDs": "058139",
+    "programado": false
+  },
+  "438177": {
+    "edificio": "438",
+    "aula_id": "177",
+    "IDs": "438177",
+    "programado": false
+  },
+  "104259": {
+    "edificio": "104",
+    "aula_id": "259",
+    "IDs": "104259",
+    "programado": false
+  },
+  "177014": {
+    "edificio": "177",
+    "aula_id": "014",
+    "IDs": "177014",
+    "programado": false
+  },
+  "393479": {
+    "edificio": "393",
+    "aula_id": "479",
+    "IDs": "393479",
+    "programado": false
+  },
+  "670245": {
+    "edificio": "670",
+    "aula_id": "245",
+    "IDs": "670245",
+    "programado": false
+  },
+  "112508": {
+    "edificio": "112",
+    "aula_id": "508",
+    "IDs": "112508",
+    "programado": false
+  },
+  "310317": {
+    "edificio": "310",
+    "aula_id": "317",
+    "IDs": "310317",
+    "programado": false
+  },
+  "703319": {
+    "edificio": "703",
+    "aula_id": "319",
+    "IDs": "703319",
+    "programado": false
+  },
+  "381685": {
+    "edificio": "381",
+    "aula_id": "685",
+    "IDs": "381685",
+    "programado": false
+  },
+  "594395": {
+    "edificio": "594",
+    "aula_id": "395",
+    "IDs": "594395",
+    "programado": false
+  },
+  "641091": {
+    "edificio": "641",
+    "aula_id": "091",
+    "IDs": "641091",
+    "programado": false
+  },
+  "724090": {
+    "edificio": "724",
+    "aula_id": "090",
+    "IDs": "724090",
+    "programado": false
+  },
+  "469011": {
+    "edificio": "469",
+    "aula_id": "011",
+    "IDs": "469011",
+    "programado": false
+  },
+  "288606": {
+    "edificio": "288",
+    "aula_id": "606",
+    "IDs": "288606",
+    "programado": false
+  },
+  "449256": {
+    "edificio": "449",
+    "aula_id": "256",
+    "IDs": "449256",
+    "programado": false
+  },
+  "978818": {
+    "edificio": "978",
+    "aula_id": "818",
+    "IDs": "978818",
+    "programado": false
+  },
+  "101398": {
+    "edificio": "101",
+    "aula_id": "398",
+    "IDs": "101398",
+    "programado": false
+  },
+  "594419": {
+    "edificio": "594",
+    "aula_id": "419",
+    "IDs": "594419",
+    "programado": false
+  },
+  "014680": {
+    "edificio": "014",
+    "aula_id": "680",
+    "IDs": "014680",
+    "programado": false
+  },
+  "205995": {
+    "edificio": "205",
+    "aula_id": "995",
+    "IDs": "205995",
+    "programado": false
+  },
+  "929772": {
+    "edificio": "929",
+    "aula_id": "772",
+    "IDs": "929772",
+    "programado": false
+  },
+  "870140": {
+    "edificio": "870",
+    "aula_id": "140",
+    "IDs": "870140",
+    "programado": false
+  },
+  "194307": {
+    "edificio": "194",
+    "aula_id": "307",
+    "IDs": "194307",
+    "programado": false
+  },
+  "751423": {
+    "edificio": "751",
+    "aula_id": "423",
+    "IDs": "751423",
+    "programado": false
+  },
+  "710927": {
+    "edificio": "710",
+    "aula_id": "927",
+    "IDs": "710927",
+    "programado": false
+  },
+  "389252": {
+    "edificio": "389",
+    "aula_id": "252",
+    "IDs": "389252",
+    "programado": false
+  },
+  "262854": {
+    "edificio": "262",
+    "aula_id": "854",
+    "IDs": "262854",
+    "programado": false
+  },
+  "796288": {
+    "edificio": "796",
+    "aula_id": "288",
+    "IDs": "796288",
+    "programado": false
+  },
+  "587995": {
+    "edificio": "587",
+    "aula_id": "995",
+    "IDs": "587995",
+    "programado": false
+  },
+  "372013": {
+    "edificio": "372",
+    "aula_id": "013",
+    "IDs": "372013",
+    "programado": false
+  },
+  "596312": {
+    "edificio": "596",
+    "aula_id": "312",
+    "IDs": "596312",
+    "programado": false
+  },
+  "351636": {
+    "edificio": "351",
+    "aula_id": "636",
+    "IDs": "351636",
+    "programado": false
+  },
+  "562345": {
+    "edificio": "562",
+    "aula_id": "345",
+    "IDs": "562345",
+    "programado": false
+  },
+  "051024": {
+    "edificio": "051",
+    "aula_id": "024",
+    "IDs": "051024",
+    "programado": false
+  },
+  "057760": {
+    "edificio": "057",
+    "aula_id": "760",
+    "IDs": "057760",
+    "programado": false
+  },
+  "840550": {
+    "edificio": "840",
+    "aula_id": "550",
+    "IDs": "840550",
+    "programado": false
+  },
+  "969985": {
+    "edificio": "969",
+    "aula_id": "985",
+    "IDs": "969985",
+    "programado": false
+  },
+  "758207": {
+    "edificio": "758",
+    "aula_id": "207",
+    "IDs": "758207",
+    "programado": false
+  },
+  "064831": {
+    "edificio": "064",
+    "aula_id": "831",
+    "IDs": "064831",
+    "programado": false
+  },
+  "070959": {
+    "edificio": "070",
+    "aula_id": "959",
+    "IDs": "070959",
+    "programado": false
+  },
+  "601588": {
+    "edificio": "601",
+    "aula_id": "588",
+    "IDs": "601588",
+    "programado": false
+  },
+  "370820": {
+    "edificio": "370",
+    "aula_id": "820",
+    "IDs": "370820",
+    "programado": false
+  },
+  "123561": {
+    "edificio": "123",
+    "aula_id": "561",
+    "IDs": "123561",
+    "programado": false
+  },
+  "964569": {
+    "edificio": "964",
+    "aula_id": "569",
+    "IDs": "964569",
+    "programado": false
+  },
+  "878869": {
+    "edificio": "878",
+    "aula_id": "869",
+    "IDs": "878869",
+    "programado": false
+  },
+  "207042": {
+    "edificio": "207",
+    "aula_id": "042",
+    "IDs": "207042",
+    "programado": false
+  },
+  "755435": {
+    "edificio": "755",
+    "aula_id": "435",
+    "IDs": "755435",
+    "programado": false
+  },
+  "412003": {
+    "edificio": "412",
+    "aula_id": "003",
+    "IDs": "412003",
+    "programado": false
+  },
+  "214127": {
+    "edificio": "214",
+    "aula_id": "127",
+    "IDs": "214127",
+    "programado": false
+  },
+  "929525": {
+    "edificio": "929",
+    "aula_id": "525",
+    "IDs": "929525",
+    "programado": false
+  },
+  "287534": {
+    "edificio": "287",
+    "aula_id": "534",
+    "IDs": "287534",
+    "programado": false
+  },
+  "136148": {
+    "edificio": "136",
+    "aula_id": "148",
+    "IDs": "136148",
+    "programado": false
+  },
+  "358826": {
+    "edificio": "358",
+    "aula_id": "826",
+    "IDs": "358826",
+    "programado": false
+  },
+  "435814": {
+    "edificio": "435",
+    "aula_id": "814",
+    "IDs": "435814",
+    "programado": false
+  },
+  "289648": {
+    "edificio": "289",
+    "aula_id": "648",
+    "IDs": "289648",
+    "programado": false
+  },
+  "294155": {
+    "edificio": "294",
+    "aula_id": "155",
+    "IDs": "294155",
+    "programado": false
+  },
+  "093539": {
+    "edificio": "093",
+    "aula_id": "539",
+    "IDs": "093539",
+    "programado": false
+  },
+  "532406": {
+    "edificio": "532",
+    "aula_id": "406",
+    "IDs": "532406",
+    "programado": false
+  },
+  "417180": {
+    "edificio": "417",
+    "aula_id": "180",
+    "IDs": "417180",
+    "programado": false
+  },
+  "878089": {
+    "edificio": "878",
+    "aula_id": "089",
+    "IDs": "878089",
+    "programado": false
+  },
+  "291646": {
+    "edificio": "291",
+    "aula_id": "646",
+    "IDs": "291646",
+    "programado": false
+  },
+  "972853": {
+    "edificio": "972",
+    "aula_id": "853",
+    "IDs": "972853",
+    "programado": false
+  },
+  "080491": {
+    "edificio": "080",
+    "aula_id": "491",
+    "IDs": "080491",
+    "programado": false
+  },
+  "290937": {
+    "edificio": "290",
+    "aula_id": "937",
+    "IDs": "290937",
+    "programado": false
+  },
+  "939765": {
+    "edificio": "939",
+    "aula_id": "765",
+    "IDs": "939765",
+    "programado": false
+  },
+  "450357": {
+    "edificio": "450",
+    "aula_id": "357",
+    "IDs": "450357",
+    "programado": false
+  },
+  "165154": {
+    "edificio": "165",
+    "aula_id": "154",
+    "IDs": "165154",
+    "programado": false
+  },
+  "262022": {
+    "edificio": "262",
+    "aula_id": "022",
+    "IDs": "262022",
+    "programado": false
+  },
+  "259677": {
+    "edificio": "259",
+    "aula_id": "677",
+    "IDs": "259677",
+    "programado": false
+  },
+  "302009": {
+    "edificio": "302",
+    "aula_id": "009",
+    "IDs": "302009",
+    "programado": false
+  },
+  "131006": {
+    "edificio": "131",
+    "aula_id": "006",
+    "IDs": "131006",
+    "programado": false
+  },
+  "323387": {
+    "edificio": "323",
+    "aula_id": "387",
+    "IDs": "323387",
+    "programado": false
+  },
+  "853523": {
+    "edificio": "853",
+    "aula_id": "523",
+    "IDs": "853523",
+    "programado": false
+  },
+  "727326": {
+    "edificio": "727",
+    "aula_id": "326",
+    "IDs": "727326",
+    "programado": false
+  },
+  "650762": {
+    "edificio": "650",
+    "aula_id": "762",
+    "IDs": "650762",
+    "programado": false
+  },
+  "113154": {
+    "edificio": "113",
+    "aula_id": "154",
+    "IDs": "113154",
+    "programado": false
+  },
+  "807137": {
+    "edificio": "807",
+    "aula_id": "137",
+    "IDs": "807137",
+    "programado": false
+  },
+  "917968": {
+    "edificio": "917",
+    "aula_id": "968",
+    "IDs": "917968",
+    "programado": false
+  },
+  "201106": {
+    "edificio": "201",
+    "aula_id": "106",
+    "IDs": "201106",
+    "programado": false
+  },
+  "994932": {
+    "edificio": "994",
+    "aula_id": "932",
+    "IDs": "994932",
+    "programado": false
+  },
+  "054752": {
+    "edificio": "054",
+    "aula_id": "752",
+    "IDs": "054752",
+    "programado": false
+  },
+  "311320": {
+    "edificio": "311",
+    "aula_id": "320",
+    "IDs": "311320",
+    "programado": false
+  },
+  "309335": {
+    "edificio": "309",
+    "aula_id": "335",
+    "IDs": "309335",
+    "programado": false
+  },
+  "838635": {
+    "edificio": "838",
+    "aula_id": "635",
+    "IDs": "838635",
+    "programado": false
+  },
+  "498540": {
+    "edificio": "498",
+    "aula_id": "540",
+    "IDs": "498540",
+    "programado": false
+  },
+  "531528": {
+    "edificio": "531",
+    "aula_id": "528",
+    "IDs": "531528",
+    "programado": false
+  },
+  "191323": {
+    "edificio": "191",
+    "aula_id": "323",
+    "IDs": "191323",
+    "programado": false
+  },
+  "285022": {
+    "edificio": "285",
+    "aula_id": "022",
+    "IDs": "285022",
+    "programado": false
+  },
+  "786272": {
+    "edificio": "786",
+    "aula_id": "272",
+    "IDs": "786272",
+    "programado": false
+  },
+  "381663": {
+    "edificio": "381",
+    "aula_id": "663",
+    "IDs": "381663",
+    "programado": false
+  },
+  "414777": {
+    "edificio": "414",
+    "aula_id": "777",
+    "IDs": "414777",
+    "programado": false
+  },
+  "094396": {
+    "edificio": "094",
+    "aula_id": "396",
+    "IDs": "094396",
+    "programado": false
+  },
+  "995985": {
+    "edificio": "995",
+    "aula_id": "985",
+    "IDs": "995985",
+    "programado": false
+  },
+  "259240": {
+    "edificio": "259",
+    "aula_id": "240",
+    "IDs": "259240",
+    "programado": false
+  },
+  "525358": {
+    "edificio": "525",
+    "aula_id": "358",
+    "IDs": "525358",
+    "programado": false
+  },
+  "033665": {
+    "edificio": "033",
+    "aula_id": "665",
+    "IDs": "033665",
+    "programado": false
+  },
+  "564508": {
+    "edificio": "564",
+    "aula_id": "508",
+    "IDs": "564508",
+    "programado": false
+  },
+  "840604": {
+    "edificio": "840",
+    "aula_id": "604",
+    "IDs": "840604",
+    "programado": false
+  },
+  "542785": {
+    "edificio": "542",
+    "aula_id": "785",
+    "IDs": "542785",
+    "programado": false
+  },
+  "729914": {
+    "edificio": "729",
+    "aula_id": "914",
+    "IDs": "729914",
+    "programado": false
+  },
+  "464532": {
+    "edificio": "464",
+    "aula_id": "532",
+    "IDs": "464532",
+    "programado": false
+  },
+  "909510": {
+    "edificio": "909",
+    "aula_id": "510",
+    "IDs": "909510",
+    "programado": false
+  },
+  "729862": {
+    "edificio": "729",
+    "aula_id": "862",
+    "IDs": "729862",
+    "programado": false
+  },
+  "216203": {
+    "edificio": "216",
+    "aula_id": "203",
+    "IDs": "216203",
+    "programado": false
+  },
+  "763838": {
+    "edificio": "763",
+    "aula_id": "838",
+    "IDs": "763838",
+    "programado": false
+  },
+  "088963": {
+    "edificio": "088",
+    "aula_id": "963",
+    "IDs": "088963",
+    "programado": false
+  },
+  "796786": {
+    "edificio": "796",
+    "aula_id": "786",
+    "IDs": "796786",
+    "programado": false
+  },
+  "032560": {
+    "edificio": "032",
+    "aula_id": "560",
+    "IDs": "032560",
+    "programado": false
+  },
+  "014836": {
+    "edificio": "014",
+    "aula_id": "836",
+    "IDs": "014836",
+    "programado": false
+  },
+  "604563": {
+    "edificio": "604",
+    "aula_id": "563",
+    "IDs": "604563",
+    "programado": false
+  },
+  "528845": {
+    "edificio": "528",
+    "aula_id": "845",
+    "IDs": "528845",
+    "programado": false
+  },
+  "315917": {
+    "edificio": "315",
+    "aula_id": "917",
+    "IDs": "315917",
+    "programado": false
+  },
+  "539024": {
+    "edificio": "539",
+    "aula_id": "024",
+    "IDs": "539024",
+    "programado": false
+  },
+  "970439": {
+    "edificio": "970",
+    "aula_id": "439",
+    "IDs": "970439",
+    "programado": false
+  },
+  "008975": {
+    "edificio": "008",
+    "aula_id": "975",
+    "IDs": "008975",
+    "programado": false
+  },
+  "211402": {
+    "edificio": "211",
+    "aula_id": "402",
+    "IDs": "211402",
+    "programado": false
+  },
+  "203138": {
+    "edificio": "203",
     "aula_id": "138",
-    "IDs": "468138",
+    "IDs": "203138",
     "programado": false
   },
-  "651165": {
-    "edificio": "651",
-    "aula_id": "165",
-    "IDs": "651165",
+  "718369": {
+    "edificio": "718",
+    "aula_id": "369",
+    "IDs": "718369",
     "programado": false
   },
-  "387482": {
-    "edificio": "387",
-    "aula_id": "482",
-    "IDs": "387482",
+  "868776": {
+    "edificio": "868",
+    "aula_id": "776",
+    "IDs": "868776",
+    "programado": false
+  },
+  "445864": {
+    "edificio": "445",
+    "aula_id": "864",
+    "IDs": "445864",
+    "programado": false
+  },
+  "890019": {
+    "edificio": "890",
+    "aula_id": "019",
+    "IDs": "890019",
+    "programado": false
+  },
+  "606139": {
+    "edificio": "606",
+    "aula_id": "139",
+    "IDs": "606139",
+    "programado": false
+  },
+  "440901": {
+    "edificio": "440",
+    "aula_id": "901",
+    "IDs": "440901",
+    "programado": false
+  },
+  "915953": {
+    "edificio": "915",
+    "aula_id": "953",
+    "IDs": "915953",
+    "programado": false
+  },
+  "045957": {
+    "edificio": "045",
+    "aula_id": "957",
+    "IDs": "045957",
+    "programado": false
+  },
+  "162111": {
+    "edificio": "162",
+    "aula_id": "111",
+    "IDs": "162111",
+    "programado": false
+  },
+  "711178": {
+    "edificio": "711",
+    "aula_id": "178",
+    "IDs": "711178",
+    "programado": false
+  },
+  "116480": {
+    "edificio": "116",
+    "aula_id": "480",
+    "IDs": "116480",
+    "programado": false
+  },
+  "841031": {
+    "edificio": "841",
+    "aula_id": "031",
+    "IDs": "841031",
+    "programado": false
+  },
+  "105195": {
+    "edificio": "105",
+    "aula_id": "195",
+    "IDs": "105195",
+    "programado": false
+  },
+  "925257": {
+    "edificio": "925",
+    "aula_id": "257",
+    "IDs": "925257",
+    "programado": false
+  },
+  "288740": {
+    "edificio": "288",
+    "aula_id": "740",
+    "IDs": "288740",
+    "programado": false
+  },
+  "113755": {
+    "edificio": "113",
+    "aula_id": "755",
+    "IDs": "113755",
+    "programado": false
+  },
+  "523096": {
+    "edificio": "523",
+    "aula_id": "096",
+    "IDs": "523096",
+    "programado": false
+  },
+  "867817": {
+    "edificio": "867",
+    "aula_id": "817",
+    "IDs": "867817",
+    "programado": false
+  },
+  "052140": {
+    "edificio": "052",
+    "aula_id": "140",
+    "IDs": "052140",
+    "programado": false
+  },
+  "901219": {
+    "edificio": "901",
+    "aula_id": "219",
+    "IDs": "901219",
+    "programado": false
+  },
+  "014942": {
+    "edificio": "014",
+    "aula_id": "942",
+    "IDs": "014942",
+    "programado": false
+  },
+  "980836": {
+    "edificio": "980",
+    "aula_id": "836",
+    "IDs": "980836",
+    "programado": false
+  },
+  "782799": {
+    "edificio": "782",
+    "aula_id": "799",
+    "IDs": "782799",
+    "programado": false
+  },
+  "977547": {
+    "edificio": "977",
+    "aula_id": "547",
+    "IDs": "977547",
+    "programado": false
+  },
+  "452970": {
+    "edificio": "452",
+    "aula_id": "970",
+    "IDs": "452970",
+    "programado": false
+  },
+  "131387": {
+    "edificio": "131",
+    "aula_id": "387",
+    "IDs": "131387",
+    "programado": false
+  },
+  "501637": {
+    "edificio": "501",
+    "aula_id": "637",
+    "IDs": "501637",
+    "programado": false
+  },
+  "317466": {
+    "edificio": "317",
+    "aula_id": "466",
+    "IDs": "317466",
+    "programado": false
+  },
+  "200079": {
+    "edificio": "200",
+    "aula_id": "079",
+    "IDs": "200079",
+    "programado": false
+  },
+  "030837": {
+    "edificio": "030",
+    "aula_id": "837",
+    "IDs": "030837",
+    "programado": false
+  },
+  "441521": {
+    "edificio": "441",
+    "aula_id": "521",
+    "IDs": "441521",
+    "programado": false
+  },
+  "018260": {
+    "edificio": "018",
+    "aula_id": "260",
+    "IDs": "018260",
+    "programado": false
+  },
+  "288696": {
+    "edificio": "288",
+    "aula_id": "696",
+    "IDs": "288696",
+    "programado": false
+  },
+  "040849": {
+    "edificio": "040",
+    "aula_id": "849",
+    "IDs": "040849",
+    "programado": false
+  },
+  "674726": {
+    "edificio": "674",
+    "aula_id": "726",
+    "IDs": "674726",
+    "programado": false
+  },
+  "443337": {
+    "edificio": "443",
+    "aula_id": "337",
+    "IDs": "443337",
+    "programado": false
+  },
+  "709141": {
+    "edificio": "709",
+    "aula_id": "141",
+    "IDs": "709141",
+    "programado": false
+  },
+  "514530": {
+    "edificio": "514",
+    "aula_id": "530",
+    "IDs": "514530",
+    "programado": false
+  },
+  "363949": {
+    "edificio": "363",
+    "aula_id": "949",
+    "IDs": "363949",
+    "programado": false
+  },
+  "590054": {
+    "edificio": "590",
+    "aula_id": "054",
+    "IDs": "590054",
+    "programado": false
+  },
+  "763250": {
+    "edificio": "763",
+    "aula_id": "250",
+    "IDs": "763250",
+    "programado": false
+  },
+  "719916": {
+    "edificio": "719",
+    "aula_id": "916",
+    "IDs": "719916",
+    "programado": false
+  },
+  "889997": {
+    "edificio": "889",
+    "aula_id": "997",
+    "IDs": "889997",
+    "programado": false
+  },
+  "079340": {
+    "edificio": "079",
+    "aula_id": "340",
+    "IDs": "079340",
+    "programado": false
+  },
+  "027481": {
+    "edificio": "027",
+    "aula_id": "481",
+    "IDs": "027481",
+    "programado": false
+  },
+  "315741": {
+    "edificio": "315",
+    "aula_id": "741",
+    "IDs": "315741",
+    "programado": false
+  },
+  "942739": {
+    "edificio": "942",
+    "aula_id": "739",
+    "IDs": "942739",
+    "programado": false
+  },
+  "913722": {
+    "edificio": "913",
+    "aula_id": "722",
+    "IDs": "913722",
+    "programado": false
+  },
+  "187132": {
+    "edificio": "187",
+    "aula_id": "132",
+    "IDs": "187132",
+    "programado": false
+  },
+  "585903": {
+    "edificio": "585",
+    "aula_id": "903",
+    "IDs": "585903",
+    "programado": false
+  },
+  "828650": {
+    "edificio": "828",
+    "aula_id": "650",
+    "IDs": "828650",
+    "programado": false
+  },
+  "457872": {
+    "edificio": "457",
+    "aula_id": "872",
+    "IDs": "457872",
+    "programado": false
+  },
+  "284523": {
+    "edificio": "284",
+    "aula_id": "523",
+    "IDs": "284523",
+    "programado": false
+  },
+  "708164": {
+    "edificio": "708",
+    "aula_id": "164",
+    "IDs": "708164",
+    "programado": false
+  },
+  "485497": {
+    "edificio": "485",
+    "aula_id": "497",
+    "IDs": "485497",
+    "programado": false
+  },
+  "770871": {
+    "edificio": "770",
+    "aula_id": "871",
+    "IDs": "770871",
+    "programado": false
+  },
+  "331073": {
+    "edificio": "331",
+    "aula_id": "073",
+    "IDs": "331073",
+    "programado": false
+  },
+  "465965": {
+    "edificio": "465",
+    "aula_id": "965",
+    "IDs": "465965",
+    "programado": false
+  },
+  "333571": {
+    "edificio": "333",
+    "aula_id": "571",
+    "IDs": "333571",
+    "programado": false
+  },
+  "399176": {
+    "edificio": "399",
+    "aula_id": "176",
+    "IDs": "399176",
+    "programado": false
+  },
+  "581128": {
+    "edificio": "581",
+    "aula_id": "128",
+    "IDs": "581128",
+    "programado": false
+  },
+  "047313": {
+    "edificio": "047",
+    "aula_id": "313",
+    "IDs": "047313",
+    "programado": false
+  },
+  "357980": {
+    "edificio": "357",
+    "aula_id": "980",
+    "IDs": "357980",
+    "programado": false
+  },
+  "069493": {
+    "edificio": "069",
+    "aula_id": "493",
+    "IDs": "069493",
+    "programado": false
+  },
+  "549223": {
+    "edificio": "549",
+    "aula_id": "223",
+    "IDs": "549223",
+    "programado": false
+  },
+  "459317": {
+    "edificio": "459",
+    "aula_id": "317",
+    "IDs": "459317",
+    "programado": false
+  },
+  "411673": {
+    "edificio": "411",
+    "aula_id": "673",
+    "IDs": "411673",
+    "programado": false
+  },
+  "229749": {
+    "edificio": "229",
+    "aula_id": "749",
+    "IDs": "229749",
+    "programado": false
+  },
+  "803767": {
+    "edificio": "803",
+    "aula_id": "767",
+    "IDs": "803767",
+    "programado": false
+  },
+  "603075": {
+    "edificio": "603",
+    "aula_id": "075",
+    "IDs": "603075",
+    "programado": false
+  },
+  "199647": {
+    "edificio": "199",
+    "aula_id": "647",
+    "IDs": "199647",
+    "programado": false
+  },
+  "241414": {
+    "edificio": "241",
+    "aula_id": "414",
+    "IDs": "241414",
+    "programado": false
+  },
+  "879651": {
+    "edificio": "879",
+    "aula_id": "651",
+    "IDs": "879651",
+    "programado": false
+  },
+  "061959": {
+    "edificio": "061",
+    "aula_id": "959",
+    "IDs": "061959",
+    "programado": false
+  },
+  "558950": {
+    "edificio": "558",
+    "aula_id": "950",
+    "IDs": "558950",
+    "programado": false
+  },
+  "040990": {
+    "edificio": "040",
+    "aula_id": "990",
+    "IDs": "040990",
+    "programado": false
+  },
+  "822075": {
+    "edificio": "822",
+    "aula_id": "075",
+    "IDs": "822075",
+    "programado": false
+  },
+  "832698": {
+    "edificio": "832",
+    "aula_id": "698",
+    "IDs": "832698",
+    "programado": false
+  },
+  "143459": {
+    "edificio": "143",
+    "aula_id": "459",
+    "IDs": "143459",
+    "programado": false
+  },
+  "232464": {
+    "edificio": "232",
+    "aula_id": "464",
+    "IDs": "232464",
+    "programado": false
+  },
+  "560369": {
+    "edificio": "560",
+    "aula_id": "369",
+    "IDs": "560369",
+    "programado": false
+  },
+  "897506": {
+    "edificio": "897",
+    "aula_id": "506",
+    "IDs": "897506",
+    "programado": false
+  },
+  "669119": {
+    "edificio": "669",
+    "aula_id": "119",
+    "IDs": "669119",
+    "programado": false
+  },
+  "129989": {
+    "edificio": "129",
+    "aula_id": "989",
+    "IDs": "129989",
+    "programado": false
+  },
+  "486519": {
+    "edificio": "486",
+    "aula_id": "519",
+    "IDs": "486519",
+    "programado": false
+  },
+  "678676": {
+    "edificio": "678",
+    "aula_id": "676",
+    "IDs": "678676",
+    "programado": false
+  },
+  "933351": {
+    "edificio": "933",
+    "aula_id": "351",
+    "IDs": "933351",
+    "programado": false
+  },
+  "846103": {
+    "edificio": "846",
+    "aula_id": "103",
+    "IDs": "846103",
+    "programado": false
+  },
+  "731020": {
+    "edificio": "731",
+    "aula_id": "020",
+    "IDs": "731020",
     "programado": false
   }
 }

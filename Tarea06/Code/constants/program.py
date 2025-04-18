@@ -1,6 +1,6 @@
 
 CURSOS_CT = {
-    "cantidad": 50,
+    "cantidad": 100,
     "num_grupos_min": 1,
     "num_grupos_max": 4,
     "num_grupos_avg": None,
@@ -23,9 +23,13 @@ CLASES_CT = {
 }
 
 ESTUDIANTES_CT = {
-    "cantidad": 100,
+    "cantidad": 3000,
     "p.a.p.i_avg": 3.8,
     "p.a.p.i_dev": 0.9,
     "materias_a_inscribir": 5,
     "materias_deseadas": 9
 }
+
+CONSUMO_CT = 10000
+
+ITERACIONES_CT = 20
