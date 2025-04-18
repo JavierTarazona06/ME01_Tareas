@@ -6,6 +6,7 @@ from data.generator import Curso, Docente, Aula, Horario, Clase, Estudiante
 from tools.FileManager import JSON_man
 from constants.program import CURSOS_CT, DOCENTES_CT, AULAS_CT, CLASES_CT, ESTUDIANTES_CT
 from codeStats.toolsStats import PBS
+from codeStats.metrics import imprimir_metricas
 
 # Configurar directorio 'data'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -55,6 +56,8 @@ def scenario1(estudiantes, clases):
     JSON_man.dict2json(est_fin, data_path('escenario1_estudiantes.json'))
     JSON_man.dict2json(cls_fin, data_path('escenario1_clases.json'))
     print("Escenario 1 completado: resultados guardados en data/escenario1_*.json")
+    imprimir_metricas(est_fin)
+    
 
     # Prioridad a un 20% de estudiantes
 def scenario2(estudiantes, clases, prioridad_frac=0.2): 
@@ -83,6 +86,8 @@ def scenario2(estudiantes, clases, prioridad_frac=0.2):
     JSON_man.dict2json(resultado_est, data_path('escenario2_estudiantes.json'))
     JSON_man.dict2json(cls2, data_path('escenario2_clases.json'))
     print("Escenario 2 completado: prioridad 20%, resultados en data/escenario2_*.json")
+    imprimir_metricas(resultado_est)
+    
 
     # Cancelación temporal de 30% de clases
 def scenario3(estudiantes, clases, cancel_frac=0.3):
@@ -110,6 +115,8 @@ def scenario3(estudiantes, clases, cancel_frac=0.3):
     JSON_man.dict2json(est_fin, data_path('escenario3_estudiantes.json'))
     JSON_man.dict2json(cls_fin, data_path('escenario3_clases.json'))
     print("Escenario 3 completado: cancelación 30%, resultados en data/escenario3_*.json")
+    imprimir_metricas(est_fin)
+    
 
 
 def main():
