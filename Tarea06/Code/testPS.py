@@ -6,7 +6,7 @@ from data.generator import Curso, Docente, Aula, Horario, Clase, Estudiante
 from tools.FileManager import JSON_man
 from constants.program import CURSOS_CT, DOCENTES_CT, AULAS_CT, CLASES_CT, ESTUDIANTES_CT
 from codeStats.toolsStats import PBS
-from codeStats.metrics import imprimir_metricas
+from codeStats.metrics import imprimir_metricas, compute_metrics
 
 # Configurar directorio 'data'
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -49,15 +49,27 @@ def generate_base_data():
     return cursos, docentes, aulas, horarios, clases, estudiantes
 
     # Sin modificaciones: asignación PS estándar
+def scenario0(estudiantes, clases): 
+    pbs = PBS(copy.deepcopy(estudiantes), copy.deepcopy(clases), sort=False)
+    pbs.run_algo(delta_t=0.1)
+    est_fin, cls_fin = pbs.round_greedy()
+    JSON_man.dict2json(est_fin, data_path('escenario0_estudiantes.json'))
+    JSON_man.dict2json(cls_fin, data_path('escenario0_clases.json'))
+    print("Escenario 1 completado: resultados guardados en data/escenario0_*.json")
+    porcentajes, equidad, eficiencia = imprimir_metricas(est_fin)
+    sat, use = compute_metrics(est_fin, cls_fin, estudiantes, clases)
+    return sat, use, porcentajes, equidad, eficiencia
+    
 def scenario1(estudiantes, clases): 
     pbs = PBS(copy.deepcopy(estudiantes), copy.deepcopy(clases))
     pbs.run_algo(delta_t=0.1)
     est_fin, cls_fin = pbs.round_greedy()
     JSON_man.dict2json(est_fin, data_path('escenario1_estudiantes.json'))
     JSON_man.dict2json(cls_fin, data_path('escenario1_clases.json'))
-    print("Escenario 1 completado: resultados guardados en data/escenario1_*.json")
-    imprimir_metricas(est_fin)
-    
+    print("Escenario 2 completado: resultados guardados en data/escenario1_*.json")
+    porcentajes, equidad, eficiencia = imprimir_metricas(est_fin)
+    sat, use = compute_metrics(est_fin, cls_fin, estudiantes, clases)
+    return sat, use, porcentajes, equidad, eficiencia
 
     # Prioridad a un 20% de estudiantes
 def scenario2(estudiantes, clases, prioridad_frac=0.2): 
@@ -85,8 +97,10 @@ def scenario2(estudiantes, clases, prioridad_frac=0.2):
     resultado_est = {**est1, **est2}
     JSON_man.dict2json(resultado_est, data_path('escenario2_estudiantes.json'))
     JSON_man.dict2json(cls2, data_path('escenario2_clases.json'))
-    print("Escenario 2 completado: prioridad 20%, resultados en data/escenario2_*.json")
-    imprimir_metricas(resultado_est)
+    print("Escenario 3 completado: prioridad 20%, resultados en data/escenario2_*.json")
+    porcentajes, equidad, eficiencia = imprimir_metricas(resultado_est)
+    sat, use = compute_metrics(resultado_est, cls2, estudiantes, clases)
+    return sat, use, porcentajes, equidad, eficiencia
     
 
     # Cancelación temporal de 30% de clases
@@ -114,17 +128,53 @@ def scenario3(estudiantes, clases, cancel_frac=0.3):
 
     JSON_man.dict2json(est_fin, data_path('escenario3_estudiantes.json'))
     JSON_man.dict2json(cls_fin, data_path('escenario3_clases.json'))
-    print("Escenario 3 completado: cancelación 30%, resultados en data/escenario3_*.json")
-    imprimir_metricas(est_fin)
+    print("Escenario 4 completado: cancelación 30%, resultados en data/escenario3_*.json")
+    porcentajes, equidad, eficiencia = imprimir_metricas(est_fin)
+    sat, use = compute_metrics(est_fin, cls_fin, estudiantes, clases)
+    return sat, use, porcentajes, equidad, eficiencia
+
+
+def simulate(n = 1):
+    results = []
+    for i in range(n):
+        print(f"Simulación {i+1}/{n}")
+        cursos, docentes, aulas, horarios, clases, estudiantes = generate_base_data()
+        sat, use, porcentajes, equidad, eficiencia = scenario0(estudiantes, clases)
+        results.append({
+            'satisfaccion': sat,
+            'uso': use,
+            'porcentajes': porcentajes,
+            'equidad': equidad,
+            'eficiencia': eficiencia
+        })
+
+    # Calcular promedios y guardar resultados
+    avg_satisfaccion = sum(r['satisfaccion'] for r in results) / n
+    avg_uso = sum(r['uso'] for r in results) / n
+    avg_porcentajes = {
+        'primera_opcion': sum(r['porcentajes']['primera_opcion'] for r in results) / n,
+        'segunda_opcion': sum(r['porcentajes']['segunda_opcion'] for r in results) / n,
+        'tercera_opcion': sum(r['porcentajes']['tercera_opcion'] for r in results) / n,
+        'las_tres': sum(r['porcentajes']['las_tres'] for r in results) / n
+    }
+    avg_equidad = sum(r['equidad'] for r in results) / n
+    avg_eficiencia = sum(r['eficiencia'] for r in results) / n
     
-
-
+    # Imprimir resultados   
+    print("Resultados promedio de la simulación:")
+    print(f" - Satisfacción promedio: {avg_satisfaccion:.2%}")
+    print(f" - Uso promedio de cupos: {avg_uso:.2%}")
+    print(f" - Porcentaje de estudiantes que obtuvieron:")
+    print(f"   - Primera opción: {avg_porcentajes['primera_opcion']:.2%}")
+    print(f"   - Segunda opción: {avg_porcentajes['segunda_opcion']:.2%}")
+    print(f"   - Tercera opción: {avg_porcentajes['tercera_opcion']:.2%}")
+    print(f"   - Las tres primeras opciones: {avg_porcentajes['las_tres']:.2%}")
+    print(f" - Equidad promedio: {avg_equidad:.2%}")
+    print(f" - Eficiencia de pareto promedio: {avg_eficiencia:.2%}")
+    
 def main():
-    cursos, docentes, aulas, horarios, clases, estudiantes = generate_base_data()
-
-    scenario1(estudiantes, clases)
-    scenario2(estudiantes, clases, prioridad_frac=0.2)
-    scenario3(estudiantes, clases, cancel_frac=0.3)
-
+    simulate(10) 
+    
+    
 if __name__ == '__main__':
     main()

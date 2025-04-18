@@ -86,16 +86,36 @@ def calcular_eficiencia_pareto(estudiantes):
     return eficiencia
 
 
+def compute_metrics(est_fin, cls_fin, estudiantes_orig, clases_orig):
+    """Calcula satisfacción media, uso de cupos e índice de Gini de primera preferencia"""
+    N = len(est_fin)
+    sat_sum = 0.0
+    first_success = []
+    for ced, est in est_fin.items():
+        I_i = est['cantidad_materias_inscribir']
+        assigned = est.get('lista_materias_asignadas', [])
+        sat = len(assigned) / I_i if I_i > 0 else 0
+        sat_sum += sat
+        first_pref = estudiantes_orig[ced]['lista_preferencias'][0] if estudiantes_orig[ced]['lista_preferencias'] else None
+        first_success.append(1 if first_pref in assigned else 0)
+    sat_mean = sat_sum / N if N > 0 else 0
+
+    total_cupos = sum(c['cupos'] for c in clases_orig.values())
+    remaining = sum(c['cupos'] for c in cls_fin.values())
+    uso = (total_cupos - remaining) / total_cupos if total_cupos > 0 else 0
+    return sat_mean, uso    
 
 def imprimir_metricas(estudiantes):
     porcentajes = porcentaje_opciones(estudiantes)
     equidad = calcular_equidad(estudiantes)
     eficiencia = calcular_eficiencia_pareto(estudiantes)
 
-    print("📊 Porcentaje de estudiantes que obtuvieron:")
+    print(" Porcentaje de estudiantes que obtuvieron:")
     print(f" - Primera opción: {porcentajes['primera_opcion']:.2%}")
     print(f" - Segunda opción: {porcentajes['segunda_opcion']:.2%}")
     print(f" - Tercera opción: {porcentajes['tercera_opcion']:.2%}")
     print(f" - Las tres primeras opciones: {porcentajes['las_tres']:.2%}")
-    print(f"📏 Equidad (desviación estándar de satisfacción): {equidad:.4f}")
-    print(f"⚖️ Eficiencia de Pareto: {eficiencia:.2%}")
+    print(f" Equidad (desviación estándar de satisfacción): {equidad:.4f}")
+    print(f" Eficiencia de Pareto: {eficiencia:.2%}")
+    
+    return porcentajes, equidad, eficiencia
