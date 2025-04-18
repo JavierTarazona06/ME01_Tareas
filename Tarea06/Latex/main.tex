@@ -186,7 +186,7 @@ Un estudiante es seleccionado aleatoriamente, y este escoge su materia preferida
 las que aún tienen cupo. Luego se selecciona al siguiente estudiante y así sucesivamente 
 hasta que no queden más cupos.
 
-Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.
+Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.\\
 
 \textbf{Ventajas}
 \begin{itemize}
@@ -952,7 +952,7 @@ garantiza prioridad efectiva para un subconjunto determinado.
 
 Este diseño permite analizar los efectos de crear ventanas prioritarias en el acceso a cupos.
 
-\subsubsection{Escenario 4: Asignación con Cancelación Temporal de Clases}
+\subsubsection{Escenario 4: Asignación con Cancelación Temporal de Clases (30\%)}
 
 Este escenario aborda el problema de cancelaciones recurrentes en asignaturas como por ejemplo las de libre ellección
  mediante un proceso estructurado de dos fases. Se busca seleccionar las clases con mayor tasa de cancelación
@@ -972,7 +972,7 @@ pero se restauran antes del redondeo final.
 \item Se registran las asignaciones resultantes y se comparan contra el escenario base.
 \end{itemize}
 
-\subsubsection{Comparación resultados (30\%)}
+\subsubsection{Comparación resultados }
 
 Se evaluaron los cuatro escenarios utilizando seis métricas clave para analizar la calidad de las asignaciones:
 
@@ -1016,7 +1016,6 @@ El \textbf{Escenario 1}, que utiliza una asignación aleatoria estándar mediant
 Por último, el \textbf{Escenario 4}, que introduce una cancelación temporal del 30\% de clases (típicamente electivas), se sitúa en una posición intermedia. Su objetivo de priorizar asignaturas básicas busca evitar cancelaciones y asegurar trayectorias académicas sólidas. Aunque no alcanza los niveles de satisfacción ni eficiencia del Escenario 2, presenta un desempeño razonable con una satisfacción media de 0.630 y un uso de cupos del 71.9\%. La eficiencia de Pareto también es considerablemente mejor que la del Escenario 3. Este enfoque parece balancear adecuadamente las restricciones académicas institucionales con las preferencias de los estudiantes, y puede considerarse una estrategia viable para contextos con alta inestabilidad en la oferta académica.
 
 En resumen, el Escenario 2 sobresale en términos de eficiencia y satisfacción, ideal para contextos donde se prioriza el mérito académico. El Escenario 3 destaca por su enfoque en la equidad, pero con un fuerte sacrificio en eficiencia. El Escenario 1 sirve como punto de referencia neutral, mientras que el Escenario 4 ofrece una alternativa con compromisos interesantes entre estructura institucional y bienestar estudiantil.
-
 
 \section{Referencias}
 \renewcommand{\refname}{}
