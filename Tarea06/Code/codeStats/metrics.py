@@ -86,7 +86,6 @@ def calcular_eficiencia_pareto(estudiantes):
     return eficiencia
 
 
-
 def imprimir_metricas(estudiantes):
     porcentajes = porcentaje_opciones(estudiantes)
     equidad = calcular_equidad(estudiantes)
