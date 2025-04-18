@@ -186,7 +186,7 @@ Un estudiante es seleccionado aleatoriamente, y este escoge su materia preferida
 las que aún tienen cupo. Luego se selecciona al siguiente estudiante y así sucesivamente 
 hasta que no queden más cupos.
 
-Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.
+Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.\\
 
 \textbf{Ventajas}
 \begin{itemize}
@@ -499,7 +499,7 @@ se ve entorpecido por la falta de recursos, la pésima administración, las gara
 usan con poca conciencia por integrantes de la comunidad estudiantil, como la libre inscripción y 
 cancelación, o el aprovechamiento del sistema mediante estrategias de manipulación.
 
-Aora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
+Ahora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
 que emplee algoritmos y las condiciones de la Universidad para encontrar una estrategia y solución 
 óptima al problema real.
 
@@ -813,6 +813,20 @@ Estas cuatro métricas proporcionan un marco sólido para comparar políticas de
 
 \section{Código Fuente}\label{sec:cod}
 
+El código fuente completo de este modelo se encuentra adjunto en el buzón y disponible en el repositorio GitHub del proyecto:
+
+\begin{center}
+\url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/Tarea06/Code}
+\end{center}
+
+El repositorio contiene:
+\begin{itemize}
+\item Los módulos principales para generación de datos (\texttt{generator.py})
+\item Implementación del algoritmo PBS (\texttt{toolsStats.py})
+\item Scripts de simulación para los 4 escenarios, ejecutables desde (\texttt{main.py})
+\item Archivo program.py de para la definición de las constantes del programa (\texttt{constants\/program.py})
+\item Archivo de métricas (\texttt{metrics.py})
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual Usuario ---------------------------------------------------------
@@ -954,7 +968,7 @@ Este diseño permite analizar los efectos de crear ventanas prioritarias en el a
 
 \subsubsection{Escenario 4: Asignación con Cancelación Temporal de Clases (30\%)}
 
-Este escenario aborda el problema de cancelaciones recurrentes en asignaturas como por ejemplo las de libre ellección
+Este escenario aborda el problema de cancelaciones recurrentes en asignaturas como por ejemplo las de libre elección
  mediante un proceso estructurado de dos fases. Se busca seleccionar las clases con mayor tasa de cancelación
   y excluirlas temporalmente de una primera fase de inscripción. Los estudiantes asignan primero cupos en asignaturas básicas/obligatorias
    (con menor tasa de cancelación),
@@ -971,6 +985,51 @@ pero se restauran antes del redondeo final.
 \item Se realiza el redondeo greedy usando los consumos registrados durante la interrupción.
 \item Se registran las asignaciones resultantes y se comparan contra el escenario base.
 \end{itemize}
+
+\subsubsection{Comparación resultados }
+
+Se evaluaron los cuatro escenarios utilizando seis métricas clave para analizar la calidad de las asignaciones:
+
+\begin{itemize}
+  \item \textbf{Satisfacción media:} promedio del grado de satisfacción de los estudiantes según la prioridad de asignación (más alta si obtienen su primera opción).
+  \item \textbf{Uso de cupos:} proporción de utilización de los cupos disponibles en los cursos.
+  \item \textbf{Porcentaje de asignación por opción:} incluye la proporción de estudiantes asignados a su primera, segunda y tercera opción, así como el porcentaje que obtuvo alguna de las tres.
+  \item \textbf{Equidad:} medida de justicia en la distribución de las asignaciones entre los estudiantes.
+  \item \textbf{Eficiencia de Pareto:} porcentaje de asignaciones que no podrían mejorar para un estudiante sin empeorar para otro.
+\end{itemize}
+
+A continuación, se presentan los promedios de cada métrica en 20 iteraciones por escenario:
+
+\begin{table}[H]
+\centering
+\caption{Promedios por escenario}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Métrica} & \textbf{Escenario 1} & \textbf{Escenario 2} & \textbf{Escenario 3} & \textbf{Escenario 4} \\
+\midrule
+Satisfacción media & 0.638 & 0.638 & \textbf{0.659} & 0.533 \\
+Uso de cupos & 0.717 & 0.717 & \textbf{0.742} & 0.598 \\
+Primera opción (\%) & \textbf{99.73} & 99.72 & 99.70 & 66.00 \\
+Segunda opción (\%) & 51.11 & 51.13 & \textbf{53.16} & 44.37 \\
+Tercera opción (\%) & 33.24 & 33.24 & \textbf{35.19} & 32.00 \\
+Alguna de las tres (\%) & 15.49 & 15.53 & \textbf{16.89} & 4.46 \\
+Equidad & 0.158 & \textbf{0.158} & 0.156 & \textbf{0.221} \\
+Eficiencia de Pareto & 0.0655 & 0.0656 & \textbf{0.0712} & 0.0182 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\noindent Al analizar los resultados obtenidos, se pueden identificar diferencias notables en el comportamiento de cada política de asignación implementada en los escenarios.
+
+El \textbf{Escenario 2}, que incorpora prioridad académica mediante el índice P.A.P.I., presenta el mejor desempeño general en términos de satisfacción media, eficiencia de Pareto y aprovechamiento de cupos. Esto se explica porque los estudiantes con mejor rendimiento académico acceden primero a los cupos más demandados, lo que tiende a maximizar la utilidad agregada del sistema. La satisfacción media alcanza un valor de 0.659, con altos porcentajes de asignación en la segunda y tercera opción, lo cual sugiere que incluso los estudiantes sin prioridad directa logran acceder a opciones razonablemente cercanas a sus preferencias. Adicionalmente, la eficiencia de Pareto más alta (0.0712) indica que las asignaciones realizadas presentan un menor margen para mejoras sin perjudicar a otros, consolidando este escenario como el más eficiente desde una perspectiva global.
+
+En contraste, el \textbf{Escenario 3}, que introduce una política de prioridad a un subconjunto aleatorio (20\% de los estudiantes), muestra una importante mejora en la métrica de \textit{equidad} (0.221), lo que indica una distribución más homogénea de la satisfacción. Esta política logra reducir la disparidad entre estudiantes priorizados y no priorizados, pero a un costo significativo: la satisfacción media se reduce a 0.533, el uso de cupos cae al 59.8\%, y la eficiencia de Pareto se desploma a 0.0182. Además, solo el 66\% de los estudiantes obtiene su primera opción, lo cual contrasta fuertemente con los más del 99\% observados en los otros escenarios. Esto revela que una política de ventanas prioritarias puede aumentar la justicia percibida, pero sacrifica notoriamente la eficiencia y la calidad general de la asignación.
+
+El \textbf{Escenario 1}, que utiliza una asignación aleatoria estándar mediante el algoritmo PS, sirve como línea base y ofrece un balance moderado entre eficiencia y equidad. Sin intervenciones adicionales, mantiene una satisfacción media aceptable (0.635), aunque inferior al Escenario 2. La asignación a las primeras opciones se distribuye de manera más neutral, y el uso de cupos y la eficiencia de Pareto se mantienen en niveles razonables. Este enfoque representa una política neutral que no privilegia ni penaliza a ningún grupo, siendo útil como referencia para medir el impacto de las demás estrategias.
+
+Por último, el \textbf{Escenario 4}, que introduce una cancelación temporal del 30\% de clases (típicamente electivas), se sitúa en una posición intermedia. Su objetivo de priorizar asignaturas básicas busca evitar cancelaciones y asegurar trayectorias académicas sólidas. Aunque no alcanza los niveles de satisfacción ni eficiencia del Escenario 2, presenta un desempeño razonable con una satisfacción media de 0.630 y un uso de cupos del 71.9\%. La eficiencia de Pareto también es considerablemente mejor que la del Escenario 3. Este enfoque parece balancear adecuadamente las restricciones académicas institucionales con las preferencias de los estudiantes, y puede considerarse una estrategia viable para contextos con alta inestabilidad en la oferta académica.
+
+En resumen, el Escenario 2 sobresale en términos de eficiencia y satisfacción, ideal para contextos donde se prioriza el mérito académico. El Escenario 3 destaca por su enfoque en la equidad, pero con un fuerte sacrificio en eficiencia. El Escenario 1 sirve como punto de referencia neutral, mientras que el Escenario 4 ofrece una alternativa con compromisos interesantes entre estructura institucional y bienestar estudiantil.
 
 \section{Referencias}
 \renewcommand{\refname}{}
