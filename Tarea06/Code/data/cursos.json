@@ -1,2502 +1,502 @@
 {
-  "5899089MQF": {
-    "codigo": "5899089MQF",
+  "3724230ERA": {
+    "codigo": "3724230ERA",
     "programado": false,
-    "num_grupos": 3
-  },
-  "1736432DZN": {
-    "codigo": "1736432DZN",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3984933ULT": {
-    "codigo": "3984933ULT",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9394190ANX": {
-    "codigo": "9394190ANX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8165493UOT": {
-    "codigo": "8165493UOT",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5043086UFC": {
-    "codigo": "5043086UFC",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3995138TJB": {
-    "codigo": "3995138TJB",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1780294XVE": {
-    "codigo": "1780294XVE",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "7545822GCM": {
-    "codigo": "7545822GCM",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8846882FGH": {
-    "codigo": "8846882FGH",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0569606KPF": {
-    "codigo": "0569606KPF",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0315502MLZ": {
-    "codigo": "0315502MLZ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2234988VHL": {
-    "codigo": "2234988VHL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0356011TMI": {
-    "codigo": "0356011TMI",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1093869UCB": {
-    "codigo": "1093869UCB",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7568317TCH": {
-    "codigo": "7568317TCH",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0829597AJV": {
-    "codigo": "0829597AJV",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "2277893NNW": {
-    "codigo": "2277893NNW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2779549HQV": {
-    "codigo": "2779549HQV",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4861948UZQ": {
-    "codigo": "4861948UZQ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0588425PKO": {
-    "codigo": "0588425PKO",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "6953058UML": {
-    "codigo": "6953058UML",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1424494EPI": {
-    "codigo": "1424494EPI",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4245044RUG": {
-    "codigo": "4245044RUG",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "6289002XZZ": {
-    "codigo": "6289002XZZ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6575151MSW": {
-    "codigo": "6575151MSW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4706548XJP": {
-    "codigo": "4706548XJP",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4510668WXP": {
-    "codigo": "4510668WXP",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3598886XEA": {
-    "codigo": "3598886XEA",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9044770KKY": {
-    "codigo": "9044770KKY",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3266423TKQ": {
-    "codigo": "3266423TKQ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2296744KFD": {
-    "codigo": "2296744KFD",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0387658PZK": {
-    "codigo": "0387658PZK",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9555245COR": {
-    "codigo": "9555245COR",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2344579QUT": {
-    "codigo": "2344579QUT",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "7765609QUX": {
-    "codigo": "7765609QUX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3070800EAR": {
-    "codigo": "3070800EAR",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8526325EGU": {
-    "codigo": "8526325EGU",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2403261IVX": {
-    "codigo": "2403261IVX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9350861OGU": {
-    "codigo": "9350861OGU",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1154683BRB": {
-    "codigo": "1154683BRB",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8247431PJB": {
-    "codigo": "8247431PJB",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0077003OIP": {
-    "codigo": "0077003OIP",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1213014NNN": {
-    "codigo": "1213014NNN",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1748374QHD": {
-    "codigo": "1748374QHD",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9428713QQP": {
-    "codigo": "9428713QQP",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5634112ZGX": {
-    "codigo": "5634112ZGX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6121526KKT": {
-    "codigo": "6121526KKT",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9913665UMY": {
-    "codigo": "9913665UMY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6854357JBX": {
-    "codigo": "6854357JBX",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7384531MCT": {
-    "codigo": "7384531MCT",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0454534DQH": {
-    "codigo": "0454534DQH",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8651766TZX": {
-    "codigo": "8651766TZX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9311694UDS": {
-    "codigo": "9311694UDS",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7867490ZRR": {
-    "codigo": "7867490ZRR",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9941699QQM": {
-    "codigo": "9941699QQM",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "5723515SKZ": {
-    "codigo": "5723515SKZ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4098606NDE": {
-    "codigo": "4098606NDE",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7027912PJZ": {
-    "codigo": "7027912PJZ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "8610803WXB": {
-    "codigo": "8610803WXB",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "1277440ARM": {
-    "codigo": "1277440ARM",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3753095RFR": {
-    "codigo": "3753095RFR",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4296379MNS": {
-    "codigo": "4296379MNS",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8149995OZJ": {
-    "codigo": "8149995OZJ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0789797PRO": {
-    "codigo": "0789797PRO",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8913415ZLP": {
-    "codigo": "8913415ZLP",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9015276OOQ": {
-    "codigo": "9015276OOQ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6515623KVW": {
-    "codigo": "6515623KVW",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1566328YWQ": {
-    "codigo": "1566328YWQ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9120209JAM": {
-    "codigo": "9120209JAM",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6765191HNL": {
-    "codigo": "6765191HNL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5226838TVN": {
-    "codigo": "5226838TVN",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2045821OIT": {
-    "codigo": "2045821OIT",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3155775CES": {
-    "codigo": "3155775CES",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3353698XVU": {
-    "codigo": "3353698XVU",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "5846479XNX": {
-    "codigo": "5846479XNX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6697231ZLP": {
-    "codigo": "6697231ZLP",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1910086AZY": {
-    "codigo": "1910086AZY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9291700MJC": {
-    "codigo": "9291700MJC",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2522954WHI": {
-    "codigo": "2522954WHI",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8869724PUF": {
-    "codigo": "8869724PUF",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2728868QFI": {
-    "codigo": "2728868QFI",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7491133UXF": {
-    "codigo": "7491133UXF",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0675363NQV": {
-    "codigo": "0675363NQV",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1737377KVM": {
-    "codigo": "1737377KVM",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4832571ZFW": {
-    "codigo": "4832571ZFW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1379754HZX": {
-    "codigo": "1379754HZX",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8837986HGH": {
-    "codigo": "8837986HGH",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5088862DIK": {
-    "codigo": "5088862DIK",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2862876UAQ": {
-    "codigo": "2862876UAQ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6926500UHS": {
-    "codigo": "6926500UHS",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9794673FYF": {
-    "codigo": "9794673FYF",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3730644FOA": {
-    "codigo": "3730644FOA",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9896985TRX": {
-    "codigo": "9896985TRX",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7651339VBP": {
-    "codigo": "7651339VBP",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0783049ESC": {
-    "codigo": "0783049ESC",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "7883119IIR": {
-    "codigo": "7883119IIR",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2952379QIY": {
-    "codigo": "2952379QIY",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9451014GVZ": {
-    "codigo": "9451014GVZ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9073031IDX": {
-    "codigo": "9073031IDX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0769814TIW": {
-    "codigo": "0769814TIW",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6948679ABH": {
-    "codigo": "6948679ABH",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2167701OCD": {
-    "codigo": "2167701OCD",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6560245TVZ": {
-    "codigo": "6560245TVZ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2755788CCY": {
-    "codigo": "2755788CCY",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4630527CSV": {
-    "codigo": "4630527CSV",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3906163MQU": {
-    "codigo": "3906163MQU",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7097605FVV": {
-    "codigo": "7097605FVV",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3991098HTW": {
-    "codigo": "3991098HTW",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8488358EEO": {
-    "codigo": "8488358EEO",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3740719ZUA": {
-    "codigo": "3740719ZUA",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3303758ZEM": {
-    "codigo": "3303758ZEM",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8349030XBX": {
-    "codigo": "8349030XBX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4515569NYF": {
-    "codigo": "4515569NYF",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "6966612KIG": {
-    "codigo": "6966612KIG",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3522659YWF": {
-    "codigo": "3522659YWF",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6114824AWZ": {
-    "codigo": "6114824AWZ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4112004IFX": {
-    "codigo": "4112004IFX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4492187FRC": {
-    "codigo": "4492187FRC",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9895779SUT": {
-    "codigo": "9895779SUT",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7405233FVQ": {
-    "codigo": "7405233FVQ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7073776PFO": {
-    "codigo": "7073776PFO",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4129110LFX": {
-    "codigo": "4129110LFX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2862901FJG": {
-    "codigo": "2862901FJG",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0970001LQN": {
-    "codigo": "0970001LQN",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1912935AXP": {
-    "codigo": "1912935AXP",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9208773PMS": {
-    "codigo": "9208773PMS",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2822268ZMD": {
-    "codigo": "2822268ZMD",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8538611IHQ": {
-    "codigo": "8538611IHQ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4948775WAA": {
-    "codigo": "4948775WAA",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6078709NGN": {
-    "codigo": "6078709NGN",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "6301433VYT": {
-    "codigo": "6301433VYT",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3987639YEH": {
-    "codigo": "3987639YEH",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4818199QRL": {
-    "codigo": "4818199QRL",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3213816MFW": {
-    "codigo": "3213816MFW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0055710UBD": {
-    "codigo": "0055710UBD",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7424741MTE": {
-    "codigo": "7424741MTE",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "1330626PBS": {
-    "codigo": "1330626PBS",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2177549ABO": {
-    "codigo": "2177549ABO",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9134581TVU": {
-    "codigo": "9134581TVU",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5544144LGH": {
-    "codigo": "5544144LGH",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9445635TQU": {
-    "codigo": "9445635TQU",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9167398RAZ": {
-    "codigo": "9167398RAZ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6747748TLI": {
-    "codigo": "6747748TLI",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3609281RUP": {
-    "codigo": "3609281RUP",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8310926MKE": {
-    "codigo": "8310926MKE",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4906980SCR": {
-    "codigo": "4906980SCR",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6923082RJU": {
-    "codigo": "6923082RJU",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8518736WEX": {
-    "codigo": "8518736WEX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9403792PYA": {
-    "codigo": "9403792PYA",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "5472781JZL": {
-    "codigo": "5472781JZL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "2106495ZPY": {
-    "codigo": "2106495ZPY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8871318DAW": {
-    "codigo": "8871318DAW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4817900BOR": {
-    "codigo": "4817900BOR",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6720500RMI": {
-    "codigo": "6720500RMI",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6980575BHK": {
-    "codigo": "6980575BHK",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5504384YZA": {
-    "codigo": "5504384YZA",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4153718VPT": {
-    "codigo": "4153718VPT",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "8992715DNE": {
-    "codigo": "8992715DNE",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0487962RCI": {
-    "codigo": "0487962RCI",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3066337NOK": {
-    "codigo": "3066337NOK",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1575673URC": {
-    "codigo": "1575673URC",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5689049HTK": {
-    "codigo": "5689049HTK",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0081408ABA": {
-    "codigo": "0081408ABA",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7725685BPK": {
-    "codigo": "7725685BPK",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7921769NNW": {
-    "codigo": "7921769NNW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1835198LDO": {
-    "codigo": "1835198LDO",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5230229OEY": {
-    "codigo": "5230229OEY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1710426QXT": {
-    "codigo": "1710426QXT",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2420012AMY": {
-    "codigo": "2420012AMY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5618679ZOJ": {
-    "codigo": "5618679ZOJ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3778597FSY": {
-    "codigo": "3778597FSY",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6734771UKF": {
-    "codigo": "6734771UKF",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8470015OPC": {
-    "codigo": "8470015OPC",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8682342XLR": {
-    "codigo": "8682342XLR",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8433510IMK": {
-    "codigo": "8433510IMK",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1846641AKR": {
-    "codigo": "1846641AKR",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8537638FPZ": {
-    "codigo": "8537638FPZ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7495265UNH": {
-    "codigo": "7495265UNH",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "6030333TCH": {
-    "codigo": "6030333TCH",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2727382DHQ": {
-    "codigo": "2727382DHQ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3570610YUN": {
-    "codigo": "3570610YUN",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1450396CKK": {
-    "codigo": "1450396CKK",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9429569NHV": {
-    "codigo": "9429569NHV",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7963077DSW": {
-    "codigo": "7963077DSW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0798686TXT": {
-    "codigo": "0798686TXT",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8690492RWF": {
-    "codigo": "8690492RWF",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4026540WRL": {
-    "codigo": "4026540WRL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5644177YXB": {
-    "codigo": "5644177YXB",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7328979CGW": {
-    "codigo": "7328979CGW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4862230QOJ": {
-    "codigo": "4862230QOJ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9865173DDW": {
-    "codigo": "9865173DDW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "7504244JZG": {
-    "codigo": "7504244JZG",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3217291BGT": {
-    "codigo": "3217291BGT",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1549494SFD": {
-    "codigo": "1549494SFD",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "2162866TJX": {
-    "codigo": "2162866TJX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8890303FAF": {
-    "codigo": "8890303FAF",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3981436RAW": {
-    "codigo": "3981436RAW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1856816HRN": {
-    "codigo": "1856816HRN",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4262470OIM": {
-    "codigo": "4262470OIM",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2369580FWV": {
-    "codigo": "2369580FWV",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9376662PDX": {
-    "codigo": "9376662PDX",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6199838AMV": {
-    "codigo": "6199838AMV",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2166811YXJ": {
-    "codigo": "2166811YXJ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4110845ATJ": {
-    "codigo": "4110845ATJ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8208620CLB": {
-    "codigo": "8208620CLB",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8271151LUT": {
-    "codigo": "8271151LUT",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3095349LMT": {
-    "codigo": "3095349LMT",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3399895LHW": {
-    "codigo": "3399895LHW",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4190054BPA": {
-    "codigo": "4190054BPA",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5477061OVU": {
-    "codigo": "5477061OVU",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1317920WJP": {
-    "codigo": "1317920WJP",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "5542258SIX": {
-    "codigo": "5542258SIX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9008202EJV": {
-    "codigo": "9008202EJV",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3684226YJZ": {
-    "codigo": "3684226YJZ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7101560OUB": {
-    "codigo": "7101560OUB",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0137907KPO": {
-    "codigo": "0137907KPO",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0098004LWL": {
-    "codigo": "0098004LWL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9026743BBQ": {
-    "codigo": "9026743BBQ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4565455CMB": {
-    "codigo": "4565455CMB",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9520170FYZ": {
-    "codigo": "9520170FYZ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4332359PHM": {
-    "codigo": "4332359PHM",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4967333JLF": {
-    "codigo": "4967333JLF",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0472590NNQ": {
-    "codigo": "0472590NNQ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2381922IMO": {
-    "codigo": "2381922IMO",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5140124ZOR": {
-    "codigo": "5140124ZOR",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0830655OKX": {
-    "codigo": "0830655OKX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4683298VWS": {
-    "codigo": "4683298VWS",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4296443KRR": {
-    "codigo": "4296443KRR",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8857252HEL": {
-    "codigo": "8857252HEL",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4843033AYR": {
-    "codigo": "4843033AYR",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1357143KCU": {
-    "codigo": "1357143KCU",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9121227QSY": {
-    "codigo": "9121227QSY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8292259JZA": {
-    "codigo": "8292259JZA",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6045267RSG": {
-    "codigo": "6045267RSG",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8810781JQX": {
-    "codigo": "8810781JQX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "7880310TIY": {
-    "codigo": "7880310TIY",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7960102RWC": {
-    "codigo": "7960102RWC",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2176289WTT": {
-    "codigo": "2176289WTT",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0053087JQN": {
-    "codigo": "0053087JQN",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4428256SES": {
-    "codigo": "4428256SES",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "6195087CMP": {
-    "codigo": "6195087CMP",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9676789RNS": {
-    "codigo": "9676789RNS",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7971830DQG": {
-    "codigo": "7971830DQG",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7597932BJU": {
-    "codigo": "7597932BJU",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "1709442VDZ": {
-    "codigo": "1709442VDZ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4111398ENC": {
-    "codigo": "4111398ENC",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9374446WTR": {
-    "codigo": "9374446WTR",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "2214896IFF": {
-    "codigo": "2214896IFF",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "5660177SZY": {
-    "codigo": "5660177SZY",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6237769BKY": {
-    "codigo": "6237769BKY",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5300037AHO": {
-    "codigo": "5300037AHO",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1232006FGU": {
-    "codigo": "1232006FGU",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6038064OVG": {
-    "codigo": "6038064OVG",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9485085JGV": {
-    "codigo": "9485085JGV",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3202418ANK": {
-    "codigo": "3202418ANK",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1827652JYH": {
-    "codigo": "1827652JYH",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4846612BZM": {
-    "codigo": "4846612BZM",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5704504ERM": {
-    "codigo": "5704504ERM",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2728570QXV": {
-    "codigo": "2728570QXV",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8178122NRC": {
-    "codigo": "8178122NRC",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2046150JDI": {
-    "codigo": "2046150JDI",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "8536700IKU": {
-    "codigo": "8536700IKU",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5054567IAW": {
-    "codigo": "5054567IAW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4533356WQY": {
-    "codigo": "4533356WQY",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3822133RBV": {
-    "codigo": "3822133RBV",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4358291IQQ": {
-    "codigo": "4358291IQQ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4919386HBD": {
-    "codigo": "4919386HBD",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "8935182NDK": {
-    "codigo": "8935182NDK",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5853483GBW": {
-    "codigo": "5853483GBW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2409222WLI": {
-    "codigo": "2409222WLI",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3054138CRX": {
-    "codigo": "3054138CRX",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8556275SQA": {
-    "codigo": "8556275SQA",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "7150309LDD": {
-    "codigo": "7150309LDD",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2390232CDD": {
-    "codigo": "2390232CDD",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9043260YCD": {
-    "codigo": "9043260YCD",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5021205GBH": {
-    "codigo": "5021205GBH",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4956955RTL": {
-    "codigo": "4956955RTL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3821869NSP": {
-    "codigo": "3821869NSP",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9932187UBD": {
-    "codigo": "9932187UBD",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9397685GDM": {
-    "codigo": "9397685GDM",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7754670PBG": {
-    "codigo": "7754670PBG",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6374895KCA": {
-    "codigo": "6374895KCA",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6605317DIQ": {
-    "codigo": "6605317DIQ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0784387ZIZ": {
-    "codigo": "0784387ZIZ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0507538BBS": {
-    "codigo": "0507538BBS",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "5421561GBW": {
-    "codigo": "5421561GBW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5063341GOV": {
-    "codigo": "5063341GOV",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7656763KGI": {
-    "codigo": "7656763KGI",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0978104EFG": {
-    "codigo": "0978104EFG",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4847259XLE": {
-    "codigo": "4847259XLE",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6303169LNV": {
-    "codigo": "6303169LNV",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9999670QNX": {
-    "codigo": "9999670QNX",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1661545LTP": {
-    "codigo": "1661545LTP",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9301522ZKW": {
-    "codigo": "9301522ZKW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2065847PUL": {
-    "codigo": "2065847PUL",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1731877URW": {
-    "codigo": "1731877URW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "6685668NCE": {
-    "codigo": "6685668NCE",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6906232DGV": {
-    "codigo": "6906232DGV",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6476626MKD": {
-    "codigo": "6476626MKD",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5390560IZJ": {
-    "codigo": "5390560IZJ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3207252VDE": {
-    "codigo": "3207252VDE",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5093278FWL": {
-    "codigo": "5093278FWL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4502607YDH": {
-    "codigo": "4502607YDH",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "3966175IQR": {
-    "codigo": "3966175IQR",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3082386FDL": {
-    "codigo": "3082386FDL",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "4078830AUR": {
-    "codigo": "4078830AUR",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3326759JPH": {
-    "codigo": "3326759JPH",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3426042MGL": {
-    "codigo": "3426042MGL",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9296882LQW": {
-    "codigo": "9296882LQW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "1375997PSD": {
-    "codigo": "1375997PSD",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5783966NBI": {
-    "codigo": "5783966NBI",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2308068BHW": {
-    "codigo": "2308068BHW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4834754HKP": {
-    "codigo": "4834754HKP",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "3582942LMO": {
-    "codigo": "3582942LMO",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3011504IEL": {
-    "codigo": "3011504IEL",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4555449HUR": {
-    "codigo": "4555449HUR",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "9082763HFC": {
-    "codigo": "9082763HFC",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1563746YWM": {
-    "codigo": "1563746YWM",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0794304ETJ": {
-    "codigo": "0794304ETJ",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "8689676EPE": {
-    "codigo": "8689676EPE",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0334511NWK": {
-    "codigo": "0334511NWK",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0529888QME": {
-    "codigo": "0529888QME",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "4325710BCW": {
-    "codigo": "4325710BCW",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "1157572ZPL": {
-    "codigo": "1157572ZPL",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "1355986NXX": {
-    "codigo": "1355986NXX",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0019029AYA": {
-    "codigo": "0019029AYA",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "9856993WUR": {
-    "codigo": "9856993WUR",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "5301458JBP": {
-    "codigo": "5301458JBP",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7702644NLI": {
-    "codigo": "7702644NLI",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "6840708DIO": {
-    "codigo": "6840708DIO",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5824012DGJ": {
-    "codigo": "5824012DGJ",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8570335TSX": {
-    "codigo": "8570335TSX",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2815243LCQ": {
-    "codigo": "2815243LCQ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2932748MDQ": {
-    "codigo": "2932748MDQ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "8163819HRL": {
-    "codigo": "8163819HRL",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0316114WPW": {
-    "codigo": "0316114WPW",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "3505648GYL": {
-    "codigo": "3505648GYL",
-    "programado": false,
     "num_grupos": 2
-  },
-  "6185993NPI": {
-    "codigo": "6185993NPI",
-    "programado": false,
-    "num_grupos": 4
   },
-  "3605967DCE": {
-    "codigo": "3605967DCE",
+  "0389248TRY": {
+    "codigo": "0389248TRY",
     "programado": false,
     "num_grupos": 4
-  },
-  "7944743NVS": {
-    "codigo": "7944743NVS",
-    "programado": false,
-    "num_grupos": 1
   },
-  "4473144WDI": {
-    "codigo": "4473144WDI",
+  "0067805EWX": {
+    "codigo": "0067805EWX",
     "programado": false,
     "num_grupos": 3
   },
-  "7258526WJV": {
-    "codigo": "7258526WJV",
+  "7612502WIX": {
+    "codigo": "7612502WIX",
     "programado": false,
-    "num_grupos": 2
-  },
-  "2437098PZB": {
-    "codigo": "2437098PZB",
-    "programado": false,
-    "num_grupos": 2
+    "num_grupos": 1
   },
-  "5384010ZFT": {
-    "codigo": "5384010ZFT",
+  "5730973UAZ": {
+    "codigo": "5730973UAZ",
     "programado": false,
     "num_grupos": 4
   },
-  "3145800QNP": {
-    "codigo": "3145800QNP",
+  "4921191EFD": {
+    "codigo": "4921191EFD",
     "programado": false,
     "num_grupos": 2
   },
-  "9292687FBC": {
-    "codigo": "9292687FBC",
+  "6111768HEF": {
+    "codigo": "6111768HEF",
     "programado": false,
     "num_grupos": 3
   },
-  "7183386MTU": {
-    "codigo": "7183386MTU",
+  "8307573QQC": {
+    "codigo": "8307573QQC",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 3
   },
-  "6086027DMD": {
-    "codigo": "6086027DMD",
+  "2207782EAJ": {
+    "codigo": "2207782EAJ",
     "programado": false,
     "num_grupos": 1
   },
-  "7077557GIT": {
-    "codigo": "7077557GIT",
+  "6055368RDW": {
+    "codigo": "6055368RDW",
     "programado": false,
     "num_grupos": 3
   },
-  "9499769SSA": {
-    "codigo": "9499769SSA",
+  "6021688SQS": {
+    "codigo": "6021688SQS",
     "programado": false,
     "num_grupos": 1
-  },
-  "9915265YDV": {
-    "codigo": "9915265YDV",
-    "programado": false,
-    "num_grupos": 4
   },
-  "1302990JQG": {
-    "codigo": "1302990JQG",
+  "3772408NSZ": {
+    "codigo": "3772408NSZ",
     "programado": false,
     "num_grupos": 2
-  },
-  "6423120MQH": {
-    "codigo": "6423120MQH",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9047259LNO": {
-    "codigo": "9047259LNO",
-    "programado": false,
-    "num_grupos": 4
   },
-  "3335459SLJ": {
-    "codigo": "3335459SLJ",
+  "8807556JTV": {
+    "codigo": "8807556JTV",
     "programado": false,
-    "num_grupos": 4
-  },
-  "0064075CCW": {
-    "codigo": "0064075CCW",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7448212BXQ": {
-    "codigo": "7448212BXQ",
-    "programado": false,
     "num_grupos": 2
   },
-  "9384497CFB": {
-    "codigo": "9384497CFB",
+  "2034409YGE": {
+    "codigo": "2034409YGE",
     "programado": false,
     "num_grupos": 1
-  },
-  "3208509AGT": {
-    "codigo": "3208509AGT",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "9128785STM": {
-    "codigo": "9128785STM",
-    "programado": false,
-    "num_grupos": 3
   },
-  "5529753JJP": {
-    "codigo": "5529753JJP",
+  "2472413ZHI": {
+    "codigo": "2472413ZHI",
     "programado": false,
-    "num_grupos": 4
-  },
-  "5774360ENV": {
-    "codigo": "5774360ENV",
-    "programado": false,
-    "num_grupos": 3
+    "num_grupos": 1
   },
-  "0281074USU": {
-    "codigo": "0281074USU",
+  "7741867XAM": {
+    "codigo": "7741867XAM",
     "programado": false,
     "num_grupos": 4
-  },
-  "0390288EAN": {
-    "codigo": "0390288EAN",
-    "programado": false,
-    "num_grupos": 3
   },
-  "1609563HBI": {
-    "codigo": "1609563HBI",
+  "9791056ERE": {
+    "codigo": "9791056ERE",
     "programado": false,
     "num_grupos": 4
   },
-  "6548070VLO": {
-    "codigo": "6548070VLO",
+  "1625359QRQ": {
+    "codigo": "1625359QRQ",
     "programado": false,
     "num_grupos": 4
   },
-  "6238328MML": {
-    "codigo": "6238328MML",
+  "3454882WHY": {
+    "codigo": "3454882WHY",
     "programado": false,
-    "num_grupos": 3
-  },
-  "8346917UHK": {
-    "codigo": "8346917UHK",
-    "programado": false,
-    "num_grupos": 4
+    "num_grupos": 1
   },
-  "8632179TDK": {
-    "codigo": "8632179TDK",
+  "9317618JWY": {
+    "codigo": "9317618JWY",
     "programado": false,
     "num_grupos": 4
-  },
-  "9900079BJR": {
-    "codigo": "9900079BJR",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "7819939SRD": {
-    "codigo": "7819939SRD",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "5845938SZF": {
-    "codigo": "5845938SZF",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "2800420QNN": {
-    "codigo": "2800420QNN",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6373628SHV": {
-    "codigo": "6373628SHV",
-    "programado": false,
-    "num_grupos": 1
   },
-  "2832930DDM": {
-    "codigo": "2832930DDM",
+  "9332786YPV": {
+    "codigo": "9332786YPV",
     "programado": false,
     "num_grupos": 1
   },
-  "8512843SHG": {
-    "codigo": "8512843SHG",
+  "2590772UAB": {
+    "codigo": "2590772UAB",
     "programado": false,
     "num_grupos": 2
   },
-  "3460166OFG": {
-    "codigo": "3460166OFG",
+  "7892270JSX": {
+    "codigo": "7892270JSX",
     "programado": false,
     "num_grupos": 2
   },
-  "0009224TZQ": {
-    "codigo": "0009224TZQ",
+  "9151790WBX": {
+    "codigo": "9151790WBX",
     "programado": false,
-    "num_grupos": 3
-  },
-  "3218150MCE": {
-    "codigo": "3218150MCE",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "5486827CYS": {
-    "codigo": "5486827CYS",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "4237258JAY": {
-    "codigo": "4237258JAY",
-    "programado": false,
     "num_grupos": 2
-  },
-  "6779405EJE": {
-    "codigo": "6779405EJE",
-    "programado": false,
-    "num_grupos": 4
   },
-  "1756446ZQQ": {
-    "codigo": "1756446ZQQ",
+  "1043877TQM": {
+    "codigo": "1043877TQM",
     "programado": false,
     "num_grupos": 3
   },
-  "4181021LUQ": {
-    "codigo": "4181021LUQ",
+  "3345725QDC": {
+    "codigo": "3345725QDC",
     "programado": false,
     "num_grupos": 2
-  },
-  "2249721SPR": {
-    "codigo": "2249721SPR",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "0646692TTV": {
-    "codigo": "0646692TTV",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "8507268JTE": {
-    "codigo": "8507268JTE",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "2817090MIK": {
-    "codigo": "2817090MIK",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0184443AAE": {
-    "codigo": "0184443AAE",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "4881229OGL": {
-    "codigo": "4881229OGL",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "2175758MHK": {
-    "codigo": "2175758MHK",
-    "programado": false,
-    "num_grupos": 3
   },
-  "4974026ZAK": {
-    "codigo": "4974026ZAK",
+  "8662734ZMZ": {
+    "codigo": "8662734ZMZ",
     "programado": false,
     "num_grupos": 2
   },
-  "2056505GUY": {
-    "codigo": "2056505GUY",
+  "6866338BKD": {
+    "codigo": "6866338BKD",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 1
   },
-  "7570958FND": {
-    "codigo": "7570958FND",
+  "6976983TDH": {
+    "codigo": "6976983TDH",
     "programado": false,
     "num_grupos": 2
-  },
-  "3918591IYL": {
-    "codigo": "3918591IYL",
-    "programado": false,
-    "num_grupos": 4
   },
-  "0888943BKD": {
-    "codigo": "0888943BKD",
+  "0813574RAP": {
+    "codigo": "0813574RAP",
     "programado": false,
     "num_grupos": 3
   },
-  "7459730XYC": {
-    "codigo": "7459730XYC",
+  "2525637EBJ": {
+    "codigo": "2525637EBJ",
     "programado": false,
     "num_grupos": 4
   },
-  "9818662DOP": {
-    "codigo": "9818662DOP",
+  "3135915DLH": {
+    "codigo": "3135915DLH",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 1
   },
-  "6466642KFX": {
-    "codigo": "6466642KFX",
+  "9884026TCN": {
+    "codigo": "9884026TCN",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 3
   },
-  "9972682ROO": {
-    "codigo": "9972682ROO",
+  "7303299PNM": {
+    "codigo": "7303299PNM",
     "programado": false,
     "num_grupos": 1
-  },
-  "3726988YOF": {
-    "codigo": "3726988YOF",
-    "programado": false,
-    "num_grupos": 2
   },
-  "1237218QIC": {
-    "codigo": "1237218QIC",
+  "2130599EHW": {
+    "codigo": "2130599EHW",
     "programado": false,
     "num_grupos": 3
-  },
-  "0006632ULS": {
-    "codigo": "0006632ULS",
-    "programado": false,
-    "num_grupos": 4
   },
-  "0682275OAR": {
-    "codigo": "0682275OAR",
+  "0708783YQA": {
+    "codigo": "0708783YQA",
     "programado": false,
     "num_grupos": 4
   },
-  "0962471RKG": {
-    "codigo": "0962471RKG",
+  "4295335KLZ": {
+    "codigo": "4295335KLZ",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 2
   },
-  "1102663SIQ": {
-    "codigo": "1102663SIQ",
+  "7726517CYT": {
+    "codigo": "7726517CYT",
     "programado": false,
     "num_grupos": 3
   },
-  "1638553NTP": {
-    "codigo": "1638553NTP",
+  "3714581NAO": {
+    "codigo": "3714581NAO",
     "programado": false,
     "num_grupos": 4
-  },
-  "7426162QFA": {
-    "codigo": "7426162QFA",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "7119910AKW": {
-    "codigo": "7119910AKW",
-    "programado": false,
-    "num_grupos": 1
   },
-  "5116342EZR": {
-    "codigo": "5116342EZR",
+  "6479164KRX": {
+    "codigo": "6479164KRX",
     "programado": false,
     "num_grupos": 4
   },
-  "1272655PIB": {
-    "codigo": "1272655PIB",
+  "9844996KXW": {
+    "codigo": "9844996KXW",
     "programado": false,
     "num_grupos": 4
   },
-  "2416163DNO": {
-    "codigo": "2416163DNO",
+  "6951500CGB": {
+    "codigo": "6951500CGB",
     "programado": false,
     "num_grupos": 4
-  },
-  "0084290JYY": {
-    "codigo": "0084290JYY",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "6912271HTV": {
-    "codigo": "6912271HTV",
-    "programado": false,
-    "num_grupos": 1
-  },
-  "9963069BJI": {
-    "codigo": "9963069BJI",
-    "programado": false,
-    "num_grupos": 2
   },
-  "7522752DDV": {
-    "codigo": "7522752DDV",
+  "4638952BSG": {
+    "codigo": "4638952BSG",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 3
   },
-  "3309357BDQ": {
-    "codigo": "3309357BDQ",
+  "7220158NAS": {
+    "codigo": "7220158NAS",
     "programado": false,
     "num_grupos": 2
   },
-  "9617538TBC": {
-    "codigo": "9617538TBC",
+  "9583686DPO": {
+    "codigo": "9583686DPO",
     "programado": false,
     "num_grupos": 2
   },
-  "7271379VKX": {
-    "codigo": "7271379VKX",
+  "4217645YJS": {
+    "codigo": "4217645YJS",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 3
   },
-  "6547034VGE": {
-    "codigo": "6547034VGE",
+  "2843988FGI": {
+    "codigo": "2843988FGI",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 4
   },
-  "7208259OFY": {
-    "codigo": "7208259OFY",
+  "7803972MGJ": {
+    "codigo": "7803972MGJ",
     "programado": false,
     "num_grupos": 1
   },
-  "8282847DYN": {
-    "codigo": "8282847DYN",
+  "0998273DTR": {
+    "codigo": "0998273DTR",
     "programado": false,
     "num_grupos": 3
   },
-  "1327730XUO": {
-    "codigo": "1327730XUO",
+  "1483040XPF": {
+    "codigo": "1483040XPF",
     "programado": false,
     "num_grupos": 4
   },
-  "9694979LMY": {
-    "codigo": "9694979LMY",
+  "4344966SML": {
+    "codigo": "4344966SML",
     "programado": false,
     "num_grupos": 3
-  },
-  "3280556VRN": {
-    "codigo": "3280556VRN",
-    "programado": false,
-    "num_grupos": 4
   },
-  "4858976TWF": {
-    "codigo": "4858976TWF",
+  "3648726YCY": {
+    "codigo": "3648726YCY",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 3
   },
-  "9103586UWZ": {
-    "codigo": "9103586UWZ",
+  "1980542EUM": {
+    "codigo": "1980542EUM",
     "programado": false,
     "num_grupos": 4
   },
-  "2984351ALQ": {
-    "codigo": "2984351ALQ",
+  "1839786YZT": {
+    "codigo": "1839786YZT",
     "programado": false,
-    "num_grupos": 1
-  },
-  "4401006DVJ": {
-    "codigo": "4401006DVJ",
-    "programado": false,
     "num_grupos": 2
   },
-  "6849133ERU": {
-    "codigo": "6849133ERU",
+  "5894619FTU": {
+    "codigo": "5894619FTU",
     "programado": false,
     "num_grupos": 2
   },
-  "0245596CKN": {
-    "codigo": "0245596CKN",
+  "3811273HBX": {
+    "codigo": "3811273HBX",
     "programado": false,
     "num_grupos": 1
-  },
-  "9107206VRX": {
-    "codigo": "9107206VRX",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "0461040ASN": {
-    "codigo": "0461040ASN",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "3104918PPD": {
-    "codigo": "3104918PPD",
-    "programado": false,
-    "num_grupos": 4
   },
-  "9225541VXA": {
-    "codigo": "9225541VXA",
+  "6402513HQC": {
+    "codigo": "6402513HQC",
     "programado": false,
-    "num_grupos": 4
-  },
-  "1959555MQY": {
-    "codigo": "1959555MQY",
-    "programado": false,
     "num_grupos": 1
-  },
-  "0138488DNB": {
-    "codigo": "0138488DNB",
-    "programado": false,
-    "num_grupos": 4
   },
-  "5196829IOQ": {
-    "codigo": "5196829IOQ",
+  "8481793DMJ": {
+    "codigo": "8481793DMJ",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 3
   },
-  "9669835PLE": {
-    "codigo": "9669835PLE",
+  "2028843LAK": {
+    "codigo": "2028843LAK",
     "programado": false,
     "num_grupos": 3
   },
-  "8756994TGD": {
-    "codigo": "8756994TGD",
+  "3022683HTD": {
+    "codigo": "3022683HTD",
     "programado": false,
     "num_grupos": 4
   },
-  "5356945AAK": {
-    "codigo": "5356945AAK",
+  "7118390BPI": {
+    "codigo": "7118390BPI",
     "programado": false,
-    "num_grupos": 1
-  },
-  "6758672GBY": {
-    "codigo": "6758672GBY",
-    "programado": false,
-    "num_grupos": 1
+    "num_grupos": 3
   },
-  "7530503URE": {
-    "codigo": "7530503URE",
+  "3486903UPX": {
+    "codigo": "3486903UPX",
     "programado": false,
     "num_grupos": 2
   },
-  "1094214DIH": {
-    "codigo": "1094214DIH",
+  "3466040PFR": {
+    "codigo": "3466040PFR",
     "programado": false,
     "num_grupos": 2
-  },
-  "3716340MBO": {
-    "codigo": "3716340MBO",
-    "programado": false,
-    "num_grupos": 3
   },
-  "5950782WHE": {
-    "codigo": "5950782WHE",
+  "7343281CNW": {
+    "codigo": "7343281CNW",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 1
   },
-  "7893161CPM": {
-    "codigo": "7893161CPM",
+  "0343431GSF": {
+    "codigo": "0343431GSF",
     "programado": false,
     "num_grupos": 2
   },
-  "8625603BJZ": {
-    "codigo": "8625603BJZ",
+  "8842708STV": {
+    "codigo": "8842708STV",
     "programado": false,
     "num_grupos": 1
-  },
-  "8133960JRZ": {
-    "codigo": "8133960JRZ",
-    "programado": false,
-    "num_grupos": 2
   },
-  "0195004XSS": {
-    "codigo": "0195004XSS",
+  "5375677IHT": {
+    "codigo": "5375677IHT",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 4
   },
-  "7561082DZR": {
-    "codigo": "7561082DZR",
+  "3094027KQM": {
+    "codigo": "3094027KQM",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 3
   },
-  "4683651KQL": {
-    "codigo": "4683651KQL",
+  "2110925SSP": {
+    "codigo": "2110925SSP",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 4
   },
-  "3253980IZV": {
-    "codigo": "3253980IZV",
+  "1036447JCX": {
+    "codigo": "1036447JCX",
     "programado": false,
     "num_grupos": 3
   },
-  "1638146EDW": {
-    "codigo": "1638146EDW",
+  "5826145VRZ": {
+    "codigo": "5826145VRZ",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 1
   },
-  "6239179BJD": {
-    "codigo": "6239179BJD",
+  "7023722WZD": {
+    "codigo": "7023722WZD",
     "programado": false,
     "num_grupos": 4
   },
-  "3187974DKM": {
-    "codigo": "3187974DKM",
+  "2210852JPR": {
+    "codigo": "2210852JPR",
     "programado": false,
     "num_grupos": 2
   },
-  "0939108XJQ": {
-    "codigo": "0939108XJQ",
+  "1705177EKA": {
+    "codigo": "1705177EKA",
     "programado": false,
     "num_grupos": 1
-  },
-  "1519259ZQU": {
-    "codigo": "1519259ZQU",
-    "programado": false,
-    "num_grupos": 4
   },
-  "0867225QKL": {
-    "codigo": "0867225QKL",
+  "5207898DYN": {
+    "codigo": "5207898DYN",
     "programado": false,
-    "num_grupos": 4
-  },
-  "5590977TKE": {
-    "codigo": "5590977TKE",
-    "programado": false,
     "num_grupos": 3
-  },
-  "1389356OMN": {
-    "codigo": "1389356OMN",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7781385PAM": {
-    "codigo": "7781385PAM",
-    "programado": false,
-    "num_grupos": 4
   },
-  "7473285AEI": {
-    "codigo": "7473285AEI",
+  "6547808RQL": {
+    "codigo": "6547808RQL",
     "programado": false,
     "num_grupos": 3
-  },
-  "2970245CUT": {
-    "codigo": "2970245CUT",
-    "programado": false,
-    "num_grupos": 1
   },
-  "1951702BQZ": {
-    "codigo": "1951702BQZ",
+  "5985151XHD": {
+    "codigo": "5985151XHD",
     "programado": false,
     "num_grupos": 2
   },
-  "6249642MQG": {
-    "codigo": "6249642MQG",
+  "0737767UGM": {
+    "codigo": "0737767UGM",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 3
   },
-  "1595395MWO": {
-    "codigo": "1595395MWO",
+  "5729750RFY": {
+    "codigo": "5729750RFY",
     "programado": false,
     "num_grupos": 4
   },
-  "9674163HZO": {
-    "codigo": "9674163HZO",
+  "3624020NHK": {
+    "codigo": "3624020NHK",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 4
   },
-  "7948644ZAL": {
-    "codigo": "7948644ZAL",
+  "8673072OGN": {
+    "codigo": "8673072OGN",
     "programado": false,
     "num_grupos": 1
   },
-  "1890644BYO": {
-    "codigo": "1890644BYO",
+  "7345383KPQ": {
+    "codigo": "7345383KPQ",
     "programado": false,
     "num_grupos": 4
   },
-  "9802385AUM": {
-    "codigo": "9802385AUM",
+  "6114307TUB": {
+    "codigo": "6114307TUB",
     "programado": false,
     "num_grupos": 1
   },
-  "8668094BVV": {
-    "codigo": "8668094BVV",
+  "0538069EST": {
+    "codigo": "0538069EST",
     "programado": false,
     "num_grupos": 3
   },
-  "6289891QTN": {
-    "codigo": "6289891QTN",
+  "6261608XDI": {
+    "codigo": "6261608XDI",
     "programado": false,
     "num_grupos": 4
   },
-  "7469064PZX": {
-    "codigo": "7469064PZX",
+  "6738493XTC": {
+    "codigo": "6738493XTC",
     "programado": false,
     "num_grupos": 3
   },
-  "9869030FYT": {
-    "codigo": "9869030FYT",
+  "2317240CPK": {
+    "codigo": "2317240CPK",
     "programado": false,
-    "num_grupos": 3
-  },
-  "7050337SIT": {
-    "codigo": "7050337SIT",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0828438AFL": {
-    "codigo": "0828438AFL",
-    "programado": false,
     "num_grupos": 1
   },
-  "8847072JTT": {
-    "codigo": "8847072JTT",
+  "4342656LPX": {
+    "codigo": "4342656LPX",
     "programado": false,
     "num_grupos": 4
   },
-  "4813133UVB": {
-    "codigo": "4813133UVB",
+  "9492595FTG": {
+    "codigo": "9492595FTG",
     "programado": false,
     "num_grupos": 1
-  },
-  "9022447CBJ": {
-    "codigo": "9022447CBJ",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "7095377PZD": {
-    "codigo": "7095377PZD",
-    "programado": false,
-    "num_grupos": 3
-  },
-  "8731559PLF": {
-    "codigo": "8731559PLF",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "0031802JEI": {
-    "codigo": "0031802JEI",
-    "programado": false,
-    "num_grupos": 4
-  },
-  "0258649WOB": {
-    "codigo": "0258649WOB",
-    "programado": false,
-    "num_grupos": 2
   },
-  "3454590SGS": {
-    "codigo": "3454590SGS",
+  "8251715INP": {
+    "codigo": "8251715INP",
     "programado": false,
     "num_grupos": 1
   },
-  "2569613FNN": {
-    "codigo": "2569613FNN",
+  "9171893ETN": {
+    "codigo": "9171893ETN",
     "programado": false,
     "num_grupos": 4
-  },
-  "7887049UFZ": {
-    "codigo": "7887049UFZ",
-    "programado": false,
-    "num_grupos": 1
   },
-  "9402657GIO": {
-    "codigo": "9402657GIO",
+  "4192213HCU": {
+    "codigo": "4192213HCU",
     "programado": false,
     "num_grupos": 3
   },
-  "5210982ZGG": {
-    "codigo": "5210982ZGG",
+  "6192229KFA": {
+    "codigo": "6192229KFA",
     "programado": false,
-    "num_grupos": 1
-  },
-  "2599676WBZ": {
-    "codigo": "2599676WBZ",
-    "programado": false,
-    "num_grupos": 2
-  },
-  "2301356DHG": {
-    "codigo": "2301356DHG",
-    "programado": false,
     "num_grupos": 3
   },
-  "9870583PBT": {
-    "codigo": "9870583PBT",
+  "8495777HDI": {
+    "codigo": "8495777HDI",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 1
   },
-  "9687641MPE": {
-    "codigo": "9687641MPE",
+  "9737073ICU": {
+    "codigo": "9737073ICU",
     "programado": false,
     "num_grupos": 2
   },
-  "2269984KJH": {
-    "codigo": "2269984KJH",
+  "9001037PWN": {
+    "codigo": "9001037PWN",
     "programado": false,
-    "num_grupos": 1
-  },
-  "8582548HRV": {
-    "codigo": "8582548HRV",
-    "programado": false,
     "num_grupos": 4
   },
-  "2138824BDP": {
-    "codigo": "2138824BDP",
+  "1520948VOR": {
+    "codigo": "1520948VOR",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 3
   },
-  "6519713DCB": {
-    "codigo": "6519713DCB",
+  "2915696PVS": {
+    "codigo": "2915696PVS",
     "programado": false,
     "num_grupos": 4
   },
-  "9166257NJI": {
-    "codigo": "9166257NJI",
+  "5706039GGN": {
+    "codigo": "5706039GGN",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 1
   },
-  "3726876TGM": {
-    "codigo": "3726876TGM",
+  "5604265VXG": {
+    "codigo": "5604265VXG",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 1
   }
 }

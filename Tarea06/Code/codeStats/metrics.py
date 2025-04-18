@@ -102,6 +102,8 @@ def compute_metrics(est_fin, cls_fin, estudiantes_orig, clases_orig):
 
     total_cupos = sum(c['cupos'] for c in clases_orig.values())
     remaining = sum(c['cupos'] for c in cls_fin.values())
+    print(f"Total de cupos: {total_cupos}")
+    print(f"Cupos restantes: {remaining}")
     uso = (total_cupos - remaining) / total_cupos if total_cupos > 0 else 0
     print(f"Uso de cupos: {uso:.2%}")
     print(f"Satisfacción media: {sat_mean:.2%}")

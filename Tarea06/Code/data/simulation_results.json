@@ -1,147 +1,1103 @@
 {
-  "numero_iteraciones": 10,
-  "promedios": {
-    "satisfacción_media": 0.7128705555555563,
-    "uso_cupos": 0.16287774074818046,
-    "porcentajes": {
-      "primera_opcion": 0.9994666666666667,
-      "segunda_opcion": 0.5868,
-      "tercera_opcion": 0.39993333333333336,
-      "las_tres": 0.20723333333333332
-    },
-    "equidad": 0.14685190805189544,
-    "eficiencia_pareto": 0.08896666666666667
-  },
-  "iteraciones": [
-    {
-      "iteración": 1,
-      "satisfacción": 0.7150277777777785,
-      "uso_cupos": 0.16561913986028395,
+  "numero_iteraciones": 20,
+  "promedios_por_escenario": {
+    "escenario0": {
+      "satisfacción_media": 0.6378638888888916,
+      "uso_cupos": 0.7173645884219247,
       "porcentajes": {
-        "primera_opcion": 0.999,
-        "segunda_opcion": 0.5936666666666667,
-        "tercera_opcion": 0.38433333333333336,
-        "las_tres": 0.20266666666666666
+        "primera_opcion": 0.9973000000000001,
+        "segunda_opcion": 0.5111333333333333,
+        "tercera_opcion": 0.33236666666666664,
+        "las_tres": 0.15485
       },
-      "equidad": 0.14717698897279788,
-      "eficiencia_pareto": 0.09
+      "equidad": 0.15760280029635032,
+      "eficiencia_pareto": 0.06548333333333334
     },
-    {
-      "iteración": 2,
-      "satisfacción": 0.7161666666666677,
-      "uso_cupos": 0.1627869317031699,
+    "escenario1": {
+      "satisfacción_media": 0.6379186111111139,
+      "uso_cupos": 0.7174718771435028,
       "porcentajes": {
-        "primera_opcion": 0.9993333333333333,
-        "segunda_opcion": 0.5843333333333334,
-        "tercera_opcion": 0.3923333333333333,
-        "las_tres": 0.202
+        "primera_opcion": 0.9972,
+        "segunda_opcion": 0.51125,
+        "tercera_opcion": 0.3324166666666667,
+        "las_tres": 0.15525
       },
-      "equidad": 0.14701702547225284,
-      "eficiencia_pareto": 0.09
+      "equidad": 0.15781371330029864,
+      "eficiencia_pareto": 0.06563333333333334
     },
-    {
-      "iteración": 3,
-      "satisfacción": 0.709627777777779,
-      "uso_cupos": 0.16035335830612368,
+    "escenario2": {
+      "satisfacción_media": 0.6589013888888917,
+      "uso_cupos": 0.7417728355216621,
       "porcentajes": {
-        "primera_opcion": 0.9996666666666667,
-        "segunda_opcion": 0.5973333333333334,
-        "tercera_opcion": 0.4083333333333333,
-        "las_tres": 0.22
+        "primera_opcion": 0.99695,
+        "segunda_opcion": 0.5315666666666667,
+        "tercera_opcion": 0.3519,
+        "las_tres": 0.16893333333333332
       },
-      "equidad": 0.14653094289740812,
-      "eficiencia_pareto": 0.08433333333333333
+      "equidad": 0.15559749186915497,
+      "eficiencia_pareto": 0.07118333333333333
     },
-    {
-      "iteración": 4,
-      "satisfacción": 0.7124833333333341,
-      "uso_cupos": 0.16355682165021873,
+    "escenario3": {
+      "satisfacción_media": 0.5329213888888924,
+      "uso_cupos": 0.5978686736860724,
       "porcentajes": {
-        "primera_opcion": 0.9996666666666667,
-        "segunda_opcion": 0.5776666666666667,
-        "tercera_opcion": 0.407,
-        "las_tres": 0.20366666666666666
+        "primera_opcion": 0.6600333333333334,
+        "segunda_opcion": 0.44365,
+        "tercera_opcion": 0.32003333333333334,
+        "las_tres": 0.04463333333333333
       },
-      "equidad": 0.14778627808256192,
-      "eficiencia_pareto": 0.08966666666666667
-    },
-    {
-      "iteración": 5,
-      "satisfacción": 0.7168499999999994,
-      "uso_cupos": 0.16423239862820255,
-      "porcentajes": {
-        "primera_opcion": 0.9986666666666667,
-        "segunda_opcion": 0.5906666666666667,
-        "tercera_opcion": 0.4056666666666667,
-        "las_tres": 0.21866666666666668
-      },
-      "equidad": 0.14691450066996836,
-      "eficiencia_pareto": 0.091
-    },
-    {
-      "iteración": 6,
-      "satisfacción": 0.7119055555555561,
-      "uso_cupos": 0.16161453726782987,
-      "porcentajes": {
-        "primera_opcion": 0.9996666666666667,
-        "segunda_opcion": 0.5846666666666667,
-        "tercera_opcion": 0.41333333333333333,
-        "las_tres": 0.212
-      },
-      "equidad": 0.14671192325534002,
-      "eficiencia_pareto": 0.08933333333333333
-    },
-    {
-      "iteración": 7,
-      "satisfacción": 0.7125055555555564,
-      "uso_cupos": 0.16259899135154843,
-      "porcentajes": {
-        "primera_opcion": 0.9993333333333333,
-        "segunda_opcion": 0.58,
-        "tercera_opcion": 0.3953333333333333,
-        "las_tres": 0.204
-      },
-      "equidad": 0.14625833264534524,
-      "eficiencia_pareto": 0.08633333333333333
-    },
-    {
-      "iteración": 8,
-      "satisfacción": 0.7106555555555564,
-      "uso_cupos": 0.16324112287010176,
-      "porcentajes": {
-        "primera_opcion": 0.9996666666666667,
-        "segunda_opcion": 0.5903333333333334,
-        "tercera_opcion": 0.402,
-        "las_tres": 0.20733333333333334
-      },
-      "equidad": 0.14624013021971421,
-      "eficiencia_pareto": 0.091
-    },
-    {
-      "iteración": 9,
-      "satisfacción": 0.7102000000000006,
-      "uso_cupos": 0.16242063973472443,
-      "porcentajes": {
-        "primera_opcion": 1.0,
-        "segunda_opcion": 0.592,
-        "tercera_opcion": 0.404,
-        "las_tres": 0.20866666666666667
-      },
-      "equidad": 0.1465059799651549,
-      "eficiencia_pareto": 0.08766666666666667
-    },
-    {
-      "iteración": 10,
-      "satisfacción": 0.7132833333333352,
-      "uso_cupos": 0.16235346610960127,
-      "porcentajes": {
-        "primera_opcion": 0.9996666666666667,
-        "segunda_opcion": 0.5773333333333334,
-        "tercera_opcion": 0.387,
-        "las_tres": 0.19333333333333333
-      },
-      "equidad": 0.14737697833841087,
-      "eficiencia_pareto": 0.09033333333333333
+      "equidad": 0.2214804523264981,
+      "eficiencia_pareto": 0.0182
     }
-  ]
+  },
+  "iteraciones": {
+    "escenario0": [
+      {
+        "iteración": 1,
+        "satisfacción": 0.6376166666666688,
+        "uso_cupos": 0.7188981939259409,
+        "porcentajes": {
+          "primera_opcion": 0.9973333333333333,
+          "segunda_opcion": 0.5043333333333333,
+          "tercera_opcion": 0.31866666666666665,
+          "las_tres": 0.147
+        },
+        "equidad": 0.1579799968400921,
+        "eficiencia_pareto": 0.06733333333333333
+      },
+      {
+        "iteración": 2,
+        "satisfacción": 0.6413833333333372,
+        "uso_cupos": 0.7235666231549353,
+        "porcentajes": {
+          "primera_opcion": 0.998,
+          "segunda_opcion": 0.507,
+          "tercera_opcion": 0.339,
+          "las_tres": 0.153
+        },
+        "equidad": 0.1568266415626801,
+        "eficiencia_pareto": 0.06933333333333333
+      },
+      {
+        "iteración": 3,
+        "satisfacción": 0.641750000000002,
+        "uso_cupos": 0.7129346862378091,
+        "porcentajes": {
+          "primera_opcion": 0.9976666666666667,
+          "segunda_opcion": 0.5123333333333333,
+          "tercera_opcion": 0.33566666666666667,
+          "las_tres": 0.15333333333333332
+        },
+        "equidad": 0.15590331008126096,
+        "eficiencia_pareto": 0.06433333333333334
+      },
+      {
+        "iteración": 4,
+        "satisfacción": 0.6415611111111136,
+        "uso_cupos": 0.7170935080405003,
+        "porcentajes": {
+          "primera_opcion": 1.0,
+          "segunda_opcion": 0.5256666666666666,
+          "tercera_opcion": 0.33,
+          "las_tres": 0.15433333333333332
+        },
+        "equidad": 0.15505509365465983,
+        "eficiencia_pareto": 0.06133333333333333
+      },
+      {
+        "iteración": 5,
+        "satisfacción": 0.6336666666666702,
+        "uso_cupos": 0.7539942863189081,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.5043333333333333,
+          "tercera_opcion": 0.318,
+          "las_tres": 0.144
+        },
+        "equidad": 0.15726722361281747,
+        "eficiencia_pareto": 0.06066666666666667
+      },
+      {
+        "iteración": 6,
+        "satisfacción": 0.633205555555559,
+        "uso_cupos": 0.7138154613466334,
+        "porcentajes": {
+          "primera_opcion": 0.9996666666666667,
+          "segunda_opcion": 0.511,
+          "tercera_opcion": 0.322,
+          "las_tres": 0.15533333333333332
+        },
+        "equidad": 0.15454981218692826,
+        "eficiencia_pareto": 0.062
+      },
+      {
+        "iteración": 7,
+        "satisfacción": 0.6370666666666692,
+        "uso_cupos": 0.69662272683537,
+        "porcentajes": {
+          "primera_opcion": 0.996,
+          "segunda_opcion": 0.5043333333333333,
+          "tercera_opcion": 0.3426666666666667,
+          "las_tres": 0.15566666666666668
+        },
+        "equidad": 0.15604649658743158,
+        "eficiencia_pareto": 0.06633333333333333
+      },
+      {
+        "iteración": 8,
+        "satisfacción": 0.6392500000000035,
+        "uso_cupos": 0.7172159713233097,
+        "porcentajes": {
+          "primera_opcion": 0.9993333333333333,
+          "segunda_opcion": 0.5053333333333333,
+          "tercera_opcion": 0.3343333333333333,
+          "las_tres": 0.15833333333333333
+        },
+        "equidad": 0.1556561222193646,
+        "eficiencia_pareto": 0.062
+      },
+      {
+        "iteración": 9,
+        "satisfacción": 0.6354722222222245,
+        "uso_cupos": 0.7080067467010616,
+        "porcentajes": {
+          "primera_opcion": 0.997,
+          "segunda_opcion": 0.519,
+          "tercera_opcion": 0.31966666666666665,
+          "las_tres": 0.15666666666666668
+        },
+        "equidad": 0.16052361539070928,
+        "eficiencia_pareto": 0.06533333333333333
+      },
+      {
+        "iteración": 10,
+        "satisfacción": 0.6340111111111136,
+        "uso_cupos": 0.7263939763939764,
+        "porcentajes": {
+          "primera_opcion": 0.9963333333333333,
+          "segunda_opcion": 0.498,
+          "tercera_opcion": 0.339,
+          "las_tres": 0.15566666666666668
+        },
+        "equidad": 0.1589095651498447,
+        "eficiencia_pareto": 0.06333333333333334
+      },
+      {
+        "iteración": 11,
+        "satisfacción": 0.6371555555555592,
+        "uso_cupos": 0.7586390217969166,
+        "porcentajes": {
+          "primera_opcion": 0.994,
+          "segunda_opcion": 0.5163333333333333,
+          "tercera_opcion": 0.32066666666666666,
+          "las_tres": 0.15166666666666667
+        },
+        "equidad": 0.161843531515002,
+        "eficiencia_pareto": 0.06766666666666667
+      },
+      {
+        "iteración": 12,
+        "satisfacción": 0.6316000000000032,
+        "uso_cupos": 0.7698885160731681,
+        "porcentajes": {
+          "primera_opcion": 0.992,
+          "segunda_opcion": 0.5123333333333333,
+          "tercera_opcion": 0.32666666666666666,
+          "las_tres": 0.15066666666666667
+        },
+        "equidad": 0.1627918144314979,
+        "eficiencia_pareto": 0.06666666666666667
+      },
+      {
+        "iteración": 13,
+        "satisfacción": 0.6416611111111133,
+        "uso_cupos": 0.6760681373917901,
+        "porcentajes": {
+          "primera_opcion": 0.9996666666666667,
+          "segunda_opcion": 0.522,
+          "tercera_opcion": 0.338,
+          "las_tres": 0.16233333333333333
+        },
+        "equidad": 0.15684462873134983,
+        "eficiencia_pareto": 0.068
+      },
+      {
+        "iteración": 14,
+        "satisfacción": 0.6424722222222252,
+        "uso_cupos": 0.6834123222748815,
+        "porcentajes": {
+          "primera_opcion": 0.9956666666666667,
+          "segunda_opcion": 0.507,
+          "tercera_opcion": 0.343,
+          "las_tres": 0.15366666666666667
+        },
+        "equidad": 0.1588064939288349,
+        "eficiencia_pareto": 0.068
+      },
+      {
+        "iteración": 15,
+        "satisfacción": 0.6355222222222244,
+        "uso_cupos": 0.6913806401851138,
+        "porcentajes": {
+          "primera_opcion": 0.997,
+          "segunda_opcion": 0.5316666666666666,
+          "tercera_opcion": 0.327,
+          "las_tres": 0.15433333333333332
+        },
+        "equidad": 0.1563094656935954,
+        "eficiencia_pareto": 0.06166666666666667
+      },
+      {
+        "iteración": 16,
+        "satisfacción": 0.6452388888888916,
+        "uso_cupos": 0.7237249226469707,
+        "porcentajes": {
+          "primera_opcion": 0.999,
+          "segunda_opcion": 0.519,
+          "tercera_opcion": 0.3403333333333333,
+          "las_tres": 0.161
+        },
+        "equidad": 0.15553634085302645,
+        "eficiencia_pareto": 0.06766666666666667
+      },
+      {
+        "iteración": 17,
+        "satisfacción": 0.6396222222222244,
+        "uso_cupos": 0.7195814648729447,
+        "porcentajes": {
+          "primera_opcion": 0.9986666666666667,
+          "segunda_opcion": 0.501,
+          "tercera_opcion": 0.3393333333333333,
+          "las_tres": 0.15766666666666668
+        },
+        "equidad": 0.156289690865279,
+        "eficiencia_pareto": 0.06466666666666666
+      },
+      {
+        "iteración": 18,
+        "satisfacción": 0.6371944444444478,
+        "uso_cupos": 0.7156764351665997,
+        "porcentajes": {
+          "primera_opcion": 0.9953333333333333,
+          "segunda_opcion": 0.5216666666666666,
+          "tercera_opcion": 0.32033333333333336,
+          "las_tres": 0.15033333333333335
+        },
+        "equidad": 0.15851610424170268,
+        "eficiencia_pareto": 0.06633333333333333
+      },
+      {
+        "iteración": 19,
+        "satisfacción": 0.6373000000000016,
+        "uso_cupos": 0.7084398976982097,
+        "porcentajes": {
+          "primera_opcion": 0.9966666666666667,
+          "segunda_opcion": 0.49733333333333335,
+          "tercera_opcion": 0.3413333333333333,
+          "las_tres": 0.156
+        },
+        "equidad": 0.1572397351287474,
+        "eficiencia_pareto": 0.06933333333333333
+      },
+      {
+        "iteración": 20,
+        "satisfacción": 0.6345277777777795,
+        "uso_cupos": 0.7119382300534548,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.503,
+          "tercera_opcion": 0.3516666666666667,
+          "las_tres": 0.166
+        },
+        "equidad": 0.15916032325218185,
+        "eficiencia_pareto": 0.06766666666666667
+      }
+    ],
+    "escenario1": [
+      {
+        "iteración": 1,
+        "satisfacción": 0.6376166666666687,
+        "uso_cupos": 0.7190999899102007,
+        "porcentajes": {
+          "primera_opcion": 0.997,
+          "segunda_opcion": 0.5046666666666667,
+          "tercera_opcion": 0.318,
+          "las_tres": 0.148
+        },
+        "equidad": 0.158837842921397,
+        "eficiencia_pareto": 0.06766666666666667
+      },
+      {
+        "iteración": 2,
+        "satisfacción": 0.6406944444444486,
+        "uso_cupos": 0.7223616828998896,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.5046666666666667,
+          "tercera_opcion": 0.338,
+          "las_tres": 0.154
+        },
+        "equidad": 0.1572307491628959,
+        "eficiencia_pareto": 0.06833333333333333
+      },
+      {
+        "iteración": 3,
+        "satisfacción": 0.6422777777777798,
+        "uso_cupos": 0.7142153482415525,
+        "porcentajes": {
+          "primera_opcion": 0.9976666666666667,
+          "segunda_opcion": 0.5116666666666667,
+          "tercera_opcion": 0.33566666666666667,
+          "las_tres": 0.15466666666666667
+        },
+        "equidad": 0.15583296005376968,
+        "eficiencia_pareto": 0.06333333333333334
+      },
+      {
+        "iteración": 4,
+        "satisfacción": 0.6427000000000029,
+        "uso_cupos": 0.7190788167560056,
+        "porcentajes": {
+          "primera_opcion": 0.9996666666666667,
+          "segunda_opcion": 0.527,
+          "tercera_opcion": 0.3293333333333333,
+          "las_tres": 0.15533333333333332
+        },
+        "equidad": 0.1551785319403905,
+        "eficiencia_pareto": 0.06166666666666667
+      },
+      {
+        "iteración": 5,
+        "satisfacción": 0.6327388888888925,
+        "uso_cupos": 0.752512961591366,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.502,
+          "tercera_opcion": 0.317,
+          "las_tres": 0.141
+        },
+        "equidad": 0.15665309185434867,
+        "eficiencia_pareto": 0.059666666666666666
+      },
+      {
+        "iteración": 6,
+        "satisfacción": 0.6339500000000038,
+        "uso_cupos": 0.7146134663341646,
+        "porcentajes": {
+          "primera_opcion": 0.9993333333333333,
+          "segunda_opcion": 0.5113333333333333,
+          "tercera_opcion": 0.32366666666666666,
+          "las_tres": 0.15666666666666668
+        },
+        "equidad": 0.1552202261969807,
+        "eficiencia_pareto": 0.06266666666666666
+      },
+      {
+        "iteración": 7,
+        "satisfacción": 0.6382000000000025,
+        "uso_cupos": 0.6974886943134803,
+        "porcentajes": {
+          "primera_opcion": 0.9956666666666667,
+          "segunda_opcion": 0.5043333333333333,
+          "tercera_opcion": 0.3443333333333333,
+          "las_tres": 0.155
+        },
+        "equidad": 0.15641792892635104,
+        "eficiencia_pareto": 0.06566666666666666
+      },
+      {
+        "iteración": 8,
+        "satisfacción": 0.6392222222222254,
+        "uso_cupos": 0.7169172558000597,
+        "porcentajes": {
+          "primera_opcion": 0.9996666666666667,
+          "segunda_opcion": 0.5056666666666667,
+          "tercera_opcion": 0.33766666666666667,
+          "las_tres": 0.16066666666666668
+        },
+        "equidad": 0.1556558425542341,
+        "eficiencia_pareto": 0.06433333333333334
+      },
+      {
+        "iteración": 9,
+        "satisfacción": 0.636611111111114,
+        "uso_cupos": 0.7094949895822998,
+        "porcentajes": {
+          "primera_opcion": 0.9963333333333333,
+          "segunda_opcion": 0.5196666666666667,
+          "tercera_opcion": 0.32033333333333336,
+          "las_tres": 0.15666666666666668
+        },
+        "equidad": 0.16103463631471582,
+        "eficiencia_pareto": 0.06566666666666666
+      },
+      {
+        "iteración": 10,
+        "satisfacción": 0.6346055555555583,
+        "uso_cupos": 0.7271062271062271,
+        "porcentajes": {
+          "primera_opcion": 0.9966666666666667,
+          "segunda_opcion": 0.5,
+          "tercera_opcion": 0.338,
+          "las_tres": 0.15633333333333332
+        },
+        "equidad": 0.15850022201978328,
+        "eficiencia_pareto": 0.06333333333333334
+      },
+      {
+        "iteración": 11,
+        "satisfacción": 0.6367888888888923,
+        "uso_cupos": 0.7582137161084529,
+        "porcentajes": {
+          "primera_opcion": 0.9933333333333333,
+          "segunda_opcion": 0.5183333333333333,
+          "tercera_opcion": 0.31966666666666665,
+          "las_tres": 0.15233333333333332
+        },
+        "equidad": 0.16258729045562226,
+        "eficiencia_pareto": 0.06833333333333333
+      },
+      {
+        "iteración": 12,
+        "satisfacción": 0.6309722222222258,
+        "uso_cupos": 0.7692390951401666,
+        "porcentajes": {
+          "primera_opcion": 0.9923333333333333,
+          "segunda_opcion": 0.5133333333333333,
+          "tercera_opcion": 0.32766666666666666,
+          "las_tres": 0.15133333333333332
+        },
+        "equidad": 0.16187858834951815,
+        "eficiencia_pareto": 0.068
+      },
+      {
+        "iteración": 13,
+        "satisfacción": 0.6410944444444467,
+        "uso_cupos": 0.6753234664432654,
+        "porcentajes": {
+          "primera_opcion": 0.9996666666666667,
+          "segunda_opcion": 0.5216666666666666,
+          "tercera_opcion": 0.3353333333333333,
+          "las_tres": 0.16066666666666668
+        },
+        "equidad": 0.15659075427355046,
+        "eficiencia_pareto": 0.06633333333333333
+      },
+      {
+        "iteración": 14,
+        "satisfacción": 0.6422444444444474,
+        "uso_cupos": 0.6833175355450237,
+        "porcentajes": {
+          "primera_opcion": 0.9953333333333333,
+          "segunda_opcion": 0.5083333333333333,
+          "tercera_opcion": 0.343,
+          "las_tres": 0.154
+        },
+        "equidad": 0.15892594796909806,
+        "eficiencia_pareto": 0.069
+      },
+      {
+        "iteración": 15,
+        "satisfacción": 0.6353388888888915,
+        "uso_cupos": 0.6910913999228693,
+        "porcentajes": {
+          "primera_opcion": 0.9966666666666667,
+          "segunda_opcion": 0.5333333333333333,
+          "tercera_opcion": 0.3253333333333333,
+          "las_tres": 0.153
+        },
+        "equidad": 0.15666425962060887,
+        "eficiencia_pareto": 0.062
+      },
+      {
+        "iteración": 16,
+        "satisfacción": 0.6452611111111137,
+        "uso_cupos": 0.724024353727917,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.5163333333333333,
+          "tercera_opcion": 0.341,
+          "las_tres": 0.16233333333333333
+        },
+        "equidad": 0.15702027093208903,
+        "eficiencia_pareto": 0.068
+      },
+      {
+        "iteración": 17,
+        "satisfacción": 0.6391444444444468,
+        "uso_cupos": 0.7188839063278525,
+        "porcentajes": {
+          "primera_opcion": 0.9986666666666667,
+          "segunda_opcion": 0.49933333333333335,
+          "tercera_opcion": 0.3413333333333333,
+          "las_tres": 0.15666666666666668
+        },
+        "equidad": 0.15646515713699652,
+        "eficiencia_pareto": 0.06433333333333334
+      },
+      {
+        "iteración": 18,
+        "satisfacción": 0.6373055555555588,
+        "uso_cupos": 0.7159775190686472,
+        "porcentajes": {
+          "primera_opcion": 0.9956666666666667,
+          "segunda_opcion": 0.5226666666666666,
+          "tercera_opcion": 0.31766666666666665,
+          "las_tres": 0.152
+        },
+        "equidad": 0.1589066962154358,
+        "eficiencia_pareto": 0.06633333333333333
+      },
+      {
+        "iteración": 19,
+        "satisfacción": 0.6371722222222239,
+        "uso_cupos": 0.7084398976982097,
+        "porcentajes": {
+          "primera_opcion": 0.997,
+          "segunda_opcion": 0.49533333333333335,
+          "tercera_opcion": 0.3416666666666667,
+          "las_tres": 0.15566666666666668
+        },
+        "equidad": 0.15722140556631284,
+        "eficiencia_pareto": 0.068
+      },
+      {
+        "iteración": 20,
+        "satisfacción": 0.6344333333333352,
+        "uso_cupos": 0.7120372203524055,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.5053333333333333,
+          "tercera_opcion": 0.3536666666666667,
+          "las_tres": 0.16866666666666666
+        },
+        "equidad": 0.1594518635418739,
+        "eficiencia_pareto": 0.07
+      }
+    ],
+    "escenario2": [
+      {
+        "iteración": 1,
+        "satisfacción": 0.6596777777777801,
+        "uso_cupos": 0.7452325698718596,
+        "porcentajes": {
+          "primera_opcion": 0.998,
+          "segunda_opcion": 0.523,
+          "tercera_opcion": 0.3363333333333333,
+          "las_tres": 0.16333333333333333
+        },
+        "equidad": 0.1543126238003855,
+        "eficiencia_pareto": 0.07433333333333333
+      },
+      {
+        "iteración": 2,
+        "satisfacción": 0.6661000000000026,
+        "uso_cupos": 0.751481072396827,
+        "porcentajes": {
+          "primera_opcion": 0.9986666666666667,
+          "segunda_opcion": 0.5293333333333333,
+          "tercera_opcion": 0.3576666666666667,
+          "las_tres": 0.168
+        },
+        "equidad": 0.15557954425073714,
+        "eficiencia_pareto": 0.07933333333333334
+      },
+      {
+        "iteración": 3,
+        "satisfacción": 0.6605166666666686,
+        "uso_cupos": 0.734902965225101,
+        "porcentajes": {
+          "primera_opcion": 0.9963333333333333,
+          "segunda_opcion": 0.538,
+          "tercera_opcion": 0.36,
+          "las_tres": 0.16966666666666666
+        },
+        "equidad": 0.15508569201113395,
+        "eficiencia_pareto": 0.073
+      },
+      {
+        "iteración": 4,
+        "satisfacción": 0.6614833333333366,
+        "uso_cupos": 0.7416120706769903,
+        "porcentajes": {
+          "primera_opcion": 0.9986666666666667,
+          "segunda_opcion": 0.5343333333333333,
+          "tercera_opcion": 0.34833333333333333,
+          "las_tres": 0.16733333333333333
+        },
+        "equidad": 0.15320499859775583,
+        "eficiencia_pareto": 0.06466666666666666
+      },
+      {
+        "iteración": 5,
+        "satisfacción": 0.655200000000004,
+        "uso_cupos": 0.7788593799597926,
+        "porcentajes": {
+          "primera_opcion": 0.999,
+          "segunda_opcion": 0.5236666666666666,
+          "tercera_opcion": 0.343,
+          "las_tres": 0.159
+        },
+        "equidad": 0.15509958394291432,
+        "eficiencia_pareto": 0.067
+      },
+      {
+        "iteración": 6,
+        "satisfacción": 0.6607944444444468,
+        "uso_cupos": 0.7457356608478803,
+        "porcentajes": {
+          "primera_opcion": 0.9983333333333333,
+          "segunda_opcion": 0.5356666666666666,
+          "tercera_opcion": 0.3473333333333333,
+          "las_tres": 0.16366666666666665
+        },
+        "equidad": 0.15041609778513437,
+        "eficiencia_pareto": 0.06766666666666667
+      },
+      {
+        "iteración": 7,
+        "satisfacción": 0.6601722222222256,
+        "uso_cupos": 0.722505532569999,
+        "porcentajes": {
+          "primera_opcion": 0.996,
+          "segunda_opcion": 0.5333333333333333,
+          "tercera_opcion": 0.36833333333333335,
+          "las_tres": 0.17833333333333334
+        },
+        "equidad": 0.15595190287722455,
+        "eficiencia_pareto": 0.07466666666666667
+      },
+      {
+        "iteración": 8,
+        "satisfacción": 0.66155555555556,
+        "uso_cupos": 0.7412127850243951,
+        "porcentajes": {
+          "primera_opcion": 0.9996666666666667,
+          "segunda_opcion": 0.5363333333333333,
+          "tercera_opcion": 0.3546666666666667,
+          "las_tres": 0.175
+        },
+        "equidad": 0.1553159089098406,
+        "eficiencia_pareto": 0.073
+      },
+      {
+        "iteración": 9,
+        "satisfacción": 0.6592444444444474,
+        "uso_cupos": 0.7361841452525052,
+        "porcentajes": {
+          "primera_opcion": 0.998,
+          "segunda_opcion": 0.541,
+          "tercera_opcion": 0.347,
+          "las_tres": 0.17466666666666666
+        },
+        "equidad": 0.15718035884102874,
+        "eficiencia_pareto": 0.07166666666666667
+      },
+      {
+        "iteración": 10,
+        "satisfacción": 0.6554333333333372,
+        "uso_cupos": 0.7517297517297518,
+        "porcentajes": {
+          "primera_opcion": 0.9973333333333333,
+          "segunda_opcion": 0.5166666666666667,
+          "tercera_opcion": 0.355,
+          "las_tres": 0.16833333333333333
+        },
+        "equidad": 0.15429451230291422,
+        "eficiencia_pareto": 0.06733333333333333
+      },
+      {
+        "iteración": 11,
+        "satisfacción": 0.6574666666666704,
+        "uso_cupos": 0.783732057416268,
+        "porcentajes": {
+          "primera_opcion": 0.9913333333333333,
+          "segunda_opcion": 0.538,
+          "tercera_opcion": 0.3436666666666667,
+          "las_tres": 0.16433333333333333
+        },
+        "equidad": 0.1602163016183991,
+        "eficiencia_pareto": 0.073
+      },
+      {
+        "iteración": 12,
+        "satisfacción": 0.6540055555555578,
+        "uso_cupos": 0.7980300898365624,
+        "porcentajes": {
+          "primera_opcion": 0.989,
+          "segunda_opcion": 0.522,
+          "tercera_opcion": 0.3486666666666667,
+          "las_tres": 0.15833333333333333
+        },
+        "equidad": 0.16076995694514692,
+        "eficiencia_pareto": 0.07266666666666667
+      },
+      {
+        "iteración": 13,
+        "satisfacción": 0.6602111111111129,
+        "uso_cupos": 0.6966396723447826,
+        "porcentajes": {
+          "primera_opcion": 0.999,
+          "segunda_opcion": 0.5333333333333333,
+          "tercera_opcion": 0.3496666666666667,
+          "las_tres": 0.17333333333333334
+        },
+        "equidad": 0.1556740538720693,
+        "eficiencia_pareto": 0.07133333333333333
+      },
+      {
+        "iteración": 14,
+        "satisfacción": 0.659122222222226,
+        "uso_cupos": 0.7014218009478673,
+        "porcentajes": {
+          "primera_opcion": 0.9953333333333333,
+          "segunda_opcion": 0.5316666666666666,
+          "tercera_opcion": 0.35233333333333333,
+          "las_tres": 0.16633333333333333
+        },
+        "equidad": 0.15616663441301862,
+        "eficiencia_pareto": 0.07433333333333333
+      },
+      {
+        "iteración": 15,
+        "satisfacción": 0.6645166666666684,
+        "uso_cupos": 0.7242576166602391,
+        "porcentajes": {
+          "primera_opcion": 0.9976666666666667,
+          "segunda_opcion": 0.5593333333333333,
+          "tercera_opcion": 0.346,
+          "las_tres": 0.17566666666666667
+        },
+        "equidad": 0.15454735627409616,
+        "eficiencia_pareto": 0.07366666666666667
+      },
+      {
+        "iteración": 16,
+        "satisfacción": 0.6628666666666698,
+        "uso_cupos": 0.742988322187843,
+        "porcentajes": {
+          "primera_opcion": 0.9976666666666667,
+          "segunda_opcion": 0.5293333333333333,
+          "tercera_opcion": 0.3556666666666667,
+          "las_tres": 0.164
+        },
+        "equidad": 0.1542902726057983,
+        "eficiencia_pareto": 0.07
+      },
+      {
+        "iteración": 17,
+        "satisfacción": 0.6556555555555583,
+        "uso_cupos": 0.738515196811161,
+        "porcentajes": {
+          "primera_opcion": 0.9966666666666667,
+          "segunda_opcion": 0.5213333333333333,
+          "tercera_opcion": 0.36233333333333334,
+          "las_tres": 0.16833333333333333
+        },
+        "equidad": 0.15424216261218493,
+        "eficiencia_pareto": 0.06766666666666667
+      },
+      {
+        "iteración": 18,
+        "satisfacción": 0.6563555555555585,
+        "uso_cupos": 0.7393617021276596,
+        "porcentajes": {
+          "primera_opcion": 0.9956666666666667,
+          "segunda_opcion": 0.5356666666666666,
+          "tercera_opcion": 0.344,
+          "las_tres": 0.17066666666666666
+        },
+        "equidad": 0.15770242101024592,
+        "eficiencia_pareto": 0.06733333333333333
+      },
+      {
+        "iteración": 19,
+        "satisfacción": 0.6535277777777799,
+        "uso_cupos": 0.7254574070430848,
+        "porcentajes": {
+          "primera_opcion": 0.9966666666666667,
+          "segunda_opcion": 0.5166666666666667,
+          "tercera_opcion": 0.36,
+          "las_tres": 0.172
+        },
+        "equidad": 0.15738961694217188,
+        "eficiencia_pareto": 0.07166666666666667
+      },
+      {
+        "iteración": 20,
+        "satisfacción": 0.654122222222224,
+        "uso_cupos": 0.7355969115026727,
+        "porcentajes": {
+          "primera_opcion": 1.0,
+          "segunda_opcion": 0.5326666666666666,
+          "tercera_opcion": 0.358,
+          "las_tres": 0.17833333333333334
+        },
+        "equidad": 0.15450983777089916,
+        "eficiencia_pareto": 0.06933333333333333
+      }
+    ],
+    "escenario3": [
+      {
+        "iteración": 1,
+        "satisfacción": 0.529194444444448,
+        "uso_cupos": 0.5950963575824841,
+        "porcentajes": {
+          "primera_opcion": 0.6423333333333333,
+          "segunda_opcion": 0.43766666666666665,
+          "tercera_opcion": 0.31666666666666665,
+          "las_tres": 0.03933333333333333
+        },
+        "equidad": 0.22120416053636638,
+        "eficiencia_pareto": 0.016
+      },
+      {
+        "iteración": 2,
+        "satisfacción": 0.5410555555555594,
+        "uso_cupos": 0.610402650868561,
+        "porcentajes": {
+          "primera_opcion": 0.658,
+          "segunda_opcion": 0.45766666666666667,
+          "tercera_opcion": 0.321,
+          "las_tres": 0.04733333333333333
+        },
+        "equidad": 0.22052681878970384,
+        "eficiencia_pareto": 0.021333333333333333
+      },
+      {
+        "iteración": 3,
+        "satisfacción": 0.5341555555555595,
+        "uso_cupos": 0.5922569205004433,
+        "porcentajes": {
+          "primera_opcion": 0.6626666666666666,
+          "segunda_opcion": 0.42533333333333334,
+          "tercera_opcion": 0.319,
+          "las_tres": 0.037
+        },
+        "equidad": 0.21890889409102082,
+        "eficiencia_pareto": 0.015333333333333332
+      },
+      {
+        "iteración": 4,
+        "satisfacción": 0.5481555555555598,
+        "uso_cupos": 0.6114750843756204,
+        "porcentajes": {
+          "primera_opcion": 0.687,
+          "segunda_opcion": 0.4553333333333333,
+          "tercera_opcion": 0.3323333333333333,
+          "las_tres": 0.05566666666666667
+        },
+        "equidad": 0.2191107431098917,
+        "eficiencia_pareto": 0.021333333333333333
+      },
+      {
+        "iteración": 5,
+        "satisfacción": 0.5263555555555598,
+        "uso_cupos": 0.6246957993863084,
+        "porcentajes": {
+          "primera_opcion": 0.643,
+          "segunda_opcion": 0.44766666666666666,
+          "tercera_opcion": 0.311,
+          "las_tres": 0.037333333333333336
+        },
+        "equidad": 0.22151033852650007,
+        "eficiencia_pareto": 0.01633333333333333
+      },
+      {
+        "iteración": 6,
+        "satisfacción": 0.5326166666666705,
+        "uso_cupos": 0.5988029925187033,
+        "porcentajes": {
+          "primera_opcion": 0.681,
+          "segunda_opcion": 0.444,
+          "tercera_opcion": 0.31833333333333336,
+          "las_tres": 0.04733333333333333
+        },
+        "equidad": 0.2129957013195806,
+        "eficiencia_pareto": 0.018
+      },
+      {
+        "iteración": 7,
+        "satisfacción": 0.5424277777777803,
+        "uso_cupos": 0.5908784758972385,
+        "porcentajes": {
+          "primera_opcion": 0.7046666666666667,
+          "segunda_opcion": 0.44866666666666666,
+          "tercera_opcion": 0.32,
+          "las_tres": 0.05333333333333334
+        },
+        "equidad": 0.21815755420573787,
+        "eficiencia_pareto": 0.020666666666666667
+      },
+      {
+        "iteración": 8,
+        "satisfacción": 0.541172222222225,
+        "uso_cupos": 0.6047993627402171,
+        "porcentajes": {
+          "primera_opcion": 0.657,
+          "segunda_opcion": 0.447,
+          "tercera_opcion": 0.33266666666666667,
+          "las_tres": 0.04566666666666667
+        },
+        "equidad": 0.21809861729293342,
+        "eficiencia_pareto": 0.013666666666666667
+      },
+      {
+        "iteración": 9,
+        "satisfacción": 0.5391888888888918,
+        "uso_cupos": 0.5998610973310844,
+        "porcentajes": {
+          "primera_opcion": 0.678,
+          "segunda_opcion": 0.45566666666666666,
+          "tercera_opcion": 0.30866666666666664,
+          "las_tres": 0.050666666666666665
+        },
+        "equidad": 0.22136862006192787,
+        "eficiencia_pareto": 0.024
+      },
+      {
+        "iteración": 10,
+        "satisfacción": 0.5263055555555596,
+        "uso_cupos": 0.600936100936101,
+        "porcentajes": {
+          "primera_opcion": 0.641,
+          "segunda_opcion": 0.44,
+          "tercera_opcion": 0.3253333333333333,
+          "las_tres": 0.037
+        },
+        "equidad": 0.221082962701174,
+        "eficiencia_pareto": 0.012666666666666666
+      },
+      {
+        "iteración": 11,
+        "satisfacción": 0.5282611111111148,
+        "uso_cupos": 0.6282828282828283,
+        "porcentajes": {
+          "primera_opcion": 0.6583333333333333,
+          "segunda_opcion": 0.435,
+          "tercera_opcion": 0.313,
+          "las_tres": 0.041666666666666664
+        },
+        "equidad": 0.22309873072493525,
+        "eficiencia_pareto": 0.018666666666666668
+      },
+      {
+        "iteración": 12,
+        "satisfacción": 0.5155444444444479,
+        "uso_cupos": 0.6277735685680268,
+        "porcentajes": {
+          "primera_opcion": 0.6233333333333333,
+          "segunda_opcion": 0.44033333333333335,
+          "tercera_opcion": 0.31666666666666665,
+          "las_tres": 0.043
+        },
+        "equidad": 0.23268762148167235,
+        "eficiencia_pareto": 0.019
+      },
+      {
+        "iteración": 13,
+        "satisfacción": 0.5315500000000021,
+        "uso_cupos": 0.5596202178162525,
+        "porcentajes": {
+          "primera_opcion": 0.6613333333333333,
+          "segunda_opcion": 0.45766666666666667,
+          "tercera_opcion": 0.31966666666666665,
+          "las_tres": 0.04633333333333333
+        },
+        "equidad": 0.2206940907646599,
+        "eficiencia_pareto": 0.022
+      },
+      {
+        "iteración": 14,
+        "satisfacción": 0.5395833333333362,
+        "uso_cupos": 0.5718483412322275,
+        "porcentajes": {
+          "primera_opcion": 0.6456666666666667,
+          "segunda_opcion": 0.437,
+          "tercera_opcion": 0.33766666666666667,
+          "las_tres": 0.043333333333333335
+        },
+        "equidad": 0.22501579308016043,
+        "eficiencia_pareto": 0.022333333333333334
+      },
+      {
+        "iteración": 15,
+        "satisfacción": 0.530277777777782,
+        "uso_cupos": 0.5746239876590822,
+        "porcentajes": {
+          "primera_opcion": 0.6626666666666666,
+          "segunda_opcion": 0.44366666666666665,
+          "tercera_opcion": 0.305,
+          "las_tres": 0.038
+        },
+        "equidad": 0.22316822159732183,
+        "eficiencia_pareto": 0.014333333333333333
+      },
+      {
+        "iteración": 16,
+        "satisfacción": 0.5300722222222248,
+        "uso_cupos": 0.5913763848687493,
+        "porcentajes": {
+          "primera_opcion": 0.662,
+          "segunda_opcion": 0.43966666666666665,
+          "tercera_opcion": 0.312,
+          "las_tres": 0.042333333333333334
+        },
+        "equidad": 0.22358130920358335,
+        "eficiencia_pareto": 0.016
+      },
+      {
+        "iteración": 17,
+        "satisfacción": 0.5341000000000025,
+        "uso_cupos": 0.6003986048829099,
+        "porcentajes": {
+          "primera_opcion": 0.6683333333333333,
+          "segunda_opcion": 0.4483333333333333,
+          "tercera_opcion": 0.3263333333333333,
+          "las_tres": 0.04833333333333333
+        },
+        "equidad": 0.22097085353977003,
+        "eficiencia_pareto": 0.017
+      },
+      {
+        "iteración": 18,
+        "satisfacción": 0.5259888888888916,
+        "uso_cupos": 0.5892211963067041,
+        "porcentajes": {
+          "primera_opcion": 0.6466666666666666,
+          "segunda_opcion": 0.437,
+          "tercera_opcion": 0.314,
+          "las_tres": 0.04533333333333334
+        },
+        "equidad": 0.22483404857871528,
+        "eficiencia_pareto": 0.02033333333333333
+      },
+      {
+        "iteración": 19,
+        "satisfacción": 0.5337000000000051,
+        "uso_cupos": 0.592071611253197,
+        "porcentajes": {
+          "primera_opcion": 0.6593333333333333,
+          "segunda_opcion": 0.43166666666666664,
+          "tercera_opcion": 0.326,
+          "las_tres": 0.045
+        },
+        "equidad": 0.22005684117101248,
+        "eficiencia_pareto": 0.019
+      },
+      {
+        "iteración": 20,
+        "satisfacción": 0.5287222222222258,
+        "uso_cupos": 0.59295189071471,
+        "porcentajes": {
+          "primera_opcion": 0.6583333333333333,
+          "segunda_opcion": 0.44366666666666665,
+          "tercera_opcion": 0.3253333333333333,
+          "las_tres": 0.048666666666666664
+        },
+        "equidad": 0.22253712575329482,
+        "eficiencia_pareto": 0.016
+      }
+    ]
+  }
 }
