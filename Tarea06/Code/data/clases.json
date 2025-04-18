@@ -1,1073 +1,1073 @@
 {
-  "DP0L9Q49SP": {
-    "codigo_clase": "DP0L9Q49SP",
+  "0KLEOOY6D8": {
+    "codigo_clase": "0KLEOOY6D8",
     "codigo_curso": "8878074BWX",
-    "cedula_docente": "7291079714",
-    "horario": "9",
-    "codigo_aula": "142443",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "FXPO7KR7VM": {
-    "codigo_clase": "FXPO7KR7VM",
-    "codigo_curso": "2916008QYU",
-    "cedula_docente": "0806471497",
-    "horario": "10",
-    "codigo_aula": "851661",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "EUX7SDRYNL": {
-    "codigo_clase": "EUX7SDRYNL",
-    "codigo_curso": "2916008QYU",
-    "cedula_docente": "4990645590",
-    "horario": "3",
-    "codigo_aula": "028830",
-    "grupo": 2,
-    "cupos": 41
-  },
-  "VPDVXTGLUK": {
-    "codigo_clase": "VPDVXTGLUK",
-    "codigo_curso": "1321846ROY",
-    "cedula_docente": "6038789139",
-    "horario": "2",
-    "codigo_aula": "968401",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "O60CGYX7DH": {
-    "codigo_clase": "O60CGYX7DH",
-    "codigo_curso": "1321846ROY",
-    "cedula_docente": "0246590965",
-    "horario": "8",
-    "codigo_aula": "956005",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "0AZ9Z2PWB2": {
-    "codigo_clase": "0AZ9Z2PWB2",
-    "codigo_curso": "3199015FFO",
-    "cedula_docente": "3593239701",
-    "horario": "1",
-    "codigo_aula": "747625",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "CQCRHWX0SL": {
-    "codigo_clase": "CQCRHWX0SL",
-    "codigo_curso": "3199015FFO",
-    "cedula_docente": "6314005204",
-    "horario": "4",
-    "codigo_aula": "632058",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "69EWVVRIDW": {
-    "codigo_clase": "69EWVVRIDW",
-    "codigo_curso": "3199015FFO",
-    "cedula_docente": "1586557637",
-    "horario": "16",
-    "codigo_aula": "510659",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "1JPU1XJGS5": {
-    "codigo_clase": "1JPU1XJGS5",
-    "codigo_curso": "1639544CKD",
-    "cedula_docente": "9631040901",
+    "cedula_docente": "1233259385",
     "horario": "14",
-    "codigo_aula": "923190",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "M0QJUM73OG": {
-    "codigo_clase": "M0QJUM73OG",
-    "codigo_curso": "1639544CKD",
-    "cedula_docente": "2564490318",
-    "horario": "15",
-    "codigo_aula": "056602",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "XNUNLHJDQK": {
-    "codigo_clase": "XNUNLHJDQK",
-    "codigo_curso": "1639544CKD",
-    "cedula_docente": "3968226160",
-    "horario": "11",
-    "codigo_aula": "744793",
-    "grupo": 3,
-    "cupos": 39
-  },
-  "VKNLVH90YC": {
-    "codigo_clase": "VKNLVH90YC",
-    "codigo_curso": "3012201FZM",
-    "cedula_docente": "7144675610",
-    "horario": "3",
-    "codigo_aula": "620883",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "QSN1UX3Z03": {
-    "codigo_clase": "QSN1UX3Z03",
-    "codigo_curso": "3012201FZM",
-    "cedula_docente": "4052974109",
-    "horario": "12",
-    "codigo_aula": "100017",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "84VVVM000P": {
-    "codigo_clase": "84VVVM000P",
-    "codigo_curso": "3012201FZM",
-    "cedula_docente": "4899955902",
-    "horario": "7",
-    "codigo_aula": "669601",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "IGR2G8B2NS": {
-    "codigo_clase": "IGR2G8B2NS",
-    "codigo_curso": "2035159WCH",
-    "cedula_docente": "1965231860",
-    "horario": "9",
-    "codigo_aula": "275783",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "9YGQE1CHVJ": {
-    "codigo_clase": "9YGQE1CHVJ",
-    "codigo_curso": "2035159WCH",
-    "cedula_docente": "3474167667",
-    "horario": "2",
-    "codigo_aula": "868515",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "03MLOGAM0P": {
-    "codigo_clase": "03MLOGAM0P",
-    "codigo_curso": "2035159WCH",
-    "cedula_docente": "3267327473",
-    "horario": "4",
-    "codigo_aula": "760948",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "Q40FWFIGDY": {
-    "codigo_clase": "Q40FWFIGDY",
-    "codigo_curso": "8761338QQI",
-    "cedula_docente": "6013836556",
-    "horario": "5",
-    "codigo_aula": "780336",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "MBZV5SS3QB": {
-    "codigo_clase": "MBZV5SS3QB",
-    "codigo_curso": "8761338QQI",
-    "cedula_docente": "3894975862",
-    "horario": "9",
-    "codigo_aula": "541572",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "F28H9C4XSO": {
-    "codigo_clase": "F28H9C4XSO",
-    "codigo_curso": "8761338QQI",
-    "cedula_docente": "2050128608",
-    "horario": "3",
-    "codigo_aula": "077471",
-    "grupo": 3,
-    "cupos": 39
-  },
-  "L2EK69TORZ": {
-    "codigo_clase": "L2EK69TORZ",
-    "codigo_curso": "8761338QQI",
-    "cedula_docente": "6737289705",
-    "horario": "3",
-    "codigo_aula": "766742",
-    "grupo": 4,
-    "cupos": 40
-  },
-  "N5PF0B2LMB": {
-    "codigo_clase": "N5PF0B2LMB",
-    "codigo_curso": "8207620ZBR",
-    "cedula_docente": "1341220360",
-    "horario": "1",
-    "codigo_aula": "381896",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "6WAFGTICVG": {
-    "codigo_clase": "6WAFGTICVG",
-    "codigo_curso": "7462382JAQ",
-    "cedula_docente": "5377583287",
-    "horario": "11",
-    "codigo_aula": "768496",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "IPHXDLQDY7": {
-    "codigo_clase": "IPHXDLQDY7",
-    "codigo_curso": "7462382JAQ",
-    "cedula_docente": "9612584777",
-    "horario": "1",
-    "codigo_aula": "593986",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "MND821U69W": {
-    "codigo_clase": "MND821U69W",
-    "codigo_curso": "7462382JAQ",
-    "cedula_docente": "4402380002",
-    "horario": "14",
-    "codigo_aula": "789249",
-    "grupo": 3,
-    "cupos": 39
-  },
-  "DJMRB5LJRV": {
-    "codigo_clase": "DJMRB5LJRV",
-    "codigo_curso": "2884125EDG",
-    "cedula_docente": "1269319897",
-    "horario": "16",
-    "codigo_aula": "635274",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "99WFAMSNB2": {
-    "codigo_clase": "99WFAMSNB2",
-    "codigo_curso": "2081245FDU",
-    "cedula_docente": "7000523188",
-    "horario": "9",
-    "codigo_aula": "947389",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "1T8CQSVMRM": {
-    "codigo_clase": "1T8CQSVMRM",
-    "codigo_curso": "2081245FDU",
-    "cedula_docente": "7306930379",
-    "horario": "14",
-    "codigo_aula": "262795",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "VQDDILLJWY": {
-    "codigo_clase": "VQDDILLJWY",
-    "codigo_curso": "2081245FDU",
-    "cedula_docente": "2377345503",
-    "horario": "9",
-    "codigo_aula": "499857",
-    "grupo": 3,
-    "cupos": 41
-  },
-  "32N8OCZVZU": {
-    "codigo_clase": "32N8OCZVZU",
-    "codigo_curso": "2081245FDU",
-    "cedula_docente": "5278315688",
-    "horario": "13",
-    "codigo_aula": "295467",
-    "grupo": 4,
-    "cupos": 40
-  },
-  "LCNSBW449C": {
-    "codigo_clase": "LCNSBW449C",
-    "codigo_curso": "2319323DMY",
-    "cedula_docente": "6283032189",
-    "horario": "10",
-    "codigo_aula": "942116",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "AS09UKX3O6": {
-    "codigo_clase": "AS09UKX3O6",
-    "codigo_curso": "2319323DMY",
-    "cedula_docente": "4145971993",
-    "horario": "6",
-    "codigo_aula": "976625",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "YSLHWWYAGR": {
-    "codigo_clase": "YSLHWWYAGR",
-    "codigo_curso": "5928278CYO",
-    "cedula_docente": "8524034292",
-    "horario": "10",
-    "codigo_aula": "997518",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "PEIL2I0WFP": {
-    "codigo_clase": "PEIL2I0WFP",
-    "codigo_curso": "6642607QKP",
-    "cedula_docente": "8977083528",
-    "horario": "12",
     "codigo_aula": "985498",
     "grupo": 1,
     "cupos": 40
   },
-  "NRSDE97AX7": {
-    "codigo_clase": "NRSDE97AX7",
-    "codigo_curso": "6642607QKP",
-    "cedula_docente": "4163328749",
-    "horario": "7",
-    "codigo_aula": "387482",
-    "grupo": 2,
-    "cupos": 38
-  },
-  "YC8HRJO0EI": {
-    "codigo_clase": "YC8HRJO0EI",
-    "codigo_curso": "6642607QKP",
-    "cedula_docente": "0253046476",
-    "horario": "10",
-    "codigo_aula": "547978",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "ZP6FHMOJF7": {
-    "codigo_clase": "ZP6FHMOJF7",
-    "codigo_curso": "3640547RYI",
-    "cedula_docente": "9189361323",
-    "horario": "8",
-    "codigo_aula": "065032",
+  "P7S1DJ7GD1": {
+    "codigo_clase": "P7S1DJ7GD1",
+    "codigo_curso": "2916008QYU",
+    "cedula_docente": "5148594015",
+    "horario": "12",
+    "codigo_aula": "264985",
     "grupo": 1,
-    "cupos": 38
+    "cupos": 40
   },
-  "QI1ZSYS06E": {
-    "codigo_clase": "QI1ZSYS06E",
-    "codigo_curso": "3640547RYI",
-    "cedula_docente": "5270972320",
-    "horario": "10",
-    "codigo_aula": "164086",
+  "3MFUEEZKC3": {
+    "codigo_clase": "3MFUEEZKC3",
+    "codigo_curso": "2916008QYU",
+    "cedula_docente": "1473034672",
+    "horario": "6",
+    "codigo_aula": "989629",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "A1TYZDV76E": {
+    "codigo_clase": "A1TYZDV76E",
+    "codigo_curso": "1321846ROY",
+    "cedula_docente": "3056908265",
+    "horario": "15",
+    "codigo_aula": "651165",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "9G4P6530W4": {
+    "codigo_clase": "9G4P6530W4",
+    "codigo_curso": "1321846ROY",
+    "cedula_docente": "7649752496",
+    "horario": "11",
+    "codigo_aula": "020254",
     "grupo": 2,
     "cupos": 40
   },
-  "MXB9S692D2": {
-    "codigo_clase": "MXB9S692D2",
-    "codigo_curso": "3640547RYI",
-    "cedula_docente": "6884634451",
-    "horario": "13",
-    "codigo_aula": "142134",
+  "SQ8QZKE926": {
+    "codigo_clase": "SQ8QZKE926",
+    "codigo_curso": "3199015FFO",
+    "cedula_docente": "8240426415",
+    "horario": "8",
+    "codigo_aula": "632058",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "ZCV5TFUOEV": {
+    "codigo_clase": "ZCV5TFUOEV",
+    "codigo_curso": "3199015FFO",
+    "cedula_docente": "3474483755",
+    "horario": "14",
+    "codigo_aula": "760948",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "126L5W2AYF": {
+    "codigo_clase": "126L5W2AYF",
+    "codigo_curso": "3199015FFO",
+    "cedula_docente": "1927915677",
+    "horario": "10",
+    "codigo_aula": "347606",
     "grupo": 3,
     "cupos": 40
   },
-  "7RLWKINPYE": {
-    "codigo_clase": "7RLWKINPYE",
-    "codigo_curso": "3640547RYI",
-    "cedula_docente": "5217362785",
+  "LZPO7NLY1L": {
+    "codigo_clase": "LZPO7NLY1L",
+    "codigo_curso": "1639544CKD",
+    "cedula_docente": "0085619305",
+    "horario": "1",
+    "codigo_aula": "471754",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "BXTV347FDN": {
+    "codigo_clase": "BXTV347FDN",
+    "codigo_curso": "1639544CKD",
+    "cedula_docente": "7791252068",
+    "horario": "4",
+    "codigo_aula": "986256",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "IHFP478DXE": {
+    "codigo_clase": "IHFP478DXE",
+    "codigo_curso": "1639544CKD",
+    "cedula_docente": "1160582506",
+    "horario": "14",
+    "codigo_aula": "460780",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "M2KKHVSHFW": {
+    "codigo_clase": "M2KKHVSHFW",
+    "codigo_curso": "3012201FZM",
+    "cedula_docente": "1367200333",
+    "horario": "9",
+    "codigo_aula": "541572",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "E8FMMKEH9F": {
+    "codigo_clase": "E8FMMKEH9F",
+    "codigo_curso": "3012201FZM",
+    "cedula_docente": "8524034292",
     "horario": "8",
-    "codigo_aula": "252691",
+    "codigo_aula": "757725",
+    "grupo": 2,
+    "cupos": 38
+  },
+  "CYA8MZ2ZC9": {
+    "codigo_clase": "CYA8MZ2ZC9",
+    "codigo_curso": "3012201FZM",
+    "cedula_docente": "8324918207",
+    "horario": "15",
+    "codigo_aula": "518222",
+    "grupo": 3,
+    "cupos": 38
+  },
+  "P3GHXI2Z02": {
+    "codigo_clase": "P3GHXI2Z02",
+    "codigo_curso": "2035159WCH",
+    "cedula_docente": "4812497060",
+    "horario": "13",
+    "codigo_aula": "132563",
+    "grupo": 1,
+    "cupos": 41
+  },
+  "PS0WIGYZ0O": {
+    "codigo_clase": "PS0WIGYZ0O",
+    "codigo_curso": "2035159WCH",
+    "cedula_docente": "6273348089",
+    "horario": "5",
+    "codigo_aula": "735268",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "DMOGN5XNZJ": {
+    "codigo_clase": "DMOGN5XNZJ",
+    "codigo_curso": "2035159WCH",
+    "cedula_docente": "8365766674",
+    "horario": "1",
+    "codigo_aula": "381307",
+    "grupo": 3,
+    "cupos": 38
+  },
+  "NU5OGH4A9A": {
+    "codigo_clase": "NU5OGH4A9A",
+    "codigo_curso": "8761338QQI",
+    "cedula_docente": "3690433003",
+    "horario": "2",
+    "codigo_aula": "167376",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "WTP2Q1J7I3": {
+    "codigo_clase": "WTP2Q1J7I3",
+    "codigo_curso": "8761338QQI",
+    "cedula_docente": "0095674583",
+    "horario": "7",
+    "codigo_aula": "502887",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "2LSAGUBMC6": {
+    "codigo_clase": "2LSAGUBMC6",
+    "codigo_curso": "8761338QQI",
+    "cedula_docente": "6781176598",
+    "horario": "1",
+    "codigo_aula": "604687",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "IIAIFDOV6Y": {
+    "codigo_clase": "IIAIFDOV6Y",
+    "codigo_curso": "8761338QQI",
+    "cedula_docente": "4052974109",
+    "horario": "16",
+    "codigo_aula": "084056",
     "grupo": 4,
     "cupos": 40
   },
-  "3SGJC8HVEC": {
-    "codigo_clase": "3SGJC8HVEC",
-    "codigo_curso": "9000941YZD",
+  "A1SUK6P9IM": {
+    "codigo_clase": "A1SUK6P9IM",
+    "codigo_curso": "8207620ZBR",
+    "cedula_docente": "3259914761",
+    "horario": "13",
+    "codigo_aula": "243684",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "6201C5V2VY": {
+    "codigo_clase": "6201C5V2VY",
+    "codigo_curso": "7462382JAQ",
+    "cedula_docente": "8125288581",
+    "horario": "6",
+    "codigo_aula": "805605",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "GS12NG74MT": {
+    "codigo_clase": "GS12NG74MT",
+    "codigo_curso": "7462382JAQ",
+    "cedula_docente": "1965231860",
+    "horario": "7",
+    "codigo_aula": "977374",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "Z18Q4S6KN0": {
+    "codigo_clase": "Z18Q4S6KN0",
+    "codigo_curso": "7462382JAQ",
+    "cedula_docente": "1768869713",
+    "horario": "15",
+    "codigo_aula": "915754",
+    "grupo": 3,
+    "cupos": 39
+  },
+  "D0Z9X01XAV": {
+    "codigo_clase": "D0Z9X01XAV",
+    "codigo_curso": "2884125EDG",
+    "cedula_docente": "4059792595",
+    "horario": "16",
+    "codigo_aula": "342433",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "VG4PRZHRA5": {
+    "codigo_clase": "VG4PRZHRA5",
+    "codigo_curso": "2081245FDU",
+    "cedula_docente": "8977083528",
+    "horario": "6",
+    "codigo_aula": "667616",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "UT1VAX4RD9": {
+    "codigo_clase": "UT1VAX4RD9",
+    "codigo_curso": "2081245FDU",
+    "cedula_docente": "6038789139",
+    "horario": "3",
+    "codigo_aula": "646182",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "GFQP3M0KWO": {
+    "codigo_clase": "GFQP3M0KWO",
+    "codigo_curso": "2081245FDU",
+    "cedula_docente": "7306930379",
+    "horario": "14",
+    "codigo_aula": "923190",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "AOQY6OU5C8": {
+    "codigo_clase": "AOQY6OU5C8",
+    "codigo_curso": "2081245FDU",
+    "cedula_docente": "8073347780",
+    "horario": "14",
+    "codigo_aula": "257832",
+    "grupo": 4,
+    "cupos": 39
+  },
+  "1RL09O7LQU": {
+    "codigo_clase": "1RL09O7LQU",
+    "codigo_curso": "2319323DMY",
+    "cedula_docente": "7865762984",
+    "horario": "9",
+    "codigo_aula": "487998",
+    "grupo": 1,
+    "cupos": 38
+  },
+  "9H61X2HPUG": {
+    "codigo_clase": "9H61X2HPUG",
+    "codigo_curso": "2319323DMY",
+    "cedula_docente": "7674816783",
+    "horario": "2",
+    "codigo_aula": "810997",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "A2ZKRK0L3L": {
+    "codigo_clase": "A2ZKRK0L3L",
+    "codigo_curso": "5928278CYO",
+    "cedula_docente": "5004816448",
+    "horario": "10",
+    "codigo_aula": "558994",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "L7IW377P3M": {
+    "codigo_clase": "L7IW377P3M",
+    "codigo_curso": "6642607QKP",
+    "cedula_docente": "5278315688",
+    "horario": "16",
+    "codigo_aula": "771677",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "QT4LIE90GL": {
+    "codigo_clase": "QT4LIE90GL",
+    "codigo_curso": "6642607QKP",
     "cedula_docente": "8157116298",
     "horario": "7",
-    "codigo_aula": "688336",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "QVVKGFDSQ6": {
-    "codigo_clase": "QVVKGFDSQ6",
-    "codigo_curso": "9000941YZD",
-    "cedula_docente": "2532854119",
-    "horario": "1",
-    "codigo_aula": "496995",
+    "codigo_aula": "740332",
     "grupo": 2,
-    "cupos": 40
-  },
-  "QIH41401GU": {
-    "codigo_clase": "QIH41401GU",
-    "codigo_curso": "9000941YZD",
-    "cedula_docente": "9516944649",
-    "horario": "2",
-    "codigo_aula": "585402",
-    "grupo": 3,
-    "cupos": 41
-  },
-  "QZU28N32JP": {
-    "codigo_clase": "QZU28N32JP",
-    "codigo_curso": "4006264RKF",
-    "cedula_docente": "1399382965",
-    "horario": "3",
-    "codigo_aula": "802302",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "36JH8DKZE5": {
-    "codigo_clase": "36JH8DKZE5",
-    "codigo_curso": "4006264RKF",
-    "cedula_docente": "0525817245",
-    "horario": "10",
-    "codigo_aula": "294484",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "70V4I0KB93": {
-    "codigo_clase": "70V4I0KB93",
-    "codigo_curso": "3014078EWD",
-    "cedula_docente": "7003645282",
-    "horario": "3",
-    "codigo_aula": "347606",
-    "grupo": 1,
     "cupos": 39
   },
-  "75WZ0K7IS1": {
-    "codigo_clase": "75WZ0K7IS1",
-    "codigo_curso": "3014078EWD",
+  "HZH8LGWSU1": {
+    "codigo_clase": "HZH8LGWSU1",
+    "codigo_curso": "6642607QKP",
+    "cedula_docente": "1442096283",
+    "horario": "1",
+    "codigo_aula": "035246",
+    "grupo": 3,
+    "cupos": 39
+  },
+  "56H8NGA0OV": {
+    "codigo_clase": "56H8NGA0OV",
+    "codigo_curso": "3640547RYI",
+    "cedula_docente": "0756470305",
+    "horario": "9",
+    "codigo_aula": "766742",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "KBQGEDDIJO": {
+    "codigo_clase": "KBQGEDDIJO",
+    "codigo_curso": "3640547RYI",
+    "cedula_docente": "6246042494",
+    "horario": "7",
+    "codigo_aula": "688336",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "W5I2SR0ZNH": {
+    "codigo_clase": "W5I2SR0ZNH",
+    "codigo_curso": "3640547RYI",
     "cedula_docente": "6693143895",
     "horario": "11",
-    "codigo_aula": "634385",
+    "codigo_aula": "559308",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "PQB53ZK8VN": {
+    "codigo_clase": "PQB53ZK8VN",
+    "codigo_curso": "3640547RYI",
+    "cedula_docente": "1850215787",
+    "horario": "4",
+    "codigo_aula": "594641",
+    "grupo": 4,
+    "cupos": 40
+  },
+  "7C0ENI5SZ4": {
+    "codigo_clase": "7C0ENI5SZ4",
+    "codigo_curso": "9000941YZD",
+    "cedula_docente": "8400484082",
+    "horario": "11",
+    "codigo_aula": "950662",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "F985MCM2BT": {
+    "codigo_clase": "F985MCM2BT",
+    "codigo_curso": "9000941YZD",
+    "cedula_docente": "5284131763",
+    "horario": "12",
+    "codigo_aula": "508655",
     "grupo": 2,
     "cupos": 39
   },
-  "LBYCSY4ZLM": {
-    "codigo_clase": "LBYCSY4ZLM",
-    "codigo_curso": "9440492HSN",
-    "cedula_docente": "0196701059",
+  "GOX6BBTLWM": {
+    "codigo_clase": "GOX6BBTLWM",
+    "codigo_curso": "9000941YZD",
+    "cedula_docente": "9631040901",
+    "horario": "15",
+    "codigo_aula": "182150",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "I7FVUA68FO": {
+    "codigo_clase": "I7FVUA68FO",
+    "codigo_curso": "4006264RKF",
+    "cedula_docente": "4402380002",
+    "horario": "12",
+    "codigo_aula": "294484",
+    "grupo": 1,
+    "cupos": 41
+  },
+  "PD01RK30P2": {
+    "codigo_clase": "PD01RK30P2",
+    "codigo_curso": "4006264RKF",
+    "cedula_docente": "6134847893",
     "horario": "10",
-    "codigo_aula": "628935",
+    "codigo_aula": "065032",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "LPRFJ59W4R": {
+    "codigo_clase": "LPRFJ59W4R",
+    "codigo_curso": "3014078EWD",
+    "cedula_docente": "7144675610",
+    "horario": "1",
+    "codigo_aula": "351009",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "LH8V6G1VHY": {
+    "codigo_clase": "LH8V6G1VHY",
+    "codigo_curso": "3014078EWD",
+    "cedula_docente": "9375597612",
+    "horario": "2",
+    "codigo_aula": "597796",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "VUJLIPXVBN": {
+    "codigo_clase": "VUJLIPXVBN",
+    "codigo_curso": "9440492HSN",
+    "cedula_docente": "4613821258",
+    "horario": "6",
+    "codigo_aula": "604819",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "XDEY2TRKDF": {
+    "codigo_clase": "XDEY2TRKDF",
+    "codigo_curso": "9440492HSN",
+    "cedula_docente": "7854921232",
+    "horario": "8",
+    "codigo_aula": "143946",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "DDPCR7IQMD": {
+    "codigo_clase": "DDPCR7IQMD",
+    "codigo_curso": "9440492HSN",
+    "cedula_docente": "2332626104",
+    "horario": "7",
+    "codigo_aula": "629725",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "ZUSMHWFW0K": {
+    "codigo_clase": "ZUSMHWFW0K",
+    "codigo_curso": "5104077TEW",
+    "cedula_docente": "0806471497",
+    "horario": "13",
+    "codigo_aula": "747625",
     "grupo": 1,
     "cupos": 39
   },
-  "TGYGG0DKRK": {
-    "codigo_clase": "TGYGG0DKRK",
-    "codigo_curso": "9440492HSN",
+  "7RJYWFWWYB": {
+    "codigo_clase": "7RJYWFWWYB",
+    "codigo_curso": "5104077TEW",
+    "cedula_docente": "0196701059",
+    "horario": "8",
+    "codigo_aula": "522700",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "ZFVJEGR00F": {
+    "codigo_clase": "ZFVJEGR00F",
+    "codigo_curso": "5104077TEW",
+    "cedula_docente": "4639880205",
+    "horario": "3",
+    "codigo_aula": "902592",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "MST90KSOVR": {
+    "codigo_clase": "MST90KSOVR",
+    "codigo_curso": "4233345BRX",
+    "cedula_docente": "7116188031",
+    "horario": "3",
+    "codigo_aula": "768496",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "DK4QSK87D6": {
+    "codigo_clase": "DK4QSK87D6",
+    "codigo_curso": "4233345BRX",
+    "cedula_docente": "2551425245",
+    "horario": "5",
+    "codigo_aula": "381896",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "L83ZFIFZMG": {
+    "codigo_clase": "L83ZFIFZMG",
+    "codigo_curso": "4233345BRX",
+    "cedula_docente": "5660980488",
+    "horario": "2",
+    "codigo_aula": "942116",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "GDX5GHYY2Z": {
+    "codigo_clase": "GDX5GHYY2Z",
+    "codigo_curso": "4233345BRX",
+    "cedula_docente": "9516944649",
+    "horario": "6",
+    "codigo_aula": "474608",
+    "grupo": 4,
+    "cupos": 40
+  },
+  "SUMY8KA04P": {
+    "codigo_clase": "SUMY8KA04P",
+    "codigo_curso": "2058175OMK",
+    "cedula_docente": "9970496347",
+    "horario": "12",
+    "codigo_aula": "840131",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "PB2RYZ5MO3": {
+    "codigo_clase": "PB2RYZ5MO3",
+    "codigo_curso": "4535621LAK",
+    "cedula_docente": "4610173845",
+    "horario": "8",
+    "codigo_aula": "972383",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "9O8YOL429U": {
+    "codigo_clase": "9O8YOL429U",
+    "codigo_curso": "4535621LAK",
+    "cedula_docente": "6013836556",
+    "horario": "9",
+    "codigo_aula": "662834",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "VJVTWTVEIO": {
+    "codigo_clase": "VJVTWTVEIO",
+    "codigo_curso": "1002400AOF",
+    "cedula_docente": "0324113537",
+    "horario": "9",
+    "codigo_aula": "138654",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "Q1Z59PXSYN": {
+    "codigo_clase": "Q1Z59PXSYN",
+    "codigo_curso": "1002400AOF",
+    "cedula_docente": "0525817245",
+    "horario": "7",
+    "codigo_aula": "613876",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "0WUPOFMUQC": {
+    "codigo_clase": "0WUPOFMUQC",
+    "codigo_curso": "8454320CDW",
+    "cedula_docente": "1832264305",
+    "horario": "11",
+    "codigo_aula": "252691",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "18XDO1JX2N": {
+    "codigo_clase": "18XDO1JX2N",
+    "codigo_curso": "8454320CDW",
+    "cedula_docente": "4190978112",
+    "horario": "2",
+    "codigo_aula": "763618",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "JHIMUTKBL7": {
+    "codigo_clase": "JHIMUTKBL7",
+    "codigo_curso": "8454320CDW",
+    "cedula_docente": "9548112823",
+    "horario": "9",
+    "codigo_aula": "704267",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "FJJWQHX7L6": {
+    "codigo_clase": "FJJWQHX7L6",
+    "codigo_curso": "8454320CDW",
+    "cedula_docente": "3894975862",
+    "horario": "14",
+    "codigo_aula": "988002",
+    "grupo": 4,
+    "cupos": 40
+  },
+  "L1RNWF8FUM": {
+    "codigo_clase": "L1RNWF8FUM",
+    "codigo_curso": "7457231ABT",
+    "cedula_docente": "2213038863",
+    "horario": "12",
+    "codigo_aula": "312489",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "ZJFDFR0JVM": {
+    "codigo_clase": "ZJFDFR0JVM",
+    "codigo_curso": "7457231ABT",
+    "cedula_docente": "8747426560",
+    "horario": "16",
+    "codigo_aula": "174196",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "VFHZUXJQEK": {
+    "codigo_clase": "VFHZUXJQEK",
+    "codigo_curso": "7457231ABT",
+    "cedula_docente": "3116949144",
+    "horario": "11",
+    "codigo_aula": "268102",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "9X682O5XV8": {
+    "codigo_clase": "9X682O5XV8",
+    "codigo_curso": "7457231ABT",
+    "cedula_docente": "0357123245",
+    "horario": "10",
+    "codigo_aula": "499857",
+    "grupo": 4,
+    "cupos": 40
+  },
+  "UK9WNHY7EM": {
+    "codigo_clase": "UK9WNHY7EM",
+    "codigo_curso": "2224410QCK",
+    "cedula_docente": "8350241573",
+    "horario": "14",
+    "codigo_aula": "286676",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "3IJ4WL9SHM": {
+    "codigo_clase": "3IJ4WL9SHM",
+    "codigo_curso": "2224410QCK",
+    "cedula_docente": "0606773739",
+    "horario": "13",
+    "codigo_aula": "930832",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "GKTZBCUNTR": {
+    "codigo_clase": "GKTZBCUNTR",
+    "codigo_curso": "1539914ISH",
+    "cedula_docente": "8698296633",
+    "horario": "1",
+    "codigo_aula": "078492",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "UKYRH6Y6R5": {
+    "codigo_clase": "UKYRH6Y6R5",
+    "codigo_curso": "1539914ISH",
+    "cedula_docente": "8826409176",
+    "horario": "10",
+    "codigo_aula": "849476",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "5R4RDLEQ9B": {
+    "codigo_clase": "5R4RDLEQ9B",
+    "codigo_curso": "1539914ISH",
     "cedula_docente": "8754977677",
+    "horario": "13",
+    "codigo_aula": "108907",
+    "grupo": 3,
+    "cupos": 39
+  },
+  "FF5HTX4AHR": {
+    "codigo_clase": "FF5HTX4AHR",
+    "codigo_curso": "1539914ISH",
+    "cedula_docente": "5084355184",
+    "horario": "15",
+    "codigo_aula": "510659",
+    "grupo": 4,
+    "cupos": 41
+  },
+  "6R6W8IZ7AW": {
+    "codigo_clase": "6R6W8IZ7AW",
+    "codigo_curso": "2924112DSF",
+    "cedula_docente": "5226076736",
+    "horario": "6",
+    "codigo_aula": "540585",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "01ZILGEICY": {
+    "codigo_clase": "01ZILGEICY",
+    "codigo_curso": "2924112DSF",
+    "cedula_docente": "5978132907",
+    "horario": "14",
+    "codigo_aula": "620883",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "9ZV5XCFCQ9": {
+    "codigo_clase": "9ZV5XCFCQ9",
+    "codigo_curso": "2924112DSF",
+    "cedula_docente": "6737289705",
+    "horario": "1",
+    "codigo_aula": "997518",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "M9WY0IA5QV": {
+    "codigo_clase": "M9WY0IA5QV",
+    "codigo_curso": "2924112DSF",
+    "cedula_docente": "7601753870",
+    "horario": "13",
+    "codigo_aula": "789249",
+    "grupo": 4,
+    "cupos": 41
+  },
+  "XMPC0D23WV": {
+    "codigo_clase": "XMPC0D23WV",
+    "codigo_curso": "7678610DDU",
+    "cedula_docente": "5152309424",
+    "horario": "5",
+    "codigo_aula": "836316",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "3UBTHPHHGZ": {
+    "codigo_clase": "3UBTHPHHGZ",
+    "codigo_curso": "7678610DDU",
+    "cedula_docente": "1070722871",
+    "horario": "16",
+    "codigo_aula": "142443",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "HOR0VCWFC5": {
+    "codigo_clase": "HOR0VCWFC5",
+    "codigo_curso": "7678610DDU",
+    "cedula_docente": "9762905765",
+    "horario": "11",
+    "codigo_aula": "660306",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "7J85E3NW8V": {
+    "codigo_clase": "7J85E3NW8V",
+    "codigo_curso": "7678610DDU",
+    "cedula_docente": "4696846042",
+    "horario": "8",
+    "codigo_aula": "496995",
+    "grupo": 4,
+    "cupos": 39
+  },
+  "238MA91UB0": {
+    "codigo_clase": "238MA91UB0",
+    "codigo_curso": "5243976OIY",
+    "cedula_docente": "3097404629",
+    "horario": "8",
+    "codigo_aula": "264288",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "5C9QQ6URY9": {
+    "codigo_clase": "5C9QQ6URY9",
+    "codigo_curso": "5243976OIY",
+    "cedula_docente": "6421399489",
+    "horario": "6",
+    "codigo_aula": "756383",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "OJHIN59I9H": {
+    "codigo_clase": "OJHIN59I9H",
+    "codigo_curso": "5738013OHI",
+    "cedula_docente": "2499108642",
     "horario": "4",
+    "codigo_aula": "373955",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "A1IR3XO1YK": {
+    "codigo_clase": "A1IR3XO1YK",
+    "codigo_curso": "2851250MNE",
+    "cedula_docente": "0253046476",
+    "horario": "12",
+    "codigo_aula": "956005",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "WQG5C8PN53": {
+    "codigo_clase": "WQG5C8PN53",
+    "codigo_curso": "0282237OPT",
+    "cedula_docente": "7773023178",
+    "horario": "12",
+    "codigo_aula": "161274",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "UQC2DKUZYO": {
+    "codigo_clase": "UQC2DKUZYO",
+    "codigo_curso": "0282237OPT",
+    "cedula_docente": "9498663952",
+    "horario": "6",
+    "codigo_aula": "677242",
+    "grupo": 2,
+    "cupos": 38
+  },
+  "8TLWVETQW8": {
+    "codigo_clase": "8TLWVETQW8",
+    "codigo_curso": "2328707PER",
+    "cedula_docente": "5377583287",
+    "horario": "7",
+    "codigo_aula": "634385",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "JOIOH8PI9B": {
+    "codigo_clase": "JOIOH8PI9B",
+    "codigo_curso": "9478315VVB",
+    "cedula_docente": "7003645282",
+    "horario": "11",
+    "codigo_aula": "893649",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "NJS2FQ8O1S": {
+    "codigo_clase": "NJS2FQ8O1S",
+    "codigo_curso": "9478315VVB",
+    "cedula_docente": "2148316831",
+    "horario": "6",
+    "codigo_aula": "585402",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "SMNP8PFS0X": {
+    "codigo_clase": "SMNP8PFS0X",
+    "codigo_curso": "9478315VVB",
+    "cedula_docente": "9507979266",
+    "horario": "3",
+    "codigo_aula": "503180",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "CBWM8RZPKZ": {
+    "codigo_clase": "CBWM8RZPKZ",
+    "codigo_curso": "6729725CYW",
+    "cedula_docente": "5787929489",
+    "horario": "4",
+    "codigo_aula": "468138",
+    "grupo": 1,
+    "cupos": 38
+  },
+  "IHV40ITM7Q": {
+    "codigo_clase": "IHV40ITM7Q",
+    "codigo_curso": "8183196VSE",
+    "cedula_docente": "4783915458",
+    "horario": "4",
+    "codigo_aula": "475944",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "CTZXOG6Z6S": {
+    "codigo_clase": "CTZXOG6Z6S",
+    "codigo_curso": "9109158UDF",
+    "cedula_docente": "4145971993",
+    "horario": "7",
+    "codigo_aula": "018764",
+    "grupo": 1,
+    "cupos": 38
+  },
+  "QYSI8MNT7E": {
+    "codigo_clase": "QYSI8MNT7E",
+    "codigo_curso": "6789846CUQ",
+    "cedula_docente": "0209364711",
+    "horario": "7",
+    "codigo_aula": "888530",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "GMGD3VF0I3": {
+    "codigo_clase": "GMGD3VF0I3",
+    "codigo_curso": "9083275FDT",
+    "cedula_docente": "4163328749",
+    "horario": "4",
+    "codigo_aula": "846678",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "BW67POOCN9": {
+    "codigo_clase": "BW67POOCN9",
+    "codigo_curso": "9083275FDT",
+    "cedula_docente": "2388879641",
+    "horario": "9",
+    "codigo_aula": "927853",
+    "grupo": 2,
+    "cupos": 40
+  },
+  "C7ZIVM767K": {
+    "codigo_clase": "C7ZIVM767K",
+    "codigo_curso": "9083275FDT",
+    "cedula_docente": "9811812969",
+    "horario": "13",
+    "codigo_aula": "803106",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "KGBW7LOLDD": {
+    "codigo_clase": "KGBW7LOLDD",
+    "codigo_curso": "9083275FDT",
+    "cedula_docente": "7526685938",
+    "horario": "8",
+    "codigo_aula": "868515",
+    "grupo": 4,
+    "cupos": 39
+  },
+  "XAODS4J3O2": {
+    "codigo_clase": "XAODS4J3O2",
+    "codigo_curso": "3778646KYG",
+    "cedula_docente": "2532854119",
+    "horario": "10",
+    "codigo_aula": "133095",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "UX8B2D1SO1": {
+    "codigo_clase": "UX8B2D1SO1",
+    "codigo_curso": "3778646KYG",
+    "cedula_docente": "0730352347",
+    "horario": "8",
+    "codigo_aula": "608211",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "C3I34DEP43": {
+    "codigo_clase": "C3I34DEP43",
+    "codigo_curso": "3778646KYG",
+    "cedula_docente": "0899508270",
+    "horario": "13",
+    "codigo_aula": "262795",
+    "grupo": 3,
+    "cupos": 39
+  },
+  "IHKN5CBC0K": {
+    "codigo_clase": "IHKN5CBC0K",
+    "codigo_curso": "3778646KYG",
+    "cedula_docente": "1574836489",
+    "horario": "14",
+    "codigo_aula": "947389",
+    "grupo": 4,
+    "cupos": 40
+  },
+  "LXC8QZPMKN": {
+    "codigo_clase": "LXC8QZPMKN",
+    "codigo_curso": "1196459CLV",
+    "cedula_docente": "5465832729",
+    "horario": "2",
+    "codigo_aula": "459277",
+    "grupo": 1,
+    "cupos": 39
+  },
+  "F66KCS0OWY": {
+    "codigo_clase": "F66KCS0OWY",
+    "codigo_curso": "1196459CLV",
+    "cedula_docente": "2289517527",
+    "horario": "2",
     "codigo_aula": "509512",
     "grupo": 2,
     "cupos": 39
   },
-  "QPCE4G4HZ3": {
-    "codigo_clase": "QPCE4G4HZ3",
-    "codigo_curso": "9440492HSN",
-    "cedula_docente": "1233259385",
-    "horario": "7",
-    "codigo_aula": "018764",
-    "grupo": 3,
-    "cupos": 38
-  },
-  "F1GYW30E7Z": {
-    "codigo_clase": "F1GYW30E7Z",
-    "codigo_curso": "5104077TEW",
-    "cedula_docente": "9507979266",
-    "horario": "5",
-    "codigo_aula": "915754",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "FQZW7WIZ0C": {
-    "codigo_clase": "FQZW7WIZ0C",
-    "codigo_curso": "5104077TEW",
-    "cedula_docente": "6246042494",
-    "horario": "10",
-    "codigo_aula": "342433",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "ULL15TGKUA": {
-    "codigo_clase": "ULL15TGKUA",
-    "codigo_curso": "5104077TEW",
-    "cedula_docente": "2148316831",
-    "horario": "13",
-    "codigo_aula": "846678",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "32MEUBSY5Z": {
-    "codigo_clase": "32MEUBSY5Z",
-    "codigo_curso": "4233345BRX",
-    "cedula_docente": "6781176598",
-    "horario": "1",
-    "codigo_aula": "540585",
-    "grupo": 1,
-    "cupos": 38
-  },
-  "J5OPRVQB6U": {
-    "codigo_clase": "J5OPRVQB6U",
-    "codigo_curso": "4233345BRX",
-    "cedula_docente": "7244688924",
-    "horario": "11",
-    "codigo_aula": "131835",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "RJ20FCMYEC": {
-    "codigo_clase": "RJ20FCMYEC",
-    "codigo_curso": "4233345BRX",
-    "cedula_docente": "5148594015",
-    "horario": "5",
-    "codigo_aula": "977374",
-    "grupo": 3,
-    "cupos": 39
-  },
-  "29OSKBOB9A": {
-    "codigo_clase": "29OSKBOB9A",
-    "codigo_curso": "4233345BRX",
-    "cedula_docente": "1442096283",
-    "horario": "2",
-    "codigo_aula": "368424",
-    "grupo": 4,
-    "cupos": 40
-  },
-  "ZTC8OUNQRD": {
-    "codigo_clase": "ZTC8OUNQRD",
-    "codigo_curso": "2058175OMK",
-    "cedula_docente": "2332626104",
-    "horario": "2",
-    "codigo_aula": "037268",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "NMH7DGZU98": {
-    "codigo_clase": "NMH7DGZU98",
-    "codigo_curso": "4535621LAK",
-    "cedula_docente": "8747426560",
-    "horario": "4",
-    "codigo_aula": "646182",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "C1AIG0SFGC": {
-    "codigo_clase": "C1AIG0SFGC",
-    "codigo_curso": "4535621LAK",
-    "cedula_docente": "1832264305",
-    "horario": "13",
-    "codigo_aula": "745675",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "0UF46QYGJ3": {
-    "codigo_clase": "0UF46QYGJ3",
-    "codigo_curso": "1002400AOF",
-    "cedula_docente": "1063910101",
-    "horario": "1",
-    "codigo_aula": "622810",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "95KVPKBGCF": {
-    "codigo_clase": "95KVPKBGCF",
-    "codigo_curso": "1002400AOF",
-    "cedula_docente": "3116949144",
-    "horario": "5",
-    "codigo_aula": "965473",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "002DG0JUHN": {
-    "codigo_clase": "002DG0JUHN",
-    "codigo_curso": "8454320CDW",
-    "cedula_docente": "3621536173",
-    "horario": "4",
-    "codigo_aula": "283981",
-    "grupo": 1,
-    "cupos": 41
-  },
-  "326Q6VKC2E": {
-    "codigo_clase": "326Q6VKC2E",
-    "codigo_curso": "8454320CDW",
-    "cedula_docente": "0089670135",
-    "horario": "7",
-    "codigo_aula": "147532",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "TEIBULQQEF": {
-    "codigo_clase": "TEIBULQQEF",
-    "codigo_curso": "8454320CDW",
-    "cedula_docente": "3134785775",
-    "horario": "8",
-    "codigo_aula": "362309",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "GYAE4GUZFS": {
-    "codigo_clase": "GYAE4GUZFS",
-    "codigo_curso": "8454320CDW",
-    "cedula_docente": "9548112823",
-    "horario": "15",
-    "codigo_aula": "927414",
-    "grupo": 4,
-    "cupos": 39
-  },
-  "FGRI56PLXW": {
-    "codigo_clase": "FGRI56PLXW",
-    "codigo_curso": "7457231ABT",
-    "cedula_docente": "5084355184",
-    "horario": "2",
-    "codigo_aula": "893649",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "ROP5WDOLKL": {
-    "codigo_clase": "ROP5WDOLKL",
-    "codigo_curso": "7457231ABT",
-    "cedula_docente": "9584054959",
-    "horario": "3",
-    "codigo_aula": "895124",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "FM4AON7L1T": {
-    "codigo_clase": "FM4AON7L1T",
-    "codigo_curso": "7457231ABT",
-    "cedula_docente": "7773023178",
-    "horario": "16",
-    "codigo_aula": "608211",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "MGJX22UEE5": {
-    "codigo_clase": "MGJX22UEE5",
-    "codigo_curso": "7457231ABT",
-    "cedula_docente": "3615920201",
-    "horario": "6",
-    "codigo_aula": "810997",
-    "grupo": 4,
-    "cupos": 40
-  },
-  "A09OOAAZN3": {
-    "codigo_clase": "A09OOAAZN3",
-    "codigo_curso": "2224410QCK",
-    "cedula_docente": "9970496347",
-    "horario": "6",
-    "codigo_aula": "468138",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "C35211PEJ1": {
-    "codigo_clase": "C35211PEJ1",
-    "codigo_curso": "2224410QCK",
-    "cedula_docente": "9565523549",
-    "horario": "14",
-    "codigo_aula": "794270",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "AXOJFJEC5F": {
-    "codigo_clase": "AXOJFJEC5F",
-    "codigo_curso": "1539914ISH",
-    "cedula_docente": "1070722871",
-    "horario": "15",
-    "codigo_aula": "158317",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "V6JNYATFAQ": {
-    "codigo_clase": "V6JNYATFAQ",
-    "codigo_curso": "1539914ISH",
-    "cedula_docente": "8601391926",
-    "horario": "2",
-    "codigo_aula": "336421",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "MUPD2I5B54": {
-    "codigo_clase": "MUPD2I5B54",
-    "codigo_curso": "1539914ISH",
-    "cedula_docente": "7526685938",
-    "horario": "7",
-    "codigo_aula": "950662",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "IHU9VM9J76": {
-    "codigo_clase": "IHU9VM9J76",
-    "codigo_curso": "1539914ISH",
-    "cedula_docente": "4610173845",
-    "horario": "8",
-    "codigo_aula": "558994",
-    "grupo": 4,
-    "cupos": 39
-  },
-  "9ZQE0REI59": {
-    "codigo_clase": "9ZQE0REI59",
-    "codigo_curso": "2924112DSF",
-    "cedula_docente": "7601753870",
-    "horario": "16",
-    "codigo_aula": "222585",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "834D9F1NYT": {
-    "codigo_clase": "834D9F1NYT",
-    "codigo_curso": "2924112DSF",
-    "cedula_docente": "1648594779",
-    "horario": "15",
-    "codigo_aula": "428749",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "5KOIQOV92B": {
-    "codigo_clase": "5KOIQOV92B",
-    "codigo_curso": "2924112DSF",
-    "cedula_docente": "6421399489",
-    "horario": "13",
-    "codigo_aula": "757725",
-    "grupo": 3,
-    "cupos": 39
-  },
-  "GGKKQ2SKU0": {
-    "codigo_clase": "GGKKQ2SKU0",
-    "codigo_curso": "2924112DSF",
-    "cedula_docente": "0301889267",
-    "horario": "12",
-    "codigo_aula": "381307",
-    "grupo": 4,
-    "cupos": 40
-  },
-  "W8Y5C3FA77": {
-    "codigo_clase": "W8Y5C3FA77",
-    "codigo_curso": "7678610DDU",
-    "cedula_docente": "1534359713",
-    "horario": "5",
-    "codigo_aula": "264985",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "CC763PCJHY": {
-    "codigo_clase": "CC763PCJHY",
-    "codigo_curso": "7678610DDU",
-    "cedula_docente": "1458682716",
-    "horario": "8",
-    "codigo_aula": "257832",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "ZVHUGSZ0UR": {
-    "codigo_clase": "ZVHUGSZ0UR",
-    "codigo_curso": "7678610DDU",
-    "cedula_docente": "0209364711",
-    "horario": "5",
-    "codigo_aula": "594641",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "63ABFN4WP2": {
-    "codigo_clase": "63ABFN4WP2",
-    "codigo_curso": "7678610DDU",
-    "cedula_docente": "1695961057",
-    "horario": "6",
-    "codigo_aula": "503386",
-    "grupo": 4,
-    "cupos": 39
-  },
-  "F5HLEVX5NB": {
-    "codigo_clase": "F5HLEVX5NB",
-    "codigo_curso": "5243976OIY",
-    "cedula_docente": "7649752496",
-    "horario": "12",
-    "codigo_aula": "439852",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "82P0ORES6F": {
-    "codigo_clase": "82P0ORES6F",
-    "codigo_curso": "5243976OIY",
-    "cedula_docente": "5465832729",
-    "horario": "11",
-    "codigo_aula": "604687",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "DUKS4AG1KY": {
-    "codigo_clase": "DUKS4AG1KY",
-    "codigo_curso": "5738013OHI",
-    "cedula_docente": "3474483755",
-    "horario": "7",
-    "codigo_aula": "475944",
-    "grupo": 1,
-    "cupos": 41
-  },
-  "YAEARSR9Z3": {
-    "codigo_clase": "YAEARSR9Z3",
-    "codigo_curso": "2851250MNE",
-    "cedula_docente": "3082524205",
-    "horario": "4",
-    "codigo_aula": "927853",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "I1M3LIDSF1": {
-    "codigo_clase": "I1M3LIDSF1",
-    "codigo_curso": "0282237OPT",
-    "cedula_docente": "4910689336",
-    "horario": "13",
-    "codigo_aula": "930832",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "FXFX2LO394": {
-    "codigo_clase": "FXFX2LO394",
-    "codigo_curso": "0282237OPT",
-    "cedula_docente": "4474213329",
-    "horario": "6",
-    "codigo_aula": "286676",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "TYOF72HBCD": {
-    "codigo_clase": "TYOF72HBCD",
-    "codigo_curso": "2328707PER",
-    "cedula_docente": "0478482183",
-    "horario": "8",
-    "codigo_aula": "013961",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "327L4V4ZBV": {
-    "codigo_clase": "327L4V4ZBV",
-    "codigo_curso": "9478315VVB",
-    "cedula_docente": "8698296633",
-    "horario": "6",
-    "codigo_aula": "629725",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "U98TJL4ADO": {
-    "codigo_clase": "U98TJL4ADO",
-    "codigo_curso": "9478315VVB",
-    "cedula_docente": "4696846042",
-    "horario": "16",
-    "codigo_aula": "805605",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "3TMRSWYWJ7": {
-    "codigo_clase": "3TMRSWYWJ7",
-    "codigo_curso": "9478315VVB",
-    "cedula_docente": "6273348089",
-    "horario": "3",
-    "codigo_aula": "683477",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "0XGDT7CXQB": {
-    "codigo_clase": "0XGDT7CXQB",
-    "codigo_curso": "6729725CYW",
-    "cedula_docente": "4190978112",
-    "horario": "2",
-    "codigo_aula": "327664",
-    "grupo": 1,
-    "cupos": 41
-  },
-  "W2TQTI9I2D": {
-    "codigo_clase": "W2TQTI9I2D",
-    "codigo_curso": "8183196VSE",
-    "cedula_docente": "4812497060",
-    "horario": "8",
-    "codigo_aula": "343468",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "YBA2XR6N1W": {
-    "codigo_clase": "YBA2XR6N1W",
-    "codigo_curso": "9109158UDF",
-    "cedula_docente": "3097404629",
-    "horario": "16",
-    "codigo_aula": "108907",
-    "grupo": 1,
-    "cupos": 40
-  },
-  "HBXWH5QIIR": {
-    "codigo_clase": "HBXWH5QIIR",
-    "codigo_curso": "6789846CUQ",
-    "cedula_docente": "0591918080",
-    "horario": "6",
-    "codigo_aula": "925208",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "1YCCIOC02G": {
-    "codigo_clase": "1YCCIOC02G",
-    "codigo_curso": "9083275FDT",
-    "cedula_docente": "8073347780",
-    "horario": "8",
-    "codigo_aula": "307781",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "KMRB99HQV6": {
-    "codigo_clase": "KMRB99HQV6",
-    "codigo_curso": "9083275FDT",
-    "cedula_docente": "8240426415",
-    "horario": "2",
-    "codigo_aula": "571242",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "SFSALFTD3A": {
-    "codigo_clase": "SFSALFTD3A",
-    "codigo_curso": "9083275FDT",
-    "cedula_docente": "0554269549",
-    "horario": "5",
-    "codigo_aula": "840131",
-    "grupo": 3,
-    "cupos": 40
-  },
-  "RD66FYTEV3": {
-    "codigo_clase": "RD66FYTEV3",
-    "codigo_curso": "9083275FDT",
-    "cedula_docente": "2269005695",
-    "horario": "9",
-    "codigo_aula": "373955",
-    "grupo": 4,
-    "cupos": 39
-  },
-  "NHUCWMFR5M": {
-    "codigo_clase": "NHUCWMFR5M",
-    "codigo_curso": "3778646KYG",
-    "cedula_docente": "4757445894",
-    "horario": "5",
-    "codigo_aula": "763618",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "AJMOHMN44Q": {
-    "codigo_clase": "AJMOHMN44Q",
-    "codigo_curso": "3778646KYG",
-    "cedula_docente": "2388879641",
-    "horario": "14",
-    "codigo_aula": "522700",
-    "grupo": 2,
-    "cupos": 40
-  },
-  "T23JXQA7FG": {
-    "codigo_clase": "T23JXQA7FG",
-    "codigo_curso": "3778646KYG",
-    "cedula_docente": "3807319709",
-    "horario": "5",
-    "codigo_aula": "076433",
-    "grupo": 3,
-    "cupos": 39
-  },
-  "58EPK9ZJS5": {
-    "codigo_clase": "58EPK9ZJS5",
-    "codigo_curso": "3778646KYG",
-    "cedula_docente": "8365766674",
-    "horario": "9",
-    "codigo_aula": "888530",
-    "grupo": 4,
-    "cupos": 39
-  },
-  "K56G9JSY94": {
-    "codigo_clase": "K56G9JSY94",
-    "codigo_curso": "1196459CLV",
-    "cedula_docente": "4613821258",
-    "horario": "4",
-    "codigo_aula": "243684",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "EDUBV23890": {
-    "codigo_clase": "EDUBV23890",
-    "codigo_curso": "1196459CLV",
-    "cedula_docente": "1160582506",
-    "horario": "15",
-    "codigo_aula": "979575",
-    "grupo": 2,
-    "cupos": 41
-  },
-  "02MH4TY2EH": {
-    "codigo_clase": "02MH4TY2EH",
+  "DTKVWQMSA2": {
+    "codigo_clase": "DTKVWQMSA2",
     "codigo_curso": "7354799XKC",
-    "cedula_docente": "5152309424",
-    "horario": "16",
-    "codigo_aula": "519461",
+    "cedula_docente": "5102383339",
+    "horario": "11",
+    "codigo_aula": "590758",
     "grupo": 1,
-    "cupos": 39
+    "cupos": 40
   },
-  "TDCYGNMAKY": {
-    "codigo_clase": "TDCYGNMAKY",
+  "RW8CDSYG9D": {
+    "codigo_clase": "RW8CDSYG9D",
     "codigo_curso": "7354799XKC",
-    "cedula_docente": "5787057696",
+    "cedula_docente": "5505810436",
     "horario": "12",
-    "codigo_aula": "650582",
+    "codigo_aula": "556290",
     "grupo": 2,
     "cupos": 39
   },
-  "2YK831HA9L": {
-    "codigo_clase": "2YK831HA9L",
+  "8EWJDIB5HM": {
+    "codigo_clase": "8EWJDIB5HM",
     "codigo_curso": "2088134EEI",
-    "cedula_docente": "2429821569",
-    "horario": "7",
-    "codigo_aula": "735268",
-    "grupo": 1,
-    "cupos": 41
-  },
-  "Y58GDQ4HR4": {
-    "codigo_clase": "Y58GDQ4HR4",
-    "codigo_curso": "6958849OOV",
-    "cedula_docente": "7459644489",
-    "horario": "14",
-    "codigo_aula": "972383",
+    "cedula_docente": "6896519462",
+    "horario": "4",
+    "codigo_aula": "636145",
     "grupo": 1,
     "cupos": 40
   },
-  "AH80S91QFB": {
-    "codigo_clase": "AH80S91QFB",
+  "NUYDNIXHTP": {
+    "codigo_clase": "NUYDNIXHTP",
+    "codigo_curso": "6958849OOV",
+    "cedula_docente": "7291079714",
+    "horario": "7",
+    "codigo_aula": "872974",
+    "grupo": 1,
+    "cupos": 40
+  },
+  "ASKBXKF4X5": {
+    "codigo_clase": "ASKBXKF4X5",
     "codigo_curso": "4738695JBN",
-    "cedula_docente": "1574836489",
-    "horario": "6",
-    "codigo_aula": "504435",
+    "cedula_docente": "0997115769",
+    "horario": "7",
+    "codigo_aula": "368961",
     "grupo": 1,
     "cupos": 38
   },
-  "WFM8IONO3W": {
-    "codigo_clase": "WFM8IONO3W",
+  "AEYWJVX79Z": {
+    "codigo_clase": "AEYWJVX79Z",
     "codigo_curso": "2568861AFF",
-    "cedula_docente": "5959997418",
-    "horario": "29",
-    "codigo_aula": "989629",
-    "grupo": 1,
-    "cupos": 39
-  },
-  "KG2ET1QNO7": {
-    "codigo_clase": "KG2ET1QNO7",
-    "codigo_curso": "2568861AFF",
-    "cedula_docente": "5489870820",
-    "horario": "22",
-    "codigo_aula": "925146",
-    "grupo": 2,
-    "cupos": 39
-  },
-  "TLQ9ZD2T56": {
-    "codigo_clase": "TLQ9ZD2T56",
-    "codigo_curso": "0568550JDR",
-    "cedula_docente": "5409380091",
-    "horario": "22",
-    "codigo_aula": "327015",
+    "cedula_docente": "5787057696",
+    "horario": "23",
+    "codigo_aula": "555904",
     "grupo": 1,
     "cupos": 40
   },
-  "4T3JXJEV5B": {
-    "codigo_clase": "4T3JXJEV5B",
-    "codigo_curso": "0568550JDR",
-    "cedula_docente": "0324113537",
-    "horario": "24",
-    "codigo_aula": "437821",
+  "1JX76JD2DZ": {
+    "codigo_clase": "1JX76JD2DZ",
+    "codigo_curso": "2568861AFF",
+    "cedula_docente": "3968226160",
+    "horario": "32",
+    "codigo_aula": "993029",
     "grupo": 2,
     "cupos": 39
   },
-  "GMJLZA9RDQ": {
-    "codigo_clase": "GMJLZA9RDQ",
+  "W513G1BS4Q": {
+    "codigo_clase": "W513G1BS4Q",
     "codigo_curso": "0568550JDR",
-    "cedula_docente": "1948212917",
-    "horario": "21",
-    "codigo_aula": "126077",
-    "grupo": 3,
-    "cupos": 41
-  },
-  "EBNSO8H5LR": {
-    "codigo_clase": "EBNSO8H5LR",
-    "codigo_curso": "0568550JDR",
-    "cedula_docente": "0621971963",
-    "horario": "30",
-    "codigo_aula": "503180",
-    "grupo": 4,
+    "cedula_docente": "5489870820",
+    "horario": "31",
+    "codigo_aula": "100017",
+    "grupo": 1,
     "cupos": 39
+  },
+  "7LR8SVKJ79": {
+    "codigo_clase": "7LR8SVKJ79",
+    "codigo_curso": "0568550JDR",
+    "cedula_docente": "4591060151",
+    "horario": "20",
+    "codigo_aula": "327664",
+    "grupo": 2,
+    "cupos": 39
+  },
+  "KVBR8WJYZ5": {
+    "codigo_clase": "KVBR8WJYZ5",
+    "codigo_curso": "0568550JDR",
+    "cedula_docente": "8511162788",
+    "horario": "27",
+    "codigo_aula": "968401",
+    "grupo": 3,
+    "cupos": 40
+  },
+  "ZS9GT7GYAM": {
+    "codigo_clase": "ZS9GT7GYAM",
+    "codigo_curso": "0568550JDR",
+    "cedula_docente": "3082524205",
+    "horario": "18",
+    "codigo_aula": "632925",
+    "grupo": 4,
+    "cupos": 40
   }
 }

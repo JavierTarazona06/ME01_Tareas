@@ -1,6 +1,7 @@
 
 from test import *
 from tools.FileManager import JSON_man
+from codeStats.metrics import imprimir_metricas
 
 def main():
     print("!")
@@ -22,6 +23,8 @@ def main():
     #   omitir si ya están creados y solo cargar
     create_estudiantes(docentes, cursos, clases)
     estudiantes = JSON_man.json2dict("data/estudiantes.json")
+
+    imprimir_metricas(estudiantes)
 
 
 main()
