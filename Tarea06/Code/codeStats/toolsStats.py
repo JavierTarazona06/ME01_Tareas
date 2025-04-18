@@ -1,7 +1,7 @@
 import copy
 import random
 from typing import Any, Dict, Tuple
-
+from constants.program import CONSUMO_CT
 
 class UtilsStats:
     @staticmethod
@@ -43,7 +43,7 @@ class PBS:
     No hace el cambio IN-Place.
     round_greedy retorna la base de estudiantes y clases modificada
     """
-    def __init__(self, estudiantes: Dict, clases: Dict):
+    def __init__(self, estudiantes: Dict, clases: Dict, sort: bool = True):
 
         estudiantes_IDs = list(estudiantes.keys())
         if len(estudiantes_IDs) != len(set(estudiantes_IDs)):
@@ -55,6 +55,7 @@ class PBS:
 
         self.estudiantes = copy.deepcopy(estudiantes)
         self.clases = copy.deepcopy(clases)
+        self.sort = sort
 
         for cid, clase in self.clases.items():
             clase["cupos_fraccional"] = float(clase["cupos"])
@@ -68,15 +69,18 @@ class PBS:
 
     def run_algo(
             self, delta_t: float = 0.1,
-            min_delta: float = 1e-6, max_iter: int = 10000
+            min_delta: float = 1e-6, max_iter: int = CONSUMO_CT
     ) -> dict[tuple[str, str], int]:
 
         iteracion = 0
-        estudiantes_ordenados = sorted(
-            self.estudiantes.values(),
-            key=lambda e: e["p.a.p.i"],
-            reverse=True  # Para ordenar de mayor a menor
-        )
+        if (self.sort):
+            estudiantes_ordenados = sorted(
+                self.estudiantes.values(),
+                key=lambda e: e["p.a.p.i"],
+                reverse=True  # Para ordenar de mayor a menor
+            )
+        else:
+            estudiantes_ordenados = list(self.estudiantes.values())
 
         # Continuar mientras haya al menos una asignatura con capacidad y
         #   estudiantes con asignaturas disponibles
