@@ -4,6 +4,7 @@
 \usepackage{xcolor}
 \usepackage{hyperref}
 \usepackage{titletoc}
+\usepackage{adjustbox}
 
 \hypersetup{
     colorlinks=true,
@@ -913,8 +914,16 @@ A continuación, active el entorno virtual:
 En el archivo \texttt{constants/program.py} encontrará las constantes del programa. 
 En ese archivo, podrá modificar los parámetros de entrada que se detallan más abajo.\\
 
-Después de configurar los parámetros, ejecute el archivo \texttt{main.py} utilizando 
-el entorno virtual.
+Después de configurar los parámetros, asegúrese de tener el entorno virtual activado. 
+Una vez activo, puede ejecutar el archivo principal con el siguiente comando:
+
+\begin{center}
+  \begin{adjustbox}{minipage=\linewidth, center}
+  \begin{verbatim}
+    python main.py
+  \end{verbatim}
+  \end{adjustbox}
+\end{center}
 
 \textbf{Datos de entrada}
 

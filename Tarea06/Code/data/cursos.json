@@ -2,251 +2,465 @@
   "5398982GTF": {
     "codigo": "5398982GTF",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "I59O1PEQCV",
+      "5VCPFCBPDX",
+      "S6SW5E4DTV",
+      "7FFJEXB230"
+    ]
   },
   "5933449TTE": {
     "codigo": "5933449TTE",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "NQX806C310",
+      "BZL9D3UC3T"
+    ]
   },
   "5492910UMU": {
     "codigo": "5492910UMU",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "Z5NLS4RUZX"
+    ]
   },
   "4174946YZB": {
     "codigo": "4174946YZB",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "3L8HDJ7VDL"
+    ]
   },
   "5122587RWY": {
     "codigo": "5122587RWY",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "9CF0X7ZPJF",
+      "FXAB2R0LZS",
+      "D2O6ZLYSZ5",
+      "5LR9WBJ5NF"
+    ]
   },
   "1365185TJB": {
     "codigo": "1365185TJB",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "4ND0E8Z3KJ",
+      "JOGHAXT2T0",
+      "7DPZ96G976",
+      "O1R7I3QCB1"
+    ]
   },
   "6585533TNX": {
     "codigo": "6585533TNX",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "YC1HQ0ELUT",
+      "OILXCZ0GRE",
+      "BJJQ6LWYH0"
+    ]
   },
   "2415812UAN": {
     "codigo": "2415812UAN",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "28CYYWWZYQ"
+    ]
   },
   "9679027YGQ": {
     "codigo": "9679027YGQ",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "DRB9TNZPRG",
+      "2488AJQA85",
+      "W2BA4K5DCH",
+      "2HNKN5F4BJ"
+    ]
   },
   "0649493MQN": {
     "codigo": "0649493MQN",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "9D6H0TTM6C",
+      "YSVP8M9MJS",
+      "YOY6FTOG6T",
+      "Q4IK10Y25F"
+    ]
   },
   "4126561CYC": {
     "codigo": "4126561CYC",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "9001AO6C4I"
+    ]
   },
   "4122181KLI": {
     "codigo": "4122181KLI",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "H35KE49TQS",
+      "3E9DRB6408"
+    ]
   },
   "2067141SZP": {
     "codigo": "2067141SZP",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "T8UM6DW1UO"
+    ]
   },
   "1906778EDH": {
     "codigo": "1906778EDH",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "EAABQOQIG2",
+      "JQRBP02FWI",
+      "DCR4Q9D9J5"
+    ]
   },
   "7273908DTU": {
     "codigo": "7273908DTU",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "N5H2G89L9Y",
+      "T1B6F1MEX9",
+      "28BQ5OIYQL",
+      "1GV1H06LZ2"
+    ]
   },
   "6908589VVZ": {
     "codigo": "6908589VVZ",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "6D7X575B3Y"
+    ]
   },
   "4977514SGX": {
     "codigo": "4977514SGX",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "RLZ6ZK5XA5",
+      "IZW7K1I0X6",
+      "YZF3TQBEZT"
+    ]
   },
   "9741598WLD": {
     "codigo": "9741598WLD",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "T7HG9B712A",
+      "2WD0LN6S63"
+    ]
   },
   "9314659CHR": {
     "codigo": "9314659CHR",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "1KCVSKUWFD"
+    ]
   },
   "9572668YOO": {
     "codigo": "9572668YOO",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "T9KDVDD9GD",
+      "VZKEEEMH2B",
+      "XA8RONW0Q3",
+      "GUW7MHIVFP"
+    ]
   },
   "7100247DBS": {
     "codigo": "7100247DBS",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "9XMPT0YO2Z"
+    ]
   },
   "5448632PEK": {
     "codigo": "5448632PEK",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "Q3MEDCQEZC",
+      "GXC79JAH11",
+      "Y0CWJSFC4Y"
+    ]
   },
   "4001490YOG": {
     "codigo": "4001490YOG",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "97EDJFOL3W",
+      "GT3MGGA484",
+      "IZQ4D46690"
+    ]
   },
   "1722185DQV": {
     "codigo": "1722185DQV",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "WI8NMZFAW1",
+      "F539DSDFZX",
+      "NF4F7F3SVL"
+    ]
   },
   "7182622GGZ": {
     "codigo": "7182622GGZ",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "UP5Y0GQBRM"
+    ]
   },
   "7088587DWN": {
     "codigo": "7088587DWN",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "C8ODX4SKRK",
+      "D9TRDAT98G",
+      "O4HS6V59E2"
+    ]
   },
   "8672151PHZ": {
     "codigo": "8672151PHZ",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "3GYNDNZSHI",
+      "9SWK7JO6VG",
+      "UJI02NWFXF"
+    ]
   },
   "5989311GKR": {
     "codigo": "5989311GKR",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "71BP5W8QPZ"
+    ]
   },
   "1760806MGY": {
     "codigo": "1760806MGY",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "F2UORMO6A8"
+    ]
   },
   "3335365DTO": {
     "codigo": "3335365DTO",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "HXWBI783GO",
+      "E3QLYHP0OB",
+      "ZRQN3D1H88",
+      "C3ZWEGGSPF"
+    ]
   },
   "5077560JXR": {
     "codigo": "5077560JXR",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "8YGLCN5E6G",
+      "Y5LVQTB5YP"
+    ]
   },
   "4456154NFL": {
     "codigo": "4456154NFL",
     "programado": false,
-    "num_grupos": 4
+    "num_grupos": 4,
+    "clases_asociadas": [
+      "53Z53GRNLR",
+      "DMPVVN5883",
+      "0DO2591DGB",
+      "LOJY5877MZ"
+    ]
   },
   "2392816KLU": {
     "codigo": "2392816KLU",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "25AZKGLWL7",
+      "CNVDP0L2KA"
+    ]
   },
   "6047376GRW": {
     "codigo": "6047376GRW",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "8D6O8UC9T6"
+    ]
   },
   "0941114VHO": {
     "codigo": "0941114VHO",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "W0T71IBREZ",
+      "91D4ICXJ8Q"
+    ]
   },
   "7864361OKJ": {
     "codigo": "7864361OKJ",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "7Y7XXLB2E0",
+      "PSXN2LUPWL",
+      "RQXBU9E35D"
+    ]
   },
   "5920705PVH": {
     "codigo": "5920705PVH",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "7UCBWV2MU5"
+    ]
   },
   "0004127ZYN": {
     "codigo": "0004127ZYN",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "DGXD8ZXG01",
+      "9K8XMZCO3P",
+      "U4MF6GDMV9"
+    ]
   },
   "7019442BNC": {
     "codigo": "7019442BNC",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "AY3IGH4PE4"
+    ]
   },
   "9143967FXD": {
     "codigo": "9143967FXD",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "YBIZG0TOGT",
+      "0KMWVXCJDF"
+    ]
   },
   "3615184WIK": {
     "codigo": "3615184WIK",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "5GXE8DFUNB"
+    ]
   },
   "2574649BNQ": {
     "codigo": "2574649BNQ",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "23O2ST2XRB"
+    ]
   },
   "9791482QOY": {
     "codigo": "9791482QOY",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "SR14C91QM1"
+    ]
   },
   "5459850QIF": {
     "codigo": "5459850QIF",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "4J5CNNBD45",
+      "V9REIMPA4J"
+    ]
   },
   "2253402BTU": {
     "codigo": "2253402BTU",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "EFXJARYHBM",
+      "GNBEWOV3J5",
+      "SYCDRES0PR"
+    ]
   },
   "7112907DLF": {
     "codigo": "7112907DLF",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "FD7QYQNC6D",
+      "ZJRAKU0HY4",
+      "YM1H93OOK7"
+    ]
   },
   "7400090KOJ": {
     "codigo": "7400090KOJ",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "9A8ARM4IH8",
+      "HSEDPTMX6W",
+      "56A9EBSU25"
+    ]
   },
   "0791738HMU": {
     "codigo": "0791738HMU",
     "programado": false,
-    "num_grupos": 1
+    "num_grupos": 1,
+    "clases_asociadas": [
+      "82M0GZRA91"
+    ]
   },
   "4895730CXR": {
     "codigo": "4895730CXR",
     "programado": false,
-    "num_grupos": 3
+    "num_grupos": 3,
+    "clases_asociadas": [
+      "2URVTP9WBY",
+      "68ID9WPWC0",
+      "R4K1FINO66"
+    ]
   },
   "9883390OSK": {
     "codigo": "9883390OSK",
     "programado": false,
-    "num_grupos": 2
+    "num_grupos": 2,
+    "clases_asociadas": [
+      "Y7NAP9M0Y7",
+      "EMT9KYXXHU"
+    ]
   }
 }
