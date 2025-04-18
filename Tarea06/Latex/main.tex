@@ -499,7 +499,7 @@ se ve entorpecido por la falta de recursos, la pésima administración, las gara
 usan con poca conciencia por integrantes de la comunidad estudiantil, como la libre inscripción y 
 cancelación, o el aprovechamiento del sistema mediante estrategias de manipulación.
 
-Aora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
+Akora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
 que emplee algoritmos y las condiciones de la Universidad para encontrar una estrategia y solución 
 óptima al problema real.
 
@@ -813,6 +813,20 @@ Estas cuatro métricas proporcionan un marco sólido para comparar políticas de
 
 \section{Código Fuente}\label{sec:cod}
 
+El código fuente completo de este modelo se encuentra adjunto en el buzón y disponible en el repositorio GitHub del proyecto:
+
+\begin{center}
+\url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/Tarea06/Code}
+\end{center}
+
+El repositorio contiene:
+\begin{itemize}
+\item Los módulos principales para generación de datos (\texttt{generator.py})
+\item Implementación del algoritmo PBS (\texttt{toolsStats.py})
+\item Scripts de simulación para los 4 escenarios, ejecutables desde (\texttt{main.py})
+\item Archivo program.py de para la definición de las constantes del programa (\texttt{constants\/program.py})
+\item Archivo de métricas (\texttt{metrics.py})
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual Usuario ---------------------------------------------------------
@@ -954,7 +968,7 @@ Este diseño permite analizar los efectos de crear ventanas prioritarias en el a
 
 \subsubsection{Escenario 4: Asignación con Cancelación Temporal de Clases (30\%)}
 
-Este escenario aborda el problema de cancelaciones recurrentes en asignaturas como por ejemplo las de libre ellección
+Este escenario aborda el problema de cancelaciones recurrentes en asignaturas como por ejemplo las de libre elección
  mediante un proceso estructurado de dos fases. Se busca seleccionar las clases con mayor tasa de cancelación
   y excluirlas temporalmente de una primera fase de inscripción. Los estudiantes asignan primero cupos en asignaturas básicas/obligatorias
    (con menor tasa de cancelación),
