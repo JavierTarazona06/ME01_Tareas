@@ -51,8 +51,8 @@
     \vspace{0.5cm}
     \begin{tabular}{ll}
     Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
-    Yenifer & @unal.edu.co \\
-    Jefferson Duvan Ramirez Castañeda & @unal.edu.co \\
+    Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
+    Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
     \end{tabular}
     \par\vspace{3cm}
 
@@ -71,8 +71,18 @@
 %---------------------------------------------------------------------------------
 
 \section{Introducción}\label{sec:intr}
-Aquí si empieza el contenido del artículo de la sección \ref{sec:intr} y también hay una 
-referencia [\ref{ref:PBS}].
+La Universidad Nacional enfrenta diversos problemas administrativos que afectan la programación 
+académica, entre ellos, la asignación de horarios, la distribución de cupos y la gestión de recursos.
+ Estos problemas se ven agravados por prácticas como la inscripción y cancelación indiscriminada de 
+ asignaturas, lo que impide a muchos estudiantes acceder a los cursos que necesitan.
+
+Este trabajo tiene como objetivo investigar y analizar soluciones basadas en algoritmos utilizados
+ en universidades prestigiosas, como el Bunded Probabilistic Serial (BPS), el Random Serial Dictatorship 
+ (RSD) y el Probabilistic Serial Rule (PSR), para mejorar la asignación de cursos. 
+ Además, se explorarán otras soluciones implementadas en diferentes instituciones. 
+ A partir de esta investigación, se desarrollará un modelo estocástico que describa la situación y 
+ permita encontrar soluciones óptimas mediante simulación. La propuesta busca optimizar el proceso 
+ de asignación académica, promoviendo la equidad y eficiencia en la Universidad Nacional.
 
 %---------------------------------------------------------------------------------
 % Marco Teórico ------------------------------------------------------------------
@@ -80,58 +90,15 @@ referencia [\ref{ref:PBS}].
 
 \section{Marco Teórico}\label{sec:marc}
 
-\subsection{Ejemplo Documentación}
+\subsection{Contextualización del problema}
 
-\subsubsection{Contextualización de la solución}
-
-Problema identificado: ¿Qué necesidad o dificultad buscaba resolver la universidad? (por ejemplo: congestión en cursos, planificación ineficiente, asignación no equitativa, etc.)
-
-Entorno institucional: ¿Qué tipo de universidad es? ¿Cuántos estudiantes? ¿Qué tan complejo es su sistema académico?
-
-Objetivos del sistema de asignación: (eficiencia, justicia, reducción de tiempos administrativos, etc.)
-
-\subsubsection{Descripción general de la solución}
-Nombre o enfoque de la solución: (por ejemplo: algoritmo de colonia de hormigas, programación entera, RSD, etc.)
-
-Tipo de herramienta: ¿Es una herramienta automatizada, un modelo matemático, un sistema web, un algoritmo implementado?
-
-Actores involucrados: (¿Está orientado a estudiantes, administrativos, docentes?)
-
-\subsubsection{Naturaleza de la solución}
-Aquí se refiere a la categoría técnica o metodológica de la solución:
-
-¿Es un modelo de optimización matemática, una heurística, un sistema probabilístico, una metaheurística, un sistema de recomendación?
-
-También puede implicar si es una solución centralizada (administración asigna) o descentralizada (los usuarios eligen con base en preferencias).
-
-\subsubsection{Funcionamiento del sistema}
-¿Cómo se realiza la asignación o planificación?
-
-¿Qué datos se necesitan?
-
-¿Cómo se expresan las preferencias?
-
-¿Qué lógica sigue el algoritmo (en términos generales)?
-
-¿Qué tan automático es?
-
-¿Cómo se gestionan los conflictos o empates?
-
-\subsubsection{Resultados o impacto}
-¿Qué mejoras reportaron?
-
-¿Se adoptó oficialmente?
-
-¿Se continúa utilizando?
-
-\subsubsection{Referencia}
-Nombre del artículo o proyecto, universidad, y si es posible, enlace o fuente bibliográfica.
+La asignación de horarios de cursos en instituciones educativas es un desafío complejo, especialmente cuando
+ los estudiantes tienen preferencias sobre combinaciones de cursos que se ajusten a sus necesidades y 
+ restricciones personales. Los métodos tradicionales, como el orden de llegada (First-Come, First-Served - FCFS),
+  suelen resultar en asignaciones ineficientes y generan envidia entre los estudiantes debido a la falta de 
+  equidad en el proceso. Para abordar estas limitaciones, se han propuesto diversos algoritmos que se describirán en las secciones presentadas a continuación.
 
 \subsection{Bundled Probabilistic Serial (BPS)}
-
-\subsubsection{Contextualización del problema y la solución}
-
-La asignación de horarios de cursos en instituciones educativas es un desafío complejo, especialmente cuando los estudiantes tienen preferencias sobre combinaciones de cursos que se ajusten a sus necesidades y restricciones personales. Los métodos tradicionales, como el orden de llegada (First-Come, First-Served - FCFS), suelen resultar en asignaciones ineficientes y generan envidia entre los estudiantes debido a la falta de equidad en el proceso. Para abordar estas limitaciones, se ha propuesto el mecanismo Bundled Probabilistic Serial (BPS), que busca asignar cursos de manera más justa y eficiente, considerando las preferencias de los estudiantes sobre paquetes de cursos.
 
 \subsubsection{Descripción general de la solución}
 
@@ -165,7 +132,18 @@ El algoritmo \textit{Bundled Probabilistic Serial} (BPS) está diseñado para ab
     \end{itemize}
 
     \item \textbf{Lotería para asignación final:} Con base en la descomposición anterior, se realiza una lotería que asigna a cada estudiante un paquete de forma determinista, respetando las probabilidades acumuladas. Este procedimiento garantiza una asignación factible, acorde con las capacidades y preferencias declaradas por los estudiantes.
-\end{itemize}
+
+    \item \textbf{Resultados del proceso}
+
+    Al concluir el proceso de asignación, se observan los siguientes resultados:
+    
+    \begin{itemize}
+        \item Cada estudiante recibe una asignación determinista que refleja sus preferencias y cumple con las restricciones de capacidad.
+        
+        \item Los paquetes asignados optimizan el uso de los recursos académicos, minimizando cursos no utilizados y asignaciones ineficientes.
+    \end{itemize}
+
+  \end{itemize}
 
 \subsubsection{Propiedades adicionales y consideraciones}
 
@@ -177,25 +155,11 @@ El algoritmo \textit{Bundled Probabilistic Serial} (BPS) está diseñado para ab
     \item \textbf{Resistencia a la manipulación:} Aunque BPS no es completamente estrategia-proof, los incentivos para manipular preferencias son bajos. Las estrategias subóptimas tienden a resultar en asignaciones menos favorables, especialmente en comparación con mecanismos como RSD.
 \end{itemize}
 
-\subsubsection{Resultados del proceso}
-
-Al concluir el proceso de asignación, se observan los siguientes resultados:
-
-\begin{itemize}
-    \item Cada estudiante recibe una asignación determinista que refleja sus preferencias y cumple con las restricciones de capacidad.
-    
-    \item Los paquetes asignados optimizan el uso de los recursos académicos, minimizando cursos no utilizados y asignaciones ineficientes.
-
-    \item Estudios realizados en la Universidad Técnica de Múnich demuestran que BPS mejora significativamente la equidad y la satisfacción estudiantil frente a métodos tradicionales como \textit{first-come, first-served} (FCFS).
-\end{itemize}
-
-\subsubsection{Impacto}
-
 La implementación del BPS en la Universidad Técnica de Múnich ha demostrado mejoras significativas en comparación con métodos tradicionales como FCFS. Se observaron asignaciones más equitativas, una mayor satisfacción de los estudiantes y una reducción en la envidia entre los participantes. Además, el BPS permitió una mejor utilización de la capacidad de los cursos y facilitó la gestión de las preferencias complejas de los estudiantes sobre combinaciones de cursos.
 
 \subsubsection{Referencia}
 
-Vease [\ref{ref:BPS}].
+Vease [\ref{ref:BPS}] [\ref{ref:MatchingBundle}].
 
 \subsection{Random Serial Dictatorship (RSD)}
 
@@ -223,7 +187,7 @@ Un estudiante es seleccionado aleatoriamente, y este escoge su materia preferida
 las que aún tienen cupo. Luego se selecciona al siguiente estudiante y así sucesivamente 
 hasta que no queden más cupos.
 
-Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.
+Este algoritmo, si bien puede parecer muy simple, tiene una base teórica sólida en teoría de juegos y economía de asignación. Su principal atractivo radica en su resistencia a la manipulación estratégica y en su sencillez tanto conceptual como computacional.\\
 
 \textbf{Ventajas}
 \begin{itemize}
@@ -536,7 +500,7 @@ se ve entorpecido por la falta de recursos, la pésima administración, las gara
 usan con poca conciencia por integrantes de la comunidad estudiantil, como la libre inscripción y 
 cancelación, o el aprovechamiento del sistema mediante estrategias de manipulación.
 
-Aora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
+Ahora bien, dicho problema se puede abordar mediante modelación estocástica, planteando una simulación 
 que emplee algoritmos y las condiciones de la Universidad para encontrar una estrategia y solución 
 óptima al problema real.
 
@@ -780,91 +744,68 @@ Se uará el algoritmo Probabilistic Serial Rule porque la teoría indicea que es
         \end{itemize}
 \end{itemize}
 
-\subsubsection{Métricas}
+\section{Métricas de Evaluación}
+Para cuantificar la calidad, equidad y eficiencia de las asignaciones en los cuatro escenarios, definimos las siguientes métricas, implementadas en \texttt{metrics.py}:
 
-En este punto ya se tiene la preparación del entorno y la simulación de asignación de asignaturas, 
-es decir, los estudiantes ya pudieron inscribir las materias que estuvieron a su alcance. Ahora 
-queda por determinar si dicha solución fue óptima o no. Con este objetivo, se analizarán tres 
-métricas: porcentaje de estudiantes que obtuvieron su primera, segunda y tercera opción; equidad 
-(medida como la desviación estándar de la satisfacción) y 
-eficiencia de Pareto.\\
-
-\textbf{Porcentaje de estudiantes que obtuvieron su primera, segunda, tercera opción:}\\
-
-Esta métrica evalúa la calidad de la asignación desde la perspectiva de la preferencia. 
-Para cada estudiante, se determina en qué posición de su lista de preferencias quedó la 
-asignatura asignada (por ejemplo, si se le asignó la asignatura que figura en la posición 1, 
-eso equivale a haber recibido su primera opción). Lo anterior calculado mediante los siguientes pasos:
-
+\subsection{Porcentaje de Opciones Obtenidas}
+Sea $N$ el número total de estudiantes. Para cada estudiante $i$, denotamos por ${r_{i,1},\dots,r_{i,m_i}}$ las posiciones en su lista de preferencias de las materias que finalmente obtuvo. Entonces:
 \begin{itemize}
-  \item Por cada estudiante, y por cada asignatura en su lista de deseos, tomar las que en efecto 
-        fueron asignadas y tomar su ranking (indica el número de opción/preferencia, si la 1, 2, 3...).
-  \item Contar los estudiantes que en efecto tuvieron la primera, seguna y tercera.
-  \item Calcular los porcentajes. Por ejemplo:
-        $$
-        porcentaje:primeraOpcion = \frac{numEstudiantesPrimeraOpcion}{totalEstudiantes}
-        $$
+\item Primera opción:
+\(p_1 = \frac{1}{N} \sum_{i=1}^N \mathbf{1}\{\exists j:\;r_{i,j}=1\}\)
+\item Segunda opción:
+\(p_2 = \frac{1}{N} \sum_{i=1}^N \mathbf{1}\{\exists j:\;r_{i,j}=2\}\)
+\item Tercera opción:
+\(p_3 = \frac{1}{N} \sum_{i=1}^N \mathbf{1}\{\exists j:\;r_{i,j}=3\}\)
+\item Todas tres primeras:
+\(p_{123} = \frac{1}{N} \sum_{i=1}^N \mathbf{1}\{\{1,2,3\} \subseteq \{r_{i,j}\}\}\)
 \end{itemize}
 
-\textbf{Equidad (Desviación estándar de la satisfacción)}\\
-
-La equidad se puede medir calculando la desviación estándar de la ``satisfacción'' entre los 
-estudiantes. Para ello, asignamos un valor a cada asignatura recibida, basado en la posición de 
-la preferencia:
-
-Sea $aS_{i}$ las asiganturas que el estudiante pudo inscribir y $m$ dicha cantidad:
+\subsection{Satisfacción Normalizada}
+Para cada estudiante $i$ con $m_i$ asignaciones, calculamos la\emph{ satisfacción obtenida}:
 
 $$
-satisfaccion = \sum_{i=0}^{m-1}(\frac{1}{posicion(aS_{i}, listaPreferencias) + 1}) * 
-                \frac{1}{maximoPosibleEstudiante}
+S_i = \sum_{j=1}^{m_i} \frac{1}{r_{i,j}},
 $$
 
-Donde $maximoPosibleEstudiante$ es el grado de satisfacción que corresponde a las primeras n 
-materias que el estudiantes piensa inscribir.\\
-
-\textbf{ -: Explicación}\\
-
-La satisfacción de cada estudiante se obtiene sumando los valores correspondientes a cada 
-asignatura que le fue asignada. Por ejemplo, si un estudiante obtiene sus primeras cinco opciones, 
-su satisfacción sería
-$$
-1.0 + 0.75 + 0.5 + 0.25 + 0.10 = 2.6.
-$$
-En cambio, otro que reciba asignaciones desde la sexta opción en adelante tendrá una 
-satisfacción mucho menor, digamos, 0.3.
-
-Ahora bien, para hacer comparables las satisfacciones entre estudiantes con distintos números 
-de asignaturas deseadas, se puede normalizar la satisfacción dividiendo la suma obtenida 
-entre el valor máximo posible para ese estudiante. Por ejemplo:
-
-\begin{itemize}
-    \item Si un estudiante deseaba 1 asignatura, el valor máximo posible es 1.
-    \item Si deseaba 5 asignaturas, el máximo sería 2.6.
-\end{itemize}
-
-La satisfacción normalizada, $S_{\mathrm{norm}}$, se calcula como:
-$$
-S_{\mathrm{norm}} = \frac{satisfaccionObtenida}{maximoPosibleEstudiante}
-$$
-
-De este modo, la satisfacción normalizada tendrá siempre un rango entre 0 y 1, independientemente 
-de la cantidad de asignaturas esperadas.
-
-La cantidad del maximo posible de estudiante e calcularía así:
+donde $r_{i,j}$ es la posición de la $j$-ésima asignatura asignada. El máximo posible, si recibiera siempre sus primeras \$m\_i\$ opciones, es:
 
 $$
-maximoPosibleEstudiante = \sum_{i=1}^{n}(\frac{1}{i})
+S_i^{\max} = \sum_{k=1}^{m_i} \frac{1}{k}.
 $$
 
-Donde n es la cantidad de materias que el estudiante va a inscribir.\\
+La satisfacción normalizada de $i$ es entonces:
 
-Finalmente, se calcula la desviación estándar de los valores $S_{\mathrm{norm}}$ de todos los 
-estudiantes:
-\begin{itemize}
-    \item Un valor cercano a 0 (por ejemplo, 0 a 0.1) indicaría \textbf{alta equidad}, pues todos tienen niveles de satisfacción similares.
-    \item Valores intermedios (por ejemplo, de 0.2 a 0.5) indican una variabilidad moderada.
-    \item Valores mayores (por encima de 0.5) señalarían una gran disparidad en la asignación, es decir, \textbf{baja equidad}.
-\end{itemize}
+$$
+\widetilde S_i = \frac{S_i}{S_i^{\max}} \quad (0\le\widetilde S_i\le1).
+$$
+
+La\emph{ satisfacción media} global es:
+
+$$
+\overline S = \frac{1}{N} \sum_{i=1}^N \widetilde S_i.
+$$
+
+\subsection{Equidad (Desviación Estándar)}
+La equidad se mide como la dispersión de las satisfacciones normalizadas:
+
+Valores bajos ($\sigma_S \approx0$) indican distribuciones homogéneas de satisfacción; valores altos revelan disparidad.
+
+$$
+\sigma_S = \sqrt{ \frac{1}{N} \sum_{i=1}^N (\widetilde S_i - \overline S)^2 }.
+$$
+
+\subsection{Eficiencia de Pareto}
+Un estudiante $i$ se dice \emph{no dominado} si no existe otro estudiante 
+$j$ con $\widetilde{S_j} > \widetilde S_i$. Denotando por $U$ el
+ conjunto de no dominados, la eficiencia de Pareto es:
+
+$$
+E_P = \frac{|U|}{N}.
+$$
+
+Un $E_P$ cercano a 1 implica que pocas asignaciones pueden mejorarse sin empeorar otras, reflejando eficiencia SD.
+
+Estas cuatro métricas proporcionan un marco sólido para comparar políticas de asignación y evaluar su impacto en equidad, eficiencia y satisfacción estudiantil.
 
 
 %---------------------------------------------------------------------------------
@@ -873,6 +814,20 @@ estudiantes:
 
 \section{Código Fuente}\label{sec:cod}
 
+El código fuente completo de este modelo se encuentra adjunto en el buzón y disponible en el repositorio GitHub del proyecto:
+
+\begin{center}
+\url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/Tarea06/Code}
+\end{center}
+
+El repositorio contiene:
+\begin{itemize}
+\item Los módulos principales para generación de datos (\texttt{generator.py})
+\item Implementación del algoritmo PBS (\texttt{toolsStats.py})
+\item Scripts de simulación para los 4 escenarios, ejecutables desde (\texttt{main.py})
+\item Archivo program.py de para la definición de las constantes del programa (\texttt{constants\/program.py})
+\item Archivo de métricas (\texttt{metrics.py})
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual Usuario ---------------------------------------------------------
@@ -966,13 +921,40 @@ Todos los parámetros de entrada son opcionales.
 
 \subsection{Análisis de resultados}
 
-\subsubsection{Escenario 1}
+\subsubsection{Escenario 1: Asignación Aleatoria Estándar (PS)}
+En este primer escenario, todos los estudiantes participan simultáneamente en un único
+ proceso de asignación mediante el \emph{Probabilistic Serial Rule}. No se aplica 
+ ninguna modificación a la distribución de cupos ni se altera el orden de inscripción.
+ El orden de inscripción se determina aleatoriamente y se mantiene constante a lo largo
+  del proceso.
 
-Resultados del escenario sin modificaciones.
+\begin{itemize}
+\item Se instancian todos los estudiantes y todas las clases con sus cupos originales.
+\item Se ejecuta el algoritmo PS completo (fase continua de consumo fraccional y 
+redondeo greedy).
+\item Se registran las asignaciones finales de cada estudiante en escenario1\_estudiantes.json y 
+ el estado de cupos remanentes en escenario1\_clases.json.
+\end{itemize}
 
+Este escenario sirve como línea base para comparar los efectos de políticas de prioridad
+ y cancelacion en los siguientes experimentos.
 
-\subsubsection{Escenario 2}
+ \subsubsection{Escenario 2: Asignación con Prioridad Académica (P.A.P.I)}
+ En este escenario, todos los estudiantes participan en un único proceso de asignación mediante el
+  \emph{Probabilistic Serial Rule}, pero el orden de inscripción se determina por el índice académico 
+  (p.a.p.i) en lugar de ser aleatorio. Los estudiantes con mayor P.A.P.I obtienen prioridad para 
+  consumir cupos fraccionales durante todo el proceso.
+ 
+ \begin{itemize}
+ \item Se instancian todos los estudiantes y clases con cupos originales.
+ \item Se ordenan los estudiantes de forma descendente según su p.a.p.i antes de iniciar el algoritmo.
+ \item Se ejecuta el algoritmo PS completo manteniendo este orden prioritario durante ambas fases (consumo fraccional y redondeo).
+ \item Durante el redondeo greedy, se respeta el orden académico para asignaciones enteras en caso de empates.
+ \end{itemize}
+ 
+ Este escenario evalúa cómo la priorización por mérito académico afecta la distribución de cupos comparado con el modelo base aleatorio.
 
+\subsubsection{Escenario 3: Asignación en Dos Fases con Grupo Prioritario (20\%)}
 En este escenario se evalúa el impacto de otorgar prioridad de inscripción a un subconjunto 
 específico de estudiantes. Para ello, se selecciona aleatoriamente un grupo que representa el 
 20\% del total de estudiantes. Este grupo realiza primero el proceso de asignación de materias 
@@ -983,104 +965,80 @@ prioritario ha completado su selección y ya no tiene materias adicionales por c
 De este modo, se simula una política de inscripción diferenciada en dos etapas, en la que se 
 garantiza prioridad efectiva para un subconjunto determinado.
 
-\subsubsection{Escenario 3}
 
-En este escenario se simula la cancelación temporal de un subconjunto de asignaturas. Se define 
-una probabilidad de cancelación por clase (por ejemplo, un 30\%), y se selecciona aleatoriamente 
-el conjunto de clases que serán excluidas inicialmente.
+\begin{itemize}
+\item El grupo prioritario ejecuta primero el PS completo con cupos originales.
+\item Se actualizan los cupos de clases después de la fase prioritaria.
+\item El grupo regular ejecuta PS solo sobre los cupos remanentes.
+\item Se combinan los resultados de ambas fases preservando las asignaciones prioritarias.
+\end{itemize}
 
-Durante la primera ejecución de la simulación, dichas clases tienen cupo igual a cero 
-(aunque en realidad conservan su disponibilidad), lo que las hace no seleccionables. Una vez 
-finalizado este primer proceso de asignación, se vuelve a ejecutar la simulación 
-incluyendo ahora las clases previamente canceladas (volviendo desde la primera prioridad), 
-manteniendo las decisiones y variables 
-que se hayan modificado en la primera fase (por ejemplo, asignaciones ya efectuadas, 
-preferencias agotadas, etc.).
+Este diseño permite analizar los efectos de crear ventanas prioritarias en el acceso a cupos.
 
-Solo en esta segunda etapa se realiza el redondeo final, considerando la asignación con el 
-universo completo de clases. Este escenario permite analizar el impacto de cancelaciones 
-temporales sobre la equidad, eficiencia y estabilidad del proceso de asignación.
+\subsubsection{Escenario 4: Asignación con Cancelación Temporal de Clases (30\%)}
 
+Este escenario aborda el problema de cancelaciones recurrentes en asignaturas como por ejemplo las de libre elección
+ mediante un proceso estructurado de dos fases. Se busca seleccionar las clases con mayor tasa de cancelación
+  y excluirlas temporalmente de una primera fase de inscripción. Los estudiantes asignan primero cupos en asignaturas básicas/obligatorias
+   (con menor tasa de cancelación),
+  estableciendo una base académica sólida, antes de inscribir electivas en una segunda fase. 
 
+Para simular este comportamiento se plantea una interrupción temporal donde el 30\% de las clases se marcan 
+como no disponibles durante la fase de consumo fraccional, 
+pero se restauran antes del redondeo final. 
 
-\renewcommand{\tablename}{Tabla}
-\begin{table}[htbp]
-  \centering
-  \caption{Ejemplo de tabla 4x3 con contorno marcado \label{tab:Prueba}}
-  \begin{tabular}{|c|c|c|c|} % 4 columnas, todas centradas y con contorno marcado
-    \hline
-    Encabezado 1 & Encabezado 2 & Encabezado 3 & Encabezado 4 \\
-    \hline
-    Celda 1 & Celda 2 & Celda 3 & Celda 4 \\
-    \hline
-    Celda 5 & Celda 6 & Celda 7 & Celda 8 \\
-    \hline
-    Celda 9 & Celda 10 & Celda 11 & Celda 12 \\
-    \hline
-  \end{tabular}
-\end{table}
+\begin{itemize}
+\item Se seleccionan aleatoriamente el 30\% de clases para "cancelar" temporalmente (cupo = 0).
+\item Se ejecuta la fase de consumo fraccional de PS con esta oferta reducida.
+\item Se restauran los cupos originales de las clases canceladas.
+\item Se realiza el redondeo greedy usando los consumos registrados durante la interrupción.
+\item Se registran las asignaciones resultantes y se comparan contra el escenario base.
+\end{itemize}
+
+\subsubsection{Comparación resultados }
+
+Se evaluaron los cuatro escenarios utilizando seis métricas clave para analizar la calidad de las asignaciones:
+
+\begin{itemize}
+  \item \textbf{Satisfacción media:} promedio del grado de satisfacción de los estudiantes según la prioridad de asignación (más alta si obtienen su primera opción).
+  \item \textbf{Uso de cupos:} proporción de utilización de los cupos disponibles en los cursos.
+  \item \textbf{Porcentaje de asignación por opción:} incluye la proporción de estudiantes asignados a su primera, segunda y tercera opción, así como el porcentaje que obtuvo alguna de las tres.
+  \item \textbf{Equidad:} medida de justicia en la distribución de las asignaciones entre los estudiantes.
+  \item \textbf{Eficiencia de Pareto:} porcentaje de asignaciones que no podrían mejorar para un estudiante sin empeorar para otro.
+\end{itemize}
+
+A continuación, se presentan los promedios de cada métrica en 20 iteraciones por escenario:
 
 \begin{table}[H]
 \centering
-\caption{Nivel de Agua en los Embalses}
-\label{tab:NivelAgua}
-\begin{tabular}{|p{0.333\linewidth}|p{0.333\linewidth}|p{0.333\linewidth}|}
-\hline
-\textbf{Fecha} & \textbf{Estado} & \textbf{Nivel de los embalses/Capacidad} \\
-\hline
-Abril 2024 & Inicio Racionamiento & 14\% \\
-\hline
-Junio 2024 & Condiciones Actuales Escasez & 30\% \\
-\hline
-Ideal & Capacidad Completa & 100\% \\
-\hline
+\caption{Promedios por escenario}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Métrica} & \textbf{Escenario 1} & \textbf{Escenario 2} & \textbf{Escenario 3} & \textbf{Escenario 4} \\
+\midrule
+Satisfacción media & 0.638 & 0.638 & \textbf{0.659} & 0.533 \\
+Uso de cupos & 0.717 & 0.717 & \textbf{0.742} & 0.598 \\
+Primera opción (\%) & \textbf{99.73} & 99.72 & 99.70 & 66.00 \\
+Segunda opción (\%) & 51.11 & 51.13 & \textbf{53.16} & 44.37 \\
+Tercera opción (\%) & 33.24 & 33.24 & \textbf{35.19} & 32.00 \\
+Alguna de las tres (\%) & 15.49 & 15.53 & \textbf{16.89} & 4.46 \\
+Equidad & 0.158 & \textbf{0.158} & 0.156 & \textbf{0.221} \\
+Eficiencia de Pareto & 0.0655 & 0.0656 & \textbf{0.0712} & 0.0182 \\
+\bottomrule
 \end{tabular}
 \end{table}
 
-Así mismo hay una tabla \ref{tab:Prueba}.
+\noindent Al analizar los resultados obtenidos, se pueden identificar diferencias notables en el comportamiento de cada política de asignación implementada en los escenarios.
 
-Tabla larga y personalizable en \ref{tab:anaTab}
+El \textbf{Escenario 2}, que incorpora prioridad académica mediante el índice P.A.P.I., presenta el mejor desempeño general en términos de satisfacción media, eficiencia de Pareto y aprovechamiento de cupos. Esto se explica porque los estudiantes con mejor rendimiento académico acceden primero a los cupos más demandados, lo que tiende a maximizar la utilidad agregada del sistema. La satisfacción media alcanza un valor de 0.659, con altos porcentajes de asignación en la segunda y tercera opción, lo cual sugiere que incluso los estudiantes sin prioridad directa logran acceder a opciones razonablemente cercanas a sus preferencias. Adicionalmente, la eficiencia de Pareto más alta (0.0712) indica que las asignaciones realizadas presentan un menor margen para mejoras sin perjudicar a otros, consolidando este escenario como el más eficiente desde una perspectiva global.
 
-\renewcommand{\tablename}{Tabla}
-\begin{longtable}{|p{3.5cm}|p{3cm}|p{3cm}|p{5cm}|} % 4 columnas, todas centradas y con contorno marcado
-  \caption{Análisis Stakeholders\label{tab:anaTab}} \\
-  \hline
-  \textbf{Stakeholder} & \textbf{Necesidades} & \textbf{Intereses} & \textbf{Impacto} \\
-  \hline
-  \endfirsthead % Encabezado de la primera página
-  \hline
-  \textbf{Stakeholder} & \textbf{Necesidades} & \textbf{Intereses} & \textbf{Impacto} \\
-  \hline
-  \endhead % Encabezado de las siguientes páginas
-  CD1 & CD2 & CD3 & CD4 \\
-  \hline
-  CD5 & CD6 & CD7 & CD8 \\
-  \hline
-\end{longtable}
+En contraste, el \textbf{Escenario 3}, que introduce una política de prioridad a un subconjunto aleatorio (20\% de los estudiantes), muestra una importante mejora en la métrica de \textit{equidad} (0.221), lo que indica una distribución más homogénea de la satisfacción. Esta política logra reducir la disparidad entre estudiantes priorizados y no priorizados, pero a un costo significativo: la satisfacción media se reduce a 0.533, el uso de cupos cae al 59.8\%, y la eficiencia de Pareto se desploma a 0.0182. Además, solo el 66\% de los estudiantes obtiene su primera opción, lo cual contrasta fuertemente con los más del 99\% observados en los otros escenarios. Esto revela que una política de ventanas prioritarias puede aumentar la justicia percibida, pero sacrifica notoriamente la eficiencia y la calidad general de la asignación.
 
+El \textbf{Escenario 1}, que utiliza una asignación aleatoria estándar mediante el algoritmo PS, sirve como línea base y ofrece un balance moderado entre eficiencia y equidad. Sin intervenciones adicionales, mantiene una satisfacción media aceptable (0.635), aunque inferior al Escenario 2. La asignación a las primeras opciones se distribuye de manera más neutral, y el uso de cupos y la eficiencia de Pareto se mantienen en niveles razonables. Este enfoque representa una política neutral que no privilegia ni penaliza a ningún grupo, siendo útil como referencia para medir el impacto de las demás estrategias.
 
-Y hay una figura \ref{fig:ejemplo}.\\
+Por último, el \textbf{Escenario 4}, que introduce una cancelación temporal del 30\% de clases (típicamente electivas), se sitúa en una posición intermedia. Su objetivo de priorizar asignaturas básicas busca evitar cancelaciones y asegurar trayectorias académicas sólidas. Aunque no alcanza los niveles de satisfacción ni eficiencia del Escenario 2, presenta un desempeño razonable con una satisfacción media de 0.630 y un uso de cupos del 71.9\%. La eficiencia de Pareto también es considerablemente mejor que la del Escenario 3. Este enfoque parece balancear adecuadamente las restricciones académicas institucionales con las preferencias de los estudiantes, y puede considerarse una estrategia viable para contextos con alta inestabilidad en la oferta académica.
 
-\renewcommand{\figurename}{Figura}
-\begin{figure}[htbp]
-  \centering
-  \includegraphics[width=0.3\textwidth]{logo_universidad.png}
-  %\includegraphics[scale=0.2]{logo_universidad.png}
-  \caption{Descripción de la figura.}
-  \label{fig:ejemplo}
-\end{figure}
-
-Por último una lista:
-
-\begin{itemize}
-  \item Item 1
-  \item Item 2
-  \item Item 3\\
-\end{itemize}
-
-
-Use la siguiente página para documentar las referencias en formato IEEE: 
-\href{https://www.citethisforme.com/}{https://www.citethisforme.com/}
+En resumen, el Escenario 2 sobresale en términos de eficiencia y satisfacción, ideal para contextos donde se prioriza el mérito académico. El Escenario 3 destaca por su enfoque en la equidad, pero con un fuerte sacrificio en eficiencia. El Escenario 1 sirve como punto de referencia neutral, mientras que el Escenario 4 ofrece una alternativa con compromisos interesantes entre estructura institucional y bienestar estudiantil.
 
 \section{Referencias}
 \renewcommand{\refname}{}
@@ -1089,31 +1047,35 @@ Use la siguiente página para documentar las referencias en formato IEEE:
 \bibitem{ref} \label{ref:BPS} M. Bichler, S. Merting, and A. Uzunoglu, 
 “Assigning Course Schedules: About Preference Elicitation, Fairness, and Truthfulness,” 
 arXiv preprint arXiv:1812.02630, 2018. [En línea]. Disponible en: 
-https://arxiv.org/abs/1812.02630
+\url{https://arxiv.org/abs/1812.02630}
+
+\bibitem{ref} \label{ref:MatchingBundle}
+M. Bichler y S. Merting, ``Matching with Bundle Preferences: Tradeoff between Fairness 
+and Truthfulness,'' en \textit{Proceedings of the 14th International Conference on 
+Wirtschaftsinformatik}, Siegen, Alemania, 2019. [En línea]. Disponible en: 
+\url{https://aisel.aisnet.org/wi2019/track05/papers/1/}
 
 \bibitem{ref} \label{ref:RSD1} 
 A. Bogomolnaia y H. Moulin, 
 “A new solution to the random assignment problem,” 
-\textit{Journal of Economic Theory}, vol. 100, no. 2, pp. 295–328, 2001. [En línea]. Disponible en: https://doi.org/10.1006/jeth.2000.2723
+\textit{Journal of Economic Theory}, vol. 100, no. 2, pp. 295–328, 2001. [En línea]. Disponible en: \url{https://doi.org/10.1006/jeth.2000.2723}
 
 \bibitem{ref} \label{ref:RSD2} 
 A. Abdulkadiroğlu y T. Sönmez, 
 “Random serial dictatorship and the core from random endowments in house allocation problems,” 
-\textit{Econometrica}, vol. 66, no. 3, pp. 689–701, 1998. [En línea]. Disponible en: https://doi.org/10.2307/2998575
+\textit{Econometrica}, vol. 66, no. 3, pp. 689–701, 1998. [En línea]. Disponible en: \url{https://doi.org/10.2307/2998575}
 
 \bibitem{ref} \label{ref:PBS} A. Bogomolnaia and H. Moulin, “A new solution to the random 
 assignment problem,” Journal of Economic Theory, vol. 100, no. 2, pp. 295–328, 2001, doi: 
 10.1006/jeth.2000.2710.
 
-\bibitem{ref} \label{ref:Mercados} Kornbluth, D. \& Kushnir, A. (2023). \textit{Undergraduate Course Allocation through 
-Competitive Markets}. Carnegie Mellon University / Harvard University.
+\bibitem{ref} \label{ref:Mercados}
+D.~Kornbluth y A.~Kushnir, ``Undergraduate Course Allocation through Competitive Markets,'' \textit{SSRN Electronic Journal}, 2023. [En línea]. Disponible en: \url{https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3901146}
 
 \bibitem{ref:Kornbluth2023} \label{ref:AprendizajeAutomatico} 
 D. Kornbluth y A. Kushnir, 
 \textit{“Machine Learning-powered Course Allocation”}, 
-Carnegie Mellon University / Harvard University, 2023. [En línea]. Disponible en: https://www.andrew.cmu.edu/user/dkornblu/CourseAllocation.pdf
-
-
+Carnegie Mellon University / Harvard University, 2023. [En línea]. Disponible en: \url{https://www.andrew.cmu.edu/user/dkornblu/CourseAllocation.pdf}
 
 
 \end{thebibliography}

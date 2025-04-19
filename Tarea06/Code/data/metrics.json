@@ -1,0 +1,17 @@
+{
+  "escenario1": {
+    "satisfaccion_media": 0.720583333333332,
+    "uso_cupos": 0.1607008810398641,
+    "gini_primera_pref": 0.0
+  },
+  "escenario2": {
+    "satisfaccion_media": 0.751522222222223,
+    "uso_cupos": 0.16804946465963416,
+    "gini_primera_pref": 0.0036666666666666666
+  },
+  "escenario3": {
+    "satisfaccion_media": 0.6153833333333364,
+    "uso_cupos": 0.13691675556082336,
+    "gini_primera_pref": 0.3006666666666667
+  }
+}
