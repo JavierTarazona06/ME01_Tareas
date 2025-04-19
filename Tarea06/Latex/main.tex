@@ -814,7 +814,9 @@ Estas cuatro métricas proporcionan un marco sólido para comparar políticas de
 
 \section{Código Fuente}\label{sec:cod}
 
-El código fuente completo de este modelo se encuentra adjunto en el buzón y disponible en el repositorio GitHub del proyecto:
+El código fuente completo de este modelo se encuentra adjunto en el buzón 
+(06 Tarazona Jimenez Javier Andres 02.zip)
+y disponible en el repositorio GitHub del proyecto:
 
 \begin{center}
 \url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/Tarea06/Code}
@@ -825,7 +827,8 @@ El repositorio contiene:
 \item Los módulos principales para generación de datos (\texttt{generator.py})
 \item Implementación del algoritmo PBS (\texttt{toolsStats.py})
 \item Scripts de simulación para los 4 escenarios, ejecutables desde (\texttt{main.py})
-\item Archivo program.py de para la definición de las constantes del programa (\texttt{constants\/program.py})
+\item Archivo program.py de para la definición de las constantes del programa 
+    (\texttt{constants\_program.py})
 \item Archivo de métricas (\texttt{metrics.py})
 \end{itemize}
 
@@ -835,10 +838,11 @@ El repositorio contiene:
 
 \section{Manual Usuario}\label{sec:man_u}
 
-El primer paso es descargar el archivo \texttt{Tarea06.zip}.
+El primer paso es descargar el archivo \texttt{06 Tarazona Jimenez Javier Andres 02.zip}.
 
 Una vez descargado, descomprímalo y acceda a la carpeta. Dentro de ella, cree un 
-entorno virtual utilizando Python 3.12. Para ello, ejecute el siguiente comando en 
+entorno virtual utilizando Python 3.12. o superior. Para ello, ejecute el siguiente 
+comando en 
 la terminal o línea de comandos:
 
 \begin{itemize}
@@ -882,6 +886,8 @@ Una vez activo, puede ejecutar el archivo principal con el siguiente comando:
 
 \textbf{Datos de entrada}
 
+Todos los parámetros de entrada son opcionales.
+
 \begin{itemize}
   \item Número de cursos.
   \item Número máximo de grupos por curso.
@@ -899,11 +905,11 @@ Una vez activo, puede ejecutar el archivo principal con el siguiente comando:
   \item Desviación estandar de P.A.P.I de los estudiantes
   \item Máximo número de materias que un estudiante va a inscribir (mayor o igual a 3, 
         menor o igual a lista de deseos).
-  \item Máximo número de materias deseadas de un estudiante (Predeterminado=9, mayor o igual a 3).
-  \item Tiempo de simulación
+  \item Máximo número de materias deseadas de un estudiante (Predeterminado=9, 
+        mayor o igual a 3).
+  \item Tiempo de simulación (CONSUMO\_CT)
+  \item Iteraciones de las realizaciones (ITERACIONES\_CT)
 \end{itemize}
-
-Todos los parámetros de entrada son opcionales.
 
 
 %---------------------------------------------------------------------------------
@@ -911,6 +917,107 @@ Todos los parámetros de entrada son opcionales.
 %---------------------------------------------------------------------------------
 
 \section{Manual Técnico}\label{sec:man_t}
+
+La simulación se desarrolla mediante fases y se implementa a través de una 
+arquitectura modular. Los módulos de la simulación incluyen:
+
+\begin{itemize}
+    \item \textbf{Generación de datos:} Crear y cargar datos relacionados con cursos, 
+          docentes, estudiantes y aulas.
+    \item \textbf{Simulación:} Ejecutar el modelo estocástico y realizar iteraciones para 
+          obtener soluciones óptimas.
+    \item \textbf{Evaluación de métricas:} Medir el desempeño de la simulación mediante 
+          métricas como satisfacción, eficiencia de Pareto y equidad.
+\end{itemize}
+
+\subsection{Fases de la Simulación}
+
+\begin{itemize}
+    \item \textbf{Generación de Base de Datos:} Se generan los datos para cursos, docentes, 
+          aulas y estudiantes mediante el módulo \texttt{generator.py}.
+    \item \textbf{Simulación:} La simulación se ejecuta para un número definido de 
+          iteraciones, utilizando el módulo \texttt{main.py}.
+    \item \textbf{Evaluación de Resultados:} Se calculan las métricas de satisfacción, 
+          eficiencia y equidad utilizando funciones del archivo \texttt{metrics.py}.
+\end{itemize}
+
+\subsection{Manejo de Datos}
+Los datos en la simulación se gestionan mediante archivos JSON. Los siguientes archivos 
+contienen los datos relevantes:
+
+\begin{itemize}
+    \item Cursos: \texttt{data/cursos.json}
+    \item Docentes: \texttt{data/docentes.json}
+    \item Aulas: \texttt{data/aulas.json}
+    \item Estudiantes: \texttt{data/estudiantes.json}
+    \item Clases: \texttt{data/clases.json}
+    \item Horarios: \texttt{data/horarios.json}
+\end{itemize}
+
+\subsubsection{Funciones de Gestión de Archivos}
+\paragraph{Cargar Datos:} Los archivos JSON se cargan usando la clase \texttt{JSON\_man} del 
+  archivo \texttt{FileManager.py}:
+
+\begin{verbatim}
+docentes = JSON_man.json2dict(r"data/docentes.json")
+\end{verbatim}
+
+\paragraph{Guardar Datos:} Los datos generados o modificados se guardan en archivos JSON 
+utilizando el método \texttt{dict2json}:
+
+\begin{verbatim}
+JSON_man.dict2json(cursos_dict, "data/cursos.json")
+\end{verbatim}
+
+\subsection{Evaluación de la Simulación}
+La simulación genera diversas métricas que se utilizan para evaluar el desempeño 
+del sistema. Las métricas clave son las siguientes:
+
+\subsubsection{Métricas de Desempeño}
+
+\begin{itemize}
+    \item \textbf{Porcentaje de Opciones:} Calcula el porcentaje de estudiantes que obtuvieron 
+          su primera, segunda o tercera opción de asignatura.
+    \begin{verbatim}
+    porcentaje_opciones(estudiantes)
+    \end{verbatim}
+
+    \item \textbf{Satisfacción Normalizada:} Mide la satisfacción de los estudiantes 
+          según las materias que se les asignaron y sus preferencias.
+    \begin{verbatim}
+    calcular_satisfaccion_normalizada(estudiante)
+    \end{verbatim}
+
+    \item \textbf{Equidad:} Mide la equidad del sistema evaluando la desviación estándar 
+          de las satisfacciones de los estudiantes.
+    \begin{verbatim}
+    calcular_equidad(estudiantes)
+    \end{verbatim}
+
+    \item \textbf{Eficiencia de Pareto:} Evalúa la eficiencia del sistema considerando 
+          cuántos estudiantes obtuvieron sus preferencias sin empeorar la situación de otros.
+    \begin{verbatim}
+    calcular_eficiencia_pareto(estudiantes)
+    \end{verbatim}
+\end{itemize}
+
+\subsubsection{Función de Impresión de Métricas}
+La función \texttt{imprimir\_metricas} imprime las métricas calculadas y muestra resultados 
+clave como satisfacción, uso de cupos, equidad y eficiencia de Pareto.
+
+\begin{verbatim}
+imprimir_metricas(estudiantes)
+\end{verbatim}
+
+\subsection{Conclusiones y Recomendaciones}
+Este manual describe la simulación de la planificación académica para la Universidad Nacional 
+de Colombia. A través de un modelo estocástico, se busca generar una asignación de recursos justa 
+y eficiente. Las métricas clave como la satisfacción, equidad y eficiencia de Pareto se utilizan 
+para evaluar el desempeño del sistema, lo que permite realizar ajustes y mejorar la calidad del 
+proceso de asignación.
+
+Recomendamos continuar iterando y ajustando los parámetros del modelo para obtener soluciones 
+cada vez más precisas y efectivas, adaptadas a las condiciones reales de la universidad.
 
 
 %---------------------------------------------------------------------------------
