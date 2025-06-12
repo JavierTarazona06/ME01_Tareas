@@ -26,8 +26,8 @@ set MODO=%1
 
 REM sync
 if /i "%MODO%"=="sync" (
-    echo [SYNC] Actualizando rama "%MIRAMA%" desde origin...
-    git pull origin %MIRAMA%
+    echo [SYNC] Actualizando rama "!MIRAMA!" desde origin...
+    git pull origin !MIRAMA!
     goto fin
 )
 
@@ -48,12 +48,12 @@ if /i "%MODO%"=="commit" (
 )
 
 REM compMain
-if /i "%MODO%"=="compMain" (
-    echo Comparando cambios de "%MIRAMA%" a "main" (pendientes de tu rama para main):
-    git rev-list origin/main..%MIRAMA%
+if /i "!MODO!"=="compMain" (
+    echo Comparando cambios de "!MIRAMA!" a "main". Pendientes de tu rama para main
+    git rev-list origin/main..!MIRAMA!
     echo.
-    echo Comparando cambios de "main" a "%MIRAMA%" (pendientes de main para tu rama):
-    git rev-list %MIRAMA%..origin/main
+    echo Comparando cambios de "main" a "!MIRAMA!". Pendientes de main para tu rama
+    git rev-list !MIRAMA!..origin/main
     goto fin
 )
 
@@ -61,20 +61,20 @@ REM pullReqToMain
 if /i "%MODO%"=="pullReqToMain" (
     set "TITLE=%2"
     set "BODY=%3"
-    if "%TITLE%"=="" (
+    if "!TITLE!"=="" (
         set /p TITLE=Titulo del Pull Request:
     )
     if "%BODY%"=="" (
         set /p BODY=Descripcion del Pull Request:
     )
-    echo Creando Pull Request desde "%MIRAMA%" hacia "main"...
-    gh pr create --base main --head %MIRAMA% --title "%TITLE%" --body "%BODY%"
+    echo Creando Pull Request desde "!MIRAMA!" hacia "main"...
+    gh pr create --base main --head !MIRAMA! --title "!TITLE!" --body "!BODY!"
     goto fin
 )
 
 REM upToMain
 if /i "%MODO%"=="upToMain" (
-    echo [MERGE] Fusionando "main" en "%MIRAMA%"...
+    echo [MERGE] Fusionando "main" en "!MIRAMA!"...
     git merge origin/main
     goto fin
 )
