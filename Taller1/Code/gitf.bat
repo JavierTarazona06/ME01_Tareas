@@ -1,4 +1,6 @@
 @echo off
+setlocal EnableDelayedExpansion
+
 REM --------------------------------------------------------------------------
 REM Script de automatización para flujos básicos de Git y GitHub CLI (Batch)
 REM Uso:
