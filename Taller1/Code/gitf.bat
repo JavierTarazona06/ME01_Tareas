@@ -5,7 +5,7 @@ REM Uso:
 REM   gitf.bat modo [parametros]
 REM Modos:
 REM   sync                : Actualiza la rama actual con origin.
-REM   commit <mensaje>    : Agrega, comitea y sube cambios con el mensaje dado.
+REM   commit <mensaje>    : Agrega, comitea y sube cambios con el mensaje dado (mensaje todo pegado).
 REM   compMain            : Compara la rama actual con main (en ambos sentidos).
 REM   pullReqToMain       : Crea un Pull Request de la rama actual a main.
 REM   upToMain            : Fusiona (merge) main en la rama actual.
@@ -31,14 +31,17 @@ if /i "%MODO%"=="sync" (
 
 REM commit
 if /i "%MODO%"=="commit" (
-    if "%2"=="" (
-        echo Error: Debes proveer un mensaje de commit.
-        echo Uso: gitf.bat commit "Mensaje del commit"
+    set "MESSAGE=%2"
+    if "!MESSAGE!"=="" (
+        set /p MESSAGE=Mensaje del commit:
+    )
+    if "!MESSAGE!"=="" (
+        echo Error: El mensaje del commit no puede estar vacío.
         goto fin
     )
-    git add "."
-    git commit -m "%2"
-    git push origin %MIRAMA%
+    git add .
+    git commit -m "!MESSAGE!"
+    git push origin !MIRAMA!
     goto fin
 )
 
