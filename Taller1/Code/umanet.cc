@@ -71,6 +71,7 @@ void CreateClusters()
     int nMembers = memberNodes.GetN();
     NS_ABORT_MSG_IF(nMembers == 0, "El número de nodos seguidores no puede ser cero");
     int nClusters = chNodes.GetN();
+    clusters.resize(nClusters);
     NS_ABORT_MSG_IF(nClusters == 0, "El número de nodos líderes no puede ser cero");
 
     int nMembersPerCluster = nMembers / nClusters; // Número de nodos seguidores por cluster
@@ -84,7 +85,8 @@ void CreateClusters()
         for (int j = 0; j < size; ++j, ++idx)
         {
             NS_ABORT_MSG_IF(idx >= nMembers, "Índice fuera de rango");
-            clusters[i].Add(memberNodes.Get(idx));
+            Ptr<Node> mNodec = memberNodes.Get(idx);
+            clusters[i].Add(mNodec); // Añade el nodo seguidor al cluster correspondiente
         }
     }
 }
@@ -170,20 +172,33 @@ SetUpMobilityCH (double speed)
     Ptr<Node> node = chNodes.Get (i);
     NS_ABORT_MSG_IF (node == nullptr, "El nodo no puede ser nulo");
 
-    // Asignar posición inicial
-    double x = i * 10.0;  // Espaciado entre nodos
-    double y = 0.0;
-    double z = 0.0;
-    AnimationInterface::SetConstantPosition(node, x, y, z);
+    Ptr<MobilityModel> mob = node->GetObject<MobilityModel>();
+    double x, y, z; 
+
+    if (mob == nullptr) {
+        // Asignar posición inicial
+        x = i * 10.0;  // Espaciado entre nodos
+        y = 0.0;
+        z = 0.0;
+        AnimationInterface::SetConstantPosition(node, x, y, z);
+    } else {
+        Vector pos = mob->GetPosition();
+        x = pos.x;
+        y = pos.y;
+        z = pos.z;
+        AnimationInterface::SetConstantPosition(node, x, y, z);
+    }
     
     // 1. Crear el modelo y agregarlo al nodo
-    Ptr<WaypointMobilityModel> wp = CreateObject<WaypointMobilityModel> ();
-    node->AggregateObject (wp);
+    Ptr<WaypointMobilityModel> wp = node->GetObject<WaypointMobilityModel>();
+    if (wp == nullptr) {
+        wp = CreateObject<WaypointMobilityModel>();
+        node->AggregateObject(wp);
+    }
 
     // 2. Waypoint inicial (despegue)
-    Vector start (node->GetId () * 5.0, 0.0, 0.0);
-    int startDelay = 2; // Tiempo de espera antes de iniciar el movimiento
-    Time   t     = Seconds (i * startDelay);
+    Vector start (x, y, z); // Posición inicial del nodo líder
+    Time   t     = Simulator::Now(); // Tiempo de inicio del waypoint
     wp->AddWaypoint (Waypoint (t, start));
 
     // 3. Waypoints hacia cada incendio
@@ -212,7 +227,7 @@ void SetUpMobilityFollowers(int idx)
 
     mob.SetMobilityModel("ns3::RandomWalk2dMobilityModel", // Modelo de movilidad aleatoria en 2D
         "Bounds", RectangleValue(Rectangle(-10,10,-10,10)), // Límites del área de movimiento
-        "Speed", PointerValue(speedRv)
+        "Speed", PointerValue(speedRv) // Velocidad aleatoria entre 0 y 2 m/s
     );
     mob.Install(clusters[idx]); // Instala el modelo de movilidad en los nodos seguidores del cluster
 }
@@ -295,6 +310,7 @@ void RunWcaClustering()
     clusters.clear();
 
     // Construye clusters iterativamente
+    int it = 0;
     while (!unassigned.empty()) {
         // 5.1 Selecciona nodo con menor peso
         auto best_it = std::min_element(
@@ -326,7 +342,11 @@ void RunWcaClustering()
         unassigned.erase(ch);
 
         // 5.4 Guarda el cluster formado
-        clusters.back() = thisCluster;
+        if ((int)clusters.size() < it+1){
+            clusters.resize(it+1); // Asegura que el vector de clusters tenga suficiente espacio
+        }
+        clusters[it] = thisCluster; // Asigna el cluster actual al vector de clusters
+        it++; // Incrementa el contador de iteraciones
     }
 
     // Muestra resultados
@@ -349,7 +369,7 @@ void RunSimulation (double simTime)
     NS_LOG_UNCOND("Iniciando simulación con " << chNodes.GetN() << " líderes y " 
         << memberNodes.GetN() << " seguidores.");
 
-    if (false){
+    if (true){
         // Configuración de la animación
         NS_LOG_UNCOND("Configurando la interfaz de animación...");
 

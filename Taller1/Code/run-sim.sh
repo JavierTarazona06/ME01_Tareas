@@ -27,7 +27,7 @@ fi
 
 # 4. Compilación y ejecución ────────────────
 while true; do
-  read -rp "¿Deseas compilar '${SIM_NAME}.xml'? [Y/n]: " yn
+  read -rp "¿Deseas compilar '${SIM_NAME}.cc'? [Y/n]: " yn
   yn="${yn:-Y}"  # Y por defecto si el usuario solo presiona ENTER
 
   case "$yn" in
