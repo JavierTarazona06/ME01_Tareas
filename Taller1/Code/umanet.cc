@@ -1,4 +1,5 @@
 
+#include "ns3/log.h"
 #include "ns3/core-module.h"      // Time, StringValue, LogComponent, etc.
 #include "ns3/network-module.h"   // Node, NodeContainer, NetDeviceContainer…
 #include "ns3/wifi-module.h"      // WifiHelper, YansWifiPhyHelper, WifiMacHelper
@@ -9,6 +10,8 @@
 
 using namespace ns3;                // Evita escribir ns3:: en cada referencia
 
+NS_LOG_COMPONENT_DEFINE ("MiCmpt");
+
 // Parámetros de la simulación
 
 // Coeficientes para el cálculo de peso
@@ -18,9 +21,16 @@ static const double w3 = 0.05; // obstaculos
 static const double w4 = 0.025; // nodos conectados
 static const double w5 = 0.025; // distancia a foco incendio
 
-static const double TX_RANGE = 2.8; // Rango de transmisión en metros
+static const double TX_RANGE = 3; // Rango de transmisión en metros
 static const uint32_t N_CH = 2; // Número de líderes (Cluster-Heads)
 static const uint32_t N_MEM = 10; // Número de seguidores (Miembros)
+static const double SPEED_CH = 4.0; // Número de seguidores (Miembros)
+static const double UPDATE_TIME = 6.0; // Tiempo de actualización de los líderes (en segundos)
+static const double FOLLOWERS_UPDATE_TIME = UPDATE_TIME + 0.3; // Tiempo de actualización de los seguidores (en segundos)
+static const double SMALL_DIST = 1.5; // Distancia pequeña para el offset aleatorio
+
+enum Role { LEADER, FOLLOWER };
+std::map<Ptr<Node>, Role> roles; // Mapa que asocia nodos a sus roles (líder o seguidor)
 
 struct FireData
 {
@@ -53,6 +63,18 @@ std::pair<uint32_t,uint32_t> ParseCommandLine (int argc, char* argv[])
     cmd.Parse(argc, argv);        // Procesa los argumentos
     NS_LOG_UNCOND("Configuración: " << nClusterHeads << " líderes, " << nFollowers << " seguidores");
     return {nClusterHeads, nFollowers};
+}
+
+Vector RandomOffset(double min = -SMALL_DIST, double max = SMALL_DIST) {
+  Ptr<UniformRandomVariable> rand = CreateObject<UniformRandomVariable> ();
+  rand->SetAttribute("Min", DoubleValue(min));
+  rand->SetAttribute("Max", DoubleValue(max));
+
+  double x = rand->GetValue();
+  double y = rand->GetValue();
+  double z = rand->GetValue();
+
+  return Vector(x, y, z);
 }
 
 /*------------------------------------------------
@@ -149,6 +171,52 @@ void AssignIpv4 ()
 
 
 /*------------------------------------------------
+    Incendios
+------------------------------------------------*/
+//TO-DO: Añadir un modelo de propagación de incendios y hacerlos estocasticos
+
+void CreateFireAllocator ()
+{
+    /* 1. Lista de incendios (const, solo se construye una vez) */
+    static const std::vector<Vector> kFires = {
+        { 15, 10, 0 },
+        { 20,  10, 0 },
+        { 30, 10, 0 }
+    };
+
+    // ListPositionAllocator es un contenedor de puntos, se reutiliza al crear waypoints.
+    Ptr<ListPositionAllocator> firePA = CreateObject<ListPositionAllocator> ();
+    for (const auto& v : kFires)
+    firePA->Add (v);
+
+    fire_st = FireData(); // Inicializa la estructura de datos de incendios
+    fire_st.allocator = firePA; // Asigna el ListPositionAllocator a la estructura de datos
+    fire_st.positions = kFires; // Asigna la lista de posiciones de incendios a la estructura de datos
+}
+
+std::vector<Vector> firesDistOrdered(Ptr<Node> node){
+    std::vector<Vector> sortedFires = fire_st.positions;  // crea copia para no alterar el original
+
+    // Obtiene posición actual del nodo
+    Ptr<WaypointMobilityModel> wp = node->GetObject<WaypointMobilityModel>();
+    if (wp == nullptr) {
+        NS_LOG_ERROR("WaypointMobilityModel no encontrado en el nodo " << node->GetId());
+        return sortedFires; // Devuelve la copia sin ordenar si no hay modelo
+    }
+    Vector pos = wp->GetPosition();
+
+    // Ordenamos por distancia ascendente utilizando lambda optimizado
+    std::sort(sortedFires.begin(), sortedFires.end(),
+        [&pos](const Vector &a, const Vector &b) {
+            double da = CalculateDistance(pos, a);
+            double db = CalculateDistance(pos, b);
+            return da < db;
+        }
+    );
+    return sortedFires; // devuelve el vector ordenado de incendios
+}
+
+/*------------------------------------------------
     Mobility
 ------------------------------------------------*/
 void SetupMobility ()
@@ -162,105 +230,132 @@ void SetupMobility ()
     mob.Install(memberNodes);
 }
 
+// Inicializa modelo de movilidad para los líderes, antes de iniciar la simulación
 void
-SetUpMobilityCH (double speed)
+SetUpMobilityCH ()
 {
-  NS_ABORT_MSG_IF (speed <= 0.0, "La velocidad debe ser positiva");
-
   for (uint32_t i = 0; i < chNodes.GetN (); ++i)
   {
     Ptr<Node> node = chNodes.Get (i);
     NS_ABORT_MSG_IF (node == nullptr, "El nodo no puede ser nulo");
+    roles[node] = LEADER; // Asigna el rol de líder al nodo
 
-    Ptr<MobilityModel> mob = node->GetObject<MobilityModel>();
-    double x, y, z; 
-
-    if (mob == nullptr) {
-        // Asignar posición inicial
-        x = i * 10.0;  // Espaciado entre nodos
-        y = 0.0;
-        z = 0.0;
-        AnimationInterface::SetConstantPosition(node, x, y, z);
-    } else {
-        Vector pos = mob->GetPosition();
-        x = pos.x;
-        y = pos.y;
-        z = pos.z;
-        AnimationInterface::SetConstantPosition(node, x, y, z);
-    }
+    double x, y, z;
+    // Asignar posición inicial
+    x = i * 10.0;  // Espaciado entre nodos
+    y = 0.0;
+    z = 0.0;
+    AnimationInterface::SetConstantPosition(node, x, y, z);
     
     // 1. Crear el modelo y agregarlo al nodo
-    Ptr<WaypointMobilityModel> wp = node->GetObject<WaypointMobilityModel>();
-    if (wp == nullptr) {
-        wp = CreateObject<WaypointMobilityModel>();
-        node->AggregateObject(wp);
-    }
+    Ptr<WaypointMobilityModel> wp = CreateObject<WaypointMobilityModel>();
+    node->AggregateObject(wp);
 
     // 2. Waypoint inicial (despegue)
     Vector start (x, y, z); // Posición inicial del nodo líder
-    Time   t     = Simulator::Now(); // Tiempo de inicio del waypoint
+    Time   t     = Seconds(0.5); // Tiempo de inicio del waypoint
     wp->AddWaypoint (Waypoint (t, start));
 
-    // 3. Waypoints hacia cada incendio
-    Vector last = start;
-    std::vector<Vector> fires = fire_st.positions; // Lista de incendios
-    for (const auto& p : fires)
-    {
-      double d   = CalculateDistance (last, p);
-      t         += Seconds (d / speed);
-      wp->AddWaypoint (Waypoint (t, p));
-      last       = p;
-    }
+    NS_LOG_UNCOND("Líder " << node->GetId() << " creado");
   }
 }
 
-void SetUpMobilityFollowers(int idx)
-{
-    Ptr<Object> chLeaderNode = chNodes.Get(idx); // Obtiene el nodo líder (Cluster Head) correspondiente al índice
-    MobilityHelper mob; // Configuración de la movilidad de los seguidores
-    mob.PushReferenceMobilityModel(chLeaderNode); // Utiliza el modelo de movilidad del líder como referencia
+// Actualiza la movilidad de los líderes
+void UpdateMobilityCH(double speed){
+    NS_ABORT_MSG_IF (speed <= 0.0, "La velocidad debe ser positiva");
 
-      // Crear el RandomVariable para velocidad
-    Ptr<UniformRandomVariable> speedRv = CreateObject<UniformRandomVariable> ();
-    speedRv->SetAttribute("Min", DoubleValue(0.0));
-    speedRv->SetAttribute("Max", DoubleValue(2.0));
-
-    mob.SetMobilityModel("ns3::RandomWalk2dMobilityModel", // Modelo de movilidad aleatoria en 2D
-        "Bounds", RectangleValue(Rectangle(-10,10,-10,10)), // Límites del área de movimiento
-        "Speed", PointerValue(speedRv) // Velocidad aleatoria entre 0 y 2 m/s
-    );
-    mob.Install(clusters[idx]); // Instala el modelo de movilidad en los nodos seguidores del cluster
+    for (uint32_t i = 0; i < chNodes.GetN (); ++i){
+        Ptr<Node> node = chNodes.Get (i);
+        NS_ABORT_MSG_IF (node == nullptr, "El nodo no puede ser nulo");
+        Ptr<WaypointMobilityModel> wp = node->GetObject<WaypointMobilityModel>();
+        NS_ABORT_MSG_IF(wp == nullptr,
+            "WaypointMobilityModel no encontrado en el nodo líder "
+            << node->GetId());
+        
+        Vector lastPos = wp->GetPosition();
+        // Limpia waypoints previos
+        wp->EndMobility();
+        
+        std::vector<Vector> firesSorted = firesDistOrdered(node); // Ordena los incendios por distancia al nodo
+        NS_ABORT_MSG_IF (firesSorted.empty(), "No hay incendios disponibles");
+        
+        double d, t; // Distancia y tiempo acumulado
+        t = Simulator::Now().GetSeconds(); // Tiempo acumulado inicializado a cero
+        for (const auto& p : firesSorted)
+        {
+            d   = CalculateDistance (lastPos, p);
+            t         += d / speed;
+            wp->AddWaypoint (Waypoint (Seconds(t), p));
+            lastPos       = p;
+        }
+    }
 }
 
-/*------------------------------------------------
-    Incendios
-------------------------------------------------*/
-//TO-DO: Añadir un modelo de propagación de incendios y hacerlos estocasticos
-
-
-void CreateFireAllocator ()
+// Inicializa modelo de movilidad para los seguidores
+void SetUpMobilityFollowers()
 {
-    /* 1. Lista de incendios (const, solo se construye una vez) */
-    static const std::vector<Vector> kFires = {
-        {  5, 8, 0 },
-        { 4,  2, 0 },
-        { 8, 10, 0 }
-    };
+    MobilityHelper mobility;
+    mobility.SetMobilityModel("ns3::WaypointMobilityModel");
+    mobility.Install(memberNodes);
 
-    // ListPositionAllocator es un contenedor de puntos, se reutiliza al crear waypoints.
-    Ptr<ListPositionAllocator> firePA = CreateObject<ListPositionAllocator> ();
-    for (const auto& v : kFires)
-    firePA->Add (v);
+    for (uint32_t i = 0; i < memberNodes.GetN(); ++i) {
+        Ptr<Node> node = memberNodes.Get(i);
+        NS_ABORT_MSG_IF(node == nullptr, "El nodo no puede ser nulo");
+        roles[node] = FOLLOWER; // Asigna el rol de seguidor al nodo
+        NS_LOG_UNCOND("Seguidor " << node->GetId() << " creado");
 
-    fire_st = FireData(); // Inicializa la estructura de datos de incendios
-    fire_st.allocator = firePA; // Asigna el ListPositionAllocator a la estructura de datos
-    fire_st.positions = kFires; // Asigna la lista de posiciones de incendios a la estructura de datos
+        Ptr<WaypointMobilityModel> wp = node->GetObject<WaypointMobilityModel>();
+        NS_ABORT_MSG_IF(wp == nullptr,
+            "WaypointMobilityModel no encontrado en el nodo seguidor "
+            << node->GetId());
+
+        double x, y, z;
+        // Asignar posición inicial
+        x = i * 1.0;  // Espaciado entre nodos
+        y = 4.0;
+        z = 0.0;
+        AnimationInterface::SetConstantPosition(node, x, y, z);
+        Vector start (x, y, z); // Posición inicial del nodo líder
+        Time   t     = Seconds(0.5); // Tiempo de inicio del waypoint
+        wp->AddWaypoint (Waypoint (t, start));
+    }
+}
+
+// Actualiza la movilidad de los seguidores en función del líder
+void UpdateMobilityFollowers(int cluster_idx, double deltaTime)
+{
+    // 1. Obtiene el nodo líder y su modelo Waypoint
+    Ptr<Node> leaderNode = chNodes.Get(cluster_idx);
+    Ptr<WaypointMobilityModel> wpLeader = leaderNode->GetObject<WaypointMobilityModel>();
+    if (!wpLeader) {
+        NS_LOG_ERROR("Líder " << leaderNode->GetId() << " sin WaypointMobilityModel");
+        return;
+    }
+    Vector leaderPos = wpLeader->GetPosition();
+
+    // 2. Recorre el cluster y actualiza cada seguidor
+    for (uint32_t j = 0; j < clusters[cluster_idx].GetN(); ++j) {
+        Ptr<Node> follower = clusters[cluster_idx].Get(j);
+        Ptr<WaypointMobilityModel> wpFollower = follower->GetObject<WaypointMobilityModel>();
+        if (wpFollower == nullptr) {
+            NS_LOG_ERROR("Seguidor " << follower->GetId() << " sin WaypointMobilityModel");
+            continue;  // Mejor omitir este nodo en lugar de abortar
+        }
+
+        // 3. Limpia waypoints previos
+        wpFollower->EndMobility();
+
+        // 4. Añade nuevo waypoint cerca del líder
+        Vector offset = RandomOffset();  // función que genera vector pequeño
+        Time t = Simulator::Now() + Seconds(deltaTime); // Tiempo futuro para el waypoint
+        wpFollower->AddWaypoint(Waypoint(t, leaderPos + offset));
+    }
 }
 
 /*------------------------------------------------
     Reelección de líderes
 ------------------------------------------------*/
-
+ // TODO: Modificar para segpún parámetros del notion
 double ComputeNodeWeight(Ptr<Node> node)
 {
   double channelQ = node->GetId() % 5 + 1;
@@ -316,9 +411,9 @@ void RunWcaClustering()
         auto best_it = std::min_element(
             unassigned.begin(), unassigned.end(), // Ordena por peso
             [&weight](Ptr<Node> a, Ptr<Node> b){ return weight[a] < weight[b]; }); // Encuentra el nodo con menor peso
+        
         Ptr<Node> ch = *best_it; // Nodo líder (Cluster Head) seleccionado
-        chNodes.Add(ch);
-        clusters.emplace_back(NodeContainer());
+        roles[ch] = LEADER; // Asigna el rol de líder al nodo
 
         // 5.2 Forma el cluster actual
         NodeContainer thisCluster;
@@ -335,11 +430,13 @@ void RunWcaClustering()
 
         // 5.3 Asigna esos nodos
         for (auto node : toAssign) {
+            roles[node] = FOLLOWER; // Asigna el rol de seguidor al nodo
             thisCluster.Add(node); // Añade el nodo al cluster actual
             memberNodes.Add(node); // Añade el nodo al contenedor de seguidores
             unassigned.erase(node); // Elimina el nodo de la lista de nodos no asignados
         }
-        unassigned.erase(ch);
+        chNodes.Add(ch); // Añade el líder al contenedor de líderes
+        unassigned.erase(ch); // Elimina el líder del conjunto de nodos no asignados
 
         // 5.4 Guarda el cluster formado
         if ((int)clusters.size() < it+1){
@@ -348,6 +445,7 @@ void RunWcaClustering()
         clusters[it] = thisCluster; // Asigna el cluster actual al vector de clusters
         it++; // Incrementa el contador de iteraciones
     }
+    clusters.resize(it);
 
     // Muestra resultados
     for (size_t i = 0; i < chNodes.GetN(); ++i) {
@@ -380,14 +478,14 @@ void RunSimulation (double simTime)
         anim.SetMobilityPollInterval (Seconds (0.1));  // suavidad 10 Hz
 
         /*---------------- Eventos -------------------------------*/
-        Simulator::Schedule(Seconds (6.0), // Programa la reelección de líderes después de 6 segundos
-            &RunWcaClustering);
-        Simulator::Schedule(Seconds (6.2), // Programa la movilidad de líderes después de 6 segundos
-            &SetUpMobilityCH, 10.0 // Velocidad de 10 m/s para los líderes
+        Simulator::Schedule(Seconds (UPDATE_TIME), // Programa la reelección de líderes después de 6 segundos
+            &UpdateMobilityCH, SPEED_CH);
+        Simulator::Schedule(Seconds (UPDATE_TIME+0.2), // Programa la movilidad de líderes después de 6 segundos
+            &UpdateMobilityCH, 10.0 // Velocidad de 10 m/s para los líderes
         );
         for (size_t i = 0; i < clusters.size(); ++i) {
-            Simulator::Schedule(Seconds (6.6), // Programa la movilidad de seguidores después de 6 segundos
-                &SetUpMobilityFollowers, i
+            Simulator::Schedule(Seconds (FOLLOWERS_UPDATE_TIME), // Programa la movilidad de seguidores después de 6 segundos
+                &UpdateMobilityFollowers, i, FOLLOWERS_UPDATE_TIME
             );
         }
 
@@ -410,7 +508,7 @@ void RunSimulation (double simTime)
 int
 main(int argc, char* argv[])
 {
-
+    LogComponentEnable ("MiCmpt", LOG_LEVEL_ERROR);
     /*------------------------------------------------
         1. Configuración de parámetros
     ------------------------------------------------*/
@@ -440,15 +538,17 @@ main(int argc, char* argv[])
     /*------------------------------------------------
         Mobility
     ------------------------------------------------*/
-    SetUpMobilityCH (10.0); // Velocidad de 10 m/s para los líderes
-    for (size_t i = 0; i < clusters.size(); ++i) {
-        SetUpMobilityFollowers(i); // Asigna el modelo de movilidad a los seguidores
-    }
+    SetUpMobilityCH ();
+    SetUpMobilityFollowers();
 
     /*------------------------------------------------
         Run Simulation
     ------------------------------------------------*/
-    RunSimulation (30);
+    UpdateMobilityCH(SPEED_CH); // Actualiza la movilidad de los líderes al inicio
+    for (size_t i = 0; i < clusters.size(); ++i){
+        UpdateMobilityFollowers(i, FOLLOWERS_UPDATE_TIME); // Actualiza la movilidad de los seguidores al inicio
+    }
+    RunSimulation (120);
 
     return 0;
 }
