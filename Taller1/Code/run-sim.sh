@@ -26,7 +26,54 @@ if [[ ! -e "$NS3_HOME/scratch/$SIM_NAME.cc" ]]; then
 fi
 
 # 4. Compilación y ejecución ────────────────
-"$NS3_HOME/ns3" build -j"$JOBS"
+while true; do
+  read -rp "¿Deseas compilar '${SIM_NAME}.xml'? [Y/n]: " yn
+  yn="${yn:-Y}"  # Y por defecto si el usuario solo presiona ENTER
+
+  case "$yn" in
+    [Yy]* )
+        "$NS3_HOME/ns3" build -j"$JOBS"
+      break
+      ;;
+    [Nn]* )
+      echo "Solo se va a correr la simulación sin compilar." 
+      break
+      ;;
+    * )
+      echo "Respuesta inválida. Por favor, ingresa Y (sí) o N (no)."
+      ;;
+  esac
+done
+
+
 "$NS3_HOME/ns3" run "scratch/$SIM_NAME" | tee "${SIM_NAME}.log"
 
 echo "Simulación terminada; log guardado en ${SIM_NAME}.log"
+
+# 5. Visualizar animación ────────────────
+# Pregunta al usuario si desea visualizar NetAnim
+while true; do
+  read -rp "¿Deseas abrir NetAnim para visualizar '${SIM_NAME}.xml'? [Y/n]: " yn
+  yn="${yn:-Y}"  # Y por defecto si el usuario solo presiona ENTER
+
+  case "$yn" in
+    [Yy]* )
+      NETANIM_BIN="$(find "${NS3_HOME}/build" -type f -executable -name netanim | head -n1)"
+      if [[ -x "$NETANIM_BIN" ]]; then
+        echo "Iniciando NetAnim..."
+        "$NETANIM_BIN" "${NS3_HOME}/${SIM_NAME}.xml"
+      else
+        echo "No se encontró NetAnim en '${NS3_HOME}/build'"
+        exit 1
+      fi
+      break
+      ;;
+    [Nn]* )
+      echo "Visualización cancelada." 
+      break
+      ;;
+    * )
+      echo "Respuesta inválida. Por favor, ingresa Y (sí) o N (no)."
+      ;;
+  esac
+done

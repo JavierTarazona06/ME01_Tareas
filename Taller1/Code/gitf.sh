@@ -45,10 +45,10 @@ case "$1" in
         git push origin "$MIRAMA"
         ;;
     compMain)
-        echo "Comparando cambios de '$MIRAMA' a 'main' (pendientes de tu rama para main):"
+        echo "Comparando cambios de '$MIRAMA' a 'main' pendientes de tu rama para main"
         git rev-list origin/main.."$MIRAMA"
         echo
-        echo "Comparando cambios de 'main' a '$MIRAMA' (pendientes de main para tu rama):"
+        echo "Comparando cambios de 'main' a '$MIRAMA' pendientes de main para tu rama"
         git rev-list "$MIRAMA"..origin/main
         ;;
     pullReqToMain)
