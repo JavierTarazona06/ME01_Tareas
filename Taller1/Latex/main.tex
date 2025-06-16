@@ -100,82 +100,116 @@ Para resolver este desafío operativo, proponemos una solución basada en redes 
 
 \section{Diseño de la solución}
 
-La solución desarrollada está basada en el modelo de comportamiento de Boids para simular la movilidad de nodos en una red ad hoc, adaptando las reglas clásicas de \textit{cohesión}, \textit{alineación} y \textit{separación}, e incorporando elementos adicionales como nodos líderes, mecanismos de selección de líderes mediante el algoritmo de clustering ponderado (WCA) y la influencia de eventos externos, como incendios, que afectan la dirección de los nodos.
+La solución desarrollada está basada en el modelo de comportamiento de Boids para simular la movilidad de nodos en una red ad hoc. Este modelo adapta las reglas clásicas de \textit{cohesión}, \textit{alineación} y \textit{separación}, incorporando elementos adicionales como nodos líderes, mecanismos de selección dinámica de líderes mediante el algoritmo de clustering ponderado (WCA), interacción con eventos externos (como incendios) y una infraestructura de comunicación entre nodos basada en enlaces bidireccionales.
 
 \subsection{Metodología}
 
-El desarrollo siguió un enfoque incremental: primero se construyó la jerarquía básica de nodos (líderes y seguidores), luego se creo la logica de control de red, se integraron de forma progresiva con las funcionalidades dinámicas estocásticas y el contexto de la simulacion, y finalmente se evaluaron distintos escenarios con variaciones de parámetros clave.
+El desarrollo siguió un enfoque incremental. Inicialmente se construyó la jerarquía básica de nodos (líderes y seguidores), luego se integró la lógica de comportamiento y movilidad basada en el modelo Boids. Posteriormente se añadieron componentes estocásticos y eventos del entorno, como focos de incendio. Finalmente, se realizaron múltiples simulaciones para evaluar el rendimiento del modelo frente a distintos escenarios y configuraciones.
 
-\subsection{Estructura general}
+\subsection{Estructura general del sistema}
 
-La clase \texttt{BoidsMobilityModel} extiende el modelo de movilidad de NS-3 y contiene la lógica de comportamiento individual de cada nodo. Cada nodo se comporta como un Boid, actualizando su posición periódicamente en función de su rol (líder o seguidor) y de su entorno.
-
-\subsection{Reglas de comportamiento}
+El sistema está compuesto por los siguientes módulos principales:
 
 \begin{itemize}
-    \item \textbf{Separación:} Los nodos evitan colisionar entre sí manteniéndose alejados de los vecinos más cercanos dentro de un radio definido.
-    
-    \item \textbf{Alineación:} Los nodos no líderes ajustan su dirección promedio en función de los vectores de velocidad de sus vecinos.
-    
-    \item \textbf{Cohesión:} Los seguidores intentan mantenerse cerca de un líder si este se encuentra dentro de un cierto radio de influencia.
-    
-    \item \textbf{Atracción hacia objetivos:} Los líderes se ven atraídos hacia eventos externos (como incendios) si estos se encuentran dentro de su radio de influencia.
+    \item \textbf{BoidsMobilityModel}: clase que extiende el modelo de movilidad de NS-3 y contiene la lógica del comportamiento individual de cada nodo.
+    \item \textbf{Gestor de líderes}: módulo encargado de la asignación inicial de líderes y del recálculo dinámico basado en WCA.
+    \item \textbf{Módulo de eventos externos}: introduce elementos del entorno como incendios que influyen en el comportamiento de los nodos líderes.
+    \item \textbf{Sistema de comunicación}: permite el intercambio de mensajes entre nodos vecinos, facilitando la detección de líderes, el seguimiento de objetivos y la formación de clusters.
 \end{itemize}
 
-\subsection{Liderazgo dinámico y WCA}
+\subsection{Reglas de comportamiento Boid}
 
-Cada nodo puede actuar como líder o seguidor. El rol inicial se define al inicio de la simulación, y a los líderes se les asigna un objetivo aleatorio en el espacio. Si un nodo seguidor se encuentra aislado, es decir, sin un líder dentro de su radio de cohesión, evalúa su potencial de liderazgo utilizando el algoritmo \textit{WCA} (Weighted Clustering Algorithm). Este cálculo considera los siguientes parámetros:
+Cada nodo se comporta como un Boid y actualiza su posición en función de su rol y de las siguientes reglas:
 
 \begin{itemize}
-    \item \textit{Energía residual} (\(E\)): cantidad de energía restante, normalizada en el rango \([0,1]\).
-    \item \textit{Grado de conectividad} (\(D\)): número de vecinos directos, normalizado considerando un máximo de 10.
-    \item \textit{Distancia a los objetivos} (\(T\)): inversa de la distancia promedio a los objetivos, considerando un radio de 200 metros.
-    \item \textit{Movilidad} (\(M\)): inversa de la velocidad, considerando una velocidad máxima de 10 m/s.
+    \item \textbf{Separación:} evita la colisión entre nodos manteniendo una distancia mínima entre vecinos cercanos.
+    
+    \item \textbf{Alineación:} los seguidores adaptan su dirección en función de la velocidad promedio de sus vecinos más cercanos.
+    
+    \item \textbf{Cohesión:} los seguidores buscan mantenerse próximos a su líder si se encuentra dentro del radio de cohesión definido.
+    
+    \item \textbf{Atracción hacia objetivos:} los líderes se orientan hacia eventos externos (como focos de incendio) ubicados dentro de su radio de influencia.
 \end{itemize}
 
-Cada uno de estos parámetros se normaliza para quedar en el rango \([0,1]\), y luego se combinan mediante una fórmula ponderada. La métrica de liderazgo (\texttt{WCA\_Score}) se calcula así:
+\subsection{Liderazgo dinámico y algoritmo WCA}
+
+Cada nodo puede desempeñar el rol de líder o seguidor. Al inicio de la simulación, se asignan aleatoriamente los roles. A los líderes se les asigna un objetivo dentro del área de simulación, el cual puede cambiar en respuesta a eventos externos.
+
+Si un nodo seguidor se encuentra aislado, es decir, sin un líder en su radio de cohesión, evalúa su potencial de liderazgo utilizando el algoritmo \textit{WCA} (Weighted Clustering Algorithm). Este algoritmo considera múltiples factores que se normalizan para obtener un puntaje de liderazgo (\texttt{WCA\_Score}):
+
+\begin{itemize}
+    \item \textit{Energía residual} (\(E\)): porcentaje de energía restante del nodo, normalizada en el rango \([0,1]\).
+    \item \textit{Grado de conectividad} (\(D\)): número de vecinos directos, normalizado respecto a un máximo teórico de 10.
+    \item \textit{Distancia a objetivos} (\(T\)): inversa de la distancia promedio del nodo a los objetivos activos, normalizada considerando un rango de hasta 200 metros.
+    \item \textit{Movilidad} (\(M\)): estabilidad del nodo, calculada como la inversa de su velocidad actual, con una velocidad máxima de 10 m/s.
+\end{itemize}
+
+El cálculo del puntaje se define como:
 
 \[
 {WCA\_Score} = w_1 \cdot E + w_2 \cdot D + w_3 \cdot T + w_4 \cdot M
 \]
-donde los pesos \(w_1, w_2, w_3, w_4\) determinan la importancia relativa de cada factor y cumplen que:
+donde los pesos utilizados son:
 
 \[
 w_1 = 0.4, \quad w_2 = 0.3, \quad w_3 = 0.2, \quad w_4 = 0.1
 \]
 
-Finalmente, el puntaje se acota al intervalo \([0, 1]\):
+El resultado se limita al rango \([0, 1]\) mediante:
 
 \[
 {WCA\_Score} = \max\left(0,\ \min\left(1,\ {WCA\_Score}\right)\right)
 \]
+
+El nodo aislado con el mayor \texttt{WCA\_Score} se autonombrará líder en ausencia de otros líderes cercanos.
+
 \subsection{Espacio de simulación y condiciones de frontera}
 
-El espacio simulado tiene dimensiones de $1000 \times 1000$ unidades. Se utiliza un modelo de \textit{wrapping} para simular un entorno toroidal, permitiendo que los nodos que cruzan un borde reaparezcan en el lado opuesto. Esto previene la acumulación de nodos en los bordes y garantiza una distribución continua.
+La simulación se desarrolla en un área de $1000 \times 1000$ unidades. Se implementa una condición de frontera toroidal (\textit{wrapping}), permitiendo que los nodos que salen por un borde reaparezcan por el lado opuesto. Esto evita acumulaciones artificiales y simula un entorno continuo sin bordes rígidos.
 
 \subsection{Actualización de posiciones}
 
-Cada nodo actualiza su posición en cada intervalo de tiempo simulando su movimiento. Se aplican límites a la velocidad máxima y se normalizan los vectores de dirección para evitar aceleraciones irregulares. Las velocidades también se ajustan para evitar que los nodos queden inmóviles.
+Cada nodo actualiza su posición en intervalos regulares de tiempo, considerando sus vectores de dirección y las fuerzas derivadas de las reglas del modelo Boid. Se aplican límites a la velocidad y se normalizan las direcciones para evitar aceleraciones bruscas o inmovilización de nodos.
 
 \subsection{Visualización y exportación de datos}
 
-Al finalizar la simulación, se exportan los datos relevantes a un archivo de salida. Esta información incluye la posición de los nodos, su rol (líder o seguidor), y la ubicación de eventos externos como incendios. Estos datos permiten un análisis posterior del comportamiento emergente del sistema.
+Al finalizar cada simulación, se exportan datos relevantes a archivos de salida, incluyendo:
 
-\subsection{Configurabilidad}
-
-Se incluyen métodos \texttt{Set} para ajustar los parámetros más relevantes del modelo:
 \begin{itemize}
-    \item Radio de cohesión
-    \item Radio de influencia de líderes
-    \item Velocidad máxima
-    \item Definición inicial del rol de liderazgo
+    \item Posiciones de los nodos
+    \item Roles asignados (líder o seguidor)
+    \item Trayectorias seguidas
+    \item Ubicación de eventos externos (e.g., incendios)
 \end{itemize}
 
-Esto permite ejecutar múltiples experimentos modificando dinámicamente los parámetros del modelo, facilitando su validación bajo distintos escenarios.
+Esta información permite un análisis post-simulación de métricas clave como cobertura, tiempo de respuesta o efectividad en la extinción de eventos.
+
+\subsection{Configurabilidad del modelo}
+
+La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes:
+
+\begin{itemize}
+    \item Radio de cohesión de los seguidores
+    \item Radio de influencia de los líderes
+    \item Velocidad máxima de los nodos
+    \item Frecuencia de actualización de posición
+    \item Inicialización del rol de los nodos (porcentaje de líderes)
+    \item Parámetros del WCA (pesos, umbrales de energía, distancia, etc.)
+\end{itemize}
+
+Esta configurabilidad permite experimentar con múltiples condiciones y validar el comportamiento del sistema bajo distintos escenarios.
 
 \subsection{Simulación de escenarios}
 
-Finalmente, con el fin de evaluar el impacto de permitir que un nodo seguidor aislado se autoproclame temporalmente como líder, se diseñaron tres escenarios de simulación. Cada uno busca analizar cómo esta decisión afecta la efectividad global en la extinción de fuegos, medida principalmente a través del tiempo promedio de extinción y el número total de fuegos extinguidos en un período fijo.
+Con el objetivo de evaluar el impacto del liderazgo dinámico en la efectividad de la red, se diseñaron y ejecutaron tres escenarios distintos. Cada uno varía condiciones como el número de eventos externos, la densidad de nodos y la velocidad promedio. Se analizó principalmente:
+
+\begin{itemize}
+    \item El tiempo promedio de extinción de incendios
+    \item La cobertura efectiva del área de eventos
+    \item El número total de eventos gestionados con éxito
+\end{itemize}
+
+Estos escenarios permitieron medir el rendimiento y adaptabilidad del modelo bajo condiciones realistas y dinámicas.
 
 
 \section{Código Fuente}\label{sec:cod}
