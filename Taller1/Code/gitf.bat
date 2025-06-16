@@ -6,6 +6,7 @@ REM Script de automatización para flujos básicos de Git y GitHub CLI (Batch)
 REM Uso:
 REM   gitf.bat modo [parametros]
 REM Modos:
+REM   statusFetch           : Hace un status y un fetch
 REM   sync                : Actualiza la rama actual con origin.
 REM   commit <mensaje>    : Agrega, comitea y sube cambios con el mensaje dado (mensaje todo pegado).
 REM   compMain            : Compara la rama actual con main (en ambos sentidos).
@@ -19,10 +20,15 @@ REM --------------------------------------------------------------------------
 REM Obtener rama actual
 for /f %%i in ('git rev-parse --abbrev-ref HEAD') do set MIRAMA=%%i
 
-git fetch origin
-git status
-
 set MODO=%1
+
+REM statusFetch
+if /i "%MODO%"=="statusFetch" (
+    git status
+    git fetch origin
+    git status
+    goto fin
+)
 
 REM sync
 if /i "%MODO%"=="sync" (
@@ -43,7 +49,6 @@ if /i "%MODO%"=="commit" (
     )
     git add .
     git commit -m "!MESSAGE!"
-    git push origin !MIRAMA!
     goto fin
 )
 
@@ -100,12 +105,21 @@ if /i "%MODO%"=="mergePR" (
         echo Uso: gitf.bat mergePR ID
         goto fin
     )
-    gh pr merge %2
-    goto fin
+    for /f %%i in ('gh pr view %2 --json mergeable --jq .mergeable') do set MERGEABLEI=%%i
+
+    if /i "!MERGEABLEI!"=="MERGEABLE" (
+        echo Pull request #%2 está mergeable. Ejecutando merge...
+        gh pr merge %2
+        goto fin
+    ) else (
+        echo Pull request #%2 NO está mergeable "!MERGEABLEI!".
+        REM Aquí podrías abortar el script o tomar otra acción
+        goto fin
+    )
 )
 
 REM Ayuda/uso por defecto
-echo Uso: gitf.bat ^<sync^|commit^|compMain^|pullReqToMain^|upToMain^|openRepo^|viewPRmain^|mergePR^>
+echo Uso: gitf.bat ^<sync^|statusFetch^|commit^|compMain^|pullReqToMain^|upToMain^|openRepo^|viewPRmain^|mergePR^>
 goto fin
 
 :fin
