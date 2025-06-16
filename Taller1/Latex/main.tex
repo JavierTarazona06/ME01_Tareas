@@ -54,8 +54,8 @@
     Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
     Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
     Javier Carrillo & @unal.edu.co \\
-    Grevy & grrinconm@unal.edu.co \\
-    Esteban & @unal.edu.co \\
+    Grevy Joner Rincon Mejia & grrinconm@unal.edu.co \\
+    Esteban Carranza & jcarranza@unal.edu.co \\
     Diego & @unal.edu.co \\
     \end{tabular}
     \par\vspace{3cm}
@@ -75,6 +75,10 @@
 %---------------------------------------------------------------------------------
 
 \section{Introducción}\label{sec:intr}
+
+En un escenario de extinción de incendios forestales mediante drones cooperativos, la comunicación inalámbrica entre los dispositivos se ve constantemente afectada por obstáculos naturales (árboles, relieve), interferencias y la movilidad dinámica del enjambre. Este trabajo aborda un problema concreto: cuando un dron se desconecta momentáneamente del líder de su grupo (Cluster Head) debido a estas adversidades, pierde capacidad de coordinación crítica para la misión, retrasando la respuesta ante focos de incendio y aumentando el consumo energético por retransmisiones.
+
+Para resolver este desafío operativo, proponemos una solución basada en redes MANET jerárquicas, donde los drones desconectados adoptan temporalmente el rol de líder (CH-temporal). Este enfoque práctico se sustenta en modelos teóricos de movilidad grupal y algoritmos de reclusterización dinámica, evaluando umbrales de desconexión basados en calidad de señal, energía remanente y presencia de obstáculos. La implementación en NS-3 demuestra que este método reduce el tiempo de recuperación de conexiones comparado con protocolos tradicionales, manteniendo la efectividad del enjambre incluso en condiciones adversas.
 
 
 %---------------------------------------------------------------------------------
@@ -134,8 +138,6 @@ El repositorio contiene:
 
 \section{Manual Técnico}\label{sec:man_t}
 
-La simulación se desarrolla mediante fases y se implementa a través de una 
-arquitectura modular. Los módulos de la simulación incluyen:
 
 
 \section{Experimentación}\label{sec:exp}

@@ -48,14 +48,31 @@ while true; do
 done
 
 # 4. Ejecución ────────────────
-if [[ -n "$GDB" ]]; then
-  echo "Ejecutando con GDB..."
-  "$NS3_HOME/ns3" run --gdb "$SIM_NAME"
-  exit $?
-else
-  "$NS3_HOME/ns3" run "scratch/$SIM_NAME" | tee "${SIM_NAME}.log"
-  echo "Simulación terminada; log guardado en ${SIM_NAME}.log"
-fi
+while true; do
+  read -rp "¿Deseas ejecutar el programa? [Y/n]: " yn
+  yn="${yn:-Y}"  # Valor por defecto es Y si el usuario solo presiona ENTER
+
+  case "$yn" in
+    [Yy]* )
+      if [[ -n "$GDB" ]]; then
+        echo "Ejecutando con GDB..."
+        "$NS3_HOME/ns3" run --gdb "$SIM_NAME"
+        exit $?
+      else
+        "$NS3_HOME/ns3" run "scratch/$SIM_NAME" | tee "${SIM_NAME}.log"
+        echo "Simulación terminada; log guardado en ${SIM_NAME}.log"
+        break
+      fi
+      ;;
+    [Nn]* )
+      echo "Ejecución cancelada."
+      break
+      ;;
+    * )
+      echo "Por favor, responde con Y (sí) o N (no)."
+      ;;
+  esac
+done
 
 # 5. Visualizar animación ────────────────
 # Pregunta al usuario si desea visualizar NetAnim
