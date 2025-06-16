@@ -23,7 +23,7 @@ class BoidsMobilityModel : public MobilityModel
     static TypeId GetTypeId(void);
     BoidsMobilityModel();
     virtual ~BoidsMobilityModel();
-
+    void EvaluateLeadershipWithWCA(Ptr<const BoidsMobilityModel> otherLeader);
     // Parámetros configurables
     void SetSeparationRadius(double radius);
     void SetAlignmentRadius(double radius);

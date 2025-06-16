@@ -456,6 +456,54 @@ BoidsMobilityModel::IsIsolated() const
     return !hasLeaderInRange;
 }*/
 
+void
+BoidsMobilityModel::EvaluateLeadershipWithWCA(Ptr<const BoidsMobilityModel> otherLeader)
+{
+    // Solo ejecutar esta evaluación para nodos que son líderes
+    if (!m_isLeader || !otherLeader->m_isLeader)
+        return;
+
+    // Calcular distancia entre los líderes (con wrapping)
+    double distance = CalculateWrappedDistance(m_position, otherLeader->DoGetPosition());
+
+    // Solo evaluar si están dentro del radio de influencia de líderes
+    if (distance > m_leaderInfluenceRadius)
+        return;
+
+    // Actualizar métricas WCA para ambos líderes
+    const_cast<BoidsMobilityModel*>(this)->UpdateWcaMetrics();
+    const_cast<BoidsMobilityModel*>(PeekPointer(otherLeader))->UpdateWcaMetrics();
+
+    // Obtener puntuaciones WCA
+    double myScore = CalculateWcaScore();
+    double otherScore = otherLeader->CalculateWcaScore();
+
+    NS_LOG_UNCOND("Evaluación de liderazgo entre "
+                  << GetBoidsNode()->GetId() << " (score: " << myScore << ") y "
+                  << otherLeader->GetBoidsNode()->GetId() << " (score: " << otherScore << ")");
+
+    // Comparar puntuaciones WCA
+    if (myScore < otherScore)
+    {
+        // Este líder tiene peor puntuación, dejar de ser líder
+        SetIsLeader(false);
+        NS_LOG_UNCOND("Nodo " << GetBoidsNode()->GetId()
+                              << " deja de ser líder. Mejor líder encontrado: "
+                              << otherLeader->GetBoidsNode()->GetId());
+
+        // Actualizar clusters
+        UpdateClusterMembership();
+    }
+    else if (myScore > otherScore)
+    {
+        // El otro líder tiene peor puntuación, sugerir que deje de ser líder
+        NS_LOG_UNCOND("Nodo " << otherLeader->GetBoidsNode()->GetId()
+                              << " debería evaluar dejar de ser líder (mejor líder: "
+                              << GetBoidsNode()->GetId() << ")");
+    }
+    // Si las puntuaciones son iguales, no hacer cambios
+}
+
 bool
 BoidsMobilityModel::IsIsolated() const
 {
@@ -503,6 +551,7 @@ BoidsMobilityModel::Update(void)
     // Lógica de autopromoción cuando está aislado
     NS_LOG_UNCOND("Node " << GetBoidsNode()->GetId() << " es lider " << m_isLeader << " isolado"
                           << IsIsolated() << " score " << wcaScore);
+    // Se autoproclama lider al no tener un lider cercano                          
     if (!m_isLeader && IsIsolated() && wcaScore > 0.0)
     {
         NS_LOG_UNCOND("Node se vuelve lider" << GetBoidsNode()->GetId());
@@ -515,6 +564,21 @@ BoidsMobilityModel::Update(void)
         // Nodo con buena puntuación podría convertirse en líder
         m_velocity.x *= 1.05;
         m_velocity.y *= 1.05;
+    }
+    //evalua sí tiene lideres cerca y en caso de tener un WCA score menor deja de ser lider
+    if (m_isLeader)
+    {
+        for (NodeList::Iterator i = NodeList::Begin(); i != NodeList::End(); ++i)
+        {
+            Ptr<Node> node = *i;
+            Ptr<BoidsMobilityModel> other = node->GetObject<BoidsMobilityModel>();
+
+            if (other && other != this && other->m_isLeader)
+            {
+                EvaluateLeadershipWithWCA(other);
+                break; // Solo evaluar con un líder a la vez
+            }
+        }
     }
 
     /*if (m_isLeader && CalculateWcaScore() < 0.5)
