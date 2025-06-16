@@ -173,43 +173,22 @@ Cada nodo actualiza su posición en intervalos regulares de tiempo, considerando
 
 \subsection{Visualización y exportación de datos}
 
-Al finalizar cada simulación, se exportan datos relevantes a archivos de salida, incluyendo:
-
-\begin{itemize}
-    \item Posiciones de los nodos
-    \item Roles asignados (líder o seguidor)
-    \item Trayectorias seguidas
-    \item Ubicación de eventos externos (e.g., incendios)
-\end{itemize}
-
+Al finalizar cada simulación, se exportan datos relevantes a archivos de salida, incluyendo las posiciones de los nodos, los roles asignados (líder o seguidor), las trayectorias seguidas por cada nodo y la ubicación de eventos externos, como los incendios.
 Esta información permite un análisis post-simulación de métricas clave como cobertura, tiempo de respuesta o efectividad en la extinción de eventos.
 
 \subsection{Configurabilidad del modelo}
 
-La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes:
+La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes del comportamiento de los nodos, tales como el radio de cohesión de los seguidores, el radio de influencia de los líderes, la velocidad máxima de los nodos, la frecuencia de actualización de posición, la inicialización del rol de los nodos (porcentaje de líderes), y parámetros del algoritmo WCA como pesos y umbrales de energía o distancia. 
 
-\begin{itemize}
-    \item Radio de cohesión de los seguidores
-    \item Radio de influencia de los líderes
-    \item Velocidad máxima de los nodos
-    \item Frecuencia de actualización de posición
-    \item Inicialización del rol de los nodos (porcentaje de líderes)
-    \item Parámetros del WCA (pesos, umbrales de energía, distancia, etc.)
-\end{itemize}
+En la Figura~\ref{fig:uml-boids} se presenta el diagrama UML de la clase \texttt{BoidsMobilityModel}, donde se observan sus atributos principales, métodos de configuración, y lógica asociada al liderazgo y simulación de incendios.
 
-Esta configurabilidad permite experimentar con múltiples condiciones y validar el comportamiento del sistema bajo distintos escenarios.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{BoidsMobilityModel_class.png}
+    \caption{Diagrama UML de la clase \texttt{BoidsMobilityModel}.}
+    \label{fig:uml-boids}
+\end{figure}
 
-\subsection{Simulación de escenarios}
-
-Con el objetivo de evaluar el impacto del liderazgo dinámico en la efectividad de la red, se diseñaron y ejecutaron tres escenarios distintos. Cada uno varía condiciones como el número de eventos externos, la densidad de nodos y la velocidad promedio. Se analizó principalmente:
-
-\begin{itemize}
-    \item El tiempo promedio de extinción de incendios
-    \item La cobertura efectiva del área de eventos
-    \item El número total de eventos gestionados con éxito
-\end{itemize}
-
-Estos escenarios permitieron medir el rendimiento y adaptabilidad del modelo bajo condiciones realistas y dinámicas.
 
 
 \section{Código Fuente}\label{sec:cod}
@@ -267,12 +246,15 @@ El repositorio contiene:
 
 \section{Conclusiones}\label{sec:concl}
 
+La integración del modelo Boids permite simular comportamientos realistas en redes móviles
+El uso del modelo Boids reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET (redes móviles ad hoc) en situaciones como búsqueda, exploración o evacuación.
 %---------------------------------------------------------------------------------
 % Recomendaciones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
 \section{Recomendaciones}\label{secrecomen}
 
+Aunque el movimiento fue simulado correctamente, se recomienda analizar también cómo este afecta la calidad de las comunicaciones (ej. transmisión de datos entre nodos), especialmente al estar en constante movimiento y ante interrupciones externas.
 
 \section{Referencias}
 \renewcommand{\refname}{}
