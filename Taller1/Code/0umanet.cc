@@ -444,7 +444,7 @@ void UpdateMobilityFollowers(){
 /*------------------------------------------------
     Reelección de líderes
 ------------------------------------------------*/
- // TODO: Modificar para segpún parámetros del notion
+ 
 double ComputeNodeWeight(Ptr<Node> node)
 {
   double channelQ = node->GetId() % 5 + 1;
