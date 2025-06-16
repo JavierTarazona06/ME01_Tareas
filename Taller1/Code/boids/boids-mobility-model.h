@@ -13,7 +13,6 @@
 
 #include <fstream>
 #include <vector>
-
 namespace ns3
 {
 
@@ -32,7 +31,9 @@ class BoidsMobilityModel : public MobilityModel
     void SetMaxSpeed(double speed);
     void SetIsLeader(bool isLeader);
     static void SetOutputFile(std::ofstream* outFile);
-
+    static std::vector<Vector> getSpotsPoissonSpacial(
+        uint32_t n, double areaX = 1000.0, double areaY = 1000.0,
+        uint32_t k = 5, double desviacion = 10.0);
     Time GetFireInterval() const
     {
         return s_fireInterval;
@@ -54,8 +55,29 @@ class BoidsMobilityModel : public MobilityModel
     }
 
     // Métodos estáticos para manejar fuegos
+    uint32_t GetClusterCount() const
+    {
+        return s_clusterCount;
+    }
+
+    void SetClusterCount(uint32_t count)
+    {
+        s_clusterCount = count;
+    }
+
+    double GetClusterDeviation() const
+    {
+        return s_clusterDeviation;
+    }
+
+    void SetClusterDeviation(double deviation)
+    {
+        s_clusterDeviation = deviation;
+    }
     static void AddRandomFire();
     static void CheckFireProximity();
+    // Método para generar fuegos usando Thomas cluster process
+    static std::vector<Vector> GetSpotsPoissonSpacial(uint32_t n, double areaX = 1000.0, double areaY = 1000.0, uint32_t k = 5, double desviacion = 10.0);
 
     double CalculateWcaScore() const;
 
@@ -100,6 +122,10 @@ class BoidsMobilityModel : public MobilityModel
     static Ptr<UniformRandomVariable> s_fireRng;
     static Time s_fireInterval;
     static double s_fireRadius;
+    // Parámetros para Thomas cluster process
+    static uint32_t s_clusterCount;
+    static double s_clusterDeviation;
+    static std::vector<Vector> s_clusterCenters;
     void UpdateWcaMetrics();
     bool IsIsolated() const;
     double CalculateWrappedDistance(const Vector& a, const Vector& b) const;
