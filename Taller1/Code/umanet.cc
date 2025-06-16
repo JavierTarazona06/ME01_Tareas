@@ -15,11 +15,11 @@ NS_LOG_COMPONENT_DEFINE ("MiCmpt");
 
 // Parámetros de la simulación
 
-// Coeficientes para el cálculo de peso
+// Coeficientes para el cálculo de peso de acoplamiento
 static const double w1 = 0.7; // calidad de la señal
 static const double w2 = 0.2; // batería
-static const double w3 = 0.05; // obstaculos
-static const double w4 = 0.025; // nodos conectados
+static const double w3 = 0.05; // obstaculos (-)
+static const double w4 = 0.025; // nodos conectados (-)
 static const double w5 = 0.025; // distancia a foco incendio
 
 static const double AREAX = 30;
@@ -41,7 +41,7 @@ static const double DELTA_TIME = 0.1; // Tiempo entre movimientos
 static const double NFIRES = 3; // Número de incendios
 static const double NFIRESSPOTS = 3; // Número de focos de incendio
 static const uint32_t FIRERESISTANCE = 250; // Resistencia del fuego
-static const uint32_t SHOOTPOWER = 5; // Resistencia del fuego
+static const uint32_t SHOOTPOWER = 5; // Valor que le resta a la resistencia del fuego
 static const uint32_t TXSHOOT = 1.5; // Rango de ataque
 
 static const Vector LEADERSTARTPOS(10.0, 0, 0);
@@ -848,11 +848,12 @@ void RunSimulation (double simTime)
 }
 
 int main(int argc, char* argv[]){
+    //RandomUniform(0, 9999999)
     ns3::RngSeedManager::SetSeed(
-        RandomUniform(0, 9999999)
+        3  
     );    // Ejemplo: semilla = 3
     ns3::RngSeedManager::SetRun(
-        RandomUniform(0, 9999999)
+        7
     );     // y corrida = 7
 
     LogComponentEnable ("MiCmpt", LOG_LEVEL_ERROR);
@@ -903,8 +904,8 @@ int main(int argc, char* argv[]){
     /*------------------------------------------------
         Reelección de líderes
     ------------------------------------------------*/
-    /*Simulator::Schedule(Seconds (ELECT_UPDATE_TIME), // Programa la reelección de líderes
-        &RunWCAClustering); */
+    Simulator::Schedule(Seconds (ELECT_UPDATE_TIME), // Programa la reelección de líderes
+        &RunWCAClustering);
 
     /*------------------------------------------------
         Animación

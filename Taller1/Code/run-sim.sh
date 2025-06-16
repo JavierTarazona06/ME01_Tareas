@@ -61,7 +61,7 @@ while true; do
       else
         "$NS3_HOME/ns3" run "scratch/$SIM_NAME" | tee "${SIM_NAME}.log"
         echo "Simulación terminada; log guardado en ${SIM_NAME}.log"
-        exit 0
+        break
       fi
       ;;
     [Nn]* )
