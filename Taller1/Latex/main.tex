@@ -627,6 +627,15 @@ En la Figura~\ref{fig:uml-boids} se presenta el diagrama UML de la clase \texttt
     \label{fig:uml-boids}
 \end{figure}
 
+\section{Diagrama de Flujo de la Simulación}
+El diagrama de flujo de la simulación ilustra el proceso general de la simulación, desde la inicialización de los nodos y su asignación de roles, hasta la actualización periódica de sus posiciones y la gestión de incendios. En cada iteración, los nodos evalúan su estado, actualizan sus posiciones según las reglas del modelo Boids, y determinan si deben asumir un rol de líder temporal en caso de estar aislados.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{flow_simulation_diagram.png}
+    \caption{Diagrama de flujo de la simulación.}
+    \label{fig:uml-flow}
+\end{figure}
+
 \section{Modelos Estocásticos y Distribuciones Empleadas en la Simulación de MANET para Extinción de Fuegos}
 
 La simulación de Redes Ad Hoc Móviles (MANET) para la extinción de fuegos incorpora elementos de aleatoriedad para simular un comportamiento realista tanto en el entorno como en los nodos. Esto se logra mediante el empleo de diversos modelos estocásticos y distribuciones de probabilidad.
