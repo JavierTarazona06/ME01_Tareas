@@ -814,6 +814,98 @@ static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
 % Manual Técnico ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
+\section{Manual Técnico}
+\subsection{Requisitos para Ejecutar la Simulación}\label{subsec:requisitos}
+
+A continuación se detallan los requisitos necesarios para ejecutar la simulación en NS-3 bajo WSL:
+
+\begin{itemize}
+    \item \textbf{Entorno linux (Para este ejemplo se uso WSL con Ubuntu 24.04)}:
+    \begin{itemize}
+        \item Paquetes esenciales instalados:
+        \begin{verbatim}
+        sudo apt update && sudo apt upgrade -y
+        sudo apt install build-essential git python3 python3-pip
+        \end{verbatim}
+    \end{itemize}
+    \item \textbf{NS-3 (versión 3.37+)}: Descargado desde \url{https://www.nsnam.org/}.
+    \item \textbf{Sistema operativo}: Windows 10/11 con \textbf{WSL} configurado.
+    \item \textbf{Almacenamiento}: 6 GB libres.
+    \item \textbf{Python 3.8+} con librerías:
+    \begin{verbatim}
+    pip install matplotlib numpy pandas
+    \end{verbatim}
+\end{itemize}
+
+\subsubsection{Configuraciones Adicionales}\label{subsubsec:config}
+\begin{itemize}
+    \item Permisos de \texttt{sudo} en WSL.
+    \item Variables de entorno (\texttt{PATH}) configuradas.
+\end{itemize}
+
+\subsection{Estructura del Código}
+El proyecto consta de los siguientes componentes principales:
+
+\begin{itemize}
+\item \texttt{boids-mobility-model.h}: Definición de la clase \texttt{BoidsMobilityModel}
+\item \texttt{boids-mobility-model.cc}: Implementación del modelo de movilidad
+\item \texttt{main.cc}: Configuración y ejecución de la simulación
+\end{itemize}
+
+\subsection{Implementación del Modelo Boids}
+
+\subsubsection{Reglas Boids Implementadas}
+El modelo implementa las tres reglas clásicas de Boids:
+
+\begin{enumerate}
+\item \textbf{Separación}: Evitar colisiones con vecinos cercanos
+\item \textbf{Alineación}: Alinear velocidad con vecinos cercanos
+\item \textbf{Cohesión}: Moverse hacia el centro de masa del grupo
+\end{enumerate}
+
+\subsubsection{Jerarquía Líder-Seguidor}
+\begin{itemize}
+\item Los nodos líderes tienen comportamiento diferente a los seguidores
+\item Los líderes buscan fuegos en el entorno
+\item Los seguidores siguen a los líderes y aplican las reglas Boids
+\end{itemize}
+
+
+\subsection{Ejecución de la Simulación}
+
+\subsubsection{Compilación}
+{\small\begin{verbatim}
+$ ./ns3 clean
+$ ./ns3 configure --build-profile=debug --enable-examples --enable-tests
+$ ./ns3 build -j$(nproc)
+\end{verbatim}}
+
+\subsubsection{Ejecución}
+{\small\begin{verbatim}
+$ ./ns3 run scratch/manet_boids --nClusterHeads=2 --nFollowers=10
+
+Las variables son opcionales, en caso de no especificarse nClusterHeads=2 nFollowers=10 se toman por defecto
+\end{verbatim}}
+
+\subsection{Salida de Datos}
+
+\subsubsection{Formato del Archivo CSV}
+La simulación genera un archivo \texttt{boids\_positions.csv} con el formato:
+
+\begin{verbatim}
+Time,NodeId,X,Y,IsLeader,IsFire
+0.1,1,125.3,87.2,1,0
+0.1,2,120.5,90.1,0,0
+0.1,-1,300.0,400.0,0,1
+\end{verbatim}
+
+\begin{itemize}
+\item Time: Tiempo del evento en milisegundos
+\item NodeId: Id del nodo relacionado al evento, se usa -1 para elementos que no sean nodos
+\item X: posición en $x$
+\item Y: Coordenadas en $y$
+\item isFire: Para especificar que es fuego el nodo
+\end{itemize}
 \section{Experimentación}\label{sec:exp}
 
 Para probar la hipótesis, se introduce una \textbf{funcionalidad clave} en la Condición Experimental que modifica el comportamiento de los nodos seguidores. Un nodo seguidor (\texttt{!m\_isLeader}) ahora tiene la capacidad de \textbf{autoproclamarse temporalmente como líder} si cumple las siguientes condiciones, evaluadas en cada ciclo de \texttt{Update()}:
