@@ -6,6 +6,7 @@
 \usepackage{titletoc}
 \usepackage{adjustbox}
 
+\usepackage{listings}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue, % Color del texto del enlace
@@ -211,12 +212,168 @@ El repositorio contiene:
 \item Archivo de métricas (\texttt{metrics.py})
 \end{itemize}
 
+\section{Manual Usuario}\label{sec:man_u}
+
 %---------------------------------------------------------------------------------
 % Manual Usuario ---------------------------------------------------------
 %---------------------------------------------------------------------------------
+Este manual guiará al usuario a través de los pasos necesarios para instalar NS-3 en un entorno WSL (Windows Subsystem for Linux), configurar los archivos para la simulación de boids y ejecutar dicha simulación, así como visualizar sus resultados.
+\section*{\textbf{1. Instalación de NS-3 en WSL}}
+Para instalar NS-3, se recomienda usar WSL, preferentemente con Ubuntu .
 
-\section{Manual Usuario}\label{sec:man_u}
+\begin{itemize}
+    \item \textbf{Iniciar WSL}: Abre tu terminal WSL.
+    \item \textbf{Actualizar Paquetes}: Ejecuta el siguiente comando para actualizar la lista de paquetes:
+    \begin{lstlisting}
+sudo apt update 
+    \end{lstlisting}
+    \item \textbf{Instalar Dependencias Esenciales}: Instala las herramientas de compilación y descompresión necesarias:
+    \begin{lstlisting}
+sudo apt install g++
+sudo apt install bzip2
+sudo apt install make 
+sudo apt-get install cmake 
+    \end{lstlisting}
+    \item \textbf{Configurar Alias de Python}: NS-3 utiliza Python 3. Para asegurarte de que el comando \texttt{python} apunte a \texttt{python3}, añade un alias a tu archivo \texttt{.bashrc} y recarga la configuración:
+    \begin{lstlisting}
+echo alias python=python3 >> ~/.bashrc 
+source ~/.bashrc 
+    \end{lstlisting}
+\end{itemize}
 
+\section*{\textbf{2. Descarga y Preparación de NS-3}}
+
+\begin{itemize}
+    \item \textbf{Navegar a la Carpeta de Instalación}: Dentro de WSL, tu sistema de archivos de Windows se encuentra en \texttt{/mnt/c} (si tu partición es C:) o \texttt{/mnt/d} (si es D:). Navega a la carpeta donde deseas instalar NS-3. Por ejemplo:
+    \begin{lstlisting}
+cd /mnt/c/Users/TuUsuario/Documentos/NS3_Projects 
+    \end{lstlisting}
+    \item \textbf{Descargar NS-3}: Descarga el archivo \texttt{ns-allinone-3.45.tar.bz2} desde la página oficial de NS-3 (\url{https://www.nsnam.org/releases/ns-allinone-3.45.tar.bz2}) y guárdalo en la carpeta deseada. Es preferible hacerlo desde el navegador web de Windows y luego acceder a la ruta desde WSL.
+    \item \textbf{Extraer Archivos}: Una vez descargado, descomprime el archivo tar.bz2:
+    \begin{lstlisting}
+tar xjf ns-allinone-3.45.tar.bz2
+    \end{lstlisting}
+    \textit{Nota: Aunque las fuentes mencionan \texttt{ns-3.45.tar.bz2} , el paso de descarga sugiere \texttt{ns-allinone-3.45.tar.bz2}.}
+    \item \textbf{Acceder al Directorio de NS-3}: Navega al directorio principal de NS-3:
+    \begin{lstlisting}
+cd ns-3.45  
+    \end{lstlisting}
+\end{itemize}
+
+\section*{\textbf{3. Configuración y Compilación de NS-3}}
+
+Desde el directorio \texttt{ns-3.45} (o la versión que estés usando), ejecuta los siguientes comandos:
+
+\begin{itemize}
+    \item \textbf{Limpiar Compilación (Opcional pero recomendado)}:
+    \begin{lstlisting}
+./ns3 clean 
+    \end{lstlisting}
+    \item \textbf{Configurar NS-3}: Este paso configura el entorno de compilación. Asegúrate de incluir las opciones para depuración, ejemplos, pruebas y NetAnim:
+    \begin{lstlisting}
+./ns3 configure \
+--build-profile=debug \
+--enable-examples \
+--enable-tests \
+--enable-build-version \
+-- -DNS3_NETANIM=ON 
+    \end{lstlisting}
+    \item \textbf{Compilar NS-3}: Este comando compila todo el proyecto NS-3. Puedes usar la opción \texttt{-j\$(nproc)} para utilizar todos los procesadores de tu equipo y acelerar la compilación:
+    \begin{lstlisting}
+./ns3 build 
+    \end{lstlisting}
+    Alternativamente, para usar todos los procesadores:
+    \begin{lstlisting}
+./ns3 build -j$(nproc) 
+    \end{lstlisting}
+    \item \textbf{Verificar la Instalación (Opcional)}:
+    \begin{itemize}
+        \item Ejecutar pruebas: \texttt{./test.py} 
+        \item Ejecutar un ejemplo básico: \texttt{./ns3 run first} 
+        \item Mostrar la versión instalada: \texttt{./ns3 show version} 
+    \end{itemize}
+\end{itemize}
+
+\section*{\textbf{4. Configuración y Ejecución de la Simulación de Boids}}
+
+La simulación de boids implica modificar y añadir archivos al proyecto NS-3, de los ya presentes para una mayor simplicidad. Sin embargo tambien puedes crear links simbólicos a los archivos necesarios en el directorio \texttt{scratch} de NS-3. A continuación se detallan los pasos para configurar y ejecutar la simulación de boids:
+
+\begin{itemize}
+    \item \textbf{Crear el Archivo Principal del Proyecto (\texttt{boids.cc})}:
+    \begin{itemize}
+        \item Copia el archivo llamado \texttt{boids.cc} en el subdirectorio \texttt{scratch} de tu instalación NS-3. Por convención, se hace en \texttt{ns-allinone-3.45/ns-3.45/scratch} .
+        \item El contenido de este archivo lo puedes encontrar en repositorio proporcionado anteriormente.
+    \end{itemize}
+    \item \textbf{Añadir Modelos de Movilidad}:
+    \begin{itemize}
+        \item Copia los archivos \textbf{\texttt{boids-mobility-model.cc}} y \textbf{\texttt{boids-mobility-model.h}} a la ruta \texttt{ns3.xx/src/mobility/model}.
+        \item El contenido de \texttt{boids-mobility-model.cc} se encuentra en los extractos de "Modelo de Movilidad Boids con Liderazgo Adaptativo".
+        \item El contenido de \texttt{boids-mobility-model.h} se encuentra en los extractos de "Modelo de Movilidad Boids para Redes Inalámbricas".
+    \end{itemize}
+    \item \textbf{Modificar \texttt{CMakeLists.txt}}:
+    \begin{itemize}
+        \item Debes modificar el archivo \texttt{ns3.xx/src/mobility/CMakeLists.txt}.
+        \item Añade la línea \texttt{model/boids-mobility-model.cc} para que se compile.
+    \end{itemize}
+    \item \textbf{Recompilar NS-3}: Después de hacer estos cambios, necesitas volver a compilar NS-3 para que los nuevos archivos se integren:
+    \begin{lstlisting}
+./ns3 build 
+    \end{lstlisting}
+    O, para usar todos los procesadores:
+    \begin{lstlisting}
+./ns3 build -j$(nproc) 
+    \end{lstlisting}
+    \item \textbf{Ejecutar la Simulación de Boids}:
+    \begin{itemize}
+        \item Desde el directorio principal de NS-3 (\texttt{ns-3.43}), ejecuta tu proyecto de boids:
+        \begin{lstlisting}
+./ns3 run scratch/boids 
+        \end{lstlisting}
+        (Asumiendo que tu archivo se llama \texttt{boids.cc} en la carpeta \texttt{scratch}).
+    \end{itemize}
+\end{itemize}
+
+\section*{\textbf{5. Parámetros y Salida de la Simulación de Boids}}
+
+\begin{itemize}
+    \item \textbf{Modificar Parámetros de la Simulación}:
+    \begin{itemize}
+        \item Puedes ajustar el número de líderes (Cluster-Heads) y miembros directamente en el archivo \texttt{boids.cc}.
+        \item Busca las siguientes líneas y modifica los valores según necesites:
+        \begin{lstlisting}[language=C++]
+static const uint32_t N_CH = 2; // Cantidad de lideres (Cluster-Heads) 
+static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
+        \end{lstlisting}
+        \textit{Recuerda recompilar después de modificar \texttt{boids.cc} para que los cambios surtan efecto.}
+    \end{itemize}
+    \item \textbf{Generación de Datos}:
+    \begin{itemize}
+        \item El programa \texttt{boids.cc} \textbf{genera un archivo \texttt{boids\_positions.csv}}.
+        \item Este archivo contiene datos de tiempo, ID del nodo, coordenadas X e Y, si el nodo es líder (\texttt{IsLeader}), y si la entrada representa un fuego (\texttt{IsFire}).
+    \end{itemize}
+\end{itemize}
+
+\section*{\textbf{6. Visualización de la Simulación}}
+
+\begin{itemize}
+    \item \textbf{Script de Visualización}:
+    \begin{itemize}
+        \item El archivo \texttt{boids\_positions.csv} se utiliza con el script de Python \textbf{\texttt{showNodes.py}} para visualizar la simulación.
+        \item El script \texttt{showNodes.py} lee los datos del CSV y utiliza \texttt{matplotlib} para animar el movimiento de los boids y la aparición de fuegos.
+    \end{itemize}
+    \item \textbf{Características de \texttt{showNodes.py}}:
+    \begin{itemize}
+        \item \textbf{Boids}: Se dibujan como puntos, con \textbf{líderes en rojo y seguidores en azul}.
+        \item \textbf{Fuegos}: Se dibujan como \textbf{triángulos amarillos} [72].
+        \item \textbf{Zonas de Influencia de Líderes}: Se representan como círculos rojos con transparencia alrededor de los líderes, con un radio de 100.
+        \item \textbf{Controles de Visibilidad}: Puedes activar o desactivar la visualización de fuegos y zonas de líderes mediante botones interactivos.
+    \end{itemize}
+    \item \textbf{Ejecutar la Visualización}:
+    \begin{itemize}
+        \item Asegúrate de que \texttt{showNodes.py} esté en la misma carpeta que \texttt{boids\_positions.csv}.
+        \item Ejecuta el script de Python: \texttt{python showNodes.py}
+    \end{itemize}
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual Técnico ---------------------------------------------------------
