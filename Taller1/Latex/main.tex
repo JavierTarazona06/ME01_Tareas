@@ -1148,18 +1148,33 @@ Se utilizaron trazas en NetAnim para observar la evolución espacial de los nodo
 %---------------------------------------------------------------------------------
 
 \section{Conclusiones}\label{sec:concl}
+\begin{itemize}
+    \item \textbf{Liderazgo distribuido adaptativo:}  
+    La propuesta desarrollada demuestra que las redes MANET pueden beneficiarse significativamente al incorporar mecanismos que combinen movilidad colectiva con toma de decisiones distribuidas. Al permitir que nodos seguidores asuman roles activos de forma temporal en ausencia de líderes cercanos, se potencia la capacidad de respuesta local sin comprometer la estructura general del sistema. Este enfoque no solo mejora la cobertura en escenarios dinámicos, sino que también reduce la dependencia de la conectividad continua con nodos jerárquicos, promoviendo una mayor autonomía operativa. La interacción entre comportamiento grupal, percepción del entorno y lógica de liderazgo demuestra ser una vía efectiva para enfrentar entornos altamente cambiantes y exigentes como los de emergencia.
 
-La integración del modelo Boids permite simular comportamientos realistas en redes móviles
+    \item \textbf{Realismo en la movilidad gracias al modelo Boids:}  
+    La integración del modelo Boids permite simular comportamientos realistas en redes móviles. El uso de este modelo reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET en situaciones como búsqueda, exploración o evacuación.
+
+    \item \textbf{Limitaciones observadas en cohesión y liderazgo:}  
+    La fuerza de cohesión y la frecuencia de evaluación del liderazgo podrían estar subestimadas. También puede ser necesario un sistema de búsqueda activa de líderes o una mejor gestión del rango de cohesión. Esto se evidencia en los escenarios de prueba, donde muchos seguidores se separaban de su líder a medida que avanzaba la simulación.
+\end{itemize}
+
 El uso del modelo Boids reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET (redes móviles ad hoc) en situaciones como búsqueda, exploración o evacuación.
 
-La fuerza de cohesión y la frecuencia de evaluación del liderazgo podrían estar subestimadas. También puede ser necesario un sistema de búsqueda activa de líderes o una mejor gestión del rango de cohesión. Esto se evidencia en los escenarios de prueba, donde se evidenció que muchos seguidores se separaban de su líder a medida que avanzava la simulación.
 %---------------------------------------------------------------------------------
 % Recomendaciones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
 \section{Recomendaciones}\label{secrecomen}
+\begin{itemize}
+    \item Aunque el movimiento fue simulado correctamente, se recomienda analizar también cómo este afecta la \textbf{calidad de las comunicaciones}, especialmente en entornos con interrupciones externas o desplazamientos abruptos. Esto incluye evaluar métricas como la pérdida de paquetes, la latencia o la variación en el rendimiento de transmisión.
 
-Aunque el movimiento fue simulado correctamente, se recomienda analizar también cómo este afecta la calidad de las comunicaciones (ej. transmisión de datos entre nodos), especialmente al estar en constante movimiento y ante interrupciones externas.
+    \item Se sugiere incorporar un \textbf{modelo más avanzado de propagación de señal} en futuras simulaciones, que considere interferencias, obstáculos y degradación dinámica del canal, para obtener resultados más precisos y representativos de entornos reales.
+
+    \item Es recomendable realizar pruebas con diferentes \textbf{tamaños de red} y escenarios más extensos (mayor número de nodos y áreas más grandes) para validar la escalabilidad del sistema propuesto y observar cómo se comporta el liderazgo adaptativo bajo condiciones de mayor carga.
+\end{itemize}
+
+
 
 \section{Referencias}
 \renewcommand{\refname}{}
