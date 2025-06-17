@@ -46,7 +46,6 @@
 
     % Detalles del laboratorio y actividad
     {\large \textbf{Taller 1} \par}
-    {\large Taller 1 \par}
     \vspace{3cm}
 
     % Lista de integrantes
@@ -56,10 +55,10 @@
     Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
     Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
     Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
-    Javier Carrillo & @unal.edu.co \\
+    Javier Andres Carrillo Carrasco & jacarrillo@unal.edu.co \\
     Grevy Joner Rincon Mejia & grrinconm@unal.edu.co \\
     Esteban Carranza & jcarranza@unal.edu.co \\
-    Diego & @unal.edu.co \\
+    Diego Nicolas Ramirez Maldonado & dieramirezma@unal.edu.co \\
     \end{tabular}
     \par\vspace{3cm}
 
@@ -150,31 +149,13 @@ La incorporación de una \textbf{estructura jerárquica} en redes MANET aporta v
 La implementación de una arquitectura jerárquica de dos niveles presenta desafíos significativos, entre los cuales destacan los siguientes al modelar o simular redes MANET:
 
 \begin{enumerate}
-    \item \textbf{Doble escala mal representada.}
-    En muchos modelos clásicos se asume que todos los nodos tienen un comportamiento homogéneo. Sin embargo, en redes jerárquicas, los \textit{Cluster Heads} (CH) tienden a funcionar como centros de actividad en torno a los cuales se agrupan los nodos miembros. Esta diferencia de roles genera patrones de movilidad no uniformes que no son capturados adecuadamente por modelos planos, lo que lleva a una subestimación de los eventos de reelección de CH y a una sobrevaloración de la estabilidad estructural del \textit{backbone}.
-
-    \item \textbf{Dependencia temporal.}
-    Modelos como \textit{Random Waypoint} tienden a reducir la velocidad promedio de los nodos a largo plazo. En el contexto jerárquico, esto provoca que el nodo líder del clúster parezca detenerse progresivamente, generando enlaces que duran más de lo realista y métricas optimistas de persistencia de ruta y frecuencia de \textit{handoff}.
-
-    \item \textbf{Dependencia espacial y concentración central.}
-    Algunos modelos de movilidad tienden a generar un sesgo hacia el centro del área de simulación, concentrando la presencia de \textit{Cluster Heads} (CH) en esa zona y dejando regiones periféricas con baja densidad. Este desequilibrio produce una topología poco representativa, donde se subestiman los problemas de conectividad en los bordes y se distorsiona el análisis del retardo y la resiliencia del \textit{backbone}.
-
-    \item \textbf{Restricciones geográficas y obstáculos físicos.}
-    En escenarios con edificios, montañas u otras estructuras, los modelos de movilidad con trayectorias fijas como \textit{Pathway} u \textit{Obstacle Mobility} obligan a los clústeres a rodear dichos obstáculos. Esto genera oscilaciones abruptas en la cantidad de saltos entre CH y puede provocar particiones momentáneas de la red, afectando la continuidad del servicio y la estabilidad de las rutas.
-
-    \item \textbf{Limitaciones de los modelos de movilidad grupal.}
+    \item \textbf{Limitaciones de los modelos de movilidad grupal.} 
     Modelos como \textit{RPGM} asumen que todos los nodos siguen de forma continua al líder del grupo, sin considerar dinámicas más complejas como divisiones o fusiones entre clústeres. Esta simplificación conlleva una subestimación del tráfico de control necesario para mantener la cohesión del grupo y oculta pérdidas de paquetes que ocurren cuando los nodos se desconectan momentáneamente del clúster.
 
     \item \textbf{Costos asociados al re-clustering.}
     Cuando un \textit{Cluster Head} se desplaza rápidamente o pierde conectividad con sus nodos, debe transferir su rol a otro nodo, lo que implica procesos de reelección, resincronización de slots temporales (e.g. TDMA) y actualización de estados. Este comportamiento genera ráfagas de mensajes de control, elevando el consumo energético y el uso del canal en momentos críticos de inestabilidad topológica.
 
-    \item \textbf{Inconsistencias en el direccionamiento jerárquico.}
-    En muchos modelos no se simula el retardo que implica actualizar los prefijos jerárquicos o identificadores de clúster en las tablas de encaminamiento. Durante esta latencia, pueden aparecer retransmisiones innecesarias, rutas erróneas o bucles de reenvío, lo que degrada la eficiencia de la red y la coherencia del plano de control.
-
-    \item \textbf{Interferencia entre enlaces CH y nodos miembros.}
-    Dado que el canal de comunicación es compartido, los enlaces entre \textit{Cluster Heads} y los flujos intra-clúster pueden interferirse mutuamente, especialmente cuando dos clústeres se solapan geográficamente. Esto genera colisiones, pérdidas de paquetes y disminución en la tasa de entrega y el \textit{throughput}, afectando el rendimiento global si no se simula la coordinación inter-clúster.
-
-    \item \textbf{Problemas de escalabilidad del escenario.}
+    \item \textbf{Problemas de escalabilidad del escenario.} 
     En áreas pequeñas, los clústeres tienden a rebotar en los límites del entorno simulado, generando patrones artificiales de movimiento. En cambio, en áreas demasiado grandes, pueden aparecer vacíos entre los CH y los nodos, provocando aislamiento temporal. Estas variaciones hacen que los resultados obtenidos sean altamente sensibles al tamaño del escenario, dificultando su extrapolación a redes reales.
 
     \item \textbf{Ausencia de trazas jerárquicas reales.}
@@ -225,27 +206,37 @@ Si bien los protocolos de enrutamiento basados en clústeres ofrecen ventajas si
 
 En el contexto de este trabajo, el \textbf{protocolo Cluster-Based} se extiende mediante la introducción del \textbf{nodo CH-temporal}, el cual actúa como \textbf{entidad de recuperación local} durante eventos de desacoplamiento, reduciendo la \textbf{latencia de re-clusterización} y manteniendo la \textbf{conectividad intra-clúster}.
 
-\subsubsection{Algoritmo WCA (Weighted Clustering Algorithm)}
+\subsubsection{Liderazgo dinámico y algoritmo WCA}
 
-El \textbf{algoritmo WCA (Weighted Clustering Algorithm)} es una estrategia de enrutamiento jerárquico empleada para la selección dinámica de nodos líderes en redes MANET. A diferencia de enfoques que utilizan criterios únicos, WCA implementa una política de decisión basada en la combinación ponderada de múltiples factores que influyen en la estabilidad y eficiencia del clúster.
+Cada nodo puede desempeñar el rol de líder o seguidor. Al inicio de la simulación, se asignan aleatoriamente los roles. A los líderes se les asigna un objetivo dentro del área de simulación, el cual puede cambiar en respuesta a eventos externos.
 
-Cada nodo calcula un \textbf{peso compuesto} $W_i$ mediante la siguiente expresión:
+Si un nodo seguidor se encuentra aislado, es decir, sin un líder en su radio de cohesión, evalúa su potencial de liderazgo utilizando el algoritmo \textit{WCA} (Weighted Clustering Algorithm). Este algoritmo considera múltiples factores que se normalizan para obtener un puntaje de liderazgo (\texttt{WCA\_Score}):
 
-\[
-W_i = w_1 \cdot \Delta_i + w_2 \cdot D_i + w_3 \cdot M_i + w_4 \cdot E_i
-\]
-
-donde:
 \begin{itemize}
-    \item $\Delta_i$: diferencia entre el grado actual del nodo y el grado óptimo de conectividad.
-    \item $D_i$: suma de distancias físicas a los nodos vecinos.
-    \item $M_i$: movilidad promedio del nodo en una ventana de tiempo definida.
-    \item $E_i$: nivel de energía residual disponible.
+    \item \textit{Energía residual} (\(E\)): porcentaje de energía restante del nodo, normalizada en el rango \([0,1]\).
+    \item \textit{Grado de conectividad} (\(D\)): número de vecinos directos, normalizado respecto a un máximo teórico de 10.
+    \item \textit{Distancia a objetivos} (\(T\)): inversa de la distancia promedio del nodo a los objetivos activos, normalizada considerando un rango de hasta 200 metros.
+    \item \textit{Movilidad} (\(M\)): estabilidad del nodo, calculada como la inversa de su velocidad actual, con una velocidad máxima de 10 m/s.
 \end{itemize}
 
-Los coeficientes $w_1, w_2, w_3$ y $w_4$ representan ponderaciones ajustables que permiten adaptar el algoritmo a diferentes condiciones de red, como prioridad energética, baja movilidad o proximidad geográfica.
+El cálculo del puntaje se define como:
 
-El nodo con el menor valor de $W_i$ dentro de su vecindad es seleccionado como líder del clúster, lo que permite formar estructuras más estables, distribuidas y energéticamente balanceadas. Esta lógica contribuye a reducir la frecuencia de reconfiguraciones en entornos con alta movilidad, y ha sido adoptada como base en diversos protocolos jerárquicos por su flexibilidad y capacidad de optimizar múltiples objetivos de red de forma simultánea.
+\[
+{WCA\_Score} = w_1 \cdot E + w_2 \cdot D + w_3 \cdot T + w_4 \cdot M
+\]
+donde los pesos utilizados son:
+
+\[
+w_1 = 0.4, \quad w_2 = 0.3, \quad w_3 = 0.2, \quad w_4 = 0.1
+\]
+
+El resultado se limita al rango \([0, 1]\) mediante:
+
+\[
+{WCA\_Score} = \max\left(0,\ \min\left(1,\ {WCA\_Score}\right)\right)
+\]
+
+El nodo aislado con el mayor \texttt{WCA\_Score} se autonombrará líder en ausencia de otros líderes cercanos.
 
 
 \subsection{Simulación de MANET con ns-3}
@@ -268,27 +259,6 @@ La versión \texttt{3.45} de \texttt{ns-3} proporciona un marco de simulación r
         \item Integración con datos GPS reales mediante \texttt{TraceMobilityHelper}
     \end{itemize}
 
-    \item \textbf{Modelos de propagación de señal} \\
-    Modelos físicos disponibles:
-    \begin{itemize}
-        \item \texttt{TwoRayGroundPropagationLossModel} (entornos abiertos)
-        \item \texttt{LogDistancePropagationLossModel} (escenarios urbanos y suburbanos)
-        \item \textit{Nuevo:} \texttt{ThreeGppPropagationLossModel} para canales 5G/NR
-        \item \texttt{MatrixPropagationLossModel} para simulaciones de interferencia con mapas de calor 3D
-    \end{itemize}
-
-    \item \textbf{Generación de tráfico y calidad de servicio (QoS)} \\
-    Herramientas disponibles:
-    \begin{itemize}
-        \item \texttt{OnOffApplication} (tráfico VoIP o CBR)
-        \item \texttt{BulkSendApplication} (transferencias TCP intensivas)
-    \end{itemize}
-    \textit{Innovaciones en 3.45:}
-    \begin{itemize}
-        \item Módulo \texttt{NrNetDevice} para comunicaciones en bandas milimétricas (mmWave)
-        \item Priorización de tráfico mediante etiquetas \texttt{SocketPriorityTag}
-    \end{itemize}
-
     \item \textbf{Herramientas de análisis y visualización} \\
     Soporte para:
     \begin{itemize}
@@ -308,19 +278,6 @@ La movilidad nodal es un factor crítico que determina el desempeño de redes MA
     \item \textbf{Modelos especializados}: Patrones específicos por aplicación (ej. táctico-militares)
 \end{itemize}
 
-\subsubsection{Modelo de Movilidad Random Waypoint (RWP)}
-El \textbf{Random Waypoint Mobility Model (RWPM)} se adoptó para representar el movimiento de los nodos líderes dentro del área de simulación. Este modelo es uno de los más utilizados en simulaciones de redes MANET debido a su simplicidad y capacidad de generar trayectorias no determinísticas. En RWPM, cada nodo selecciona aleatoriamente una posición de destino dentro del área simulada y se desplaza hacia ella a una velocidad uniforme dentro de un rango definido. Al alcanzar el destino, el nodo realiza una pausa durante un tiempo determinado, y posteriormente repite el proceso seleccionando un nuevo destino.
-
-Este modelo es particularmente adecuado para representar el movimiento autónomo de nodos líderes en entornos abiertos y dinámicos, como vehículos o UAVs en operaciones militares, donde no se sigue una trayectoria fija. Su capacidad para generar trayectorias impredecibles lo hace útil para evaluar la \textbf{resiliencia de los protocolos de enrutamiento} ante cambios topológicos frecuentes, como los que se presentan en redes altamente móviles.
-
-No obstante, el RWPM presenta ciertas limitaciones importantes. Una de ellas es la \textbf{distribución espacial no uniforme} de los nodos: debido a la forma en que se seleccionan los destinos y las pausas, los nodos tienden a concentrarse en el centro del área de simulación, lo que puede sesgar los resultados en escenarios prolongados. Además, el modelo puede experimentar \textbf{problemas de convergencia} en etapas iniciales de la simulación, especialmente cuando las posiciones iniciales son asignadas aleatoriamente, lo que provoca una fase transitoria antes de alcanzar un patrón de movilidad estable.
-
-\subsubsection{Modelo de Movilidad RPGM (Reference Point Group Mobility)}
-El modelo \textbf{RPGM (Reference Point Group Mobility)} es un esquema de movilidad grupal jerárquico ampliamente utilizado en simulaciones de redes MANET, particularmente en escenarios tácticos, de rescate o vehiculares. A diferencia de los modelos de movilidad independiente (e.g., Random Waypoint), RPGM organiza los nodos en grupos con comportamiento espacial coordinado, donde cada grupo sigue un \textit{nodo líder} (punto de referencia) cuya trayectoria define el movimiento colectivo, mientras los nodos miembros mantienen una posición relativa al líder dentro de un radio estocástico $[d_{min}, d_{max}]$. La dinámica del modelo se parametriza mediante dos componentes clave: el \textit{patrón de movimiento del líder} (trayectorias predefinidas o aleatorias) y la \textit{función de desplazamiento} (distribución uniforme o Gaussiana para la variación nodal).
-
-\subsection{Objetivo Principal}
-Este enfoque ofrece ventajas significativas en términos de \textbf{realismo}, puesto que captura comportamientos grupales observados en aplicaciones militares (unidades móviles) o VANETs (convoyes), y \textbf{eficiencia computacional}, al reducir el \textit{overhead} de simulación comparado con modelos totalmente independientes. Sin embargo, presenta limitaciones importantes: requiere sintonización fina de $d_{max}$ para evitar particiones prematuras de grupos, y asume cooperación plena entre nodos sin modelar deserciones aleatorias que puedan ocurrir en escenarios reales.
-
 \subsubsection{Modelo de movilidad Boids}
 
 El modelo de movilidad \textbf{Boids}, propuesto por Craig Reynolds en 1987, simula el comportamiento colectivo de agentes autónomos a partir de reglas locales simples que generan dinámicas emergentes de grupo. Este modelo se basa en tres principios fundamentales:
@@ -338,8 +295,7 @@ Esta aproximación permite generar comportamientos emergentes realistas, como fo
 Sin embargo, el modelo también presenta ciertas limitaciones. Requiere una \textbf{calibración precisa de parámetros} para mantener la cohesión grupal, puede exhibir \textbf{comportamientos impredecibles} en escenarios de gran escala, y demanda una mayor \textbf{carga computacional} que los modelos con control jerárquico.
 
 
-
-\subsection{Marco conceptual y pregunta de indagación}
+\subsection{Integración}
 La integración de los fundamentos teóricos expuestos – particularmente sobre \textbf{movilidad tipo Boids (Sección 2.5.3)}, \textbf{liderazgo adaptativo mediante WCA (Sección 2.3.2)} y \textbf{simulaciones MANET (Sección 2.4)} – revela una brecha operativa crítica en escenarios de emergencia: la ausencia de mecanismos de respuesta inmediata cuando nodos aislados detectan incendios sin líderes cercanos. Este vacío motiva un marco de resiliencia dinámica que sintetiza:
 
 \begin{enumerate}
@@ -391,72 +347,9 @@ Esta estrategia ofrece múltiples beneficios operativos:
 La figura del \texttt{tempCH} funciona, por tanto, como una extensión adaptativa del esquema tradicional de liderazgo jerárquico, dotando al sistema de una \textbf{capacidad de resiliencia distribuida} que fortalece su desempeño ante condiciones altamente dinámicas y demandas imprevistas.
 
 
-\subsubsection{Pregunta de indagación e hipótesis}
-
-La problemática previamente expuesta sugiere una carencia estructural en la capacidad de respuesta de redes MANET con movilidad tipo Boids y liderazgo basado en WCA, especialmente en situaciones donde nodos detectan incendios sin estar asociados a un líder cercano. A partir de este análisis, se formula la siguiente \textbf{pregunta de indagación}:
-
-\begin{quote}
-\textit{¿No será que la \textbf{efectividad global en la extinción de fuegos} (medida por métricas como el tiempo promedio de extinción y el número total de fuegos extinguidos en un periodo dado) \textbf{se incrementa} si se permite que un nodo seguidor que previamente estaba \textbf{aislado} (sin un líder cercano dentro de un radio efectivo de influencia) \textbf{se autoproclame temporalmente como líder} hasta que se encuentre con uno con un mayor WCA?}
-\end{quote}
-
-Con el fin de evaluar esta propuesta, se plantean las siguientes \textbf{hipótesis de trabajo}:
-
-\begin{itemize}
-    \item \textbf{H1:} La introducción de un estado de \texttt{líder temporal} para nodos aislados mejora la \textbf{efectividad operativa} del sistema frente a incendios, permitiendo una reacción más rápida ante eventos emergentes.
-
-    \item \textbf{H2:} La utilización de una política de transición basada en la comparación de WCA entre el nodo temporal y líderes vecinos garantiza una \textbf{reinserción jerárquica eficiente} sin generar conflictos de liderazgo o redundancia de comandos.
-\end{itemize}
-
-Estas hipótesis orientan el diseño experimental y la simulación, así como la selección de métricas para medir el impacto real de la estrategia en escenarios dinámicos y distribuidos.
-
-\subsubsection{Modelo de acoplamiento dinámico}
-El funcionamiento del nodo en estado \texttt{CH-temporal} requiere un mecanismo de decisión que determine el momento oportuno para ceder el rol de liderazgo a un \textit{Cluster Head} (chNode) con mayor capacidad. Esta transición se regula mediante un \textbf{modelo de acoplamiento dinámico}, que evalúa si un nodo en exploración debe acoplarse a un líder detectado en su entorno.
-
-La decisión se fundamenta en una función binaria $a_{ij}(t)$, donde el nodo $i$ considera acoplarse al nodo $j$ (potencial líder), con base en una métrica compuesta $g_{ij}(t)$ llamada \textbf{ganancia efectiva}, y un umbral dinámico $g_{\min}(t)$ que se ajusta según las condiciones de red y movilidad:
-
-\[
-a_{ij}(t) =
-\begin{cases}
-1, & \text{si } g_{ij}(t) \geq g_{\min}(t) \\\\
-0, & \text{si } g_{ij}(t) < g_{\min}(t)
-\end{cases}
-\]
-
-La ganancia efectiva $g_{ij}(t)$ refleja la calidad de enlace entre el nodo en estado temporal y el chNode candidato, y se construye a partir de factores como:
-
-\begin{itemize}
-    \item La \textbf{relación señal/interferencia} (\textbf{SINR}).
-    \item La \textbf{energía restante} del nodo.
-    \item La \textbf{presencia de obstáculos} o condiciones del medio que afecten la propagación.
-    \item La \textbf{distancia relativa} entre el nodo temporal y el candidato a líder.
-    \item El \textbf{valor de WCA} del nodo candidato (integrado como parte del criterio de calidad).
-\end{itemize}
-
-Durante el estado \texttt{tempCH}, el nodo evalúa $g_{ij}(t)$ frente a cada chNode detectado. Si alguno de estos supera el umbral $g_{\min}(t)$, y además posee un \textbf{WCA superior} al del nodo temporal, se activa la transición al estado \texttt{COUPLED}, transfiriendo la coordinación de la zona al chNode correspondiente. En caso contrario, el nodo mantiene su rol temporal y continúa en fase de exploración activa.
-
-Este mecanismo permite que la red preserve una estructura de liderazgo eficiente y adaptativa, sin generar redundancias ni conflictos jerárquicos, contribuyendo así a una mayor eficacia en la respuesta ante eventos críticos como la propagación de incendios.
-
-
-\subsubsection{Síntesis funcional de la propuesta}
-
-La propuesta desarrollada en esta indagación integra movilidad tipo \textbf{Boids}, mecanismos de \textbf{liderazgo adaptativo} mediante el algoritmo WCA y una lógica de \textbf{autonomía funcional temporal} a través del nodo \texttt{CH-temporal}. Esta arquitectura busca extender las capacidades de respuesta de una red MANET ante situaciones de emergencia, permitiendo que nodos aislados asuman un rol proactivo cuando no se encuentren bajo la cobertura directa de un chNode.
-
-Al permitir que dichos nodos actúen temporalmente como líderes y coordinen la extinción de incendios en su entorno inmediato, se espera mejorar la \textbf{efectividad global} del sistema sin comprometer su estabilidad operativa. El modelo de acoplamiento dinámico propuesto garantiza, además, una reintegración eficiente cuando se detecten líderes con mayor capacidad (WCA), evitando redundancias jerárquicas o conflictos de control.
-
-Se proyecta que esta estrategia contribuirá a:
-\begin{itemize}
-    \item Reducir el \textbf{tiempo promedio de extinción} de incendios a menos de 45 segundos.
-    \item Incrementar la \textbf{tasa de éxito en extinción} por encima del 85\%.
-    \item Mantener el \textbf{consumo energético adicional} por debajo del 12\%.
-\end{itemize}
-
-Estos resultados esperados sientan las bases para el diseño de redes MANET orientadas a misiones críticas, donde la \textbf{autoorganización local} actúe como complemento estratégico a las jerarquías globales, fortaleciendo la resiliencia del sistema ante condiciones impredecibles y entornos cambiantes.
+%--------------------------------------------------------------------------------
 
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
-
-%---------------------------------------------------------------------------------
-% Diseño de la solución ---------------------------------------------------------
-%---------------------------------------------------------------------------------
 
 \subsection{Contexto del Problema}
 En una Red Ad Hoc Móvil (MANET) compuesta por nodos con \textbf{movilidad tipo Boids} y un esquema de \textbf{liderazgo adaptativo} que utiliza el algoritmo WCA (\textit{Weighted Cluster Algorithm}) para la selección y mantenimiento de líderes, donde los \textbf{líderes (chNodes)} son los encargados de \textbf{extinguir fuegos (s\_fires)} que aparecen aleatoriamente en el entorno de simulación, surge una pregunta fundamental:
@@ -480,6 +373,10 @@ El desafío operativo central radica en la \textbf{pérdida de efectividad opera
 
     \item \textbf{Degradación del rendimiento global}: El tiempo promedio de extinción de fuegos se incrementa debido a la inactividad forzada de nodos aislados
 \end{enumerate}
+
+\subsection{Objetivo Principal}
+Este enfoque ofrece ventajas significativas en términos de \textbf{realismo}, puesto que captura comportamientos grupales observados en aplicaciones militares (unidades móviles) o VANETs (convoyes), y \textbf{eficiencia computacional}, al reducir el \textit{overhead} de simulación comparado con modelos totalmente independientes. Sin embargo, presenta limitaciones importantes: requiere sintonización fina de $d_{max}$ para evitar particiones prematuras de grupos, y asume cooperación plena entre nodos sin modelar deserciones aleatorias que puedan ocurrir en escenarios reales.
+
 
 \subsection{Hipótesis de Investigación}
 \textbf{Hipótesis Principal}: La implementación de un mecanismo de \textbf{liderazgo temporal auto-proclamado} en nodos aislados mejora significativamente la efectividad global del sistema de extinción de fuegos en comparación con esquemas tradicionales de liderazgo fijo.
@@ -516,9 +413,6 @@ Para validar la efectividad de la solución propuesta, se utilizarán las siguie
 \begin{itemize}
     \item \textbf{Tiempo promedio de extinción}: Tiempo transcurrido desde la aparición de un fuego hasta su extinción completa
     \item \textbf{Tasa de extinción}: Número de fuegos extinguidos por unidad de tiempo
-    \item \textbf{Cobertura espacial efectiva}: Porcentaje del área de simulación cubierta por nodos con capacidad de liderazgo
-    \item \textbf{Eficiencia energética}: Consumo energético promedio por fuego extinguido
-    \item \textbf{Latencia de reconexión}: Tiempo requerido para reintegrar nodos temporales a la estructura jerárquica principal
 \end{itemize}
 
 \section{Diseño de la solución}
@@ -569,37 +463,6 @@ Cada nodo se comporta como un Boid y actualiza su posición en función de su ro
     \item \textbf{Atracción hacia objetivos:} los líderes se orientan hacia eventos externos (como focos de incendio) ubicados dentro de su radio de influencia.
 \end{itemize}
 
-\subsection{Liderazgo dinámico y algoritmo WCA}
-
-Cada nodo puede desempeñar el rol de líder o seguidor. Al inicio de la simulación, se asignan aleatoriamente los roles. A los líderes se les asigna un objetivo dentro del área de simulación, el cual puede cambiar en respuesta a eventos externos.
-
-Si un nodo seguidor se encuentra aislado, es decir, sin un líder en su radio de cohesión, evalúa su potencial de liderazgo utilizando el algoritmo \textit{WCA} (Weighted Clustering Algorithm). Este algoritmo considera múltiples factores que se normalizan para obtener un puntaje de liderazgo (\texttt{WCA\_Score}):
-
-\begin{itemize}
-    \item \textit{Energía residual} (\(E\)): porcentaje de energía restante del nodo, normalizada en el rango \([0,1]\).
-    \item \textit{Grado de conectividad} (\(D\)): número de vecinos directos, normalizado respecto a un máximo teórico de 10.
-    \item \textit{Distancia a objetivos} (\(T\)): inversa de la distancia promedio del nodo a los objetivos activos, normalizada considerando un rango de hasta 200 metros.
-    \item \textit{Movilidad} (\(M\)): estabilidad del nodo, calculada como la inversa de su velocidad actual, con una velocidad máxima de 10 m/s.
-\end{itemize}
-
-El cálculo del puntaje se define como:
-
-\[
-{WCA\_Score} = w_1 \cdot E + w_2 \cdot D + w_3 \cdot T + w_4 \cdot M
-\]
-donde los pesos utilizados son:
-
-\[
-w_1 = 0.4, \quad w_2 = 0.3, \quad w_3 = 0.2, \quad w_4 = 0.1
-\]
-
-El resultado se limita al rango \([0, 1]\) mediante:
-
-\[
-{WCA\_Score} = \max\left(0,\ \min\left(1,\ {WCA\_Score}\right)\right)
-\]
-
-El nodo aislado con el mayor \texttt{WCA\_Score} se autonombrará líder en ausencia de otros líderes cercanos.
 
 \subsection{Espacio de simulación y condiciones de frontera}
 
@@ -614,6 +477,23 @@ Cada nodo actualiza su posición en intervalos regulares de tiempo, considerando
 Al finalizar cada simulación, se exportan datos relevantes a archivos de salida, incluyendo las posiciones de los nodos, los roles asignados (líder o seguidor), las trayectorias seguidas por cada nodo y la ubicación de eventos externos, como los incendios.
 Esta información permite un análisis post-simulación de métricas clave como cobertura, tiempo de respuesta o efectividad en la extinción de eventos.
 
+\subsection{Comportamiento de líderes y seguidores}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{DiagramaLider.png}
+    \caption{Diagrama de flujo del líder}
+    \label{fig:diagLead}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{DiagramaSeguidor.png}
+    \caption{Diagrama de flujo del seguidor}
+    \label{fig:diagFoll}
+\end{figure}
+
+
 \subsection{Configurabilidad del modelo}
 
 La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes del comportamiento de los nodos, tales como el radio de cohesión de los seguidores, el radio de influencia de los líderes, la velocidad máxima de los nodos, la frecuencia de actualización de posición, la inicialización del rol de los nodos (porcentaje de líderes), y parámetros del algoritmo WCA como pesos y umbrales de energía o distancia.
@@ -627,7 +507,7 @@ En la Figura~\ref{fig:uml-boids} se presenta el diagrama UML de la clase \texttt
     \label{fig:uml-boids}
 \end{figure}
 
-\section{Diagrama de Flujo de la Simulación}
+\subsection{Diagrama de Flujo de la Simulación}
 El diagrama de flujo de la simulación ilustra el proceso general de la simulación, desde la inicialización de los nodos y su asignación de roles, hasta la actualización periódica de sus posiciones y la gestión de incendios. En cada iteración, los nodos evalúan su estado, actualizan sus posiciones según las reglas del modelo Boids, y determinan si deben asumir un rol de líder temporal en caso de estar aislados.
 \begin{figure}[H]
     \centering
@@ -636,11 +516,11 @@ El diagrama de flujo de la simulación ilustra el proceso general de la simulaci
     \label{fig:uml-flow}
 \end{figure}
 
-\section{Modelos Estocásticos y Distribuciones Empleadas en la Simulación de MANET para Extinción de Fuegos}
+\subsection{Modelos Estocásticos y Distribuciones Empleadas en la Simulación de MANET para Extinción de Fuegos}
 
 La simulación de Redes Ad Hoc Móviles (MANET) para la extinción de fuegos incorpora elementos de aleatoriedad para simular un comportamiento realista tanto en el entorno como en los nodos. Esto se logra mediante el empleo de diversos modelos estocásticos y distribuciones de probabilidad.
 
-\subsection*{1. Generación de Fuegos: Proceso de Clúster de Thomas (Poisson Espacial)}
+\subsubsection*{1. Generación de Fuegos: Proceso de Clúster de Thomas (Poisson Espacial)}
 Los fuegos no aparecen de manera completamente aleatoria, sino que tienden a agruparse, lo cual se simula mediante un \textbf{proceso de clúster de Thomas} [1-4]. Este proceso consta de dos etapas principales:
 
 \begin{itemize}
@@ -672,7 +552,7 @@ Los fuegos no aparecen de manera completamente aleatoria, sino que tienden a agr
     \end{equation*}
 \end{itemize}
 
-\subsection*{2. Consumo de Energía de los Nodos}
+\subsubsection*{2. Consumo de Energía de los Nodos}
 La \textbf{energía} ($m\_energy$) de los nodos, una métrica clave para el cálculo del puntaje WCA, disminuye con el tiempo. El consumo se modela de forma simplificada, restando un valor muestreado de una \textbf{distribución normal} en cada actualización.
 \begin{equation*}
     \Delta \text{Energía} \sim N(0.005, \sigma^2)
@@ -744,7 +624,7 @@ o en el siguiente repositorio de GitHub:
 %---------------------------------------------------------------------------------
 Este manual guiará al usuario a través de los pasos necesarios para instalar NS-3 en un entorno WSL (Windows Subsystem for Linux), configurar los archivos para la simulación de boids y ejecutar dicha simulación, así como visualizar sus resultados.
 
-\section*{\textbf{0. Prerequisitos}}
+\subsection*{\textbf{0. Prerequisitos}}
 
 % Formato de la sección
 Para seguir este manual, es necesario tener conocimientos básicos de Linux y C++. Además, se recomienda familiarizarse con el entorno de NS-3 y sus conceptos fundamentales.
@@ -768,7 +648,7 @@ pip3 install pandas matplotlib
         \end{itemize}
 \end{itemize}
 
-\section*{\textbf{1. Instalación de NS-3 en WSL}}
+\subsection*{\textbf{1. Instalación de NS-3 en WSL}}
 Para instalar NS-3, se recomienda usar WSL, preferentemente con Ubuntu .
 
 \begin{itemize}
@@ -791,7 +671,7 @@ source ~/.bashrc
     \end{lstlisting}
 \end{itemize}
 
-\section*{\textbf{2. Descarga y Preparación de NS-3}}
+\subsection*{\textbf{2. Descarga y Preparación de NS-3}}
 
 \begin{itemize}
     \item \textbf{Navegar a la Carpeta de Instalación}: Dentro de WSL, tu sistema de archivos de Windows se encuentra en \texttt{/mnt/c} (si tu partición es C:) o \texttt{/mnt/d} (si es D:). Navega a la carpeta donde deseas instalar NS-3. Por ejemplo:
@@ -812,7 +692,7 @@ cd ns-3.45
     \end{lstlisting}
 \end{itemize}
 
-\section*{\textbf{3. Configuración y Compilación de NS-3}}
+\subsection*{\textbf{3. Configuración y Compilación de NS-3}}
 
 Desde el directorio \texttt{ns-3.45} (o la versión que estés usando), ejecuta los siguientes comandos:
 
@@ -846,7 +726,7 @@ Desde el directorio \texttt{ns-3.45} (o la versión que estés usando), ejecuta 
     \end{itemize}
 \end{itemize}
 
-\section*{\textbf{4. Configuración y Ejecución de la Simulación de Boids}}
+\subsection*{\textbf{4. Configuración y Ejecución de la Simulación de Boids}}
 
 La simulación de boids implica modificar y añadir archivos al proyecto NS-3, de los ya presentes para una mayor simplicidad. Sin embargo tambien puedes crear links simbólicos a los archivos necesarios en el directorio \texttt{scratch} de NS-3. A continuación se detallan los pasos para configurar y ejecutar la simulación de boids:
 
@@ -888,7 +768,7 @@ La simulación de boids implica modificar y añadir archivos al proyecto NS-3, d
     \end{itemize}
 \end{itemize}
 
-\section*{\textbf{5. Parámetros y Salida de la Simulación de Boids}}
+\subsection*{\textbf{5. Parámetros y Salida de la Simulación de Boids}}
 
 \begin{itemize}
     \item \textbf{Modificar Parámetros de la Simulación}:
@@ -908,7 +788,7 @@ static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
     \end{itemize}
 \end{itemize}
 
-\section*{\textbf{6. Visualización de la Simulación}}
+\subsection*{\textbf{6. Visualización de la Simulación}}
 
 \begin{itemize}
     \item \textbf{Script de Visualización}:
@@ -934,57 +814,9 @@ static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
 % Manual Técnico ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
-\section*{Descripción del Proceso de Elección de Líderes y Propuesta de Mejora en MANETs}
+\section{Experimentación}\label{sec:exp}
 
-Para comprender la dinámica de liderazgo en nuestra simulación de \textbf{Redes Ad Hoc Móviles (MANET)}, es fundamental distinguir entre la configuración base y la mejora propuesta en nuestra \textbf{Indagación al Estilo Newtoniano}.
-
-\subsection*{Elección de Líderes en el Escenario Base (Condición de Control)}
-
-En la configuración inicial, la elección y gestión de líderes se rige por un \textbf{esquema de liderazgo adaptativo} que emplea el \textbf{algoritmo WCA (Weighted Cluster Algorithm)}. Los nodos en la MANET exhiben un \textbf{modelo de movilidad tipo Boids}, lo que significa que sus movimientos se inspiran en el comportamiento de bandadas, cardúmenes o enjambres, regulados por reglas de separación, alineación y cohesión.
-
-Los \textbf{líderes, o \texttt{chNodes}}, son los designados para la tarea crucial de \textbf{extinguir fuegos (\texttt{s\_fires})} que aparecen aleatoriamente en el entorno de simulación.
-
-El \textbf{puntaje WCA} de un nodo es un indicador de su idoneidad para ser líder, y se calcula ponderando cuatro métricas normalizadas:
-
-\begin{itemize}
-  \item \textbf{Energía (\texttt{m\_energy})}: Representa la energía residual del nodo, normalizada en el rango.
-  \item \textbf{Grado de Conectividad (\texttt{m\_degree})}: Mide el número de vecinos dentro del radio de influencia del líder (\texttt{m\_leaderInfluenceRadius}), normalizado asumiendo un máximo teórico de 10 vecinos.
-  \item \textbf{Distancia a Objetivos (\texttt{m\_distanceToTargets})}: Cuantifica la distancia promedio a los fuegos activos, normalizada inversamente (mayor cercanía = mayor puntuación) considerando un radio de 200m.
-  \item \textbf{Movilidad (\texttt{m\_mobility})}: Refleja la estabilidad del nodo (baja movilidad = mayor puntuación), normalizada inversamente asumiendo una velocidad máxima de 10 m/s.
-\end{itemize}
-
-Los \textbf{pesos asignados} a estas métricas en la fórmula WCA son:
-
-\begin{itemize}
-  \item Energía (\texttt{w1}): 0.4
-  \item Grado de Conectividad (\texttt{w2}): 0.3
-  \item Proximidad a Objetivos (\texttt{w3}): 0.2
-  \item Estabilidad (baja movilidad) (\texttt{w4}): 0.1
-\end{itemize}
-
-Así, el \texttt{wcaScore} se calcula como:
-
-\begin{center}
-\texttt{(w1 * normEnergy) + (w2 * normDegree) + (w3 * normTargetDistance) + (w4 * normMobility)}
-\end{center}
-
-El resultado final se ajusta para estar entre 0.0 y 1.0.
-
-En esta condición de control, los nodos \textbf{se inicializan explícitamente como líderes (\texttt{chNodes}) o seguidores (\texttt{memberNodes})}. Los \textbf{líderes existentes} evalúan continuamente su liderazgo con otros líderes cercanos utilizando el algoritmo WCA. Si un líder (\texttt{m\_isLeader} es verdadero) se encuentra con otro líder dentro de su radio de influencia (\texttt{m\_leaderInfluenceRadius}) y este último posee un puntaje WCA superior, el líder con la puntuación inferior puede \textbf{ceder su rol} (\texttt{SetIsLeader(false)}).
-
-Por otro lado, los \textbf{nodos seguidores} (\texttt{!m\_isLeader}) se comportan conforme a las reglas de Boids (separación, alineación, cohesión) y son atraídos hacia los líderes dentro de su radio de influencia. Su función principal es unirse a un clúster liderado por el líder más cercano.
-
-En este escenario base, la sección de código que permite la autopromoción de un seguidor a líder se encuentra \textbf{desactivada o eliminada}, lo que significa que un nodo inicialmente seguidor \textbf{no puede autonombrarse líder} bajo ninguna circunstancia.
-
-\subsection*{Introducción de la Propuesta: Autopromoción de Nodos Seguidores}
-
-La \textbf{Indagación al Estilo Newtoniano propuesta} plantea la siguiente hipótesis central:
-
-\begin{quote}
-"¿No será que la \textbf{efectividad global en la extinción de fuegos} (medida por métricas como el tiempo promedio de extinción, el número total de fuegos extinguidos en un periodo dado) \textbf{se incrementa} si se permite que un nodo seguidor que previamente estaba \textbf{aislado} (sin un líder cercano dentro de un radio efectivo de influencia) \textbf{se autoproclame temporalmente como líder hasta que se encuentre con uno con un mayor WCA}?"
-\end{quote}
-
-Para probar esta hipótesis, se introduce una \textbf{funcionalidad clave} en la Condición Experimental que modifica el comportamiento de los nodos seguidores. Un nodo seguidor (\texttt{!m\_isLeader}) ahora tiene la capacidad de \textbf{autoproclamarse temporalmente como líder} si cumple las siguientes condiciones, evaluadas en cada ciclo de \texttt{Update()}:
+Para probar la hipótesis, se introduce una \textbf{funcionalidad clave} en la Condición Experimental que modifica el comportamiento de los nodos seguidores. Un nodo seguidor (\texttt{!m\_isLeader}) ahora tiene la capacidad de \textbf{autoproclamarse temporalmente como líder} si cumple las siguientes condiciones, evaluadas en cada ciclo de \texttt{Update()}:
 
 \begin{enumerate}
   \item \textbf{No es un líder actual} (\texttt{!m\_isLeader}).
@@ -1033,12 +865,6 @@ La variación del \textbf{número de seguidores (\texttt{N Members})} es esencia
 \bottomrule
 \end{tabular}
 \end{table}
-
-
-
-\section{Experimentación}\label{sec:exp}
-
-\subsection{Documentación}
 
 
 \subsection{Escenario 1:}
