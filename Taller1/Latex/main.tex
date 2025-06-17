@@ -843,16 +843,26 @@ Para evaluar el impacto de esta propuesta, se comparan los resultados de la \tex
   \item \textbf{Velocidad Máxima de Seguidores}: 6.0 m/s
   \item \textbf{Duración de la Simulación}: 100 segundos
 \end{itemize}
-
+\subsection{Escenario 0:}
+\begin{itemize}
+\item \textbf{Objetivo:} Evaluar el impacto del número de seguidores en la efectividad de la extinción de fuegos, comparando una condición de control (sin autoproclamación) y una condición experimental (con autoproclamación).
+\item \textbf{Configuración experimental:}
+\begin{itemize}
+  \item \textbf{Número de Seguidores (\texttt{N Members})}: 10, 15, 25
+  \item \textbf{Condiciones de Simulación}: Control y Experimental
+\end{itemize}
+\item \textbf{Distribución inicial:} Los nodos se distribuyen aleatoriamente en el área de simulación, con líderes y seguidores asignados según la configuración.
+\item \textbf{Reglas activas:} Los seguidores siguen las reglas de separación, alineación y cohesión del modelo Boids, además de la atracción hacia los líderes. En la condición experimental, los seguidores pueden autoproclamarse líderes si cumplen las condiciones mencionadas anteriormente.
+\end{itemize}
 La variación del \textbf{número de seguidores (\texttt{N Members})} es esencial para analizar la robustez y escalabilidad del sistema bajo distintas densidades.
 
 \begin{table}[H]
 \centering
-\caption{Resultados de la Simulación por Escenario y Condición}
+\caption{Resultados de la Simulación para el Escenario 0}
 \label{tab:results}
 \begin{tabular}{llccc}
 \toprule
-\textbf{Escenario} & \textbf{N. de Seguidores} & \textbf{Condición} & \textbf{Fuegos Apagados} & \textbf{Tiempo Promedio (s)} \\
+\textbf{Pruebas Escenario 0} & \textbf{N. de Seguidores} & \textbf{Condición} & \textbf{Fuegos Apagados} & \textbf{Tiempo Promedio (s)} \\
 \midrule
 1 & 10 & Control      & 15 & 8.67  \\
   &    & Experimental & 16 & 11.38 \\
@@ -871,10 +881,9 @@ En la gráfica, se observa cómo el número de nodos seguidores afecta la efecti
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.6\textwidth]{comparativeExperiments.png}
-    \caption{Comparación de la efectividad de la extinción de fuegos entre las condiciones de control y experimental en diferentes escenarios.}
+    \caption{Comparación de la efectividad de la extinción de fuegos entre las condiciones de control y experimental en diferentes pruebas para el escenario 0.}
     \label{fig:comparison_plot}
 \end{figure}
-
 
 \subsection{Escenario 1:}
 \begin{itemize}
@@ -974,10 +983,6 @@ Se utilizaron trazas en NetAnim para observar la evolución espacial de los nodo
 
 \noindent Este caso de prueba revela la necesidad de mecanismos de estabilización del liderazgo, así como la importancia de sintonizar adecuadamente los parámetros de cohesión y activación de WCA. También sugiere que, en presencia de múltiples líderes, se deben considerar estrategias para evitar colapsos en un solo clúster, preservando la descentralización y cobertura espacial del sistema.
 
-\subsection{Escenario 3:}
-
-\subsection{Comparación resultados}
-
 %---------------------------------------------------------------------------------
 % Conclusiones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
@@ -988,6 +993,10 @@ La integración del modelo Boids permite simular comportamientos realistas en re
 El uso del modelo Boids reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET (redes móviles ad hoc) en situaciones como búsqueda, exploración o evacuación.
 
 La fuerza de cohesión y la frecuencia de evaluación del liderazgo podrían estar subestimadas. También puede ser necesario un sistema de búsqueda activa de líderes o una mejor gestión del rango de cohesión. Esto se evidencia en los escenarios de prueba, donde se evidenció que muchos seguidores se separaban de su líder a medida que avanzava la simulación.
+El modelo de movilidad jerárquica basado en Boids, con liderazgo adaptativo, muestra potencial para mejorar la eficiencia en la extinción de incendios en redes móviles. Sin embargo, se requiere una mayor sintonización de parámetros y una mejor gestión de la cohesión y el liderazgo para optimizar el rendimiento.
+En este caso, la implementación del modelo Boids con liderazgo adaptativo ha demostrado ser efectiva para simular el comportamiento de nodos móviles en un entorno dinámico. Los resultados obtenidos en los escenarios de prueba sugieren que, aunque el modelo es prometedor, aún existen áreas de mejora, especialmente en la gestión de la cohesión y el liderazgo.
+
+Finalmente, con la indagación de la hipótesis propuesta, se ha observado que la autoproclamación de líderes por parte de los seguidores mejora la efectividad en la extinción de incendios, lo que sugiere que el modelo puede ser adaptado para situaciones más complejas y dinámicas.
 %---------------------------------------------------------------------------------
 % Recomendaciones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
