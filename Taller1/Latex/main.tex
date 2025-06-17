@@ -218,6 +218,31 @@ El repositorio contiene:
 % Manual Usuario ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 Este manual guiará al usuario a través de los pasos necesarios para instalar NS-3 en un entorno WSL (Windows Subsystem for Linux), configurar los archivos para la simulación de boids y ejecutar dicha simulación, así como visualizar sus resultados.
+
+\section*{\textbf{0. Prerequisitos}}
+
+% Formato de la sección
+Para seguir este manual, es necesario tener conocimientos básicos de Linux y C++. Además, se recomienda familiarizarse con el entorno de NS-3 y sus conceptos fundamentales.
+
+
+Antes de comenzar, asegúrate de tener lo siguiente:
+\begin{itemize}
+    \item Conexión a Internet para descargar NS-3 y sus dependencias.
+    \item Conocimientos básicos de terminal de Linux y C++.
+    \item CMake y un compilador C++ (g++) instalados en tu sistema.
+    \item WSL (Windows Subsystem for Linux) instalado en tu sistema Windows.
+        \begin{itemize}
+            \item Preferiblemente con una distribución de Linux como Ubuntu.
+        \end{itemize}
+    \item \textbf{Python 3} con los paquetes \textbf{pandas} y \textbf{matplotlib} instalados.
+        \begin{itemize}
+            \item De no tenerlos instalados, puedes hacerlo ejecutando:
+            \begin{lstlisting}
+pip3 install pandas matplotlib
+            \end{lstlisting}
+        \end{itemize}
+\end{itemize}
+
 \section*{\textbf{1. Instalación de NS-3 en WSL}}
 Para instalar NS-3, se recomienda usar WSL, preferentemente con Ubuntu .
 
@@ -379,7 +404,105 @@ static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
 % Manual Técnico ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
-\section{Manual Técnico}\label{sec:man_t}
+\section*{Descripción del Proceso de Elección de Líderes y Propuesta de Mejora en MANETs}
+
+Para comprender la dinámica de liderazgo en nuestra simulación de \textbf{Redes Ad Hoc Móviles (MANET)}, es fundamental distinguir entre la configuración base y la mejora propuesta en nuestra \textbf{Indagación al Estilo Newtoniano}.
+
+\subsection*{Elección de Líderes en el Escenario Base (Condición de Control)}
+
+En la configuración inicial, la elección y gestión de líderes se rige por un \textbf{esquema de liderazgo adaptativo} que emplea el \textbf{algoritmo WCA (Weighted Cluster Algorithm)}. Los nodos en la MANET exhiben un \textbf{modelo de movilidad tipo Boids}, lo que significa que sus movimientos se inspiran en el comportamiento de bandadas, cardúmenes o enjambres, regulados por reglas de separación, alineación y cohesión.
+
+Los \textbf{líderes, o \texttt{chNodes}}, son los designados para la tarea crucial de \textbf{extinguir fuegos (\texttt{s\_fires})} que aparecen aleatoriamente en el entorno de simulación.
+
+El \textbf{puntaje WCA} de un nodo es un indicador de su idoneidad para ser líder, y se calcula ponderando cuatro métricas normalizadas:
+
+\begin{itemize}
+  \item \textbf{Energía (\texttt{m\_energy})}: Representa la energía residual del nodo, normalizada en el rango.
+  \item \textbf{Grado de Conectividad (\texttt{m\_degree})}: Mide el número de vecinos dentro del radio de influencia del líder (\texttt{m\_leaderInfluenceRadius}), normalizado asumiendo un máximo teórico de 10 vecinos.
+  \item \textbf{Distancia a Objetivos (\texttt{m\_distanceToTargets})}: Cuantifica la distancia promedio a los fuegos activos, normalizada inversamente (mayor cercanía = mayor puntuación) considerando un radio de 200m.
+  \item \textbf{Movilidad (\texttt{m\_mobility})}: Refleja la estabilidad del nodo (baja movilidad = mayor puntuación), normalizada inversamente asumiendo una velocidad máxima de 10 m/s.
+\end{itemize}
+
+Los \textbf{pesos asignados} a estas métricas en la fórmula WCA son:
+
+\begin{itemize}
+  \item Energía (\texttt{w1}): 0.4
+  \item Grado de Conectividad (\texttt{w2}): 0.3
+  \item Proximidad a Objetivos (\texttt{w3}): 0.2
+  \item Estabilidad (baja movilidad) (\texttt{w4}): 0.1
+\end{itemize}
+
+Así, el \texttt{wcaScore} se calcula como:
+
+\begin{center}
+\texttt{(w1 * normEnergy) + (w2 * normDegree) + (w3 * normTargetDistance) + (w4 * normMobility)}
+\end{center}
+
+El resultado final se ajusta para estar entre 0.0 y 1.0.
+
+En esta condición de control, los nodos \textbf{se inicializan explícitamente como líderes (\texttt{chNodes}) o seguidores (\texttt{memberNodes})}. Los \textbf{líderes existentes} evalúan continuamente su liderazgo con otros líderes cercanos utilizando el algoritmo WCA. Si un líder (\texttt{m\_isLeader} es verdadero) se encuentra con otro líder dentro de su radio de influencia (\texttt{m\_leaderInfluenceRadius}) y este último posee un puntaje WCA superior, el líder con la puntuación inferior puede \textbf{ceder su rol} (\texttt{SetIsLeader(false)}).
+
+Por otro lado, los \textbf{nodos seguidores} (\texttt{!m\_isLeader}) se comportan conforme a las reglas de Boids (separación, alineación, cohesión) y son atraídos hacia los líderes dentro de su radio de influencia. Su función principal es unirse a un clúster liderado por el líder más cercano.
+
+En este escenario base, la sección de código que permite la autopromoción de un seguidor a líder se encuentra \textbf{desactivada o eliminada}, lo que significa que un nodo inicialmente seguidor \textbf{no puede autonombrarse líder} bajo ninguna circunstancia.
+
+\subsection*{Introducción de la Propuesta: Autopromoción de Nodos Seguidores}
+
+La \textbf{Indagación al Estilo Newtoniano propuesta} plantea la siguiente hipótesis central:
+
+\begin{quote}
+"¿No será que la \textbf{efectividad global en la extinción de fuegos} (medida por métricas como el tiempo promedio de extinción, el número total de fuegos extinguidos en un periodo dado) \textbf{se incrementa} si se permite que un nodo seguidor que previamente estaba \textbf{aislado} (sin un líder cercano dentro de un radio efectivo de influencia) \textbf{se autoproclame temporalmente como líder hasta que se encuentre con uno con un mayor WCA}?"
+\end{quote}
+
+Para probar esta hipótesis, se introduce una \textbf{funcionalidad clave} en la Condición Experimental que modifica el comportamiento de los nodos seguidores. Un nodo seguidor (\texttt{!m\_isLeader}) ahora tiene la capacidad de \textbf{autoproclamarse temporalmente como líder} si cumple las siguientes condiciones, evaluadas en cada ciclo de \texttt{Update()}:
+
+\begin{enumerate}
+  \item \textbf{No es un líder actual} (\texttt{!m\_isLeader}).
+  \item Se encuentra \textbf{aislado} (\texttt{IsIsolated()}), es decir, sin líderes dentro de un \textbf{radio de influencia efectivo ampliado} (\texttt{m\_leaderInfluenceRadius * 1.2}).
+  \item Posee un \textbf{puntaje WCA (\texttt{wcaScore}) superior a 0.0}.
+\end{enumerate}
+
+Si cumple estas condiciones, se le asigna el rol de líder (\texttt{SetIsLeader(true)}), se le designa un \textbf{objetivo aleatorio} (\texttt{m\_target}) dentro del área de simulación (0--1000 en X e Y), y su \textbf{velocidad (\texttt{m\_velocity}) se incrementa ligeramente (x1.05)} para facilitar su búsqueda de fuegos.
+
+Al igual que los líderes iniciales, los nodos autopromovidos siguen participando en el mecanismo de evaluación de liderazgo del WCA. Si se encuentran con un líder con mayor puntaje, pueden \textbf{ceder su rol} y volver a ser seguidores.
+
+\subsection*{Escenarios de Experimentación}
+
+Para evaluar el impacto de esta propuesta, se comparan los resultados de la \textbf{Condición de Control} y la \textbf{Condición Experimental (Hipótesis Propuesta)} bajo diferentes configuraciones del número de nodos seguidores. La \textbf{efectividad global en la extinción de fuegos} se mide mediante el \textbf{número total de fuegos extinguidos} y el \textbf{tiempo promedio de extinción}.
+
+\textbf{Parámetros Comunes para Todos los Escenarios}:
+
+\begin{itemize}
+  \item \textbf{Número de Líderes Iniciales (\texttt{N Clusters})}: 2
+  \item \textbf{Área de Simulación}: 1000x1000 unidades
+  \item \textbf{Radio de Detección de Fuego (\texttt{s\_fireRadius})}: 30.0 metros
+  \item \textbf{Intervalo de Aparición de Fuegos (\texttt{s\_fireInterval})}: Cada 8 segundos (1 a 3 fuegos por evento, distribución tipo clúster de Thomas)
+  \item \textbf{Velocidad Máxima de Líderes}: 6.5 m/s
+  \item \textbf{Velocidad Máxima de Seguidores}: 6.0 m/s
+  \item \textbf{Duración de la Simulación}: 100 segundos
+\end{itemize}
+
+La variación del \textbf{número de seguidores (\texttt{N Members})} es esencial para analizar la robustez y escalabilidad del sistema bajo distintas densidades.
+
+\begin{table}[H]
+\centering
+\caption{Resultados de la Simulación por Escenario y Condición}
+\label{tab:results}
+\begin{tabular}{llccc}
+\toprule
+\textbf{Escenario} & \textbf{N. de Seguidores} & \textbf{Condición} & \textbf{Fuegos Apagados} & \textbf{Tiempo Promedio (s)} \\
+\midrule
+1 & 10 & Control      & 15 & 8.67  \\
+  &    & Experimental & 16 & 11.38 \\
+\midrule
+2 & 15 & Control      & 12 & 17.33 \\
+  &    & Experimental & 17 & 17.50 \\
+\midrule
+3 & 25 & Control      & 11 & 11.88 \\
+  &    & Experimental & 16 & 7.81  \\
+\bottomrule
+\end{tabular}
+\end{table}
 
 
 
