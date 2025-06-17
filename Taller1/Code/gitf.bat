@@ -11,6 +11,7 @@ REM   sync                : Actualiza la rama actual con origin.
 REM   commit <mensaje>    : Agrega, comitea y sube cambios con el mensaje dado (mensaje todo pegado).
 REM   compMain            : Compara la rama actual con main (en ambos sentidos).
 REM   pullReqToMain       : Crea un Pull Request de la rama actual a main.
+REM   pullReqToMine       : Crea un Pull Request de main a la rama actual.
 REM   upToMain            : Fusiona (merge) main en la rama actual.
 REM   openRepo            : Abre el repositorio en GitHub en el navegador.
 REM   viewPRmain          : Lista los Pull Requests abiertos hacia main.
@@ -77,6 +78,21 @@ if /i "%MODO%"=="pullReqToMain" (
     goto fin
 )
 
+REM pullReqToMine
+if /i "%MODO%"=="pullReqToMine" (
+    set "TITLE=%2"
+    set "BODY=%3"
+    if "!TITLE!"=="" (
+        set /p TITLE=Titulo del Pull Request:
+    )
+    if "%BODY%"=="" (
+        set /p BODY=Descripcion del Pull Request:
+    )
+    echo Creando Pull Request desde "main" hacia "!MIRAMA!"...
+    gh pr create --base !MIRAMA! --head main --title "!TITLE!" --body "!BODY!"
+    goto fin
+)
+
 REM upToMain
 if /i "%MODO%"=="upToMain" (
     echo [MERGE] Fusionando "main" en "!MIRAMA!"...
@@ -119,7 +135,7 @@ if /i "%MODO%"=="mergePR" (
 )
 
 REM Ayuda/uso por defecto
-echo Uso: gitf.bat ^<sync^|statusFetch^|commit^|compMain^|pullReqToMain^|upToMain^|openRepo^|viewPRmain^|mergePR^>
+echo Uso: gitf.bat ^<sync^|statusFetch^|commit^|compMain^|pullReqToMain^|pullReqToMine^|upToMain^|openRepo^|viewPRmain^|mergePR^>
 goto fin
 
 :fin
