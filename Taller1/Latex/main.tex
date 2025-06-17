@@ -5,7 +5,7 @@
 \usepackage{hyperref}
 \usepackage{titletoc}
 \usepackage{adjustbox}
-\usepackage{amsmath} 
+\usepackage{amsmath}
 \usepackage[spanish]{babel}
 
 \usepackage{listings}
@@ -150,34 +150,34 @@ La incorporación de una \textbf{estructura jerárquica} en redes MANET aporta v
 La implementación de una arquitectura jerárquica de dos niveles presenta desafíos significativos, entre los cuales destacan los siguientes al modelar o simular redes MANET:
 
 \begin{enumerate}
-    \item \textbf{Doble escala mal representada.} 
+    \item \textbf{Doble escala mal representada.}
     En muchos modelos clásicos se asume que todos los nodos tienen un comportamiento homogéneo. Sin embargo, en redes jerárquicas, los \textit{Cluster Heads} (CH) tienden a funcionar como centros de actividad en torno a los cuales se agrupan los nodos miembros. Esta diferencia de roles genera patrones de movilidad no uniformes que no son capturados adecuadamente por modelos planos, lo que lleva a una subestimación de los eventos de reelección de CH y a una sobrevaloración de la estabilidad estructural del \textit{backbone}.
 
-    \item \textbf{Dependencia temporal.} 
+    \item \textbf{Dependencia temporal.}
     Modelos como \textit{Random Waypoint} tienden a reducir la velocidad promedio de los nodos a largo plazo. En el contexto jerárquico, esto provoca que el nodo líder del clúster parezca detenerse progresivamente, generando enlaces que duran más de lo realista y métricas optimistas de persistencia de ruta y frecuencia de \textit{handoff}.
 
-    \item \textbf{Dependencia espacial y concentración central.} 
+    \item \textbf{Dependencia espacial y concentración central.}
     Algunos modelos de movilidad tienden a generar un sesgo hacia el centro del área de simulación, concentrando la presencia de \textit{Cluster Heads} (CH) en esa zona y dejando regiones periféricas con baja densidad. Este desequilibrio produce una topología poco representativa, donde se subestiman los problemas de conectividad en los bordes y se distorsiona el análisis del retardo y la resiliencia del \textit{backbone}.
 
-    \item \textbf{Restricciones geográficas y obstáculos físicos.} 
+    \item \textbf{Restricciones geográficas y obstáculos físicos.}
     En escenarios con edificios, montañas u otras estructuras, los modelos de movilidad con trayectorias fijas como \textit{Pathway} u \textit{Obstacle Mobility} obligan a los clústeres a rodear dichos obstáculos. Esto genera oscilaciones abruptas en la cantidad de saltos entre CH y puede provocar particiones momentáneas de la red, afectando la continuidad del servicio y la estabilidad de las rutas.
 
-    \item \textbf{Limitaciones de los modelos de movilidad grupal.} 
+    \item \textbf{Limitaciones de los modelos de movilidad grupal.}
     Modelos como \textit{RPGM} asumen que todos los nodos siguen de forma continua al líder del grupo, sin considerar dinámicas más complejas como divisiones o fusiones entre clústeres. Esta simplificación conlleva una subestimación del tráfico de control necesario para mantener la cohesión del grupo y oculta pérdidas de paquetes que ocurren cuando los nodos se desconectan momentáneamente del clúster.
 
-    \item \textbf{Costos asociados al re-clustering.} 
+    \item \textbf{Costos asociados al re-clustering.}
     Cuando un \textit{Cluster Head} se desplaza rápidamente o pierde conectividad con sus nodos, debe transferir su rol a otro nodo, lo que implica procesos de reelección, resincronización de slots temporales (e.g. TDMA) y actualización de estados. Este comportamiento genera ráfagas de mensajes de control, elevando el consumo energético y el uso del canal en momentos críticos de inestabilidad topológica.
 
-    \item \textbf{Inconsistencias en el direccionamiento jerárquico.} 
+    \item \textbf{Inconsistencias en el direccionamiento jerárquico.}
     En muchos modelos no se simula el retardo que implica actualizar los prefijos jerárquicos o identificadores de clúster en las tablas de encaminamiento. Durante esta latencia, pueden aparecer retransmisiones innecesarias, rutas erróneas o bucles de reenvío, lo que degrada la eficiencia de la red y la coherencia del plano de control.
 
-    \item \textbf{Interferencia entre enlaces CH y nodos miembros.} 
+    \item \textbf{Interferencia entre enlaces CH y nodos miembros.}
     Dado que el canal de comunicación es compartido, los enlaces entre \textit{Cluster Heads} y los flujos intra-clúster pueden interferirse mutuamente, especialmente cuando dos clústeres se solapan geográficamente. Esto genera colisiones, pérdidas de paquetes y disminución en la tasa de entrega y el \textit{throughput}, afectando el rendimiento global si no se simula la coordinación inter-clúster.
 
-    \item \textbf{Problemas de escalabilidad del escenario.} 
+    \item \textbf{Problemas de escalabilidad del escenario.}
     En áreas pequeñas, los clústeres tienden a rebotar en los límites del entorno simulado, generando patrones artificiales de movimiento. En cambio, en áreas demasiado grandes, pueden aparecer vacíos entre los CH y los nodos, provocando aislamiento temporal. Estas variaciones hacen que los resultados obtenidos sean altamente sensibles al tamaño del escenario, dificultando su extrapolación a redes reales.
 
-    \item \textbf{Ausencia de trazas jerárquicas reales.} 
+    \item \textbf{Ausencia de trazas jerárquicas reales.}
     La mayoría de conjuntos de datos disponibles públicamente para simulaciones están basados en redes planas, como movimientos individuales de vehículos o peatones. Esto obliga a parametrizar las simulaciones jerárquicas de forma arbitraria, reduciendo la reproducibilidad de los experimentos y dificultando las comparaciones justas entre diferentes protocolos de enrutamiento jerárquico.
 
 \end{enumerate}
@@ -335,7 +335,7 @@ A diferencia de enfoques jerárquicos como RPGM, el modelo Boids adopta una lóg
 
 Esta aproximación permite generar comportamientos emergentes realistas, como formaciones dinámicas, dispersión adaptativa o evasión de obstáculos de manera fluida. Su naturaleza descentralizada mejora la \textbf{tolerancia a fallos}, al eliminar puntos únicos de dependencia jerárquica, y facilita la \textbf{adaptación continua} a entornos cambiantes. Estas características lo hacen especialmente adecuado para simular \textbf{enjambres robóticos}, \textbf{equipos de rescate} o nodos móviles en misiones cooperativas no estructuradas.
 
-Sin embargo, el modelo también presenta ciertas limitaciones. Requiere una \textbf{calibración precisa de parámetros} para mantener la cohesión grupal, puede exhibir \textbf{comportamientos impredecibles} en escenarios de gran escala, y demanda una mayor \textbf{carga computacional} que los modelos con control jerárquico. 
+Sin embargo, el modelo también presenta ciertas limitaciones. Requiere una \textbf{calibración precisa de parámetros} para mantener la cohesión grupal, puede exhibir \textbf{comportamientos impredecibles} en escenarios de gran escala, y demanda una mayor \textbf{carga computacional} que los modelos con control jerárquico.
 
 
 
@@ -350,7 +350,7 @@ La integración de los fundamentos teóricos expuestos – particularmente sobre
 La formalización de este marco sustenta la pregunta de indagación central, cuyas hipótesis y modelo operativo se derivan de principios de \textbf{sistemas auto-organizativos}, \textbf{teoría de respuesta a emergencias} y optimización dinámica de recursos.
 
 
-\subsubsection{Problemática en redes con movilidad tipo Boids para respuesta a emergencias}  
+\subsubsection{Problemática en redes con movilidad tipo Boids para respuesta a emergencias}
 En redes MANET con \textbf{movilidad tipo Boids}, los nodos interactúan con base en principios locales de separación, alineación y cohesión, sin una jerarquía predefinida. No obstante, para tareas complejas de coordinación como la \textbf{extinción de incendios}, este comportamiento autoorganizado se complementa con la presencia de \textbf{líderes funcionales} o \textit{Cluster Heads} (chNodes), seleccionados dinámicamente mediante el algoritmo WCA. Estos líderes asumen la responsabilidad de dirigir acciones colectivas, distribuir tareas y priorizar recursos en zonas críticas.
 
 A pesar de la flexibilidad de este enfoque mixto, se identifican vulnerabilidades operativas en escenarios donde emergen focos de incendio en áreas sin cobertura inmediata de chNodes. Esto ocurre particularmente en zonas periféricas de la red o cuando los líderes activos se encuentran sobrecargados, desplazados o temporalmente desconectados. Como resultado, algunos nodos pueden quedar \textbf{aislados}, es decir, sin un líder dentro de su radio efectivo de influencia.
@@ -403,7 +403,7 @@ Con el fin de evaluar esta propuesta, se plantean las siguientes \textbf{hipóte
 
 \begin{itemize}
     \item \textbf{H1:} La introducción de un estado de \texttt{líder temporal} para nodos aislados mejora la \textbf{efectividad operativa} del sistema frente a incendios, permitiendo una reacción más rápida ante eventos emergentes.
-    
+
     \item \textbf{H2:} La utilización de una política de transición basada en la comparación de WCA entre el nodo temporal y líderes vecinos garantiza una \textbf{reinserción jerárquica eficiente} sin generar conflictos de liderazgo o redundancia de comandos.
 \end{itemize}
 
@@ -415,8 +415,8 @@ El funcionamiento del nodo en estado \texttt{CH-temporal} requiere un mecanismo 
 La decisión se fundamenta en una función binaria $a_{ij}(t)$, donde el nodo $i$ considera acoplarse al nodo $j$ (potencial líder), con base en una métrica compuesta $g_{ij}(t)$ llamada \textbf{ganancia efectiva}, y un umbral dinámico $g_{\min}(t)$ que se ajusta según las condiciones de red y movilidad:
 
 \[
-a_{ij}(t) = 
-\begin{cases} 
+a_{ij}(t) =
+\begin{cases}
 1, & \text{si } g_{ij}(t) \geq g_{\min}(t) \\\\
 0, & \text{si } g_{ij}(t) < g_{\min}(t)
 \end{cases}
@@ -561,11 +561,11 @@ Cada nodo se comporta como un Boid y actualiza su posición en función de su ro
 
 \begin{itemize}
     \item \textbf{Separación:} evita la colisión entre nodos manteniendo una distancia mínima entre vecinos cercanos.
-    
+
     \item \textbf{Alineación:} los seguidores adaptan su dirección en función de la velocidad promedio de sus vecinos más cercanos.
-    
+
     \item \textbf{Cohesión:} los seguidores buscan mantenerse próximos a su líder si se encuentra dentro del radio de cohesión definido.
-    
+
     \item \textbf{Atracción hacia objetivos:} los líderes se orientan hacia eventos externos (como focos de incendio) ubicados dentro de su radio de influencia.
 \end{itemize}
 
@@ -616,7 +616,7 @@ Esta información permite un análisis post-simulación de métricas clave como 
 
 \subsection{Configurabilidad del modelo}
 
-La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes del comportamiento de los nodos, tales como el radio de cohesión de los seguidores, el radio de influencia de los líderes, la velocidad máxima de los nodos, la frecuencia de actualización de posición, la inicialización del rol de los nodos (porcentaje de líderes), y parámetros del algoritmo WCA como pesos y umbrales de energía o distancia. 
+La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes del comportamiento de los nodos, tales como el radio de cohesión de los seguidores, el radio de influencia de los líderes, la velocidad máxima de los nodos, la frecuencia de actualización de posición, la inicialización del rol de los nodos (porcentaje de líderes), y parámetros del algoritmo WCA como pesos y umbrales de energía o distancia.
 
 En la Figura~\ref{fig:uml-boids} se presenta el diagrama UML de la clase \texttt{BoidsMobilityModel}, donde se observan sus atributos principales, métodos de configuración, y lógica asociada al liderazgo y simulación de incendios.
 
@@ -775,19 +775,19 @@ Para instalar NS-3, se recomienda usar WSL, preferentemente con Ubuntu .
     \item \textbf{Iniciar WSL}: Abre tu terminal WSL.
     \item \textbf{Actualizar Paquetes}: Ejecuta el siguiente comando para actualizar la lista de paquetes:
     \begin{lstlisting}
-sudo apt update 
+sudo apt update
     \end{lstlisting}
     \item \textbf{Instalar Dependencias Esenciales}: Instala las herramientas de compilación y descompresión necesarias:
     \begin{lstlisting}
 sudo apt install g++
 sudo apt install bzip2
-sudo apt install make 
-sudo apt-get install cmake 
+sudo apt install make
+sudo apt-get install cmake
     \end{lstlisting}
     \item \textbf{Configurar Alias de Python}: NS-3 utiliza Python 3. Para asegurarte de que el comando \texttt{python} apunte a \texttt{python3}, añade un alias a tu archivo \texttt{.bashrc} y recarga la configuración:
     \begin{lstlisting}
-echo alias python=python3 >> ~/.bashrc 
-source ~/.bashrc 
+echo alias python=python3 >> ~/.bashrc
+source ~/.bashrc
     \end{lstlisting}
 \end{itemize}
 
@@ -796,7 +796,7 @@ source ~/.bashrc
 \begin{itemize}
     \item \textbf{Navegar a la Carpeta de Instalación}: Dentro de WSL, tu sistema de archivos de Windows se encuentra en \texttt{/mnt/c} (si tu partición es C:) o \texttt{/mnt/d} (si es D:). Navega a la carpeta donde deseas instalar NS-3. Por ejemplo:
     \begin{lstlisting}
-cd /mnt/c/Users/TuUsuario/Documentos/NS3_Projects 
+cd /mnt/c/Users/TuUsuario/Documentos/NS3_Projects
     \end{lstlisting}
     \item \textbf{Descargar NS-3}: Descarga el archivo \texttt{ns-allinone-3.45.tar.bz2} desde la página oficial de NS-3 (\url{https://www.nsnam.org/releases/ns-allinone-3.45.tar.bz2}) y guárdalo en la carpeta deseada. Es preferible hacerlo desde el navegador web de Windows y luego acceder a la ruta desde WSL.
     \item \textbf{Extraer Archivos}: Una vez descargado, descomprime el archivo tar.bz2:
@@ -808,7 +808,7 @@ tar xjf ns-allinone-3.45.tar.bz2
         \textit{sugiere \texttt{ns-allinone-3.45.tar.bz2}.}
     \item \textbf{Acceder al Directorio de NS-3}: Navega al directorio principal de NS-3:
     \begin{lstlisting}
-cd ns-3.45  
+cd ns-3.45
     \end{lstlisting}
 \end{itemize}
 
@@ -819,7 +819,7 @@ Desde el directorio \texttt{ns-3.45} (o la versión que estés usando), ejecuta 
 \begin{itemize}
     \item \textbf{Limpiar Compilación (Opcional pero recomendado)}:
     \begin{lstlisting}
-./ns3 clean 
+./ns3 clean
     \end{lstlisting}
     \item \textbf{Configurar NS-3}: Este paso configura el entorno de compilación. Asegúrate de incluir las opciones para depuración, ejemplos, pruebas y NetAnim:
     \begin{lstlisting}
@@ -828,21 +828,21 @@ Desde el directorio \texttt{ns-3.45} (o la versión que estés usando), ejecuta 
 --enable-examples \
 --enable-tests \
 --enable-build-version \
--- -DNS3_NETANIM=ON 
+-- -DNS3_NETANIM=ON
     \end{lstlisting}
     \item \textbf{Compilar NS-3}: Este comando compila todo el proyecto NS-3. Puedes usar la opción \texttt{-j\$(nproc)} para utilizar todos los procesadores de tu equipo y acelerar la compilación:
     \begin{lstlisting}
-./ns3 build 
+./ns3 build
     \end{lstlisting}
     Alternativamente, para usar todos los procesadores:
     \begin{lstlisting}
-./ns3 build -j$(nproc) 
+./ns3 build -j$(nproc)
     \end{lstlisting}
     \item \textbf{Verificar la Instalación (Opcional)}:
     \begin{itemize}
-        \item Ejecutar pruebas: \texttt{./test.py} 
-        \item Ejecutar un ejemplo básico: \texttt{./ns3 run first} 
-        \item Mostrar la versión instalada: \texttt{./ns3 show version} 
+        \item Ejecutar pruebas: \texttt{./test.py}
+        \item Ejecutar un ejemplo básico: \texttt{./ns3 run first}
+        \item Mostrar la versión instalada: \texttt{./ns3 show version}
     \end{itemize}
 \end{itemize}
 
@@ -858,9 +858,9 @@ La simulación de boids implica modificar y añadir archivos al proyecto NS-3, d
     \end{itemize}
     \item \textbf{Añadir Modelos de Movilidad}:
     \begin{itemize}
-        \item Copia los archivos \textbf{\texttt{boids-mobility-model.cc}} y 
-            \textbf{\texttt{boids-mobility-model.h}} 
-            
+        \item Copia los archivos \textbf{\texttt{boids-mobility-model.cc}} y
+            \textbf{\texttt{boids-mobility-model.h}}
+
             a la ruta \texttt{ns3.xx/src/mobility/model}.
         \item El contenido de \texttt{boids-mobility-model.cc} se encuentra en los extractos de "Modelo de Movilidad Boids con Liderazgo Adaptativo".
         \item El contenido de \texttt{boids-mobility-model.h} se encuentra en los extractos de "Modelo de Movilidad Boids para Redes Inalámbricas".
@@ -872,17 +872,17 @@ La simulación de boids implica modificar y añadir archivos al proyecto NS-3, d
     \end{itemize}
     \item \textbf{Recompilar NS-3}: Después de hacer estos cambios, necesitas volver a compilar NS-3 para que los nuevos archivos se integren:
     \begin{lstlisting}
-./ns3 build 
+./ns3 build
     \end{lstlisting}
     O, para usar todos los procesadores:
     \begin{lstlisting}
-./ns3 build -j$(nproc) 
+./ns3 build -j$(nproc)
     \end{lstlisting}
     \item \textbf{Ejecutar la Simulación de Boids}:
     \begin{itemize}
         \item Desde el directorio principal de NS-3 (\texttt{ns-3.43}), ejecuta tu proyecto de boids:
         \begin{lstlisting}
-./ns3 run scratch/boids 
+./ns3 run scratch/boids
         \end{lstlisting}
         (Asumiendo que tu archivo se llama \texttt{boids.cc} en la carpeta \texttt{scratch}).
     \end{itemize}
@@ -896,7 +896,7 @@ La simulación de boids implica modificar y añadir archivos al proyecto NS-3, d
         \item Puedes ajustar el número de líderes (Cluster-Heads) y miembros directamente en el archivo \texttt{boids.cc}.
         \item Busca las siguientes líneas y modifica los valores según necesites:
         \begin{lstlisting}[language=C++]
-static const uint32_t N_CH = 2; // Cantidad de lideres (Cluster-Heads) 
+static const uint32_t N_CH = 2; // Cantidad de lideres (Cluster-Heads)
 static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
         \end{lstlisting}
         \textit{Recuerda recompilar después de modificar \texttt{boids.cc} para que los cambios surtan efecto.}
@@ -1042,9 +1042,102 @@ La variación del \textbf{número de seguidores (\texttt{N Members})} es esencia
 
 
 \subsection{Escenario 1:}
+\begin{itemize}
+\item \textbf{Objetivo:} Evaluar el comportamiento de un sistema de movilidad jerárquica basado en el modelo Boids, en un escenario con aparición dinámica de focos de incendio. El sistema integra liderazgo dinámico mediante el algoritmo WCA y comunicación local entre nodos para la formación y mantenimiento de clústeres.
+
+\item \textbf{Configuración experimental:}
+\begin{itemize}
+    \item \textbf{Cantidad de nodos:} 27 (2 líderes iniciales, 25 seguidores).
+    \item \textbf{Área de simulación:} $1000 \times 1000$ unidades con frontera toroidal.
+    \item \textbf{Duración:} 200 segundos.
+    \item \textbf{Modelo de movilidad:} \texttt{BoidsMobilityModel}, configurado con cohesión, alineación, separación y atracción hacia objetivos.
+    \item \textbf{Velocidades máximas:} líderes a 10 m/s, seguidores a 7 m/s.
+    \item \textbf{Eventos externos:} focos de incendio generados cada 8 segundos, con radio de aparición de 30 metros y ubicación distribuida según un proceso de Poisson agrupado.
+\end{itemize}
+
+\item \textbf{Distribución inicial:}
+Los nodos se agrupan en dos clústeres iniciales, con una desviación normal en torno a los líderes asignados. La asignación de roles y posiciones es aleatoria, controlada mediante semilla de simulación para repetibilidad.
+
+\item \textbf{Reglas activas:} separación, alineación, cohesión (para seguidores), y atracción a eventos (para líderes). Los seguidores también ejecutan WCA si pierden contacto con un líder, evaluando su potencial de liderazgo según energía, conectividad, movilidad y proximidad a objetivos.
+
+\item \textbf{Resultados observados:}
+\begin{itemize}
+    \item Los líderes reaccionan rápidamente ante la aparición de focos de incendio, desplazándose de forma directa hacia ellos.
+    \item Sin embargo, se detectó una dispersión significativa de los seguidores. Muchos seguidores perdieron conexión con su líder tras los primeros movimientos hacia eventos, lo que llevó a una fragmentación de los clústeres.
+    \item Solo uno de los líderes logró mantener un grupo cohesionado de seguidores hasta el final de la simulación.
+    \item Los seguidores dispersos no lograron reorganizarse de forma efectiva, a pesar de tener habilitado el mecanismo de liderazgo por WCA.
+\end{itemize}
+
+\item \textbf{Análisis:}
+\begin{itemize}
+    \item La dispersión observada sugiere que el peso de la cohesión en la dinámica Boid puede ser insuficiente frente a trayectorias rápidas hacia eventos.
+    \item El intervalo de actualización de posición y la intensidad de la fuerza de atracción al líder podrían requerir ajuste para favorecer una mayor adherencia de los seguidores.
+    \item Aunque el algoritmo WCA está habilitado, su activación no resultó en una reorganización efectiva, lo que podría indicar que los parámetros de umbral o visibilidad de vecinos son demasiado restrictivos.
+\end{itemize}
+
+\item \textbf{Visualización:}
+Se utilizaron trazas de movimiento exportadas a NetAnim para analizar las trayectorias de los nodos. La visualización confirmó la tendencia a la disgregación de los clústeres y la falta de reagrupamiento posterior.
+
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\linewidth]{escenario1.png}
+    \caption{Escenario de simulación 1}
+    \label{fig:enter-label}
+\end{figure}
+
+\noindent Este caso de prueba destaca la complejidad de mantener la cohesión grupal en presencia de eventos dinámicos. A su vez, motiva ajustes en la ponderación de reglas de comportamiento y condiciones de activación del liderazgo distribuido para lograr una movilidad adaptativa más robusta.
 
 
 \subsection{Escenario 2:}
+\begin{itemize}
+\item \textbf{Objetivo:} Evaluar la efectividad del modelo de movilidad jerárquica basado en Boids en presencia de múltiples líderes iniciales (cuatro), en un entorno con aparición de focos de incendio. El objetivo es observar la formación de clústeres, la estabilidad del liderazgo y la capacidad de los seguidores para mantener la cohesión y reorganizarse dinámicamente.
+
+\item \textbf{Configuración experimental:}
+\begin{itemize}
+    \item \textbf{Cantidad de nodos:} 29 (4 líderes configurados inicialmente, 25 seguidores).
+    \item \textbf{Área de simulación:} $1000 \times 1000$ unidades con frontera toroidal.
+    \item \textbf{Duración:} 200 segundos.
+    \item \textbf{Modelo de movilidad:} \texttt{BoidsMobilityModel}, con reglas activas de cohesión, alineación, separación y atracción a eventos.
+    \item \textbf{Velocidades máximas:} líderes a 10 m/s, seguidores a 7 m/s.
+    \item \textbf{Eventos externos:} focos de incendio generados cada 8 segundos, con radio de aparición de 30 metros y ubicación definida por distribución de Poisson agrupada.
+\end{itemize}
+
+\item \textbf{Distribución inicial:}
+Los nodos se agrupan en cuatro clústeres en torno a los líderes iniciales, distribuidos mediante desplazamientos normales aleatorios. La configuración aleatoria es controlada por semilla para permitir repetibilidad del experimento.
+
+\item \textbf{Reglas activas:}
+Separación, alineación, cohesión (para seguidores) y atracción a eventos (para líderes). Además, los seguidores pueden activar el algoritmo WCA si pierden contacto con un líder.
+
+\item \textbf{Resultados observados:}
+\begin{itemize}
+    \item A pesar de haber configurado cuatro líderes, solo dos se manifestaron efectivamente durante la simulación; los otros no ejercieron liderazgo activo o no lograron mantener seguidores.
+    \item Se observaron inicialmente múltiples clústeres pequeños, pero rápidamente dos líderes se agruparon, formando un único clúster principal.
+    \item La mayoría de los seguidores no logró mantener una cohesión prolongada; muchos se dispersaron progresivamente durante la simulación.
+    \item No se observó una reorganización efectiva de los seguidores dispersos, ni la activación visible de nuevos líderes por WCA.
+\end{itemize}
+
+\item \textbf{Análisis:}
+\begin{itemize}
+    \item La unificación de líderes sugiere una posible falta de mecanismos de repulsión o diferenciación entre clústeres líderes, lo cual puede conducir a una convergencia no deseada.
+    \item La poca manifestación de los cuatro líderes podría deberse a conflictos de visibilidad, sobreposición de zonas de influencia o ineficiencia en el mecanismo de activación del liderazgo.
+    \item La dispersión de los seguidores y la falta de reclustering dinámico indican que los umbrales del algoritmo WCA podrían estar mal calibrados, o que la frecuencia de reevaluación de liderazgo es insuficiente.
+\end{itemize}
+
+\item \textbf{Visualización:}
+Se utilizaron trazas en NetAnim para observar la evolución espacial de los nodos. Se confirmó visualmente la fusión temprana de los líderes activos, la dispersión creciente de los seguidores, y la ausencia de nuevos clústeres tras la disgregación.
+
+\end{itemize}
+
+\begin{figure}
+    \centering
+    \includegraphics[width=1\linewidth]{escenario2.png}
+    \caption{Escenario de simulación 2}
+    \label{fig:enter-label}
+\end{figure}
+
+\noindent Este caso de prueba revela la necesidad de mecanismos de estabilización del liderazgo, así como la importancia de sintonizar adecuadamente los parámetros de cohesión y activación de WCA. También sugiere que, en presencia de múltiples líderes, se deben considerar estrategias para evitar colapsos en un solo clúster, preservando la descentralización y cobertura espacial del sistema.
 
 \subsection{Escenario 3:}
 
@@ -1070,11 +1163,11 @@ Aunque el movimiento fue simulado correctamente, se recomienda analizar también
 \renewcommand{\refname}{}
 \begin{thebibliography}{9}
 
-\bibitem{ref} \label{ref:AdHoc} S. K. Sarkar, T. G. Basavaraju y C. Puttamadappa, 
-Ad Hoc Mobile Wireless Networks: Principles, Protocols, and Applications, 2ª ed. 
+\bibitem{ref} \label{ref:AdHoc} S. K. Sarkar, T. G. Basavaraju y C. Puttamadappa,
+Ad Hoc Mobile Wireless Networks: Principles, Protocols, and Applications, 2ª ed.
 Boca Raton, FL: CRC Press, 2013.
 
-\bibitem{ref} \label{ref:PrinciplesAdHoc} M. Barbeau y E. Kranakis, Principles of Ad Hoc 
+\bibitem{ref} \label{ref:PrinciplesAdHoc} M. Barbeau y E. Kranakis, Principles of Ad Hoc
 Networking, 1ª ed. Chichester, England; Hoboken, NJ: Wiley, May 2007.
 
 \end{thebibliography}
