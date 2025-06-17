@@ -15,6 +15,8 @@
 #include <fstream>
 #include <vector>
 
+#include <map> // Añadir para std::map
+
 NS_LOG_COMPONENT_DEFINE("BoidsMobilityModel");
 
 namespace ns3
@@ -28,12 +30,17 @@ Ptr<UniformRandomVariable> BoidsMobilityModel::s_fireRng = CreateObject<UniformR
 Time BoidsMobilityModel::s_fireInterval = Seconds(8);
 double BoidsMobilityModel::s_fireRadius = 30.0;
 
+// Variables estáticas de metras
+std::map<Vector, Time> BoidsMobilityModel::s_fireStartTimes;
+uint32_t BoidsMobilityModel::s_totalFiresExtinguished = 0;
+Time BoidsMobilityModel::s_totalExtinctionTime = Seconds(0);
+
 std::vector<NodeContainer>* BoidsMobilityModel::s_clusters = nullptr;
 NodeContainer* BoidsMobilityModel::s_chNodes = nullptr;
 
 // Variable estática para el archivo de salida
 std::ofstream* BoidsMobilityModel::s_outFile = nullptr;
-// Agregar esto cerca de las otras declaraciones de variables estáticas
+
 std::vector<Vector> BoidsMobilityModel::getSpotsPoissonSpacial(
     uint32_t n, double areaX, double areaY, 
     uint32_t k, double desviacion)
@@ -120,7 +127,7 @@ BoidsMobilityModel::GetTypeId(void)
                           MakeDoubleChecker<double>())
             .AddAttribute("LeaderInfluenceRadius",
                           "Radio de influencia de los líderes.",
-                          DoubleValue(80.0),
+                          DoubleValue(100.0),
                           MakeDoubleAccessor(&BoidsMobilityModel::m_leaderInfluenceRadius),
                           MakeDoubleChecker<double>())
             .AddAttribute("MaxSpeed",
@@ -272,6 +279,8 @@ BoidsMobilityModel::AddRandomFire()
     
     for (const auto& fire : newFires) {
         s_fires.push_back(fire);
+        // Registrar el tiempo de aparición del fuego
+        s_fireStartTimes[fire] = Simulator::Now();
         NS_LOG_UNCOND("Nuevo fuego aparecido en: " << fire.x << ", " << fire.y);
     }
     
@@ -424,26 +433,31 @@ BoidsMobilityModel::CheckFireProximity()
                 if (distance < s_fireRadius)
                 {
                     fireExtinguished = true;
-                    extinguishingLeader = mob;
-                    break;
+
+                    // Actualiza métricas SOLO UNA VEZ
+                    auto fireTimeIt = s_fireStartTimes.find(*it);
+                    if (fireTimeIt != s_fireStartTimes.end())
+                    {
+                        Time extinctionTime = Simulator::Now() - fireTimeIt->second;
+                        s_totalExtinctionTime += extinctionTime;
+                        s_totalFiresExtinguished += 1;
+                        s_fireStartTimes.erase(fireTimeIt);
+                    }
+
+                    NS_LOG_UNCOND("Fuego extinguido en: " << it->x << ", " << it->y);
+                    // Si quieres que el líder deje de ser líder:
+                    mob->SetIsLeader(false);
+
+                    // Elimina el fuego y sale del ciclo de líderes
+                    it = s_fires.erase(it);
+                    break; // Sale del ciclo de líderes, pasa al siguiente fuego
                 }
             }
+
+
         }
 
-        if (fireExtinguished)
-        {
-            NS_LOG_UNCOND("Fuego extinguido en: " << it->x << ", " << it->y);
-            it = s_fires.erase(it);
-
-            // Degradar al líder que extinguió el fuego
-            if (extinguishingLeader)
-            {
-                extinguishingLeader->SetIsLeader(false);
-                NS_LOG_UNCOND("Líder " << extinguishingLeader->GetBoidsNode()->GetId()
-                                       << " deja de ser líder después de extinguir fuego");
-            }
-        }
-        else
+        if (!fireExtinguished)
         {
             ++it;
         }
@@ -462,7 +476,7 @@ BoidsMobilityModel::DoInitialize(void)
 
 // Cambia la implementación para que sea const-correct:
 double
-BoidsMobilityModel::CalculateWrappedDistance(const Vector& a, const Vector& b) const
+BoidsMobilityModel::CalculateWrappedDistance(const Vector& a, const Vector& b) 
 {
     const double mapWidth = 1000.0; // Ajusta según tu tamaño de mapa
     const double mapHeight = 1000.0;
@@ -640,18 +654,18 @@ BoidsMobilityModel::Update(void)
         }
     }
 
-    /*if (m_isLeader && CalculateWcaScore() < 0.5)
+    if (m_isLeader && CalculateWcaScore() < 0.5)
     {
         // Este líder ya no es adecuado
         SetIsLeader(false);
         leaderStatusChanged = true;
     }
-    else if (!m_isLeader && CalculateWcaScore() > 0.8)
+    if (!m_isLeader && CalculateWcaScore() > 0.8)
     {
         // Este nodo es buen candidato a líder
         SetIsLeader(true);
         leaderStatusChanged = true;
-    }*/
+    }
 
     if (leaderStatusChanged || !m_isLeader)
     {
@@ -699,8 +713,8 @@ BoidsMobilityModel::Update(void)
                 direction.x /= distance;
                 direction.y /= distance;
                 m_velocity.x +=
-                    direction.x * 0.4; // Mayor influencia que el comportamiento aleatorio
-                m_velocity.y += direction.y * 0.4;
+                    direction.x * 1.5; // Mayor influencia que el comportamiento aleatorio
+                m_velocity.y += direction.y * 1.5;
             }
         }
         else
@@ -916,14 +930,128 @@ BoidsMobilityModel::SetMaxSpeed(double speed)
 }
 
 void
+BoidsMobilityModel::AssignFiresToLeaders()
+{
+    // 1. Recolecta todos los líderes activos
+    std::vector<Ptr<BoidsMobilityModel>> leaders;
+    for (NodeList::Iterator i = NodeList::Begin(); i != NodeList::End(); ++i)
+    {
+        Ptr<Node> node = *i;
+        Ptr<BoidsMobilityModel> mob = node->GetObject<BoidsMobilityModel>();
+        if (mob && mob->m_isLeader)
+        {
+            leaders.push_back(mob);
+        }
+    }
+
+    // 2. Lleva registro de fuegos ya asignados
+    std::vector<Vector> assignedFires;
+
+    // 3. Para cada líder, asigna el fuego más cercano no asignado
+    for (auto& leader : leaders)
+    {
+        if (!s_fires.empty())
+        {
+            Vector myPos = leader->DoGetPosition();
+            double minDist = std::numeric_limits<double>::max();
+            Vector closestFire;
+            bool found = false;
+            for (const auto& fire : s_fires)
+            {
+                // Si ya fue asignado, ignóralo
+                if (std::find(assignedFires.begin(), assignedFires.end(), fire) != assignedFires.end())
+                    continue;
+
+                double dist = CalculateWrappedDistance(myPos, fire);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    closestFire = fire;
+                    found = true;
+                }
+            }
+            if (found)
+            {
+                leader->m_target = closestFire;
+                assignedFires.push_back(closestFire);
+            }
+            else
+            {
+                // Si todos los fuegos ya están asignados, elige el más cercano (puede repetirse)
+                minDist = std::numeric_limits<double>::max();
+                for (const auto& fire : s_fires)
+                {
+                    double dist = CalculateWrappedDistance(myPos, fire);
+                    if (dist < minDist)
+                    {
+                        minDist = dist;
+                        closestFire = fire;
+                    }
+                }
+                leader->m_target = closestFire;
+            }
+        }
+    }
+
+    // Programa la próxima actualización periódica
+    Simulator::Schedule(Seconds(1), &BoidsMobilityModel::AssignFiresToLeaders);
+}
+
+void
+BoidsMobilityModel::UpdateLeaderTarget()
+{
+    if (m_isLeader)
+    {
+        if (!s_fires.empty())
+        {
+            Vector myPos = DoGetPosition();
+            double minDist = std::numeric_limits<double>::max();
+            Vector closestFire = s_fires[0];
+            for (const auto& fire : s_fires)
+            {
+                double dist = CalculateWrappedDistance(myPos, fire);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    closestFire = fire;
+                }
+            }
+            m_target = closestFire;
+        }
+        // Si no hay fuegos, puedes mantener el target actual o asignar uno aleatorio si lo prefieres
+    }
+    Simulator::Schedule(Seconds(1), &BoidsMobilityModel::UpdateLeaderTarget, this);
+}
+
+void
 BoidsMobilityModel::SetIsLeader(bool isLeader)
 {
     m_isLeader = isLeader;
     if (m_isLeader)
     {
-        Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
-        m_target.x = uv->GetValue(0, 1000);
-        m_target.y = uv->GetValue(0, 1000);
+        // Inicializa el target al fuego más cercano (o aleatorio si no hay fuegos)
+        if (!s_fires.empty())
+        {
+            Vector myPos = DoGetPosition();
+            double minDist = std::numeric_limits<double>::max();
+            Vector closestFire = s_fires[0];
+            for (const auto& fire : s_fires)
+            {
+                double dist = CalculateWrappedDistance(myPos, fire);
+                if (dist < minDist)
+                {
+                    minDist = dist;
+                    closestFire = fire;
+                }
+            }
+            m_target = closestFire;
+        }
+        else
+        {
+            Ptr<UniformRandomVariable> uv = CreateObject<UniformRandomVariable>();
+            m_target.x = uv->GetValue(0, 1000);
+            m_target.y = uv->GetValue(0, 1000);
+        }
     }
 }
 

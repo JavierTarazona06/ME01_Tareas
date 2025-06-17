@@ -193,9 +193,18 @@ AssignIpv4()
 int
 main(int argc, char* argv[])
 {
-    // Al inicio de main()
-    std::ofstream outFile("boids_positions.csv");
+    std::string outFileName = "boids_positions.csv";
+    std::string summaryFileName = "boids_summary.csv";
+
+    CommandLine cmd;
+    cmd.AddValue("positionsFile", "Archivo CSV para posiciones", outFileName);
+    cmd.AddValue("summaryFile", "Archivo CSV para métricas", summaryFileName);
+    // ...otros argumentos...
+    cmd.Parse(argc, argv);
+
+    std::ofstream outFile(outFileName);
     BoidsMobilityModel::SetOutputFile(&outFile);
+
     if (!outFile.is_open())
     {
         NS_LOG_UNCOND("No se pudo abrir el archivo de salida!");
@@ -294,10 +303,31 @@ main(int argc, char* argv[])
     BoidsMobilityModel::AddRandomFire();      // Primer fuego
     BoidsMobilityModel::CheckFireProximity(); // Iniciar verificaciones
     // Ejecutar simulación
+    Simulator::ScheduleNow(&ns3::BoidsMobilityModel::AssignFiresToLeaders);
     Simulator::Stop(Seconds(100));
     Simulator::Run();
+
+    // Métricas de efectividad global
+    uint32_t totalExtinguished = BoidsMobilityModel::s_totalFiresExtinguished;
+    Time totalExtinctionTime = BoidsMobilityModel::s_totalExtinctionTime;
+    double avgExtinction = (totalExtinguished > 0)
+        ? totalExtinctionTime.GetSeconds() / totalExtinguished
+        : 0.0;
+
+    NS_LOG_UNCOND("=== MÉTRICAS DE EXTINCIÓN DE FUEGOS ===");
+    NS_LOG_UNCOND("Número total de fuegos extinguidos: " << totalExtinguished);
+    NS_LOG_UNCOND("Tiempo promedio de extinción: " << avgExtinction << " s");
+    NS_LOG_UNCOND("========================================");
+
+    // Opcional: Guardar en archivo resumen
+    std::ofstream summary("boids_summary.csv");
+    summary << "TotalExtinguished,AvgExtinctionTime\n";
+    summary << totalExtinguished << "," << avgExtinction << "\n";
+    summary.close();
+
     outFile.close();
     Simulator::Destroy();
+
 
     return 0;
 }

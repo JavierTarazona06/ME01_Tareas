@@ -13,6 +13,9 @@
 
 #include <fstream>
 #include <vector>
+
+#include <map> // Añadir para std::map
+
 namespace ns3
 {
 
@@ -20,6 +23,10 @@ class BoidsMobilityModel : public MobilityModel
 {
   public:
     static TypeId GetTypeId(void);
+    static std::map<Vector, Time> s_fireStartTimes; // Tiempo de aparición de cada fuego
+    static uint32_t s_totalFiresExtinguished;       // Total de fuegos extinguidos
+    static Time s_totalExtinctionTime;              // Tiempo acumulado de extinción
+
     BoidsMobilityModel();
     virtual ~BoidsMobilityModel();
     void EvaluateLeadershipWithWCA(Ptr<const BoidsMobilityModel> otherLeader);
@@ -30,7 +37,10 @@ class BoidsMobilityModel : public MobilityModel
     void SetLeaderInfluenceRadius(double radius);
     void SetMaxSpeed(double speed);
     void SetIsLeader(bool isLeader);
+    void UpdateLeaderTarget();
+    static void AssignFiresToLeaders(); 
     static void SetOutputFile(std::ofstream* outFile);
+    static double CalculateWrappedDistance(const Vector& a, const Vector& b);
     static std::vector<Vector> getSpotsPoissonSpacial(
         uint32_t n, double areaX = 1000.0, double areaY = 1000.0,
         uint32_t k = 5, double desviacion = 10.0);
@@ -128,7 +138,6 @@ class BoidsMobilityModel : public MobilityModel
     static std::vector<Vector> s_clusterCenters;
     void UpdateWcaMetrics();
     bool IsIsolated() const;
-    double CalculateWrappedDistance(const Vector& a, const Vector& b) const;
 };
 
 } // namespace ns3
