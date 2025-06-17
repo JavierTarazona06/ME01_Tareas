@@ -6,6 +6,7 @@
 \usepackage{titletoc}
 \usepackage{adjustbox}
 \usepackage{amsmath} 
+\usepackage[spanish]{babel}
 
 \usepackage{listings}
 \hypersetup{
@@ -63,7 +64,7 @@
     \par\vspace{3cm}
 
     % Fecha
-    {\large Junio 7 de 2025 \par}
+    {\large Junio 16 de 2025 \par}
 \end{titlepage}
 
 \tableofcontents % Inserta la tabla de contenidos
@@ -88,8 +89,6 @@ Para resolver este desafío operativo, proponemos una solución basada en redes 
 %---------------------------------------------------------------------------------
 
 \section{Marco Teórico}\label{sec:marc}
-
-\section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
 \subsection{Redes MANET}
 Las redes móviles ad hoc, conocidas como \textbf{MANET (Mobile Ad Hoc Networks)}, son un tipo de red inalámbrica \textbf{descentralizada} y \textbf{auto-configurable} formada por dispositivos móviles que se comunican entre sí sin requerir una infraestructura fija, como estaciones base o routers cableados. Cada nodo en la red actúa simultáneamente como terminal —que genera y recibe información— y como enrutador, facilitando el envío de datos a través de múltiples saltos (\textit{multihop}) hasta alcanzar su destino. Esta capacidad de autoorganización hace que las MANET sean especialmente útiles en contextos donde no es posible contar con infraestructura tradicional, como en zonas de desastre, operaciones militares, entornos rurales o redes vehiculares dinámicas.
@@ -598,23 +597,60 @@ Donde la media de 0.005 representa el consumo promedio por unidad de tiempo. La 
 
 \section{Código Fuente}\label{sec:cod}
 
-El código fuente completo de este modelo se encuentra adjunto en el buzón 
-(06 Tarazona Jimenez Javier Andres 02.zip)
-y disponible en el repositorio GitHub del proyecto:
+El código fuente completo se encuentra adjunto como Taller1.zip
+o en el siguiente repositorio de GitHub:
 
 \begin{center}
-\url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/Tarea06/Code}
+\url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/Taller1/Code/boids}
 \end{center}
 
-El repositorio contiene:
-\begin{itemize}
-\item Los módulos principales para generación de datos (\texttt{generator.py})
-\item Implementación del algoritmo PBS (\texttt{toolsStats.py})
-\item Scripts de simulación para los 4 escenarios, ejecutables desde (\texttt{main.py})
-\item Archivo program.py de para la definición de las constantes del programa 
-    (\texttt{constants\_program.py})
-\item Archivo de métricas (\texttt{metrics.py})
-\end{itemize}
+\begin{table}[ht]
+  \centering
+  \begin{tabular}{p{4cm} p{10cm}}
+    \toprule
+    \textbf{Archivo} & \textbf{Función} \\
+    \midrule
+    \texttt{CMakeLists.txt} &
+      - Instrucciones de construcción para compilar el proyecto.
+
+      - Cómo integrar este módulo de movilidad (“mobility”) en la compilación de NS-3.
+
+      - Define la librería \texttt{mobility}, lista los archivos fuente (incluyendo \texttt{boids-mobility-model.cc}), especifica dependencias (antenas, red) y registra los tests asociados.
+    \\
+    \addlinespace
+    \texttt{boids-mobility-model.h} &
+      - Declaración de la clase \texttt{BoidsMobilityModel}, que hereda de \texttt{ns3::MobilityModel}.
+
+      - Parámetros configurables: radios de separación, alineamiento, cohesión y liderazgo; velocidad máxima; bandera de “líder”; intervalos de “fuego” (evento interno).
+
+      - Método estático \texttt{SetOutputFile(\dots)} para indicar dónde volcar la trayectoria de los nodos.
+    \\
+    \addlinespace
+    \texttt{boids-mobility-model.cc} &
+      Implementación de la lógica Boids:
+
+          - Cálculo de separación, alineamiento, cohesión y término de influencia de líderes.
+
+          - Gestión de “fuegos” y escritura de posiciones en el archivo de salida.
+    \\
+    \addlinespace
+    \texttt{boids.cc} &
+    Script de simulación “usuario” que configura nodos, asigna el modelo \texttt{BoidsMobilityModel}, fija parámetros y ejecuta la simulación.
+    \\
+    \addlinespace
+    \texttt{simulate/boids \_positions.csv} &
+    Archivo generado por la simulación NS-3 (desde \texttt{boids.cc}) con un registro tabulado de tiempo, nodo y coordenadas (x, y, z, …).
+    \\
+    \addlinespace
+    \texttt{simulate/showNodes.py} &
+    Script en Python que carga el CSV con \texttt{pandas} y usa \texttt{matplotlib} para animar los movimientos de los nodos.
+    \\
+    \bottomrule
+  \end{tabular}
+  \caption{Descripción de los archivos del proyecto Boids en NS-3}
+  \label{tab:boids_files}
+\end{table}
+
 
 \section{Manual Usuario}\label{sec:man_u}
 
@@ -682,7 +718,9 @@ cd /mnt/c/Users/TuUsuario/Documentos/NS3_Projects
     \begin{lstlisting}
 tar xjf ns-allinone-3.45.tar.bz2
     \end{lstlisting}
-    \textit{Nota: Aunque las fuentes mencionan \texttt{ns-3.45.tar.bz2} , el paso de descarga sugiere \texttt{ns-allinone-3.45.tar.bz2}.}
+    \textit{Nota: Aunque las fuentes mencionan \texttt{ns-3.45.tar.bz2} , el paso de descarga}
+
+        \textit{sugiere \texttt{ns-allinone-3.45.tar.bz2}.}
     \item \textbf{Acceder al Directorio de NS-3}: Navega al directorio principal de NS-3:
     \begin{lstlisting}
 cd ns-3.45  
@@ -735,7 +773,10 @@ La simulación de boids implica modificar y añadir archivos al proyecto NS-3, d
     \end{itemize}
     \item \textbf{Añadir Modelos de Movilidad}:
     \begin{itemize}
-        \item Copia los archivos \textbf{\texttt{boids-mobility-model.cc}} y \textbf{\texttt{boids-mobility-model.h}} a la ruta \texttt{ns3.xx/src/mobility/model}.
+        \item Copia los archivos \textbf{\texttt{boids-mobility-model.cc}} y 
+            \textbf{\texttt{boids-mobility-model.h}} 
+            
+            a la ruta \texttt{ns3.xx/src/mobility/model}.
         \item El contenido de \texttt{boids-mobility-model.cc} se encuentra en los extractos de "Modelo de Movilidad Boids con Liderazgo Adaptativo".
         \item El contenido de \texttt{boids-mobility-model.h} se encuentra en los extractos de "Modelo de Movilidad Boids para Redes Inalámbricas".
     \end{itemize}
@@ -944,12 +985,12 @@ Aunque el movimiento fue simulado correctamente, se recomienda analizar también
 \renewcommand{\refname}{}
 \begin{thebibliography}{9}
 
-\bibitem{ref} \label{ref:BPS} M. Bichler, S. Merting, and A. Uzunoglu, 
-“Assigning Course Schedules: About Preference Elicitation, Fairness, and Truthfulness,” 
-arXiv preprint arXiv:1812.02630, 2018. [En línea]. Disponible en: 
-\url{https://arxiv.org/abs/1812.02630}
+\bibitem{ref} \label{ref:AdHoc} S. K. Sarkar, T. G. Basavaraju y C. Puttamadappa, 
+Ad Hoc Mobile Wireless Networks: Principles, Protocols, and Applications, 2ª ed. 
+Boca Raton, FL: CRC Press, 2013.
 
-
+\bibitem{ref} \label{ref:PrinciplesAdHoc} M. Barbeau y E. Kranakis, Principles of Ad Hoc 
+Networking, 1ª ed. Chichester, England; Hoboken, NJ: Wiley, May 2007.
 
 \end{thebibliography}
 
