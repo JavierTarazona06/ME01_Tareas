@@ -463,6 +463,21 @@ Estos resultados esperados sientan las bases para el diseño de redes MANET orie
 \section{Diseño de la solución}
 
 La solución desarrollada está basada en el modelo de comportamiento de Boids para simular la movilidad de nodos en una red ad hoc. Este modelo adapta las reglas clásicas de \textit{cohesión}, \textit{alineación} y \textit{separación}, incorporando elementos adicionales como nodos líderes, mecanismos de selección dinámica de líderes mediante el algoritmo de clustering ponderado (WCA), interacción con eventos externos (como incendios) y una infraestructura de comunicación entre nodos basada en enlaces bidireccionales.
+\subsection*{Propósito General del Sistema}
+
+El propósito primordial de este sistema es simular la dinámica de una Red Ad Hoc Móvil (MANET), la cual integra un esquema de liderazgo adaptativo basado en el modelo de movilidad tipo Boids. 
+
+El objetivo central es evaluar el impacto del mecanismo de auto-proclamación de liderazgo en la \textbf{eficiencia de la supresión de fuegos} dentro de dicho entorno.
+
+\subsection*{Alcance de la Simulación}
+
+La simulación se centra en responder la siguiente cuestión fundamental:
+
+\begin{quote}
+¿La efectividad global en la extinción de fuegos se incrementa al facultar a un nodo seguidor previamente aislado –definido como aquel que no detecta un líder cercano dentro de un radio de influencia extendido de $1.2$ veces el radio normal de influencia del líder– para que se \textbf{autoproclame temporalmente como líder}, siempre y cuando su \texttt{wcaScore} sea superior a 0.0?
+\end{quote}
+
+Este rol de liderazgo \textbf{auto-proclamado} es transitorio y se mantiene \textbf{hasta que el nodo encuentra a otro líder con una puntuación WCA superior}, momento en el cual \textbf{cede su estatus} y retoma su rol de seguidor.
 
 \subsection{Metodología}
 
