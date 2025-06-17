@@ -5,6 +5,7 @@
 \usepackage{hyperref}
 \usepackage{titletoc}
 \usepackage{adjustbox}
+\usepackage{amsmath} 
 
 \usepackage{listings}
 \hypersetup{
@@ -90,8 +91,369 @@ Para resolver este desafío operativo, proponemos una solución basada en redes 
 
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
+\subsection{Redes MANET}
+Las redes móviles ad hoc, conocidas como \textbf{MANET (Mobile Ad Hoc Networks)}, son un tipo de red inalámbrica \textbf{descentralizada} y \textbf{auto-configurable} formada por dispositivos móviles que se comunican entre sí sin requerir una infraestructura fija, como estaciones base o routers cableados. Cada nodo en la red actúa simultáneamente como terminal —que genera y recibe información— y como enrutador, facilitando el envío de datos a través de múltiples saltos (\textit{multihop}) hasta alcanzar su destino. Esta capacidad de autoorganización hace que las MANET sean especialmente útiles en contextos donde no es posible contar con infraestructura tradicional, como en zonas de desastre, operaciones militares, entornos rurales o redes vehiculares dinámicas.
+
+El diseño y funcionamiento de una red MANET implica afrontar múltiples \textbf{desafíos técnicos} derivados principalmente de la \textbf{movilidad constante} de los nodos y la inestabilidad inherente a los enlaces inalámbricos. A diferencia de las redes convencionales, sustentadas en una \textbf{topología fija}, las MANET presentan una \textbf{topología altamente dinámica}, influenciada por el desplazamiento de los nodos, la interferencia del medio de transmisión y las restricciones energéticas. Esta naturaleza cambiante genera complejidades en aspectos críticos como el establecimiento y mantenimiento de rutas eficientes, la gestión del consumo energético, la calidad del servicio (QoS) y la seguridad de las comunicaciones.
+
+
+\subsubsection{Características de las redes MANET}
+Las redes \textbf{MANET} se caracterizan por la \textbf{movilidad continua} de sus nodos, como teléfonos, sensores, drones o vehículos, lo que provoca cambios constantes en la \textbf{topología de la red} durante su operación. Esta movilidad espacial, en dos o tres dimensiones, modifica dinámicamente los enlaces disponibles, ya que la \textbf{conectividad depende del rango de transmisión} entre nodos. Adicionalmente, estas redes se construyen de forma espontánea mediante procesos de \textbf{auto-configuración}, en los que basta con que los nodos compartan protocolos comunes de descubrimiento y enrutamiento para establecer enlaces funcionales. El \textbf{enrutamiento distribuido}, soportado por protocolos como \textbf{AODV}, \textbf{DSR}, \textbf{OLSR}, \textbf{B.A.T.M.A.N.} o \textbf{DYMO}, permite hallar rutas sin necesidad de un nodo central de control. Dado que los nodos pueden no estar siempre en contacto directo, la red opera mediante transmisión \textit{multihop}, en la que los paquetes se reenvían a través de múltiples saltos para alcanzar su destino. Finalmente, las MANET deben enfrentar \textbf{restricciones inherentes de recursos}, como energía limitada, canal inalámbrico compartido y ancho de banda reducido, lo que condiciona el diseño de protocolos eficientes para el acceso al medio, calidad de servicio y seguridad.
+
+A diferencia de las redes inalámbricas tradicionales como las redes celulares o Wi-Fi con infraestructura, las MANET operan bajo principios radicalmente distintos. Mientras que las primeras dependen de \textbf{puntos de acceso fijos} o torres de telecomunicaciones con \textbf{cobertura planificada} y \textbf{gestión centralizada}, las MANET prescinden de infraestructura fija y adoptan una \textbf{gestión distribuida}, en la que cada nodo toma decisiones de enrutamiento de forma autónoma. Esta arquitectura les permite un \textbf{despliegue rápido y flexible}, ideal para entornos impredecibles o de emergencia, aunque con la contrapartida de \textbf{enlaces más inestables} y menor capacidad agregada. Así, mientras las redes tradicionales priorizan \textbf{estabilidad y rendimiento sostenido} a costa de altos costos de infraestructura, las MANET privilegian la \textbf{adaptabilidad} y la \textbf{autonomía} en escenarios dinámicos.
+
+
+
+\subsubsection{Aplicaciones de las redes MANET}
+Gracias a su \textbf{flexibilidad}, \textbf{autonomía} y \textbf{capacidad de autoorganización}, las redes MANET encuentran aplicación en diversos contextos donde las soluciones de comunicación tradicionales resultan inviables o insuficientes. En el ámbito \textbf{militar}, son fundamentales para establecer comunicaciones tácticas robustas y descentralizadas en entornos hostiles o cambiantes, permitiendo la conectividad entre vehículos, unidades en movimiento y sistemas no tripulados (UAVs). De forma similar, en situaciones de \textbf{emergencia} como terremotos, incendios forestales o inundaciones, estas redes facilitan la coordinación entre equipos de rescate, al permitir el despliegue rápido de enlaces de comunicación en ausencia de infraestructura.
+
+Otras aplicaciones relevantes incluyen la creación de \textbf{redes comunitarias o rurales}, donde los proveedores de servicios de internet (ISP) no tienen presencia y se requiere una solución autosostenible para la conectividad local. En entornos urbanos, las \textbf{redes vehiculares ad hoc (VANET)}, derivadas de la lógica de las MANET, permiten la transmisión de alertas de tráfico y la coordinación entre automóviles para mejorar la seguridad vial. Por último, en escenarios de \textbf{Internet de las Cosas (IoT)}, las MANET sirven como soporte para el monitoreo distribuido de variables ambientales, cultivos o maquinaria en aplicaciones como la \textbf{agricultura de precisión} o la gestión remota de infraestructuras críticas.
+
+
+
+\subsection{Jerarquía de Redes MANET}
+A medida que las redes MANET crecen en tamaño y complejidad, la gestión descentralizada tradicional comienza a enfrentar serias limitaciones en términos de \textbf{eficiencia}, \textbf{escalabilidad} y \textbf{sobrecarga}. Para abordar estos desafíos, se recurre a la incorporación de \textbf{estructuras jerárquicas} que permiten organizar los nodos en niveles funcionales, como \textbf{clústeres}, \textbf{zonas} o \textbf{dominios}. En este modelo, ciertos nodos asumen roles especializados —como los \textbf{Cluster Heads (CH)} o \textbf{Gateways}— y conforman un \textbf{backbone lógico} encargado de facilitar el control distribuido de la red. Esta organización jerárquica permite \textbf{delegar tareas críticas} de enrutamiento, coordinación y asignación de recursos, lo que reduce la carga global y mejora el rendimiento en entornos altamente dinámicos. Además, al limitar la propagación de paquetes de control a contextos locales, se disminuye significativamente la congestión del canal y se incrementa la eficiencia operativa de la red.
+
+
+\subsubsection{Arquitectura jerárquica en MANET}
+La arquitectura jerárquica en redes MANET introduce un modelo organizativo por niveles que permite mejorar la escalabilidad y reducir la sobrecarga de señalización en entornos altamente dinámicos. A diferencia de las arquitecturas planas, en las cuales todos los nodos comparten responsabilidades similares en el proceso de enrutamiento, una red MANET jerárquica delega ciertas funciones de control y coordinación en nodos especializados, formando una estructura lógica de múltiples capas.
+
+Este tipo de organización se implementa comúnmente a través de mecanismos de \textit{clustering}, donde los nodos se agrupan en dominios o zonas locales. Cada clúster es gestionado por un nodo líder, conocido como \textbf{\textit{Cluster Head} (CH)}, responsable de mantener la conectividad intra-clúster y de actuar como punto de enlace hacia otros clústeres. Sobre esta base, es posible establecer niveles adicionales de jerarquía mediante la inclusión de nodos de mayor rango, o \textit{supernodos}, que se encargan de optimizar la comunicación entre grupos de CH, formando así un \textbf{\textit{backbone}} \textit{multihop} de control.
+
+En términos funcionales, esta jerarquía puede descomponerse en tres niveles principales:
+\begin{itemize}
+    \item \textbf{Nivel de nodos finales:} compuesto por dispositivos móviles comunes como teléfonos, sensores, vehículos o UAVs, que generan y reciben datos, pero delegan el enrutamiento y la coordinación a nodos superiores.
+    \item \textbf{Nivel de clústeres:} donde se agrupan nodos bajo la gestión de un CH, encargado del mantenimiento de rutas locales y de la estabilidad del clúster.
+    \item \textbf{Nivel de supernodos o coordinadores interclúster:} responsables de enlazar múltiples clústeres, manejar tráfico agregado y reducir la latencia en trayectos de largo alcance.
+\end{itemize}
+
+Este enfoque jerárquico resulta especialmente útil en escenarios complejos como redes tácticas militares, operaciones de búsqueda y rescate, o redes vehiculares distribuidas, donde diferentes grupos de nodos pueden requerir coordinación diferenciada según su ubicación o función operativa.
+
+
+\subsubsection{Beneficios de la jerarquía en MANET}
+La incorporación de una \textbf{estructura jerárquica} en redes MANET aporta ventajas clave en entornos caracterizados por alta movilidad, recursos limitados y necesidad de escalabilidad. Entre los beneficios más relevantes se destacan:
+
+\begin{itemize}
+    \item \textbf{Escalabilidad aumentada:} al centralizar parcialmente la toma de decisiones en nodos específicos, se reduce la complejidad del enrutamiento global, lo que permite gestionar un mayor número de nodos sin comprometer la estabilidad de la red.
+
+    \item \textbf{Reducción de la sobrecarga de control:} el tráfico de señalización se limita principalmente al interior de cada clúster, evitando la propagación innecesaria de mensajes de control a través de toda la red y optimizando el uso del \textbf{ancho de banda}.
+
+    \item \textbf{Mejora en la calidad de servicio (QoS):} la jerarquía facilita la aplicación de políticas diferenciadas de tráfico, priorizando flujos críticos como \textbf{voz}, \textbf{video en tiempo real} o datos de sensores, en función de su ubicación dentro de la estructura.
+
+    \item \textbf{Tolerancia a fallos localizada:} la segmentación en clústeres permite aislar errores o desconexiones sin comprometer la totalidad de la red. La pérdida de un nodo o enlace puede ser gestionada de forma local, incrementando la \textbf{robustez} del sistema.
+
+    \item \textbf{Eficiencia energética:} dado que solo los \textbf{Cluster Heads} y enlaces críticos participan activamente en la retransmisión de datos, los nodos ordinarios pueden operar en estados de bajo consumo, prolongando la vida útil de la red en escenarios energéticamente restringidos.
+
+\end{itemize}
+
+
+\subsubsection{Principales problemas en MANETs jerárquicas de 2 niveles}
+La implementación de una arquitectura jerárquica de dos niveles presenta desafíos significativos, entre los cuales destacan los siguientes al modelar o simular redes MANET:
+
+\begin{enumerate}
+    \item \textbf{Doble escala mal representada.} 
+    En muchos modelos clásicos se asume que todos los nodos tienen un comportamiento homogéneo. Sin embargo, en redes jerárquicas, los \textit{Cluster Heads} (CH) tienden a funcionar como centros de actividad en torno a los cuales se agrupan los nodos miembros. Esta diferencia de roles genera patrones de movilidad no uniformes que no son capturados adecuadamente por modelos planos, lo que lleva a una subestimación de los eventos de reelección de CH y a una sobrevaloración de la estabilidad estructural del \textit{backbone}.
+
+    \item \textbf{Dependencia temporal.} 
+    Modelos como \textit{Random Waypoint} tienden a reducir la velocidad promedio de los nodos a largo plazo. En el contexto jerárquico, esto provoca que el nodo líder del clúster parezca detenerse progresivamente, generando enlaces que duran más de lo realista y métricas optimistas de persistencia de ruta y frecuencia de \textit{handoff}.
+
+    \item \textbf{Dependencia espacial y concentración central.} 
+    Algunos modelos de movilidad tienden a generar un sesgo hacia el centro del área de simulación, concentrando la presencia de \textit{Cluster Heads} (CH) en esa zona y dejando regiones periféricas con baja densidad. Este desequilibrio produce una topología poco representativa, donde se subestiman los problemas de conectividad en los bordes y se distorsiona el análisis del retardo y la resiliencia del \textit{backbone}.
+
+    \item \textbf{Restricciones geográficas y obstáculos físicos.} 
+    En escenarios con edificios, montañas u otras estructuras, los modelos de movilidad con trayectorias fijas como \textit{Pathway} u \textit{Obstacle Mobility} obligan a los clústeres a rodear dichos obstáculos. Esto genera oscilaciones abruptas en la cantidad de saltos entre CH y puede provocar particiones momentáneas de la red, afectando la continuidad del servicio y la estabilidad de las rutas.
+
+    \item \textbf{Limitaciones de los modelos de movilidad grupal.} 
+    Modelos como \textit{RPGM} asumen que todos los nodos siguen de forma continua al líder del grupo, sin considerar dinámicas más complejas como divisiones o fusiones entre clústeres. Esta simplificación conlleva una subestimación del tráfico de control necesario para mantener la cohesión del grupo y oculta pérdidas de paquetes que ocurren cuando los nodos se desconectan momentáneamente del clúster.
+
+    \item \textbf{Costos asociados al re-clustering.} 
+    Cuando un \textit{Cluster Head} se desplaza rápidamente o pierde conectividad con sus nodos, debe transferir su rol a otro nodo, lo que implica procesos de reelección, resincronización de slots temporales (e.g. TDMA) y actualización de estados. Este comportamiento genera ráfagas de mensajes de control, elevando el consumo energético y el uso del canal en momentos críticos de inestabilidad topológica.
+
+    \item \textbf{Inconsistencias en el direccionamiento jerárquico.} 
+    En muchos modelos no se simula el retardo que implica actualizar los prefijos jerárquicos o identificadores de clúster en las tablas de encaminamiento. Durante esta latencia, pueden aparecer retransmisiones innecesarias, rutas erróneas o bucles de reenvío, lo que degrada la eficiencia de la red y la coherencia del plano de control.
+
+    \item \textbf{Interferencia entre enlaces CH y nodos miembros.} 
+    Dado que el canal de comunicación es compartido, los enlaces entre \textit{Cluster Heads} y los flujos intra-clúster pueden interferirse mutuamente, especialmente cuando dos clústeres se solapan geográficamente. Esto genera colisiones, pérdidas de paquetes y disminución en la tasa de entrega y el \textit{throughput}, afectando el rendimiento global si no se simula la coordinación inter-clúster.
+
+    \item \textbf{Problemas de escalabilidad del escenario.} 
+    En áreas pequeñas, los clústeres tienden a rebotar en los límites del entorno simulado, generando patrones artificiales de movimiento. En cambio, en áreas demasiado grandes, pueden aparecer vacíos entre los CH y los nodos, provocando aislamiento temporal. Estas variaciones hacen que los resultados obtenidos sean altamente sensibles al tamaño del escenario, dificultando su extrapolación a redes reales.
+
+    \item \textbf{Ausencia de trazas jerárquicas reales.} 
+    La mayoría de conjuntos de datos disponibles públicamente para simulaciones están basados en redes planas, como movimientos individuales de vehículos o peatones. Esto obliga a parametrizar las simulaciones jerárquicas de forma arbitraria, reduciendo la reproducibilidad de los experimentos y dificultando las comparaciones justas entre diferentes protocolos de enrutamiento jerárquico.
+
+\end{enumerate}
+
+
+\subsubsection{Comunicación intra-clúster e inter-clúster}
+
+En el contexto de una \textbf{red MANET jerárquica}, el modelo de comunicación se organiza en dos planos complementarios que responden a la segmentación lógica de la red: la \textbf{comunicación intra-clúster} y la \textbf{comunicación inter-clúster}. Cada uno presenta características particulares en términos de alcance, complejidad y gestión de recursos.
+
+\begin{itemize}
+    \item \textbf{Comunicación intra-clúster:} se refiere al intercambio de datos dentro de un mismo clúster, donde los nodos seguidores se conectan de forma directa o indirecta con su respectivo \textit{Cluster Head} (\textbf{CH}). Este nodo central coordina el acceso al canal y puede aplicar esquemas de control eficientes, como \textbf{TDMA} o protocolos de \textbf{prioridad adaptativa}, con el fin de evitar colisiones y optimizar la transmisión local. Una herramienta clave para mantener esta organización es el uso de \textbf{beacons}, pequeños paquetes de control que el \textbf{CH} emite periódicamente para anunciar su presencia y permitir que los nodos seguidores verifiquen la conectividad. Estos \textbf{beacons} son esenciales para la \textbf{sincronización} del clúster, la \textbf{detección de eventos de desacoplamiento} y la \textbf{gestión dinámica de enlaces} en escenarios de alta movilidad. Esta centralización parcial reduce la \textbf{interferencia entre nodos} y mejora el rendimiento en aspectos como la \textbf{sincronización}, el \textbf{balanceo de carga} y el \textbf{mantenimiento de rutas estables y cortas}.
+
+    \item \textbf{Comunicación inter-clúster:} comprende los flujos de información entre diferentes clústeres, y es gestionada principalmente por los propios \textbf{Cluster Heads} o por nodos designados como \textbf{gateways}. Estos nodos actúan como puentes entre dominios lógicos y emplean \textbf{protocolos de enrutamiento jerárquico} para mantener la conectividad global. La construcción de rutas entre clústeres puede apoyarse en mecanismos de agregación de información topológica parcial, lo cual permite reducir la \textbf{sobrecarga de señalización} y minimizar la \textbf{latencia}, especialmente en entornos con alta movilidad o distribución desigual de nodos.
+\end{itemize}
+
+La coexistencia de estos dos niveles de comunicación permite a la red adaptarse de forma más eficaz a entornos cambiantes, especialmente en escenarios donde se requiere coordinación entre múltiples grupos móviles, como en \textbf{operaciones de rescate, despliegues tácticos militares} o redes vehiculares distribuidas.
+
+\subsection{Protocolo de enrutamiento Cluster-Based}
+Los \textbf{protocolos de enrutamiento jerárquico basados en clústeres} (\textit{Cluster-Based Routing}, CBR) surgen como solución a los problemas de \textbf{escalabilidad} en redes MANET de gran tamaño. Estos protocolos organizan la red en grupos lógicos autogestionados, en los que cada \textbf{clúster} es coordinado por un \textbf{Cluster Head (CH)}, elegido de manera dinámica, que centraliza el enrutamiento local y actúa como puente hacia otros clústeres, además los \textbf{nodos miembros} delegan las decisiones de enrutamiento al CH, reduciendo así la \textbf{sobrecarga computacional} y el \textbf{consumo energético}.\\
+
+
+Entre las ventajas más destacadas frente a protocolos planos (como AODV) se incluyen:
+
+\begin{itemize}
+    \item \textbf{Reducción del overhead de control:} se limita la propagación de mensajes de enrutamiento al ámbito del clúster, con reducciones reportadas de hasta un 58\% en tráfico de control.
+    \item \textbf{Adaptabilidad topológica:} los eventos de movilidad afectan principalmente a nivel local, lo que reduce la necesidad de recomputaciones globales.
+\end{itemize}
+
+
+\subsubsection{Principios del enrutamiento Cluster-Based}
+El funcionamiento de los protocolos CBR se estructura generalmente en tres fases:
+\begin{enumerate}
+    \item \textbf{Formación de clústeres:} \\
+    La elección del \textbf{Cluster Head} se realiza con base en métricas como la \textbf{energía residual}, el \textbf{grado de conectividad} o la \textbf{estabilidad de movilidad}. \\
+    \textit{Ejemplo:} en el protocolo HEED, el CH se selecciona ponderando la energía disponible y la densidad de nodos vecinos.
+
+    \item \textbf{Mantenimiento de rutas:} \\
+    Los CH intercambian información de accesibilidad a través de \textbf{gateways} (nodos frontera) y establecen rutas inter-clúster jerárquicas, evitando el uso de inundación global.
+
+    \item \textbf{Reconfiguración dinámica:} \\
+    Activada por la movilidad del CH o por cambios en la densidad nodal. Algoritmos como \textit{Weighted Clustering} optimizan la reelegibilidad del CH para minimizar oscilaciones estructurales.
+\end{enumerate}
+
+Si bien los protocolos de enrutamiento basados en clústeres ofrecen ventajas significativas en términos de \textbf{escalabilidad}, \textbf{eficiencia energética} y \textbf{reducción de sobrecarga}, también presentan ciertas limitaciones que deben ser consideradas según el contexto de aplicación. En escenarios con alta densidad nodal, la frecuencia de procesos de reelección de \textbf{Cluster Heads} tiende a aumentar. Asimismo, la naturaleza jerárquica de estos protocolos puede derivar en rutas menos óptimas, con trayectos más largos en comparación con esquemas planos, lo cual repercute en la \textbf{latencia} y el uso de \textbf{recursos de red}. Estas compensaciones operativas deben ser evaluadas cuidadosamente al diseñar soluciones de enrutamiento para entornos dinámicos y heterogéneos.
+
+En el contexto de este trabajo, el \textbf{protocolo Cluster-Based} se extiende mediante la introducción del \textbf{nodo CH-temporal}, el cual actúa como \textbf{entidad de recuperación local} durante eventos de desacoplamiento, reduciendo la \textbf{latencia de re-clusterización} y manteniendo la \textbf{conectividad intra-clúster}.
+
+\subsubsection{Algoritmo WCA (Weighted Clustering Algorithm)}
+
+El \textbf{algoritmo WCA (Weighted Clustering Algorithm)} es una estrategia de enrutamiento jerárquico empleada para la selección dinámica de nodos líderes en redes MANET. A diferencia de enfoques que utilizan criterios únicos, WCA implementa una política de decisión basada en la combinación ponderada de múltiples factores que influyen en la estabilidad y eficiencia del clúster.
+
+Cada nodo calcula un \textbf{peso compuesto} $W_i$ mediante la siguiente expresión:
+
+\[
+W_i = w_1 \cdot \Delta_i + w_2 \cdot D_i + w_3 \cdot M_i + w_4 \cdot E_i
+\]
+
+donde:
+\begin{itemize}
+    \item $\Delta_i$: diferencia entre el grado actual del nodo y el grado óptimo de conectividad.
+    \item $D_i$: suma de distancias físicas a los nodos vecinos.
+    \item $M_i$: movilidad promedio del nodo en una ventana de tiempo definida.
+    \item $E_i$: nivel de energía residual disponible.
+\end{itemize}
+
+Los coeficientes $w_1, w_2, w_3$ y $w_4$ representan ponderaciones ajustables que permiten adaptar el algoritmo a diferentes condiciones de red, como prioridad energética, baja movilidad o proximidad geográfica.
+
+El nodo con el menor valor de $W_i$ dentro de su vecindad es seleccionado como líder del clúster, lo que permite formar estructuras más estables, distribuidas y energéticamente balanceadas. Esta lógica contribuye a reducir la frecuencia de reconfiguraciones en entornos con alta movilidad, y ha sido adoptada como base en diversos protocolos jerárquicos por su flexibilidad y capacidad de optimizar múltiples objetivos de red de forma simultánea.
+
+
+\subsection{Simulación de MANET con ns-3}
+El \textbf{Network Simulator 3 (ns-3)} es una plataforma de simulación por eventos discretos ampliamente utilizada en el modelado y análisis de redes de comunicación. Su arquitectura modular y alto grado de personalización permiten simular una amplia variedad de escenarios, desde redes cableadas hasta entornos inalámbricos complejos como las \textbf{redes móviles ad hoc (MANET)}. Gracias a su soporte para múltiples capas de red, \texttt{ns-3} se ha consolidado como una herramienta de referencia en investigación académica y pruebas experimentales previas a la implementación real de sistemas.
+
+En el contexto de MANET, \texttt{ns-3} ofrece capacidades específicas para modelar fenómenos como la \textbf{movilidad nodal}, la \textbf{variabilidad en la calidad del enlace} y el comportamiento de distintos \textbf{protocolos de enrutamiento}. Además, permite configurar dinámicamente patrones de tráfico, políticas de acceso al canal y esquemas de interacción entre nodos, lo cual resulta fundamental para evaluar el rendimiento de estas redes bajo condiciones controladas y reproducibles. Esta capacidad de abstracción y experimentación controlada lo convierte en una herramienta esencial para analizar la viabilidad y eficiencia de diferentes arquitecturas y estrategias en MANET.
+
+
+\subsubsection{Características de ns-3.45 para la simulación de MANET}
+La versión \texttt{3.45} de \texttt{ns-3} proporciona un marco de simulación robusto para redes MANET, con mejoras significativas en términos de \textbf{precisión}, \textbf{escalabilidad} y \textbf{realismo en la modelación de entornos inalámbricos}. Entre sus funcionalidades clave destacan:
+
+\begin{enumerate}
+    \item \textbf{Modelos avanzados de movilidad} \\
+    \textit{Novedad en 3.45:} implementación del modelo \textit{Gauss-Markov 3D} para simular movilidad aérea, como en drones o UAVs. \\
+    Modelos soportados:
+    \begin{itemize}
+        \item \texttt{RandomWaypointMobilityModel} (movimiento aleatorio)
+        \item \texttt{HierarchicalMobilityModel} (movilidad grupal jerárquica)
+        \item \texttt{SteadyStateRandomWaypointMobilityModel} (elimina el sesgo hacia el centro)
+        \item Integración con datos GPS reales mediante \texttt{TraceMobilityHelper}
+    \end{itemize}
+
+    \item \textbf{Modelos de propagación de señal} \\
+    Modelos físicos disponibles:
+    \begin{itemize}
+        \item \texttt{TwoRayGroundPropagationLossModel} (entornos abiertos)
+        \item \texttt{LogDistancePropagationLossModel} (escenarios urbanos y suburbanos)
+        \item \textit{Nuevo:} \texttt{ThreeGppPropagationLossModel} para canales 5G/NR
+        \item \texttt{MatrixPropagationLossModel} para simulaciones de interferencia con mapas de calor 3D
+    \end{itemize}
+
+    \item \textbf{Generación de tráfico y calidad de servicio (QoS)} \\
+    Herramientas disponibles:
+    \begin{itemize}
+        \item \texttt{OnOffApplication} (tráfico VoIP o CBR)
+        \item \texttt{BulkSendApplication} (transferencias TCP intensivas)
+    \end{itemize}
+    \textit{Innovaciones en 3.45:}
+    \begin{itemize}
+        \item Módulo \texttt{NrNetDevice} para comunicaciones en bandas milimétricas (mmWave)
+        \item Priorización de tráfico mediante etiquetas \texttt{SocketPriorityTag}
+    \end{itemize}
+
+    \item \textbf{Herramientas de análisis y visualización} \\
+    Soporte para:
+    \begin{itemize}
+        \item \texttt{FlowMonitor} para métricas de rendimiento
+        \item \texttt{NetAnim 3.45} para animación del comportamiento de red
+        \item Exportación de datos en formatos \texttt{PCAP}, \texttt{SQLite} y visualización mediante \texttt{PyViz} para análisis en Python
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection{Modelos de movilidad en MANET}
+La movilidad nodal es un factor crítico que determina el desempeño de redes MANET, afectando directamente la estabilidad de enlaces, overhead de control y eficiencia de enrutamiento. Para estudiar estos efectos, se han desarrollado tres categorías fundamentales de modelos:
+
+\begin{itemize}
+    \item \textbf{Modelos no estructurados}: Movimiento aleatorio independiente (ej. Random Waypoint)
+    \item \textbf{Modelos grupales}: Coordinación jerárquica entre nodos (ej. RPGM)
+    \item \textbf{Modelos especializados}: Patrones específicos por aplicación (ej. táctico-militares)
+\end{itemize}
+
+\subsubsection{Modelo de Movilidad Random Waypoint (RWP)}
+El \textbf{Random Waypoint Mobility Model (RWPM)} se adoptó para representar el movimiento de los nodos líderes dentro del área de simulación. Este modelo es uno de los más utilizados en simulaciones de redes MANET debido a su simplicidad y capacidad de generar trayectorias no determinísticas. En RWPM, cada nodo selecciona aleatoriamente una posición de destino dentro del área simulada y se desplaza hacia ella a una velocidad uniforme dentro de un rango definido. Al alcanzar el destino, el nodo realiza una pausa durante un tiempo determinado, y posteriormente repite el proceso seleccionando un nuevo destino.
+
+Este modelo es particularmente adecuado para representar el movimiento autónomo de nodos líderes en entornos abiertos y dinámicos, como vehículos o UAVs en operaciones militares, donde no se sigue una trayectoria fija. Su capacidad para generar trayectorias impredecibles lo hace útil para evaluar la \textbf{resiliencia de los protocolos de enrutamiento} ante cambios topológicos frecuentes, como los que se presentan en redes altamente móviles.
+
+No obstante, el RWPM presenta ciertas limitaciones importantes. Una de ellas es la \textbf{distribución espacial no uniforme} de los nodos: debido a la forma en que se seleccionan los destinos y las pausas, los nodos tienden a concentrarse en el centro del área de simulación, lo que puede sesgar los resultados en escenarios prolongados. Además, el modelo puede experimentar \textbf{problemas de convergencia} en etapas iniciales de la simulación, especialmente cuando las posiciones iniciales son asignadas aleatoriamente, lo que provoca una fase transitoria antes de alcanzar un patrón de movilidad estable.
+
+\subsubsection{Modelo de Movilidad RPGM (Reference Point Group Mobility)}
+El modelo \textbf{RPGM (Reference Point Group Mobility)} es un esquema de movilidad grupal jerárquico ampliamente utilizado en simulaciones de redes MANET, particularmente en escenarios tácticos, de rescate o vehiculares. A diferencia de los modelos de movilidad independiente (e.g., Random Waypoint), RPGM organiza los nodos en grupos con comportamiento espacial coordinado, donde cada grupo sigue un \textit{nodo líder} (punto de referencia) cuya trayectoria define el movimiento colectivo, mientras los nodos miembros mantienen una posición relativa al líder dentro de un radio estocástico $[d_{min}, d_{max}]$. La dinámica del modelo se parametriza mediante dos componentes clave: el \textit{patrón de movimiento del líder} (trayectorias predefinidas o aleatorias) y la \textit{función de desplazamiento} (distribución uniforme o Gaussiana para la variación nodal).
 
 \subsection{Objetivo Principal}
+Este enfoque ofrece ventajas significativas en términos de \textbf{realismo}, puesto que captura comportamientos grupales observados en aplicaciones militares (unidades móviles) o VANETs (convoyes), y \textbf{eficiencia computacional}, al reducir el \textit{overhead} de simulación comparado con modelos totalmente independientes. Sin embargo, presenta limitaciones importantes: requiere sintonización fina de $d_{max}$ para evitar particiones prematuras de grupos, y asume cooperación plena entre nodos sin modelar deserciones aleatorias que puedan ocurrir en escenarios reales.
+
+\subsubsection{Modelo de movilidad Boids}
+
+El modelo de movilidad \textbf{Boids}, propuesto por Craig Reynolds en 1987, simula el comportamiento colectivo de agentes autónomos a partir de reglas locales simples que generan dinámicas emergentes de grupo. Este modelo se basa en tres principios fundamentales:
+
+\begin{itemize}
+    \item \textbf{Separación:} evitar colisiones con nodos cercanos manteniendo una distancia mínima segura.
+    \item \textbf{Alineación:} ajustar la dirección del movimiento para coincidir con la orientación promedio de los vecinos.
+    \item \textbf{Cohesión:} moverse hacia el centro de masa del grupo de nodos más cercanos.
+\end{itemize}
+
+A diferencia de enfoques jerárquicos como RPGM, el modelo Boids adopta una lógica completamente \textbf{descentralizada}, en la cual cada nodo toma decisiones en función de su \textbf{entorno local}, sin la necesidad de un líder designado.
+
+Esta aproximación permite generar comportamientos emergentes realistas, como formaciones dinámicas, dispersión adaptativa o evasión de obstáculos de manera fluida. Su naturaleza descentralizada mejora la \textbf{tolerancia a fallos}, al eliminar puntos únicos de dependencia jerárquica, y facilita la \textbf{adaptación continua} a entornos cambiantes. Estas características lo hacen especialmente adecuado para simular \textbf{enjambres robóticos}, \textbf{equipos de rescate} o nodos móviles en misiones cooperativas no estructuradas.
+
+Sin embargo, el modelo también presenta ciertas limitaciones. Requiere una \textbf{calibración precisa de parámetros} para mantener la cohesión grupal, puede exhibir \textbf{comportamientos impredecibles} en escenarios de gran escala, y demanda una mayor \textbf{carga computacional} que los modelos con control jerárquico. 
+
+
+
+\subsection{Marco conceptual y pregunta de indagación}
+La integración de los fundamentos teóricos expuestos – particularmente sobre \textbf{movilidad tipo Boids (Sección 2.5.3)}, \textbf{liderazgo adaptativo mediante WCA (Sección 2.3.2)} y \textbf{simulaciones MANET (Sección 2.4)} – revela una brecha operativa crítica en escenarios de emergencia: la ausencia de mecanismos de respuesta inmediata cuando nodos aislados detectan incendios sin líderes cercanos. Este vacío motiva un marco de resiliencia dinámica que sintetiza:
+
+\begin{enumerate}
+    \item \textbf{Autoproclamación de líderes temporales} para coordinación de emergencia en zonas sin cobertura de chNodes.
+    \item \textbf{Criterios de transferencia jerárquica} basados en mérito de nodo (WCA) y urgencia del siniestro.
+\end{enumerate}
+
+La formalización de este marco sustenta la pregunta de indagación central, cuyas hipótesis y modelo operativo se derivan de principios de \textbf{sistemas auto-organizativos}, \textbf{teoría de respuesta a emergencias} y optimización dinámica de recursos.
+
+
+\subsubsection{Problemática en redes con movilidad tipo Boids para respuesta a emergencias}  
+En redes MANET con \textbf{movilidad tipo Boids}, los nodos interactúan con base en principios locales de separación, alineación y cohesión, sin una jerarquía predefinida. No obstante, para tareas complejas de coordinación como la \textbf{extinción de incendios}, este comportamiento autoorganizado se complementa con la presencia de \textbf{líderes funcionales} o \textit{Cluster Heads} (chNodes), seleccionados dinámicamente mediante el algoritmo WCA. Estos líderes asumen la responsabilidad de dirigir acciones colectivas, distribuir tareas y priorizar recursos en zonas críticas.
+
+A pesar de la flexibilidad de este enfoque mixto, se identifican vulnerabilidades operativas en escenarios donde emergen focos de incendio en áreas sin cobertura inmediata de chNodes. Esto ocurre particularmente en zonas periféricas de la red o cuando los líderes activos se encuentran sobrecargados, desplazados o temporalmente desconectados. Como resultado, algunos nodos pueden quedar \textbf{aislados}, es decir, sin un líder dentro de su radio efectivo de influencia.
+
+Ante esta situación, los nodos aislados que detectan incendios enfrentan una limitación estructural: no están autorizados para ejecutar acciones de respuesta, ya que dependen de la validación y coordinación del chNode más cercano. Esto genera una \textbf{ventana de inacción}, en la cual el nodo permanece en estado pasivo mientras espera indicaciones externas, incluso si cuenta con los sensores, energía y proximidad necesarios para actuar.
+
+Este vacío de coordinación tiene consecuencias directas en la eficiencia del sistema:
+\begin{itemize}
+    \item Se retrasa la activación de mecanismos de contención en zonas críticas.
+    \item Se pierde la oportunidad de responder tempranamente, cuando el incendio aún es manejable.
+    \item Se desaprovechan recursos locales disponibles para la mitigación.
+\end{itemize}
+
+Esta problemática motiva la necesidad de incorporar un mecanismo de resiliencia adaptativa que permita a los nodos aislados asumir, de forma temporal, funciones de liderazgo ante la detección de eventos críticos, contribuyendo así a preservar la capacidad de respuesta del sistema frente a condiciones dinámicas e impredecibles.
+
+
+
+
+
+\subsubsection{Propuesta de solución: Nodo CH-temporal}
+Como respuesta a las limitaciones descritas previamente, se propone la incorporación de un \textbf{mecanismo de liderazgo temporal} que permita a los nodos aislados asumir un rol activo en situaciones de emergencia. En particular, cuando un nodo seguidor detecta un incendio (\texttt{s\_fire}) en su proximidad y no tiene un \textit{Cluster Head} (chNode) dentro de su radio efectivo de coordinación $R$, este puede transitar de forma autónoma a un \textbf{estado de líder temporal} (\texttt{tempCH}).
+
+En este estado, el nodo realiza las siguientes acciones:
+\begin{enumerate}
+    \item Se autoproclama \texttt{tempCH} para el manejo local del evento detectado.
+    \item Activa el protocolo de extinción del incendio en su área de influencia.
+    \item Coordina la colaboración de nodos cercanos, si los hay, para ejecutar acciones conjuntas de contención.
+    \item Permanece en estado de liderazgo hasta que detecta un chNode cercano con un valor de WCA superior, momento en el cual transfiere el control y retorna a su estado de nodo seguidor.
+\end{enumerate}
+
+Esta estrategia ofrece múltiples beneficios operativos:
+\begin{itemize}
+    \item \textbf{Reduce la latencia de respuesta} en eventos críticos donde la reacción temprana es esencial.
+    \item \textbf{Mitiga la propagación} de incendios en zonas que, de otro modo, quedarían desatendidas.
+    \item \textbf{Evita la necesidad de reconfiguración global}, actuando como una solución local, ágil y de bajo costo computacional.
+\end{itemize}
+
+La figura del \texttt{tempCH} funciona, por tanto, como una extensión adaptativa del esquema tradicional de liderazgo jerárquico, dotando al sistema de una \textbf{capacidad de resiliencia distribuida} que fortalece su desempeño ante condiciones altamente dinámicas y demandas imprevistas.
+
+
+\subsubsection{Pregunta de indagación e hipótesis}
+
+La problemática previamente expuesta sugiere una carencia estructural en la capacidad de respuesta de redes MANET con movilidad tipo Boids y liderazgo basado en WCA, especialmente en situaciones donde nodos detectan incendios sin estar asociados a un líder cercano. A partir de este análisis, se formula la siguiente \textbf{pregunta de indagación}:
+
+\begin{quote}
+\textit{¿No será que la \textbf{efectividad global en la extinción de fuegos} (medida por métricas como el tiempo promedio de extinción y el número total de fuegos extinguidos en un periodo dado) \textbf{se incrementa} si se permite que un nodo seguidor que previamente estaba \textbf{aislado} (sin un líder cercano dentro de un radio efectivo de influencia) \textbf{se autoproclame temporalmente como líder} hasta que se encuentre con uno con un mayor WCA?}
+\end{quote}
+
+Con el fin de evaluar esta propuesta, se plantean las siguientes \textbf{hipótesis de trabajo}:
+
+\begin{itemize}
+    \item \textbf{H1:} La introducción de un estado de \texttt{líder temporal} para nodos aislados mejora la \textbf{efectividad operativa} del sistema frente a incendios, permitiendo una reacción más rápida ante eventos emergentes.
+    
+    \item \textbf{H2:} La utilización de una política de transición basada en la comparación de WCA entre el nodo temporal y líderes vecinos garantiza una \textbf{reinserción jerárquica eficiente} sin generar conflictos de liderazgo o redundancia de comandos.
+\end{itemize}
+
+Estas hipótesis orientan el diseño experimental y la simulación, así como la selección de métricas para medir el impacto real de la estrategia en escenarios dinámicos y distribuidos.
+
+\subsubsection{Modelo de acoplamiento dinámico}
+El funcionamiento del nodo en estado \texttt{CH-temporal} requiere un mecanismo de decisión que determine el momento oportuno para ceder el rol de liderazgo a un \textit{Cluster Head} (chNode) con mayor capacidad. Esta transición se regula mediante un \textbf{modelo de acoplamiento dinámico}, que evalúa si un nodo en exploración debe acoplarse a un líder detectado en su entorno.
+
+La decisión se fundamenta en una función binaria $a_{ij}(t)$, donde el nodo $i$ considera acoplarse al nodo $j$ (potencial líder), con base en una métrica compuesta $g_{ij}(t)$ llamada \textbf{ganancia efectiva}, y un umbral dinámico $g_{\min}(t)$ que se ajusta según las condiciones de red y movilidad:
+
+\[
+a_{ij}(t) = 
+\begin{cases} 
+1, & \text{si } g_{ij}(t) \geq g_{\min}(t) \\\\
+0, & \text{si } g_{ij}(t) < g_{\min}(t)
+\end{cases}
+\]
+
+La ganancia efectiva $g_{ij}(t)$ refleja la calidad de enlace entre el nodo en estado temporal y el chNode candidato, y se construye a partir de factores como:
+
+\begin{itemize}
+    \item La \textbf{relación señal/interferencia} (\textbf{SINR}).
+    \item La \textbf{energía restante} del nodo.
+    \item La \textbf{presencia de obstáculos} o condiciones del medio que afecten la propagación.
+    \item La \textbf{distancia relativa} entre el nodo temporal y el candidato a líder.
+    \item El \textbf{valor de WCA} del nodo candidato (integrado como parte del criterio de calidad).
+\end{itemize}
+
+Durante el estado \texttt{tempCH}, el nodo evalúa $g_{ij}(t)$ frente a cada chNode detectado. Si alguno de estos supera el umbral $g_{\min}(t)$, y además posee un \textbf{WCA superior} al del nodo temporal, se activa la transición al estado \texttt{COUPLED}, transfiriendo la coordinación de la zona al chNode correspondiente. En caso contrario, el nodo mantiene su rol temporal y continúa en fase de exploración activa.
+
+Este mecanismo permite que la red preserve una estructura de liderazgo eficiente y adaptativa, sin generar redundancias ni conflictos jerárquicos, contribuyendo así a una mayor eficacia en la respuesta ante eventos críticos como la propagación de incendios.
+
+
+\subsubsection{Síntesis funcional de la propuesta}
+
+La propuesta desarrollada en esta indagación integra movilidad tipo \textbf{Boids}, mecanismos de \textbf{liderazgo adaptativo} mediante el algoritmo WCA y una lógica de \textbf{autonomía funcional temporal} a través del nodo \texttt{CH-temporal}. Esta arquitectura busca extender las capacidades de respuesta de una red MANET ante situaciones de emergencia, permitiendo que nodos aislados asuman un rol proactivo cuando no se encuentren bajo la cobertura directa de un chNode.
+
+Al permitir que dichos nodos actúen temporalmente como líderes y coordinen la extinción de incendios en su entorno inmediato, se espera mejorar la \textbf{efectividad global} del sistema sin comprometer su estabilidad operativa. El modelo de acoplamiento dinámico propuesto garantiza, además, una reintegración eficiente cuando se detecten líderes con mayor capacidad (WCA), evitando redundancias jerárquicas o conflictos de control.
+
+Se proyecta que esta estrategia contribuirá a:
+\begin{itemize}
+    \item Reducir el \textbf{tiempo promedio de extinción} de incendios a menos de 45 segundos.
+    \item Incrementar la \textbf{tasa de éxito en extinción} por encima del 85\%.
+    \item Mantener el \textbf{consumo energético adicional} por debajo del 12\%.
+\end{itemize}
+
+Estos resultados esperados sientan las bases para el diseño de redes MANET orientadas a misiones críticas, donde la \textbf{autoorganización local} actúe como complemento estratégico a las jerarquías globales, fortaleciendo la resiliencia del sistema ante condiciones impredecibles y entornos cambiantes.
+
+\section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
 %---------------------------------------------------------------------------------
 % Diseño de la solución ---------------------------------------------------------
