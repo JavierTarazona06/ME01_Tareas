@@ -454,11 +454,15 @@ Estos resultados esperados sientan las bases para el diseño de redes MANET orie
 
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
+\section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
+
+%---------------------------------------------------------------------------------
+% Limitaciones y alcance  ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
 %---------------------------------------------------------------------------------
 % Diseño de la solución ---------------------------------------------------------
 %---------------------------------------------------------------------------------
-
-
 
 \section{Diseño de la solución}
 
@@ -537,6 +541,21 @@ Cada nodo actualiza su posición en intervalos regulares de tiempo, considerando
 
 Al finalizar cada simulación, se exportan datos relevantes a archivos de salida, incluyendo las posiciones de los nodos, los roles asignados (líder o seguidor), las trayectorias seguidas por cada nodo y la ubicación de eventos externos, como los incendios.
 Esta información permite un análisis post-simulación de métricas clave como cobertura, tiempo de respuesta o efectividad en la extinción de eventos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{DiagramaLider.png}
+    \caption{Diagrama de flujo del líder}
+    \label{fig:diagLead}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.45\textwidth]{DiagramaSeguidor.png}
+    \caption{Diagrama de flujo del seguidor}
+    \label{fig:diagFoll}
+\end{figure}
+
 
 \subsection{Configurabilidad del modelo}
 
