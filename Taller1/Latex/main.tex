@@ -458,7 +458,68 @@ Estos resultados esperados sientan las bases para el diseño de redes MANET orie
 % Diseño de la solución ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
+\subsection{Contexto del Problema}
+En una Red Ad Hoc Móvil (MANET) compuesta por nodos con \textbf{movilidad tipo Boids} y un esquema de \textbf{liderazgo adaptativo} que utiliza el algoritmo WCA (\textit{Weighted Cluster Algorithm}) para la selección y mantenimiento de líderes, donde los \textbf{líderes (chNodes)} son los encargados de \textbf{extinguir fuegos (s\_fires)} que aparecen aleatoriamente en el entorno de simulación, surge una pregunta fundamental:
 
+¿No será que la \textbf{efectividad global en la extinción de fuegos} (medida por métricas como el tiempo promedio de extinción, el número total de fuegos extinguidos en un periodo dado) \textbf{se incrementa} si se permite que un nodo seguidor que previamente estaba \textbf{aislado} (sin un líder cercano dentro de un radio efectivo de influencia) \textbf{autoproclame temporalmente como líder hasta que se encuentre con uno con un mayor WCA}?
+
+Esta problemática surge cuando los nodos experimentan:
+\begin{itemize}
+    \item \textbf{Obstáculos naturales}: Árboles, relieve montañoso y estructuras que bloquean la comunicación
+    \item \textbf{Interferencias electromagnéticas}: Degradación de la calidad de señal en entornos adversos
+    \item \textbf{Movilidad dinámica}: Patrones de movimiento tipo Boids que pueden generar separaciones temporales
+\end{itemize}
+
+\subsection{Problema Específico}
+El desafío operativo central radica en la \textbf{pérdida de efectividad operacional} cuando un nodo seguidor se aísla de su líder designado. En el contexto de extinción de incendios, esto se manifiesta como:
+
+\begin{enumerate}
+    \item \textbf{Oportunidades perdidas de extinción}: Los nodos aislados no pueden responder a fuegos cercanos, esperando pasivamente la reconexión con un líder
+    
+    \item \textbf{Ineficiencia en la cobertura espacial}: Las zonas donde se encuentran nodos aislados quedan desprotegidas hasta que se restablezca la conectividad
+    
+    \item \textbf{Degradación del rendimiento global}: El tiempo promedio de extinción de fuegos se incrementa debido a la inactividad forzada de nodos aislados
+\end{enumerate}
+
+\subsection{Hipótesis de Investigación}
+\textbf{Hipótesis Principal}: La implementación de un mecanismo de \textbf{liderazgo temporal auto-proclamado} en nodos aislados mejora significativamente la efectividad global del sistema de extinción de fuegos en comparación con esquemas tradicionales de liderazgo fijo.
+
+\textbf{Hipótesis Específicas}:
+\begin{itemize}
+    \item H1: El tiempo promedio de extinción de fuegos disminuye cuando los nodos aislados pueden actuar como líderes temporales
+    \item H2: El número total de fuegos extinguidos por unidad de tiempo se incrementa con el mecanismo propuesto
+    \item H3: La cobertura espacial efectiva del sistema mejora al permitir liderazgo temporal en nodos aislados
+\end{itemize}
+
+\subsection{Justificación de la Solución Propuesta}
+Nuestra propuesta introduce un \textbf{mecanismo de liderazgo temporal adaptativo} basado en los siguientes componentes:
+
+\begin{table}[h!]
+\centering
+\caption{Componentes del mecanismo de liderazgo temporal}
+\label{tab:componentes_liderazgo}
+\begin{tabular}{p{4cm} p{8cm}}
+\toprule
+\textbf{Componente} & \textbf{Descripción} \\
+\midrule
+Detección de aislamiento & Algoritmo para identificar cuando un nodo pierde conectividad con líderes en su radio de influencia \\
+Auto-proclamación temporal & Mecanismo que permite a nodos aislados asumir rol de líder con WCA temporal \\
+Transición de liderazgo & Protocolo para transferir liderazgo cuando un nodo temporal encuentra un líder con mayor WCA \\
+Gestión de conflictos & Resolución de situaciones donde múltiples nodos temporales coexisten \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{Métricas de Evaluación}
+Para validar la efectividad de la solución propuesta, se utilizarán las siguientes métricas:
+
+\begin{itemize}
+    \item \textbf{Tiempo promedio de extinción}: Tiempo transcurrido desde la aparición de un fuego hasta su extinción completa
+    \item \textbf{Tasa de extinción}: Número de fuegos extinguidos por unidad de tiempo
+    \item \textbf{Cobertura espacial efectiva}: Porcentaje del área de simulación cubierta por nodos con capacidad de liderazgo
+    \item \textbf{Eficiencia energética}: Consumo energético promedio por fuego extinguido
+    \item \textbf{Latencia de reconexión}: Tiempo requerido para reintegrar nodos temporales a la estructura jerárquica principal
+\end{itemize}
 
 \section{Diseño de la solución}
 
