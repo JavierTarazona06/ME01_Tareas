@@ -475,9 +475,9 @@ El desafío operativo central radica en la \textbf{pérdida de efectividad opera
 
 \begin{enumerate}
     \item \textbf{Oportunidades perdidas de extinción}: Los nodos aislados no pueden responder a fuegos cercanos, esperando pasivamente la reconexión con un líder
-    
+
     \item \textbf{Ineficiencia en la cobertura espacial}: Las zonas donde se encuentran nodos aislados quedan desprotegidas hasta que se restablezca la conectividad
-    
+
     \item \textbf{Degradación del rendimiento global}: El tiempo promedio de extinción de fuegos se incrementa debido a la inactividad forzada de nodos aislados
 \end{enumerate}
 
@@ -526,7 +526,7 @@ Para validar la efectividad de la solución propuesta, se utilizarán las siguie
 La solución desarrollada está basada en el modelo de comportamiento de Boids para simular la movilidad de nodos en una red ad hoc. Este modelo adapta las reglas clásicas de \textit{cohesión}, \textit{alineación} y \textit{separación}, incorporando elementos adicionales como nodos líderes, mecanismos de selección dinámica de líderes mediante el algoritmo de clustering ponderado (WCA), interacción con eventos externos (como incendios) y una infraestructura de comunicación entre nodos basada en enlaces bidireccionales.
 \subsection*{Propósito General del Sistema}
 
-El propósito primordial de este sistema es simular la dinámica de una Red Ad Hoc Móvil (MANET), la cual integra un esquema de liderazgo adaptativo basado en el modelo de movilidad tipo Boids. 
+El propósito primordial de este sistema es simular la dinámica de una Red Ad Hoc Móvil (MANET), la cual integra un esquema de liderazgo adaptativo basado en el modelo de movilidad tipo Boids.
 
 El objetivo central es evaluar el impacto del mecanismo de auto-proclamación de liderazgo en la \textbf{eficiencia de la supresión de fuegos} dentro de dicho entorno.
 
@@ -1151,6 +1151,8 @@ Se utilizaron trazas en NetAnim para observar la evolución espacial de los nodo
 
 La integración del modelo Boids permite simular comportamientos realistas en redes móviles
 El uso del modelo Boids reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET (redes móviles ad hoc) en situaciones como búsqueda, exploración o evacuación.
+
+La fuerza de cohesión y la frecuencia de evaluación del liderazgo podrían estar subestimadas. También puede ser necesario un sistema de búsqueda activa de líderes o una mejor gestión del rango de cohesión. Esto se evidencia en los escenarios de prueba, donde se evidenció que muchos seguidores se separaban de su líder a medida que avanzava la simulación.
 %---------------------------------------------------------------------------------
 % Recomendaciones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
