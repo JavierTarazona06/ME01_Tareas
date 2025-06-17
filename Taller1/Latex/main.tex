@@ -6,6 +6,7 @@
 \usepackage{titletoc}
 \usepackage{adjustbox}
 
+\usepackage{listings}
 \hypersetup{
     colorlinks=true,
     linkcolor=blue, % Color del texto del enlace
@@ -54,7 +55,7 @@
     Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
     Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
     Javier Carrillo & @unal.edu.co \\
-    Grevy & @unal.edu.co \\
+    Grevy Joner Rincon Mejia & grrinconm@unal.edu.co \\
     Esteban Carranza & jcarranza@unal.edu.co \\
     Diego & @unal.edu.co \\
     \end{tabular}
@@ -96,11 +97,99 @@ Para resolver este desafío operativo, proponemos una solución basada en redes 
 % Diseño de la solución ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
-\section{Diseño de la solución}\label{sec:dis}
 
-Para abordar la solución, se presentan las áreas y abstracciones que se van a abordar.
+
+\section{Diseño de la solución}
+
+La solución desarrollada está basada en el modelo de comportamiento de Boids para simular la movilidad de nodos en una red ad hoc. Este modelo adapta las reglas clásicas de \textit{cohesión}, \textit{alineación} y \textit{separación}, incorporando elementos adicionales como nodos líderes, mecanismos de selección dinámica de líderes mediante el algoritmo de clustering ponderado (WCA), interacción con eventos externos (como incendios) y una infraestructura de comunicación entre nodos basada en enlaces bidireccionales.
 
 \subsection{Metodología}
+
+El desarrollo siguió un enfoque incremental. Inicialmente se construyó la jerarquía básica de nodos (líderes y seguidores), luego se integró la lógica de comportamiento y movilidad basada en el modelo Boids. Posteriormente se añadieron componentes estocásticos y eventos del entorno, como focos de incendio. Finalmente, se realizaron múltiples simulaciones para evaluar el rendimiento del modelo frente a distintos escenarios y configuraciones.
+
+\subsection{Estructura general del sistema}
+
+El sistema está compuesto por los siguientes módulos principales:
+
+\begin{itemize}
+    \item \textbf{BoidsMobilityModel}: clase que extiende el modelo de movilidad de NS-3 y contiene la lógica del comportamiento individual de cada nodo.
+    \item \textbf{Gestor de líderes}: módulo encargado de la asignación inicial de líderes y del recálculo dinámico basado en WCA.
+    \item \textbf{Módulo de eventos externos}: introduce elementos del entorno como incendios que influyen en el comportamiento de los nodos líderes.
+    \item \textbf{Sistema de comunicación}: permite el intercambio de mensajes entre nodos vecinos, facilitando la detección de líderes, el seguimiento de objetivos y la formación de clusters.
+\end{itemize}
+
+\subsection{Reglas de comportamiento Boid}
+
+Cada nodo se comporta como un Boid y actualiza su posición en función de su rol y de las siguientes reglas:
+
+\begin{itemize}
+    \item \textbf{Separación:} evita la colisión entre nodos manteniendo una distancia mínima entre vecinos cercanos.
+    
+    \item \textbf{Alineación:} los seguidores adaptan su dirección en función de la velocidad promedio de sus vecinos más cercanos.
+    
+    \item \textbf{Cohesión:} los seguidores buscan mantenerse próximos a su líder si se encuentra dentro del radio de cohesión definido.
+    
+    \item \textbf{Atracción hacia objetivos:} los líderes se orientan hacia eventos externos (como focos de incendio) ubicados dentro de su radio de influencia.
+\end{itemize}
+
+\subsection{Liderazgo dinámico y algoritmo WCA}
+
+Cada nodo puede desempeñar el rol de líder o seguidor. Al inicio de la simulación, se asignan aleatoriamente los roles. A los líderes se les asigna un objetivo dentro del área de simulación, el cual puede cambiar en respuesta a eventos externos.
+
+Si un nodo seguidor se encuentra aislado, es decir, sin un líder en su radio de cohesión, evalúa su potencial de liderazgo utilizando el algoritmo \textit{WCA} (Weighted Clustering Algorithm). Este algoritmo considera múltiples factores que se normalizan para obtener un puntaje de liderazgo (\texttt{WCA\_Score}):
+
+\begin{itemize}
+    \item \textit{Energía residual} (\(E\)): porcentaje de energía restante del nodo, normalizada en el rango \([0,1]\).
+    \item \textit{Grado de conectividad} (\(D\)): número de vecinos directos, normalizado respecto a un máximo teórico de 10.
+    \item \textit{Distancia a objetivos} (\(T\)): inversa de la distancia promedio del nodo a los objetivos activos, normalizada considerando un rango de hasta 200 metros.
+    \item \textit{Movilidad} (\(M\)): estabilidad del nodo, calculada como la inversa de su velocidad actual, con una velocidad máxima de 10 m/s.
+\end{itemize}
+
+El cálculo del puntaje se define como:
+
+\[
+{WCA\_Score} = w_1 \cdot E + w_2 \cdot D + w_3 \cdot T + w_4 \cdot M
+\]
+donde los pesos utilizados son:
+
+\[
+w_1 = 0.4, \quad w_2 = 0.3, \quad w_3 = 0.2, \quad w_4 = 0.1
+\]
+
+El resultado se limita al rango \([0, 1]\) mediante:
+
+\[
+{WCA\_Score} = \max\left(0,\ \min\left(1,\ {WCA\_Score}\right)\right)
+\]
+
+El nodo aislado con el mayor \texttt{WCA\_Score} se autonombrará líder en ausencia de otros líderes cercanos.
+
+\subsection{Espacio de simulación y condiciones de frontera}
+
+La simulación se desarrolla en un área de $1000 \times 1000$ unidades. Se implementa una condición de frontera toroidal (\textit{wrapping}), permitiendo que los nodos que salen por un borde reaparezcan por el lado opuesto. Esto evita acumulaciones artificiales y simula un entorno continuo sin bordes rígidos.
+
+\subsection{Actualización de posiciones}
+
+Cada nodo actualiza su posición en intervalos regulares de tiempo, considerando sus vectores de dirección y las fuerzas derivadas de las reglas del modelo Boid. Se aplican límites a la velocidad y se normalizan las direcciones para evitar aceleraciones bruscas o inmovilización de nodos.
+
+\subsection{Visualización y exportación de datos}
+
+Al finalizar cada simulación, se exportan datos relevantes a archivos de salida, incluyendo las posiciones de los nodos, los roles asignados (líder o seguidor), las trayectorias seguidas por cada nodo y la ubicación de eventos externos, como los incendios.
+Esta información permite un análisis post-simulación de métricas clave como cobertura, tiempo de respuesta o efectividad en la extinción de eventos.
+
+\subsection{Configurabilidad del modelo}
+
+La clase \texttt{BoidsMobilityModel} incluye métodos \texttt{Set} que permiten ajustar los parámetros más relevantes del comportamiento de los nodos, tales como el radio de cohesión de los seguidores, el radio de influencia de los líderes, la velocidad máxima de los nodos, la frecuencia de actualización de posición, la inicialización del rol de los nodos (porcentaje de líderes), y parámetros del algoritmo WCA como pesos y umbrales de energía o distancia. 
+
+En la Figura~\ref{fig:uml-boids} se presenta el diagrama UML de la clase \texttt{BoidsMobilityModel}, donde se observan sus atributos principales, métodos de configuración, y lógica asociada al liderazgo y simulación de incendios.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{BoidsMobilityModel_class.png}
+    \caption{Diagrama UML de la clase \texttt{BoidsMobilityModel}.}
+    \label{fig:uml-boids}
+\end{figure}
+
 
 
 \section{Código Fuente}\label{sec:cod}
@@ -123,12 +212,168 @@ El repositorio contiene:
 \item Archivo de métricas (\texttt{metrics.py})
 \end{itemize}
 
+\section{Manual Usuario}\label{sec:man_u}
+
 %---------------------------------------------------------------------------------
 % Manual Usuario ---------------------------------------------------------
 %---------------------------------------------------------------------------------
+Este manual guiará al usuario a través de los pasos necesarios para instalar NS-3 en un entorno WSL (Windows Subsystem for Linux), configurar los archivos para la simulación de boids y ejecutar dicha simulación, así como visualizar sus resultados.
+\section*{\textbf{1. Instalación de NS-3 en WSL}}
+Para instalar NS-3, se recomienda usar WSL, preferentemente con Ubuntu .
 
-\section{Manual Usuario}\label{sec:man_u}
+\begin{itemize}
+    \item \textbf{Iniciar WSL}: Abre tu terminal WSL.
+    \item \textbf{Actualizar Paquetes}: Ejecuta el siguiente comando para actualizar la lista de paquetes:
+    \begin{lstlisting}
+sudo apt update 
+    \end{lstlisting}
+    \item \textbf{Instalar Dependencias Esenciales}: Instala las herramientas de compilación y descompresión necesarias:
+    \begin{lstlisting}
+sudo apt install g++
+sudo apt install bzip2
+sudo apt install make 
+sudo apt-get install cmake 
+    \end{lstlisting}
+    \item \textbf{Configurar Alias de Python}: NS-3 utiliza Python 3. Para asegurarte de que el comando \texttt{python} apunte a \texttt{python3}, añade un alias a tu archivo \texttt{.bashrc} y recarga la configuración:
+    \begin{lstlisting}
+echo alias python=python3 >> ~/.bashrc 
+source ~/.bashrc 
+    \end{lstlisting}
+\end{itemize}
 
+\section*{\textbf{2. Descarga y Preparación de NS-3}}
+
+\begin{itemize}
+    \item \textbf{Navegar a la Carpeta de Instalación}: Dentro de WSL, tu sistema de archivos de Windows se encuentra en \texttt{/mnt/c} (si tu partición es C:) o \texttt{/mnt/d} (si es D:). Navega a la carpeta donde deseas instalar NS-3. Por ejemplo:
+    \begin{lstlisting}
+cd /mnt/c/Users/TuUsuario/Documentos/NS3_Projects 
+    \end{lstlisting}
+    \item \textbf{Descargar NS-3}: Descarga el archivo \texttt{ns-allinone-3.45.tar.bz2} desde la página oficial de NS-3 (\url{https://www.nsnam.org/releases/ns-allinone-3.45.tar.bz2}) y guárdalo en la carpeta deseada. Es preferible hacerlo desde el navegador web de Windows y luego acceder a la ruta desde WSL.
+    \item \textbf{Extraer Archivos}: Una vez descargado, descomprime el archivo tar.bz2:
+    \begin{lstlisting}
+tar xjf ns-allinone-3.45.tar.bz2
+    \end{lstlisting}
+    \textit{Nota: Aunque las fuentes mencionan \texttt{ns-3.45.tar.bz2} , el paso de descarga sugiere \texttt{ns-allinone-3.45.tar.bz2}.}
+    \item \textbf{Acceder al Directorio de NS-3}: Navega al directorio principal de NS-3:
+    \begin{lstlisting}
+cd ns-3.45  
+    \end{lstlisting}
+\end{itemize}
+
+\section*{\textbf{3. Configuración y Compilación de NS-3}}
+
+Desde el directorio \texttt{ns-3.45} (o la versión que estés usando), ejecuta los siguientes comandos:
+
+\begin{itemize}
+    \item \textbf{Limpiar Compilación (Opcional pero recomendado)}:
+    \begin{lstlisting}
+./ns3 clean 
+    \end{lstlisting}
+    \item \textbf{Configurar NS-3}: Este paso configura el entorno de compilación. Asegúrate de incluir las opciones para depuración, ejemplos, pruebas y NetAnim:
+    \begin{lstlisting}
+./ns3 configure \
+--build-profile=debug \
+--enable-examples \
+--enable-tests \
+--enable-build-version \
+-- -DNS3_NETANIM=ON 
+    \end{lstlisting}
+    \item \textbf{Compilar NS-3}: Este comando compila todo el proyecto NS-3. Puedes usar la opción \texttt{-j\$(nproc)} para utilizar todos los procesadores de tu equipo y acelerar la compilación:
+    \begin{lstlisting}
+./ns3 build 
+    \end{lstlisting}
+    Alternativamente, para usar todos los procesadores:
+    \begin{lstlisting}
+./ns3 build -j$(nproc) 
+    \end{lstlisting}
+    \item \textbf{Verificar la Instalación (Opcional)}:
+    \begin{itemize}
+        \item Ejecutar pruebas: \texttt{./test.py} 
+        \item Ejecutar un ejemplo básico: \texttt{./ns3 run first} 
+        \item Mostrar la versión instalada: \texttt{./ns3 show version} 
+    \end{itemize}
+\end{itemize}
+
+\section*{\textbf{4. Configuración y Ejecución de la Simulación de Boids}}
+
+La simulación de boids implica modificar y añadir archivos al proyecto NS-3, de los ya presentes para una mayor simplicidad. Sin embargo tambien puedes crear links simbólicos a los archivos necesarios en el directorio \texttt{scratch} de NS-3. A continuación se detallan los pasos para configurar y ejecutar la simulación de boids:
+
+\begin{itemize}
+    \item \textbf{Crear el Archivo Principal del Proyecto (\texttt{boids.cc})}:
+    \begin{itemize}
+        \item Copia el archivo llamado \texttt{boids.cc} en el subdirectorio \texttt{scratch} de tu instalación NS-3. Por convención, se hace en \texttt{ns-allinone-3.45/ns-3.45/scratch} .
+        \item El contenido de este archivo lo puedes encontrar en repositorio proporcionado anteriormente.
+    \end{itemize}
+    \item \textbf{Añadir Modelos de Movilidad}:
+    \begin{itemize}
+        \item Copia los archivos \textbf{\texttt{boids-mobility-model.cc}} y \textbf{\texttt{boids-mobility-model.h}} a la ruta \texttt{ns3.xx/src/mobility/model}.
+        \item El contenido de \texttt{boids-mobility-model.cc} se encuentra en los extractos de "Modelo de Movilidad Boids con Liderazgo Adaptativo".
+        \item El contenido de \texttt{boids-mobility-model.h} se encuentra en los extractos de "Modelo de Movilidad Boids para Redes Inalámbricas".
+    \end{itemize}
+    \item \textbf{Modificar \texttt{CMakeLists.txt}}:
+    \begin{itemize}
+        \item Debes modificar el archivo \texttt{ns3.xx/src/mobility/CMakeLists.txt}.
+        \item Añade la línea \texttt{model/boids-mobility-model.cc} para que se compile.
+    \end{itemize}
+    \item \textbf{Recompilar NS-3}: Después de hacer estos cambios, necesitas volver a compilar NS-3 para que los nuevos archivos se integren:
+    \begin{lstlisting}
+./ns3 build 
+    \end{lstlisting}
+    O, para usar todos los procesadores:
+    \begin{lstlisting}
+./ns3 build -j$(nproc) 
+    \end{lstlisting}
+    \item \textbf{Ejecutar la Simulación de Boids}:
+    \begin{itemize}
+        \item Desde el directorio principal de NS-3 (\texttt{ns-3.43}), ejecuta tu proyecto de boids:
+        \begin{lstlisting}
+./ns3 run scratch/boids 
+        \end{lstlisting}
+        (Asumiendo que tu archivo se llama \texttt{boids.cc} en la carpeta \texttt{scratch}).
+    \end{itemize}
+\end{itemize}
+
+\section*{\textbf{5. Parámetros y Salida de la Simulación de Boids}}
+
+\begin{itemize}
+    \item \textbf{Modificar Parámetros de la Simulación}:
+    \begin{itemize}
+        \item Puedes ajustar el número de líderes (Cluster-Heads) y miembros directamente en el archivo \texttt{boids.cc}.
+        \item Busca las siguientes líneas y modifica los valores según necesites:
+        \begin{lstlisting}[language=C++]
+static const uint32_t N_CH = 2; // Cantidad de lideres (Cluster-Heads) 
+static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
+        \end{lstlisting}
+        \textit{Recuerda recompilar después de modificar \texttt{boids.cc} para que los cambios surtan efecto.}
+    \end{itemize}
+    \item \textbf{Generación de Datos}:
+    \begin{itemize}
+        \item El programa \texttt{boids.cc} \textbf{genera un archivo \texttt{boids\_positions.csv}}.
+        \item Este archivo contiene datos de tiempo, ID del nodo, coordenadas X e Y, si el nodo es líder (\texttt{IsLeader}), y si la entrada representa un fuego (\texttt{IsFire}).
+    \end{itemize}
+\end{itemize}
+
+\section*{\textbf{6. Visualización de la Simulación}}
+
+\begin{itemize}
+    \item \textbf{Script de Visualización}:
+    \begin{itemize}
+        \item El archivo \texttt{boids\_positions.csv} se utiliza con el script de Python \textbf{\texttt{showNodes.py}} para visualizar la simulación.
+        \item El script \texttt{showNodes.py} lee los datos del CSV y utiliza \texttt{matplotlib} para animar el movimiento de los boids y la aparición de fuegos.
+    \end{itemize}
+    \item \textbf{Características de \texttt{showNodes.py}}:
+    \begin{itemize}
+        \item \textbf{Boids}: Se dibujan como puntos, con \textbf{líderes en rojo y seguidores en azul}.
+        \item \textbf{Fuegos}: Se dibujan como \textbf{triángulos amarillos} [72].
+        \item \textbf{Zonas de Influencia de Líderes}: Se representan como círculos rojos con transparencia alrededor de los líderes, con un radio de 100.
+        \item \textbf{Controles de Visibilidad}: Puedes activar o desactivar la visualización de fuegos y zonas de líderes mediante botones interactivos.
+    \end{itemize}
+    \item \textbf{Ejecutar la Visualización}:
+    \begin{itemize}
+        \item Asegúrate de que \texttt{showNodes.py} esté en la misma carpeta que \texttt{boids\_positions.csv}.
+        \item Ejecuta el script de Python: \texttt{python showNodes.py}
+    \end{itemize}
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual Técnico ---------------------------------------------------------
@@ -158,12 +403,15 @@ El repositorio contiene:
 
 \section{Conclusiones}\label{sec:concl}
 
+La integración del modelo Boids permite simular comportamientos realistas en redes móviles
+El uso del modelo Boids reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET (redes móviles ad hoc) en situaciones como búsqueda, exploración o evacuación.
 %---------------------------------------------------------------------------------
 % Recomendaciones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
 \section{Recomendaciones}\label{secrecomen}
 
+Aunque el movimiento fue simulado correctamente, se recomienda analizar también cómo este afecta la calidad de las comunicaciones (ej. transmisión de datos entre nodos), especialmente al estar en constante movimiento y ante interrupciones externas.
 
 \section{Referencias}
 \renewcommand{\refname}{}
