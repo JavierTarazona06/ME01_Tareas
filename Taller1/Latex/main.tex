@@ -53,11 +53,11 @@
     \vspace{0.5cm}
     \begin{tabular}{ll}
     Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
-    Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
     Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
-    Javier Andres Carrillo Carrasco & jacarrillo@unal.edu.co \\
+    Juan Esteban Carranza Salazar & jcarranza@unal.edu.co \\
     Grevy Joner Rincon Mejia & grrinconm@unal.edu.co \\
-    Esteban Carranza & jcarranza@unal.edu.co \\
+    Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
+    Javier Andres Carrillo Carrasco & jacarrillo@unal.edu.co \\
     Diego Nicolas Ramirez Maldonado & dieramirezma@unal.edu.co \\
     \end{tabular}
     \par\vspace{3cm}
@@ -814,6 +814,98 @@ static const uint32_t N_MEM = 25; // Cantidad de miembros (seguidores)
 % Manual Técnico ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
+\section{Manual Técnico}
+\subsection{Requisitos para Ejecutar la Simulación}\label{subsec:requisitos}
+
+A continuación se detallan los requisitos necesarios para ejecutar la simulación en NS-3 bajo WSL:
+
+\begin{itemize}
+    \item \textbf{Entorno linux (Para este ejemplo se uso WSL con Ubuntu 24.04)}:
+    \begin{itemize}
+        \item Paquetes esenciales instalados:
+        \begin{verbatim}
+        sudo apt update && sudo apt upgrade -y
+        sudo apt install build-essential git python3 python3-pip
+        \end{verbatim}
+    \end{itemize}
+    \item \textbf{NS-3 (versión 3.37+)}: Descargado desde \url{https://www.nsnam.org/}.
+    \item \textbf{Sistema operativo}: Windows 10/11 con \textbf{WSL} configurado.
+    \item \textbf{Almacenamiento}: 6 GB libres.
+    \item \textbf{Python 3.8+} con librerías:
+    \begin{verbatim}
+    pip install matplotlib numpy pandas
+    \end{verbatim}
+\end{itemize}
+
+\subsubsection{Configuraciones Adicionales}\label{subsubsec:config}
+\begin{itemize}
+    \item Permisos de \texttt{sudo} en WSL.
+    \item Variables de entorno (\texttt{PATH}) configuradas.
+\end{itemize}
+
+\subsection{Estructura del Código}
+El proyecto consta de los siguientes componentes principales:
+
+\begin{itemize}
+\item \texttt{boids-mobility-model.h}: Definición de la clase \texttt{BoidsMobilityModel}
+\item \texttt{boids-mobility-model.cc}: Implementación del modelo de movilidad
+\item \texttt{main.cc}: Configuración y ejecución de la simulación
+\end{itemize}
+
+\subsection{Implementación del Modelo Boids}
+
+\subsubsection{Reglas Boids Implementadas}
+El modelo implementa las tres reglas clásicas de Boids:
+
+\begin{enumerate}
+\item \textbf{Separación}: Evitar colisiones con vecinos cercanos
+\item \textbf{Alineación}: Alinear velocidad con vecinos cercanos
+\item \textbf{Cohesión}: Moverse hacia el centro de masa del grupo
+\end{enumerate}
+
+\subsubsection{Jerarquía Líder-Seguidor}
+\begin{itemize}
+\item Los nodos líderes tienen comportamiento diferente a los seguidores
+\item Los líderes buscan fuegos en el entorno
+\item Los seguidores siguen a los líderes y aplican las reglas Boids
+\end{itemize}
+
+
+\subsection{Ejecución de la Simulación}
+
+\subsubsection{Compilación}
+{\small\begin{verbatim}
+$ ./ns3 clean
+$ ./ns3 configure --build-profile=debug --enable-examples --enable-tests
+$ ./ns3 build -j$(nproc)
+\end{verbatim}}
+
+\subsubsection{Ejecución}
+{\small\begin{verbatim}
+$ ./ns3 run scratch/manet_boids --nClusterHeads=2 --nFollowers=10
+
+Las variables son opcionales, en caso de no especificarse nClusterHeads=2 nFollowers=10 se toman por defecto
+\end{verbatim}}
+
+\subsection{Salida de Datos}
+
+\subsubsection{Formato del Archivo CSV}
+La simulación genera un archivo \texttt{boids\_positions.csv} con el formato:
+
+\begin{verbatim}
+Time,NodeId,X,Y,IsLeader,IsFire
+0.1,1,125.3,87.2,1,0
+0.1,2,120.5,90.1,0,0
+0.1,-1,300.0,400.0,0,1
+\end{verbatim}
+
+\begin{itemize}
+\item Time: Tiempo del evento en milisegundos
+\item NodeId: Id del nodo relacionado al evento, se usa -1 para elementos que no sean nodos
+\item X: posición en $x$
+\item Y: Coordenadas en $y$
+\item isFire: Para especificar que es fuego el nodo
+\end{itemize}
 \section{Experimentación}\label{sec:exp}
 
 Para probar la hipótesis, se introduce una \textbf{funcionalidad clave} en la Condición Experimental que modifica el comportamiento de los nodos seguidores. Un nodo seguidor (\texttt{!m\_isLeader}) ahora tiene la capacidad de \textbf{autoproclamarse temporalmente como líder} si cumple las siguientes condiciones, evaluadas en cada ciclo de \texttt{Update()}:
@@ -843,16 +935,26 @@ Para evaluar el impacto de esta propuesta, se comparan los resultados de la \tex
   \item \textbf{Velocidad Máxima de Seguidores}: 6.0 m/s
   \item \textbf{Duración de la Simulación}: 100 segundos
 \end{itemize}
-
+\subsection{Escenario 0:}
+\begin{itemize}
+\item \textbf{Objetivo:} Evaluar el impacto del número de seguidores en la efectividad de la extinción de fuegos, comparando una condición de control (sin autoproclamación) y una condición experimental (con autoproclamación).
+\item \textbf{Configuración experimental:}
+\begin{itemize}
+  \item \textbf{Número de Seguidores (\texttt{N Members})}: 10, 15, 25
+  \item \textbf{Condiciones de Simulación}: Control y Experimental
+\end{itemize}
+\item \textbf{Distribución inicial:} Los nodos se distribuyen aleatoriamente en el área de simulación, con líderes y seguidores asignados según la configuración.
+\item \textbf{Reglas activas:} Los seguidores siguen las reglas de separación, alineación y cohesión del modelo Boids, además de la atracción hacia los líderes. En la condición experimental, los seguidores pueden autoproclamarse líderes si cumplen las condiciones mencionadas anteriormente.
+\end{itemize}
 La variación del \textbf{número de seguidores (\texttt{N Members})} es esencial para analizar la robustez y escalabilidad del sistema bajo distintas densidades.
 
 \begin{table}[H]
 \centering
-\caption{Resultados de la Simulación por Escenario y Condición}
+\caption{Resultados de la Simulación para el Escenario 0}
 \label{tab:results}
 \begin{tabular}{llccc}
 \toprule
-\textbf{Escenario} & \textbf{N. de Seguidores} & \textbf{Condición} & \textbf{Fuegos Apagados} & \textbf{Tiempo Promedio (s)} \\
+\textbf{Pruebas Escenario 0} & \textbf{N. de Seguidores} & \textbf{Condición} & \textbf{Fuegos Apagados} & \textbf{Tiempo Promedio (s)} \\
 \midrule
 1 & 10 & Control      & 15 & 8.67  \\
   &    & Experimental & 16 & 11.38 \\
@@ -866,6 +968,14 @@ La variación del \textbf{número de seguidores (\texttt{N Members})} es esencia
 \end{tabular}
 \end{table}
 
+A continuación, en la figura \ref{fig:comparison_plot} se presenta una gráfica que permite comparar el comportamiento de los nodos en los diferentes escenarios y condiciones. 
+En la gráfica, se observa cómo el número de nodos seguidores afecta la efectividad de la extinción de fuegos, tanto en la condición de control como en la experimental (que permite evaluar la indagación). Es notorio que la condición experimental mejora el número de fuegos extinguidos en todos los escenarios, especialmente en el escenario 3, donde la diferencia es notable.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{comparativeExperiments.png}
+    \caption{Comparación de la efectividad de la extinción de fuegos entre las condiciones de control y experimental en diferentes pruebas para el escenario 0.}
+    \label{fig:comparison_plot}
+\end{figure}
 
 \subsection{Escenario 1:}
 \begin{itemize}
@@ -965,27 +1075,43 @@ Se utilizaron trazas en NetAnim para observar la evolución espacial de los nodo
 
 \noindent Este caso de prueba revela la necesidad de mecanismos de estabilización del liderazgo, así como la importancia de sintonizar adecuadamente los parámetros de cohesión y activación de WCA. También sugiere que, en presencia de múltiples líderes, se deben considerar estrategias para evitar colapsos en un solo clúster, preservando la descentralización y cobertura espacial del sistema.
 
-\subsection{Escenario 3:}
-
-\subsection{Comparación resultados}
-
 %---------------------------------------------------------------------------------
 % Conclusiones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
 \section{Conclusiones}\label{sec:concl}
+\begin{itemize}
+    \item \textbf{Liderazgo distribuido adaptativo:}  
+    La propuesta desarrollada demuestra que las redes MANET pueden beneficiarse significativamente al incorporar mecanismos que combinen movilidad colectiva con toma de decisiones distribuidas. Al permitir que nodos seguidores asuman roles activos de forma temporal en ausencia de líderes cercanos, se potencia la capacidad de respuesta local sin comprometer la estructura general del sistema. Este enfoque no solo mejora la cobertura en escenarios dinámicos, sino que también reduce la dependencia de la conectividad continua con nodos jerárquicos, promoviendo una mayor autonomía operativa. La interacción entre comportamiento grupal, percepción del entorno y lógica de liderazgo demuestra ser una vía efectiva para enfrentar entornos altamente cambiantes y exigentes como los de emergencia.
 
-La integración del modelo Boids permite simular comportamientos realistas en redes móviles
+    \item \textbf{Realismo en la movilidad gracias al modelo Boids:}  
+    La integración del modelo Boids permite simular comportamientos realistas en redes móviles. El uso de este modelo reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET en situaciones como búsqueda, exploración o evacuación.
+
+    \item \textbf{Limitaciones observadas en cohesión y liderazgo:}  
+    La fuerza de cohesión y la frecuencia de evaluación del liderazgo podrían estar subestimadas. También puede ser necesario un sistema de búsqueda activa de líderes o una mejor gestión del rango de cohesión. Esto se evidencia en los escenarios de prueba, donde muchos seguidores se separaban de su líder a medida que avanzaba la simulación.
+\end{itemize}
+
 El uso del modelo Boids reproduce dinámicas naturales de agrupamiento, separación y alineación, lo cual resulta útil para representar redes MANET (redes móviles ad hoc) en situaciones como búsqueda, exploración o evacuación.
 
 La fuerza de cohesión y la frecuencia de evaluación del liderazgo podrían estar subestimadas. También puede ser necesario un sistema de búsqueda activa de líderes o una mejor gestión del rango de cohesión. Esto se evidencia en los escenarios de prueba, donde se evidenció que muchos seguidores se separaban de su líder a medida que avanzava la simulación.
+El modelo de movilidad jerárquica basado en Boids, con liderazgo adaptativo, muestra potencial para mejorar la eficiencia en la extinción de incendios en redes móviles. Sin embargo, se requiere una mayor sintonización de parámetros y una mejor gestión de la cohesión y el liderazgo para optimizar el rendimiento.
+En este caso, la implementación del modelo Boids con liderazgo adaptativo ha demostrado ser efectiva para simular el comportamiento de nodos móviles en un entorno dinámico. Los resultados obtenidos en los escenarios de prueba sugieren que, aunque el modelo es prometedor, aún existen áreas de mejora, especialmente en la gestión de la cohesión y el liderazgo.
+
+Finalmente, con la indagación de la hipótesis propuesta, se ha observado que la autoproclamación de líderes por parte de los seguidores mejora la efectividad en la extinción de incendios, lo que sugiere que el modelo puede ser adaptado para situaciones más complejas y dinámicas.
 %---------------------------------------------------------------------------------
 % Recomendaciones ---------------------------------------------------------
 %---------------------------------------------------------------------------------
 
 \section{Recomendaciones}\label{secrecomen}
+\begin{itemize}
+    \item Aunque el movimiento fue simulado correctamente, se recomienda analizar también cómo este afecta la \textbf{calidad de las comunicaciones}, especialmente en entornos con interrupciones externas o desplazamientos abruptos. Esto incluye evaluar métricas como la pérdida de paquetes, la latencia o la variación en el rendimiento de transmisión.
 
-Aunque el movimiento fue simulado correctamente, se recomienda analizar también cómo este afecta la calidad de las comunicaciones (ej. transmisión de datos entre nodos), especialmente al estar en constante movimiento y ante interrupciones externas.
+    \item Se sugiere incorporar un \textbf{modelo más avanzado de propagación de señal} en futuras simulaciones, que considere interferencias, obstáculos y degradación dinámica del canal, para obtener resultados más precisos y representativos de entornos reales.
+
+    \item Es recomendable realizar pruebas con diferentes \textbf{tamaños de red} y escenarios más extensos (mayor número de nodos y áreas más grandes) para validar la escalabilidad del sistema propuesto y observar cómo se comporta el liderazgo adaptativo bajo condiciones de mayor carga.
+\end{itemize}
+
+
 
 \section{Referencias}
 \renewcommand{\refname}{}
