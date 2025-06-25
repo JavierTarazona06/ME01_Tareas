@@ -1,0 +1,347 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[style=ieee]{biblatex} % Establecer el estilo de las referencias como IEEE
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titletoc}
+\usepackage{adjustbox}
+\usepackage[spanish]{babel}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue, % Color del texto del enlace
+    urlcolor=blue % Color del enlace
+}
+
+\usepackage{longtable} % Agrega el paquete longtable
+
+\definecolor{mygreen}{RGB}{0,128,0}
+
+\usepackage{array} % Para personalizar la tabla
+\usepackage{booktabs} % Para líneas horizontales de mejor calidad
+\usepackage{graphicx} % Paquete para incluir imágenes
+\usepackage{float}
+\usepackage[section]{placeins}
+
+% Definir márgenes
+\usepackage[margin=1in]{geometry}
+
+\renewcommand{\contentsname}{\textcolor{mygreen}{Tabla de Contenidos}}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    % Logo de la Universidad
+    \includegraphics[width=0.48\textwidth]{logo_universidad.png}
+    \par\vspace{2cm}
+
+    % Nombre de la Universidad y detalles del curso
+    {\Large \textbf{Universidad Nacional de Colombia} \par}
+    \vspace{0.5cm}
+    {\large Ingeniería de Sistemas y Computación \par}
+    {\large 2025969 Modelos estocásticos y simulación en computación y comunicaciones (01)\par}
+    \vspace{3cm}
+
+    % Detalles del laboratorio y actividad
+    {\large \textbf{Tarea 31} \par}
+    {\large Más sobre el dilema del prisionero\par}
+    \vspace{3cm}
+
+    % Lista de integrantes
+    {\large \textbf{Integrantes:} \par}
+    \vspace{0.5cm}
+    \begin{tabular}{ll}
+    Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
+    Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
+    Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
+    \end{tabular}
+    \par\vspace{3cm}
+
+    % Fecha
+    {\large Junio 26 de 2025 \par}
+\end{titlepage}
+
+\tableofcontents % Inserta la tabla de contenidos
+
+\newpage % Salto de página para separar la tabla de contenidos del contenido del documento
+
+% Contenido del artículo----------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Intro --------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Introducción}\label{sec:intr}
+
+%---------------------------------------------------------------------------------
+% Marco Teórico ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Marco Teórico}\label{sec:marc}
+
+
+\subsection{1. La Teoría de Juegos}
+La teoría de juegos es la disciplina matemática que estudia las decisiones estratégicas de 
+agentes interdependientes. Cada agente busca maximizar su propio beneficio, pero sus resultados 
+dependen de las acciones de los demás. Los conceptos fundamentales incluyen:
+
+\begin{itemize}
+  \item \textbf{Jugadores}: agentes que toman decisiones.
+  \item \textbf{Estrategias}: conjunto de acciones posibles para cada jugador.
+  \item \textbf{Pagos (Payoffs)}: recompensas o pérdidas asociadas a cada combinación de 
+    estrategias.
+  \item \textbf{Equilibrio de Nash}: situación en la que ningún jugador puede mejorar 
+    su pago cambiando unilateralmente su propia estrategia.
+  \item \textbf{Estrategia Dominante}: Para cada jugador, no cooperar (traicionar) es mejor 
+    sin importar la decisión del otro.
+\end{itemize}
+
+\subsection{2. Definición del Dilema del Prisionero}
+El Dilema del Prisionero es un juego no cooperativo de dos jugadores, con las siguientes
+características:
+
+\begin{enumerate}
+  \item \textbf{Hipótesis básica}: dos individuos aislados no pueden comunicarse.
+  \item \textbf{Opciones de estrategia}: cooperar (\emph{guardar silencio}) o 
+    traicionar (\emph{confesar}) - no cooperar.
+  \item \textbf{Matriz de pagos}:\newline
+  \begin{itemize}
+    \item Ambos cooperan: pena moderada para cada uno.
+    \item Uno coopera, otro traiciona: el traidor sale libre, el cooperador recibe la pena máxima.
+    \item Ambos traicionan: pena intermedia para cada uno.
+  \end{itemize}
+\end{enumerate}
+
+Matemáticamente, si denotamos la recompensa por mutua cooperación como $R$, 
+la tentación de traicionar como $T$, la sanción por traición mutua como $P$ y la poca recompensa 
+por ser traicionado como $S$, se cumple la desigualdad:
+
+\[
+T > R > P > S.
+\]
+
+\subsection{3. Estrategias y Equilibrio}
+\begin{itemize}
+  \item \textbf{Estrategia dominante}: para cada jugador, "traicionar" maximiza el pago 
+    independiente de la decisión del otro.
+  \item \textbf{Equilibrio de Nash}: $(traicionar / traicionar)$, aunque el resultado 
+    colectivo óptimo sería la cooperación mutua.
+\end{itemize}
+
+\subsection{4. Extensiones y Repetición de Juegos}
+Para modelar dinámicas más realistas, se considera el juego repetido:
+
+\begin{itemize}
+  \item \textbf{Repetición finita}: descompone la cooperación escalonada.
+  \item \textbf{Repetición indeterminada}: permite estrategias condicionadas 
+    (por ejemplo, \emph{Tit for Tat}), que fomentan la cooperación sostenida.
+\end{itemize}
+
+\subsection{5. Aplicación en Modelos Estocásticos y Simulación}
+En sistemas de comunicaciones, el Dilema del Prisionero se emplea para:
+
+\begin{itemize}
+  \item Analizar protocolos de cooperación entre nodos (por ejemplo, reenvío de paquetes).
+  \item Evaluar mecanismos de castigo y reputación.
+  \item Explorar políticas de enrutamiento colaborativo bajo incertidumbre.
+\end{itemize}
+
+La simulación estocástica permite cuantificar cómo varían las tasas de cooperación 
+según parámetros de castigo, beneficio y horizonte temporal.
+
+%---------------------------------------------------------------------------------
+% Descripción y Justificación del Problema a Resolver ----------------------------
+%---------------------------------------------------------------------------------
+
+\section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
+
+En esta tarea se profundiza en el Dilema del Prisionero desde una perspectiva complementaria a 
+la presentada en clase. Para ello, con base al episodio titulado “Lo que el Dilema del 
+Prisionero Revela Sobre la Vida, el Universo y Todo lo Demás”, del canal Veritasium, en el 
+que el Dr. Muller ilustra con ejemplos prácticos cómo distintas estrategias interactúan en 
+un juego iterado de cooperación versus traición [\ref{ref:vidIntro}].
+
+En principio se debe:
+\begin{itemize}
+  \item Revisar y analizar el contenido audiovisual propuesto, comprendiendo los fundamentos 
+    del Dilema del Prisionero y la dinámica de las estrategias exhibidas 
+    (especialmente la estrategia “Tit for Tat”).
+
+  \item Diseñar y codificar dos nuevas estrategias propias
+
+  \item Una benévola, que tienda a favorecer la cooperación inicial y perdonar 
+    ocasionalmente la traición del oponente.
+
+  \item Una malévola, que aproveche al máximo las oportunidades para traicionar al adversario, 
+    buscando maximizar su propio beneficio.
+
+  \item Implementar un simulador estocástico, donde cada par de estrategias 
+    (benévola vs. Tit for Tat, malévola vs. Tit for Tat, y benévola vs. malévola) 
+      se enfrente en múltiples rondas sucesivas bajo el esquema clásico de penalizaciones y 
+      recompensas del Dilema del Prisionero.
+
+  \item Estimar la eficacia de cada estrategia midiendo, a través de estadísticas de simulación, 
+    el promedio de "pago" obtenido (nivel de cooperación lograda o traiciones realizadas) 
+      en condiciones repetidas.
+
+  \item El desafío consiste en traducir esos principios teóricos y audiovisuales a un 
+  experimento computacional para definir cual es el enfoque mas eficiente.
+\end{itemize}
+
+
+El Dilema del Prisionero no solo es un pilar de la teoría de juegos, sino que en la práctica 
+constituye un modelo esencial para simular el comportamiento de agentes en entornos estocásticos. 
+Sus aplicaciones abarcan desde redes de comunicación distribuidas y protocolos de reenvío de 
+paquetes hasta procesos evolutivos, dinámicas humanas de conflicto y competición en múltiples 
+ámbitos. Entenderlo a fondo y experimentar con estrategias diversas es clave para diseñar 
+sistemas robustos y predecir comportamientos en escenarios complejos.
+
+En concreto, El Dilema sirve como un paradigma clave en simulaciones multiagente para modelar 
+decisiones de cooperación y conflicto en entornos estocásticos, donde agentes con 
+comportamientos pavlovianos y estrategias diversas interactúan en redes espaciales complejas 
+para reproducir dinámicas reales de comunicación y competencia .
+En sistemas distribuidos, esta lógica inspira protocolos de reenvío de paquetes y mecanismos de 
+reputación que refuerzan o castigan conductas según el historial de cooperación.
+Por su parte, en biología evolutiva, el juego explica la emergencia de comportamientos altruistas 
+y de enjambre bajo presión selectiva.
+Del mismo modo, la teoría se extiende a dinámicas humanas y bélicas, como el “security dilemma”, 
+donde medidas defensivas generan espirales de desconfianza estatal, como la guerra fría. Pero
+en ámbitos competitivos como el deporte y la economía, retrata por qué las estrategias 
+egoístas conducen a resultados colectivos subóptimos. Finalmente, 
+la experimentación mediante simulaciones iteradas permite calibrar parámetros de castigo, 
+beneficio y perdón desde enfoques benignos hasta agresivos para diseñar protocolos robustos 
+en sistemas ad hoc y distribuidos, fusionando teoría de juegos con práctica 
+computacional avanzada [\ref{ref:just}].
+
+%---------------------------------------------------------------------------------
+% Diseño de la solución ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Diseño de la solución}\label{sec:dis}
+
+
+
+
+%---------------------------------------------------------------------------------
+% Código Fuente ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Código Fuente}\label{sec:cod}
+
+El código fuente completo de este modelo se encuentra adjunto en el buzón 
+(11 Tarazona Jimenez Javier Andres 02.zip)
+y disponible en el repositorio GitHub del proyecto:
+
+\begin{center}
+\url{URL}
+\end{center}
+
+El repositorio contiene:
+\begin{itemize}
+\item A
+\item B
+\item C
+\end{itemize}
+
+%---------------------------------------------------------------------------------
+% Manual Usuario ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Manual Usuario}\label{sec:man_u}
+
+El primer paso es descargar el archivo \texttt{11 Tarazona Jimenez Javier Andres 02.zip}.
+
+Una vez descargado, descomprímalo y acceda a la carpeta. Dentro de ella, cree un 
+entorno virtual utilizando Python 3.12. o superior. Para ello, ejecute el siguiente 
+comando en 
+la terminal o línea de comandos:
+
+\begin{itemize}
+  \item En Windows:
+  \begin{verbatim}
+    python3.12 -m venv nombre_del_entorno
+  \end{verbatim}
+  \item En macOS o Linux:
+  \begin{verbatim}
+    python3.12 -m venv nombre_del_entorno
+  \end{verbatim}
+\end{itemize}
+
+Donde \texttt{nombre\_del\_entorno} es el nombre que desea asignar a su entorno virtual. 
+A continuación, active el entorno virtual:
+
+\begin{itemize}
+  \item En Windows:
+  \begin{verbatim}
+    .\nombre_del_entorno\Scripts\activate
+  \end{verbatim}
+  \item En macOS o Linux:
+  \begin{verbatim}
+    source nombre_del_entorno/bin/activate
+  \end{verbatim}
+\end{itemize}
+
+En el archivo \texttt{constants/program.py} encontrará las constantes del programa. 
+En ese archivo, podrá modificar los parámetros de entrada que se detallan más abajo.\\
+
+Después de configurar los parámetros, asegúrese de tener el entorno virtual activado. 
+Una vez activo, puede ejecutar el archivo principal con el siguiente comando:
+
+\begin{center}
+  \begin{adjustbox}{minipage=\linewidth, center}
+  \begin{verbatim}
+    python main.py
+  \end{verbatim}
+  \end{adjustbox}
+\end{center}
+
+%---------------------------------------------------------------------------------
+% Manual Técnico ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Manual Técnico}\label{sec:man_t}
+
+
+\subsection{Fases de la Simulación}
+
+
+\subsection{Manejo de Datos}
+
+\subsection{Evaluación de la Simulación}
+
+
+\subsection{Conclusiones y Recomendaciones}
+
+
+%---------------------------------------------------------------------------------
+% Experimentación ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Experimentación}\label{sec:exp}
+
+\subsection{Análisis de resultados}
+
+\subsubsection{Escenario 1: }
+
+\subsubsection{Escenario 2: }
+ 
+\subsubsection{Escenario 3: }
+
+
+
+\section{Referencias}
+\renewcommand{\refname}{}
+
+\begin{thebibliography}{9}
+
+\bibitem{ref} \label{ref:vidIntro} Veritasium en español, “Lo que el Dilema del Prisionero Revela 
+Sobre la Vida, el Universo y Todo lo Demás,” YouTube video, 7:03, Mar. 2024. [Online]. 
+Available: \url{https://youtu.be/vBgrvVY1jGo}
+
+\bibitem{ref} \label{ref:just} R. Axelrod, The Evolution of Cooperation. New York: 
+Basic Books, 1984.
+
+\end{thebibliography}
+
+\end{document}

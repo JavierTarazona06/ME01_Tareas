@@ -1,0 +1,238 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[style=ieee]{biblatex} % Establecer el estilo de las referencias como IEEE
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titletoc}
+\usepackage{adjustbox}
+\usepackage[spanish]{babel}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue, % Color del texto del enlace
+    urlcolor=blue % Color del enlace
+}
+
+\usepackage{longtable} % Agrega el paquete longtable
+
+\definecolor{mygreen}{RGB}{0,128,0}
+
+\usepackage{array} % Para personalizar la tabla
+\usepackage{booktabs} % Para líneas horizontales de mejor calidad
+\usepackage{graphicx} % Paquete para incluir imágenes
+\usepackage{float}
+\usepackage[section]{placeins}
+
+% Definir márgenes
+\usepackage[margin=1in]{geometry}
+
+\renewcommand{\contentsname}{\textcolor{mygreen}{Tabla de Contenidos}}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    % Logo de la Universidad
+    \includegraphics[width=0.48\textwidth]{logo_universidad.png}
+    \par\vspace{2cm}
+
+    % Nombre de la Universidad y detalles del curso
+    {\Large \textbf{Universidad Nacional de Colombia} \par}
+    \vspace{0.5cm}
+    {\large Ingeniería de Sistemas y Computación \par}
+    {\large 2025969 Modelos estocásticos y simulación en computación y comunicaciones (01)\par}
+    \vspace{3cm}
+
+    % Detalles del laboratorio y actividad
+    {\large \textbf{Tarea 31} \par}
+    {\large Más sobre el dilema del prisionero\par}
+    \vspace{3cm}
+
+    % Lista de integrantes
+    {\large \textbf{Integrantes:} \par}
+    \vspace{0.5cm}
+    \begin{tabular}{ll}
+    Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
+    Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
+    Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
+    \end{tabular}
+    \par\vspace{3cm}
+
+    % Fecha
+    {\large Junio 26 de 2025 \par}
+\end{titlepage}
+
+\tableofcontents % Inserta la tabla de contenidos
+
+\newpage % Salto de página para separar la tabla de contenidos del contenido del documento
+
+% Contenido del artículo----------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Intro --------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Introducción}\label{sec:intr}
+
+%---------------------------------------------------------------------------------
+% Marco Teórico ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Marco Teórico}\label{sec:marc}
+
+
+
+\subsection{Contextualización del problema}
+
+
+
+
+%---------------------------------------------------------------------------------
+% Descripción y Justificación del Problema a Resolver ----------------------------
+%---------------------------------------------------------------------------------
+
+\section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
+
+
+\subsection{Objetivo Principal}
+
+
+%---------------------------------------------------------------------------------
+% Diseño de la solución ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Diseño de la solución}\label{sec:dis}
+
+
+\subsection{Metodología}
+
+
+
+%---------------------------------------------------------------------------------
+% Código Fuente ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Código Fuente}\label{sec:cod}
+
+El código fuente completo de este modelo se encuentra adjunto en el buzón 
+(11 Tarazona Jimenez Javier Andres 02.zip)
+y disponible en el repositorio GitHub del proyecto:
+
+\begin{center}
+\url{URL}
+\end{center}
+
+El repositorio contiene:
+\begin{itemize}
+\item A
+\item B
+\item C
+\end{itemize}
+
+%---------------------------------------------------------------------------------
+% Manual Usuario ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Manual Usuario}\label{sec:man_u}
+
+El primer paso es descargar el archivo \texttt{11 Tarazona Jimenez Javier Andres 02.zip}.
+
+Una vez descargado, descomprímalo y acceda a la carpeta. Dentro de ella, cree un 
+entorno virtual utilizando Python 3.12. o superior. Para ello, ejecute el siguiente 
+comando en 
+la terminal o línea de comandos:
+
+\begin{itemize}
+  \item En Windows:
+  \begin{verbatim}
+    python3.12 -m venv nombre_del_entorno
+  \end{verbatim}
+  \item En macOS o Linux:
+  \begin{verbatim}
+    python3.12 -m venv nombre_del_entorno
+  \end{verbatim}
+\end{itemize}
+
+Donde \texttt{nombre\_del\_entorno} es el nombre que desea asignar a su entorno virtual. 
+A continuación, active el entorno virtual:
+
+\begin{itemize}
+  \item En Windows:
+  \begin{verbatim}
+    .\nombre_del_entorno\Scripts\activate
+  \end{verbatim}
+  \item En macOS o Linux:
+  \begin{verbatim}
+    source nombre_del_entorno/bin/activate
+  \end{verbatim}
+\end{itemize}
+
+En el archivo \texttt{constants/program.py} encontrará las constantes del programa. 
+En ese archivo, podrá modificar los parámetros de entrada que se detallan más abajo.\\
+
+Después de configurar los parámetros, asegúrese de tener el entorno virtual activado. 
+Una vez activo, puede ejecutar el archivo principal con el siguiente comando:
+
+\begin{center}
+  \begin{adjustbox}{minipage=\linewidth, center}
+  \begin{verbatim}
+    python main.py
+  \end{verbatim}
+  \end{adjustbox}
+\end{center}
+
+%---------------------------------------------------------------------------------
+% Manual Técnico ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Manual Técnico}\label{sec:man_t}
+
+
+\subsection{Fases de la Simulación}
+
+
+\subsection{Manejo de Datos}
+
+\subsection{Evaluación de la Simulación}
+
+
+\subsection{Conclusiones y Recomendaciones}
+
+
+%---------------------------------------------------------------------------------
+% Experimentación ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Experimentación}\label{sec:exp}
+
+\subsection{Análisis de resultados}
+
+\subsubsection{Escenario 1: }
+
+\subsubsection{Escenario 2: }
+ 
+\subsubsection{Escenario 3: }
+
+
+
+\section{Referencias}
+\renewcommand{\refname}{}
+
+\begin{thebibliography}{9}
+
+\bibitem{ref} \label{ref:vidIntro} A. Párraga, “Cómo se programa un ORDENADOR CUÁNTICO (bien explicado),”
+YouTube, 2021. [Online]. Available: \url{https://www.youtube.com/watch?v=eRlQdW1lgJE. }
+
+\bibitem{ref} \label{ref:vidTelepor} Ket.G, “La Teleportación cuántica,” YouTube, 3-Mar-2020. [Online]. 
+Available: \url{https://www.youtube.com/watch?v=4BUB41iK25Y.}
+
+\bibitem{ref} \label{ref:Grover} Ket.G, “PROGRAMANDO \#3 Algoritmo de Grover (Qiskit),” YouTube, 3-Mar-2020. 
+[Online]. Available: \url{https://www.youtube.com/watch?v=u5Yd0St6MN4.}
+
+\bibitem{ref} \label{ref:IBMQuant} IBM Research, “Running an experiment in the IBM Quantum Experience,” 
+YouTube, 4-May-2016. [Online]. 
+Available: \url{https://www.youtube.com/watch?v=pYD6bvKLI_c}
+
+\end{thebibliography}
+
+\end{document}
