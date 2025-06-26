@@ -220,7 +220,88 @@ computacional avanzada [\ref{ref:just}].
 
 \section{Diseño de la solución}\label{sec:dis}
 
+% Diseño de Solución para el simulador de agentes en el Dilema del Prisionero
+\section*{Diseño de Solución}
 
+El sistema se organiza en torno a una jerarquía de clases que modelan agentes capaces de jugar iteraciones del 
+Dilema del Prisionero, junto con un módulo de simulación ("torneo") que empareja y hace competir a estos agentes. 
+La solución consta de los siguientes componentes:
+
+\begin{enumerate}
+  \item \textbf{Estructura de Clases}
+    \begin{description}
+      \item[Clase base \texttt{Agente}] Define el comportamiento común a todos los jugadores:
+        \begin{itemize}
+          \item \emph{Atributos:}
+            \begin{itemize}
+              \item \texttt{state (int)}: última acción tomada (COOP o NOT\_COOP).
+              \item \texttt{rounds\_played (int)}: número de rondas ya jugadas.
+              \item \texttt{prev\_opponent\_response (Optional[int])}: respuesta anterior del oponente.
+              \item \texttt{opponent\_consec\_count (int)}: conteo de respuestas idénticas consecutivas del oponente.
+            \end{itemize}
+          \item \emph{Métodos:}
+            \begin{itemize}
+              \item \texttt{start() -> int}: inicializa los contadores y devuelve la acción de la primera ronda.
+              \item \texttt{choose(prev\_opponent\_response: int) -> int}: actualiza el estado interno, valida la respuesta del rival y elige la siguiente acción.
+              \item \texttt{\_validate\_response(...)}: comprueba que la señal recibida sea COOP o NOT\_COOP.
+              \item \texttt{\_choose\_coop()} y \texttt{\_choose\_not\_coop()}: manejan la lógica de cambio de \texttt{state} cuando el agente está en modo cooperar o no cooperar.
+            \end{itemize}
+        \end{itemize}
+      \item[Subclases concretas]
+        \begin{description}
+          \item[\texttt{ElChance} (benévola):]
+            \begin{itemize}
+              \item Primera ronda: coopera siempre.
+              \item Cuando coopera: sigue cooperando con probabilidad 95\%, 5\% de aleatoriedad. Si el oponente no coopera dos rondas seguidas, cambia a NO\_COOP.
+              \item Cuando no coopera: permanece en NO\_COOP hasta que el oponente coopere, pero con probabilidad 10\% decide perdonar y cooperar.
+            \end{itemize}
+          \item[\texttt{Convenceme} (malévola):]
+            \begin{itemize}
+              \item Primera ronda: NO\_COOP.
+              \item Cuando no coopera: mantiene NO\_COOP hasta que el oponente coopere, salvo una probabilidad 5\% de "piedad" donde coopera.
+              \item Cuando coopera: lo hace al menos dos rondas, si el oponente vuelve a traicionar, regresa a NO\_COOP, tras cualquier par de cooperaciones, puede castigar con 10 rondas de NO\_COOP.
+            \end{itemize}
+          \item[\texttt{TitForTat}:]
+            \begin{itemize}
+              \item Primera ronda: COOP.
+              \item Si el oponente cooperó, coopera, si traicionó, traiciona.
+            \end{itemize}
+        \end{description}
+    \end{description}
+
+  \item \textbf{Módulo de Simulación ("Torneo")}\\
+    \texttt{torneo(agentes: List[Agente], n\_rondas: int) -> Resultados}
+    \begin{enumerate}
+      \item \emph{Inicialización:} para cada agente se invoca \texttt{start()} y se almacena la acción inicial.
+      \item \emph{Iteración de rondas (2 a n\_rondas):}
+        \begin{itemize}
+          \item Para cada par ordenado $(A,B)$:
+            \begin{enumerate}
+              \item $a = A.choose(prev\_B)$ usando la última respuesta de $B$.
+              \item $b = B.choose(prev\_A)$ usando la última respuesta de $A$.
+              \item Registrar pagos según la matriz y actualizar historiales.
+            \end{enumerate}
+        \end{itemize}
+      \item \emph{Cálculo de métricas:} al finalizar, para cada agente:
+        \begin{itemize}
+          \item Puntuación total (suma de pagos).
+          \item Tasa de cooperación (n\_COOP / n\_rondas).
+          \item Victorias relativas (veces con mayor pago).
+        \end{itemize}
+    \end{enumerate}
+
+  \item \textbf{Flujo de Ejecución}
+    \begin{enumerate}
+      \item Definir instancias de \texttt{ElChance}, \texttt{Convenceme} y \texttt{TitForTat}.
+      \item Configurar torneo: número de rondas y tipo de emparejamientos.
+      \item Ejecutar \texttt{torneo(...)} y recolectar resultados.
+      \item Analizar resultados (tablas o gráficos con \texttt{matplotlib} o \texttt{pandas}).
+    \end{enumerate}
+
+\end{enumerate}
+
+Este diseño modular facilita la incorporación de nuevas estrategias y 
+la extensión de la simulación a variantes del Dilema del Prisionero.
 
 
 %---------------------------------------------------------------------------------
@@ -230,7 +311,7 @@ computacional avanzada [\ref{ref:just}].
 \section{Código Fuente}\label{sec:cod}
 
 El código fuente completo de este modelo se encuentra adjunto en el buzón 
-(11 Tarazona Jimenez Javier Andres 02.zip)
+(31 Tarazona Jimenez Javier Andres 02.zip)
 y disponible en el repositorio GitHub del proyecto:
 
 \begin{center}
