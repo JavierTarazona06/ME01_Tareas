@@ -1,0 +1,37 @@
+@startuml
+scale 4
+class Agente {
+  - state: int
+  - rounds_played: int
+  - prev_opponent_response: Optional[int]
+  - opponent_consec_count: int
+  + start(): int
+  + choose(prev_opponent_response: int): int
+  - _validate_response(prev_opponent_response)
+  - _choose_coop(): int
+  - _choose_not_coop(): int
+}
+
+class ElChance {
+  - percentage_coop: float
+  - percentage_not_coop: float
+  + _choose_coop(): int
+  + _choose_not_coop(): int
+}
+
+class Convenceme {
+  - percentage_not_coop: float
+  - count_coop: int
+  - timesb4Betray: int
+  + _choose_coop(): int
+  + _choose_not_coop(): int
+}
+
+class TitForTat {
+  + __init__()
+}
+
+Agente <|-- ElChance
+Agente <|-- Convenceme
+Agente <|-- TitForTat
+@enduml
