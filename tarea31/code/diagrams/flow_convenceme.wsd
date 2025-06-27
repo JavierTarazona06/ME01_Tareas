@@ -1,0 +1,61 @@
+@startuml
+scale 4
+start
+:Inicializar estado;
+note right
+    mode = NO_COOP
+    coop_count = 0
+    consecutive_coops = 0
+end note
+
+if (Primera ronda?) then (Sí)
+    :Jugar NO_COOP;
+    stop
+else (No)
+    :Obtener jugada\noponente anterior;
+    
+    if (mode == NO_COOP) then (Sí)
+        if (oponente jugó COOP?) then (Sí)
+            :mode = COOP;
+            :coop_count = 0;
+            :consecutive_coops = 0;
+        else (No)
+        endif
+        
+        :Generar número\naleatorio r (0-1);
+        if (r < 0.95) then (Sí)
+            :Jugar NO_COOP;
+        else (No)
+            :Jugar COOP;
+        endif
+    else (COOP)
+        :coop_count++;
+        if (oponente jugó COOP?) then (Sí)
+            :consecutive_coops++;
+        else (No)
+            :consecutive_coops = 0;
+        endif
+        
+        if (consecutive_coops >= 2) then (Sí)
+            if (coop_count >= 10) then (Sí)
+                :Jugar NO_COOP;
+            else (No)
+                :Jugar COOP;
+            endif
+        else (No)
+            if (coop_count < 2) then (Sí)
+                :Jugar COOP;
+            else (No)
+                if (oponente jugó NO_COOP?) then (Sí)
+                    :mode = NO_COOP;
+                    :Jugar NO_COOP;
+                else (No)
+                    :Jugar COOP;
+                endif
+            endif
+        endif
+    endif
+endif
+
+stop
+@enduml
