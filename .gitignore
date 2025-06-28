@@ -455,3 +455,6 @@ env/
 # Other tools
 coverage_html_report/
 pytest_debug.log
+
+*gitf.bat
+*gitf.sh

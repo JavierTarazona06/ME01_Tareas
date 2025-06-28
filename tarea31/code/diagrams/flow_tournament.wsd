@@ -1,0 +1,66 @@
+@startuml
+scale 2
+start
+:Inicializar agentes;
+note right
+    chance = ElChance()
+    conv = Convenceme()
+    tit = TitForTat()
+    scores = [0, 0]
+end note
+
+:Seleccionar jugadores;
+note left
+    g1 = conv
+    g2 = chance
+end note
+
+:Obtener estados iniciales;
+note right
+    s1 = g1.start()
+    s2 = g2.start()
+end note
+
+repeat
+    :round = 0;
+    while (round < N_ROUNDS?) is (Sí)
+        if (round > 0) then (Sí)
+            :temp = s1;
+            :s1 = g1.choose(s2);
+            :s2 = g2.choose(temp);
+        else (No)
+        endif
+
+        if (s1 == COOP and s2 == COOP) then (Sí)
+            :scores[0] += P_COOP2;
+            :scores[1] += P_COOP2;
+        elseif (s1 == NOT_COOP and s2 == NOT_COOP) then (Sí)
+            :scores[0] += P_NCOOP0;
+            :scores[1] += P_NCOOP0;
+        elseif (s1 == NOT_COOP) then (Sí)
+            :scores[0] += P_NCOOP1;
+            :scores[1] += P_PERD;
+        else (No)
+            :scores[0] += P_PERD;
+            :scores[1] += P_NCOOP1;
+        endif
+
+        :st1 = (s1 == COOP) ? "COOP" : "NOT_COOP";
+        :st2 = (s2 == COOP) ? "COOP" : "NOT_COOP";
+        :Imprimir resultado ronda;
+        note left
+            "Round {round} Result: {scores} → {st1} - {st2}"
+        end note
+
+        :round++;
+    endwhile (No)
+repeat while (¿Otra pareja?) is (Sí)
+->No;
+
+:Imprimir resultado final;
+note
+    "Result: {scores}"
+end note
+
+stop
+@enduml

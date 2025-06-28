@@ -1,0 +1,37 @@
+@startuml
+scale 4
+start
+:start();
+:rounds_played = 1;
+:prev_opponent_response = null;
+:opponent_consec_count = 0;
+:return state;
+:choose(prev_opponent_response);
+:_validate_response(prev_opponent_response);
+
+if (prev_opponent_response == COOP or prev_opponent_response == NOT_COOP) then (válido)
+  if (opponent_consec_count == 0) then (sí)
+    :prev_opponent_response = prev_opponent_response;
+    :opponent_consec_count = 1;
+  else (no)
+    if (prev_opponent_response == prev_prev) then (sí)
+      :opponent_consec_count++;
+    else (no)
+      :opponent_consec_count = 1;
+    endif
+    :prev_opponent_response = prev_opponent_response;
+  endif
+else (inválido)
+  :throw ValueError;
+  stop
+endif
+
+if (state == COOP) then (sí)
+  :ans = _choose_coop();
+else (no)
+  :ans = _choose_not_coop();
+endif
+:rounds_played++;
+:return ans;
+stop
+@enduml
