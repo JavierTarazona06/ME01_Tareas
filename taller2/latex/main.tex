@@ -1,0 +1,196 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[style=ieee]{biblatex} % Establecer el estilo de las referencias como IEEE
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{titletoc}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage[spanish]{babel}
+
+\usepackage{listings}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue, % Color del texto del enlace
+    urlcolor=blue % Color del enlace
+}
+
+\usepackage{longtable} % Agrega el paquete longtable
+
+\definecolor{mygreen}{RGB}{0,128,0}
+
+\usepackage{array} % Para personalizar la tabla
+\usepackage{booktabs} % Para líneas horizontales de mejor calidad
+\usepackage{graphicx} % Paquete para incluir imágenes
+\usepackage{float}
+
+% Definir márgenes
+\usepackage[margin=1in]{geometry}
+
+\renewcommand{\contentsname}{\textcolor{mygreen}{Tabla de Contenidos}}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    % Logo de la Universidad
+    \includegraphics[width=0.48\textwidth]{logo_universidad.png}
+    \par\vspace{2cm}
+
+    % Nombre de la Universidad y detalles del curso
+    {\Large \textbf{Universidad Nacional de Colombia} \par}
+    \vspace{0.5cm}
+    {\large Ingeniería de Sistemas y Computación \par}
+    {\large 2025969 Modelos estocásticos y simulación en computación y comunicaciones (01)\par}
+    \vspace{3cm}
+
+    % Detalles del laboratorio y actividad
+    {\large \textbf{Taller 1} \par}
+    \vspace{3cm}
+
+    % Lista de integrantes
+    {\large \textbf{Integrantes:} \par}
+    \vspace{0.5cm}
+    \begin{tabular}{ll}
+    Javier Andrés Tarazona Jiménez & jtarazonaj@unal.edu.co \\
+    Yenifer Yulieth Mora Segura & ymoras@unal.edu.co \\
+    Juan Esteban Carranza Salazar & jcarranza@unal.edu.co \\
+    Grevy Joner Rincon Mejia & grrinconm@unal.edu.co \\
+    Jefferson Duvan Ramirez Castañeda & jeramirezca@unal.edu.co \\
+    Javier Andres Carrillo Carrasco & jacarrillo@unal.edu.co \\
+    Diego Nicolas Ramirez Maldonado & dieramirezma@unal.edu.co \\
+    \end{tabular}
+    \par\vspace{3cm}
+
+    % Fecha
+    {\large Junio 16 de 2025 \par}
+\end{titlepage}
+
+\tableofcontents % Inserta la tabla de contenidos
+
+\newpage % Salto de página para separar la tabla de contenidos del contenido del documento
+
+% Contenido del artículo----------------------------------------------------------
+
+%---------------------------------------------------------------------------------
+% Intro --------------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Introducción}\label{sec:intr}
+
+
+%---------------------------------------------------------------------------------
+% Marco Teórico ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Marco Teórico}\label{sec:marc}
+
+
+%---------------------------------------------------------------------------------
+% Descr. Problema ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
+
+\subsection{Contexto del Problema}
+
+
+\subsection{Problema Específico}
+
+\subsection{Objetivo Principal}
+
+
+\subsection{Hipótesis de Investigación}
+
+\subsection{Justificación de la Solución Propuesta}
+
+
+\subsection{Métricas de Evaluación}
+
+
+%---------------------------------------------------------------------------------
+% Diseño solución ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+
+\section{Diseño de la solución}\label{sec:disSol}
+
+
+%---------------------------------------------------------------------------------
+% Código Fuente ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Código Fuente}\label{sec:cod}
+
+El código fuente completo se encuentra adjunto como Taller1.zip
+o en el siguiente repositorio de GitHub:
+
+\begin{center}
+\url{https://github.com/JavierTarazona06/ME01_Tareas/tree/main/taller2/Code/}
+\end{center}
+
+
+%---------------------------------------------------------------------------------
+% Manual de Usuario ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Manual Usuario}\label{sec:man_u}
+
+
+%---------------------------------------------------------------------------------
+% Manual técnico ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Manual Técnico}
+
+
+%---------------------------------------------------------------------------------
+% Exprimentación ------------------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+
+\section{Experimentación}\label{sec:exp}
+
+
+
+%---------------------------------------------------------------------------------
+% Conclusiones ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Conclusiones}\label{sec:concl}
+
+
+%---------------------------------------------------------------------------------
+% Recomendaciones ---------------------------------------------------------
+%---------------------------------------------------------------------------------
+
+\section{Recomendaciones}\label{secrecomen}
+
+
+
+
+
+\section{Referencias}
+\renewcommand{\refname}{}
+\begin{thebibliography}{9}
+
+\bibitem{ref} \label{ref:modSim} A. M. Law, *Simulation Modeling and Analysis*, 5th ed. 
+New York, NY, USA: McGraw-Hill Education, Jan. 2014, ISBN 978-0-07-340132-4. 
+
+\bibitem{ref} \label{ref:matSim} J. E. Ortiz T., “Modelos Matemáticos \& Simulación,”
+ en *Apuntes de clase de la asignatura Modelos Estocásticos y Simulación en 
+ Computación y Comunicaciones*, Departamento de Ingeniería de Sistemas e Industrial, 
+ Universidad Nacional de Colombia, 2025. [En línea]. Disponible en: 
+ \url{https://drive.google.com/file/d/1c886yU4SFk9A97DGWr8JHiF3nd2au1Ns/view?usp=sharing}
+
+ \bibitem{ref} \label{ref:cimColas} J. E. UOrtiz, “Simulador del modelo de colas M/M/1,” 
+ código fuente en C++ (archivo .rar), basado en la sección 
+ 1.4.4 de Averill M. Law, *Simulation Modeling and Analysis*, 
+ th ed., McGraw-Hill, 2014. [En línea]. Disponible en: 
+ \url{https://drive.google.com/file/d/1-Mo9hqPwOegwTpx0KP2tbD9sLTNSXefd/view?usp=sharing}
+
+
+
+\end{thebibliography}
+
+\end{document}
