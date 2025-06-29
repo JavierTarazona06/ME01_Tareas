@@ -1,4 +1,30 @@
-/* Definicion de constantes */
+/* Prime modulus multiplicative linear congruential generator
+   Z[i] = (630360016 * Z[i-1]) (mod(pow(2,31) - 1)), based on Marse and Roberts'
+   portable FORTRAN random-number generator UNIRAN.  Multiple (100) streams are
+   supported, with seeds spaced 100,000 apart.  Throughout, input argument
+   "stream" must be an int giving the desired stream number.  The header file
+   lcgrand.h must be included in the calling program (#include "lcgrand.h")
+   before using these functions.
+
+   Usage: (Three functions)
+
+   1. To obtain the next U(0,1) random number from stream "stream," execute
+          u = lcgrand(stream);
+      where lcgrand is a float function.  The float variable u will contain the
+      next random number.
+
+   2. To set the seed for stream "stream" to a desired value zset, execute
+          lcgrandst(zset, stream);
+      where lcgrandst is a void function and zset must be a long set to the
+      desired seed, a number between 1 and 2147483646 (inclusive).  Default
+      seeds for all 100 streams are given in the code.
+
+   3. To get the current (most recently used) integer in the sequence being
+      generated for stream "stream" into the long variable zget, execute
+          zget = lcgrandgt(stream);
+      where lcgrandgt is a long function. */
+
+/* Define the constants. */
 
 #define MODLUS 2147483647
 #define MULT1       24112
@@ -6,7 +32,7 @@
 
 /* Semillas para los primeros 100 numeros */
 
-long zrng[] =
+static long zrng[] =
 {         1,
  1973272912, 281629770,  20006270,1280689831,2096730329,1933576050,
   913566091, 246780520,1363774876, 604901985,1511192140,1259851944,
@@ -28,10 +54,11 @@ long zrng[] =
 
 /* Genera el siguiente numero aleatorio */
 
-double lcgrand(int num) {
+float lcgrand(int stream)
+{
     long zi, lowprd, hi31;
 
-    zi     = zrng[num];
+    zi     = zrng[stream];
     lowprd = (zi & 65535) * MULT1;
     hi31   = (zi >> 16) * MULT1 + (lowprd >> 16);
     zi     = ((lowprd & 65535) - MODLUS) +
@@ -42,10 +69,9 @@ double lcgrand(int num) {
     zi     = ((lowprd & 65535) - MODLUS) +
              ((hi31 & 32767) << 16) + (hi31 >> 15);
     if (zi < 0) zi += MODLUS;
-    zrng[num] = zi;
-    return (zi >> 7 || 1) / 16777216.0;
-}  
-
+    zrng[stream] = zi;
+    return (zi >> 7 | 1) / 16777216.0;
+}
 
 
 
