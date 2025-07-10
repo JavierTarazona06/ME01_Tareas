@@ -93,17 +93,50 @@
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
 \subsection{Contexto del Problema}
+En el estudio de sistemas estocásticos, los modelos de colas son herramientas esenciales para analizar procesos donde la demanda de recursos supera su disponibilidad, como en redes de telecomunicaciones, sistemas logísticos o servicios al cliente. El modelo M/M/1 (llegadas y servicios Markovianos con un servidor) es un caso fundamental para entender métricas como tiempo de espera, longitud de cola y ocupación del sistema. Sin embargo, su aplicación práctica requiere:
+\begin{enumerate}
+    \item Implementaciones computacionales precisas (como el simulador en C++ proporcionado, basado en la sección 1.4.4 del libro de Law).
+    \item Validación rigurosa mediante comparación con resultados teóricos y datos empíricos (hoja de cálculo adjunta).
+    \item Extensibilidad para abordar modelos más complejos (ej: colas Geom/Geom/m/N o fórmulas de Erlang).
+\end{enumerate}
 
+Los recursos proporcionados (Law, 2014; Ortiz, 2023) ofrecen el marco teórico y metodológico para cumplir estos requisitos, mientras que el simulador y los datos empíricos permiten la aplicación práctica.
 
 \subsection{Problema Específico}
 
+Se identifican tres brechas principales:
+
+\begin{itemize}
+    \item \textbf{Implementación inicial incompleta}: El simulador requiere verificación según los 6 algoritmos de \cite{Ortiz2023} (Sección 1.7.1).
+    \item \textbf{Validación insuficiente}: Los resultados deben coincidir con datos empíricos y fórmulas teóricas \cite{Law2014}.
+    \item \textbf{Limitaciones funcionales}: Falta soporte para modelos avanzados (Geom/Geom/m/N y fórmulas de Erlang).
+\end{itemize}
+
 \subsection{Objetivo Principal}
 
+Desarrollar un simulador mejorado que:
+\begin{enumerate}
+    \item Sea modular (6 algoritmos independientes)
+    \item Valide resultados con datos empíricos
+    \item Extienda funcionalidades para:
+    \begin{itemize}
+        \item Fórmulas B y C de Erlang
+        \item Modelos Geom/Geom/m/N
+    \end{itemize}
+    \item Garantice reproducibilidad
+\end{enumerate}
 
-\subsection{Hipótesis de Investigación}
+%\subsection{Hipótesis de Investigación}
 
 \subsection{Justificación de la Solución Propuesta}
 
+La solución se justifica por:
+\begin{itemize}
+    \item \textbf{Rigor académico}: Sigue estándares de \cite{Law2014} y \cite{Ortiz2023}
+    \item \textbf{Validez práctica}: Comparación con datos reales y teoría
+    \item \textbf{Aplicabilidad ampliada}: Modelos avanzados para escenarios realistas
+    \item \textbf{Impacto formativo}: Refuerza competencias en simulación
+\end{itemize}
 
 \subsection{Métricas de Evaluación}
 
