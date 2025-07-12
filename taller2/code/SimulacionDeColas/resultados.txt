@@ -1,0 +1,17 @@
+
+
+Simulador Geo/Geo/m/N
+========================
+Parametros del sistema:
+m (servidores): 7
+N (capacidad): 0
+p (prob. llegada): 0.000
+s (prob. servicio): 0.000
+
+Resultados de la simulacion:
+Tiempo total de simulacion: 0.000
+Clientes completados: 0
+Clientes perdidos: 0
+Probabilidad de bloqueo estimada: -nan(ind)
+Utilizacion de servidores: -nan(ind)
+Numero promedio en sistema: -nan(ind)
