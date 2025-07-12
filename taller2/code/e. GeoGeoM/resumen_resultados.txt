@@ -1,0 +1,5 @@
+=== RESUMEN DE RESULTADOS ===
+Slots simulados: 1000000000
+Utilización: 56.61%
+Promedio de clientes en el sistema: 0.7501
+Throughput: 0.300017 clientes/slot
