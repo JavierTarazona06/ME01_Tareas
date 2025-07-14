@@ -92,20 +92,46 @@
 
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
-\subsection{Contexto del Problema}
+% Puedes colocar aquí subsecciones adicionales para otras simulaciones si lo deseas
 
+\subsection{Simulación del Modelo de Erlang (B y C)}\label{subsec:erlang}
 
-\subsection{Problema Específico}
+\subsubsection{Contexto del Problema}
 
-\subsection{Objetivo Principal}
+En el estudio de los sistemas de colas, los modelos de Erlang B y Erlang C constituyen herramientas fundamentales para la estimación del desempeño de sistemas con múltiples servidores. Estos modelos permiten analizar situaciones en las que los recursos son limitados, como ocurre en centros de llamadas, redes de telecomunicaciones, y sistemas de atención médica. En particular, el modelo Erlang B permite estimar la probabilidad de bloqueo en un sistema sin espera, mientras que Erlang C permite calcular la probabilidad de que un cliente deba esperar para ser atendido, cuando hay una cola de espera disponible.
 
+Sin embargo, las fórmulas analíticas de Erlang B y C, aunque precisas bajo supuestos teóricos estrictos (como llegadas y servicios distribuidos exponencialmente, disciplina FIFO, y número finito de servidores), pueden no ajustarse completamente a la realidad de los sistemas discretos. Por ello, se propone validar dichas fórmulas teóricas mediante simulación computacional, adaptando y extendiendo el simulador base (M/M/1) a un entorno más general con múltiples servidores, permitiendo así una comparación entre los resultados teóricos y los resultados simulados.
 
-\subsection{Hipótesis de Investigación}
+\subsubsection{Problema Específico}
 
-\subsection{Justificación de la Solución Propuesta}
+Diseñar, adaptar y ejecutar un simulador de colas que permita estimar empíricamente los valores de las fórmulas de Erlang B y Erlang C, bajo distintos escenarios de estudio, y compararlos con sus valores teóricos. Se busca responder si los resultados obtenidos por simulación son lo suficientemente cercanos a los valores teóricos como para considerar el modelo confiable, incluso en casos prácticos donde los supuestos teóricos podrían no cumplirse de forma estricta.
 
+\subsubsection{Objetivo Principal}
 
-\subsection{Métricas de Evaluación}
+El objetivo principal es validar, mediante simulación discreta, el comportamiento de los modelos de Erlang B y C en diferentes configuraciones de parámetros (número de servidores, tasa de llegada y de servicio), y evaluar la precisión de sus resultados en comparación con las fórmulas teóricas. Para ello, se implementará y adaptará un simulador capaz de calcular la probabilidad de bloqueo (Erlang B) y la probabilidad de espera (Erlang C), así como métricas de desempeño asociadas.
+
+\subsubsection{Hipótesis de Investigación}
+
+Se plantea que, bajo una correcta implementación del modelo de colas y una cantidad suficiente de iteraciones o tiempo de simulación, los valores obtenidos por simulación de las fórmulas de Erlang B y C convergerán de forma razonable a los valores teóricos calculados analíticamente, validando así el uso práctico de dichas fórmulas en contextos reales.
+
+\subsubsection{Justificación de la Solución Propuesta}
+
+Dado que las fórmulas de Erlang B y C son ampliamente utilizadas en la ingeniería de tráfico y el diseño de sistemas, resulta crucial comprobar su validez mediante técnicas de simulación, especialmente cuando se implementan sistemas complejos en la práctica. La simulación permite observar el comportamiento del sistema bajo condiciones específicas que pueden ser difíciles de modelar con precisión de forma analítica. Asimismo, proporciona una herramienta flexible para explorar distintos escenarios y validar la robustez del modelo frente a cambios en los parámetros del sistema.
+
+Además, la simulación permite estudiar casos donde no se cumplen todos los supuestos de los modelos clásicos, como la distribución exacta de Poisson para las llegadas o el carácter estrictamente exponencial de los tiempos de servicio. Al obtener resultados simulados cercanos a los teóricos, se puede justificar el uso práctico de los modelos de Erlang como herramientas efectivas de planificación y diseño.
+
+\subsubsection{Métricas de Evaluación}
+
+Para comparar los resultados simulados con los teóricos, se utilizarán las siguientes métricas:
+
+\begin{itemize}
+    \item \textbf{Probabilidad de bloqueo} ($\hat{p}_b$): estimada mediante simulación y comparada con la fórmula de Erlang B.
+    \item \textbf{Probabilidad de espera} ($\hat{p}_w$): estimada mediante simulación y comparada con la fórmula de Erlang C.
+    \item \textbf{Error relativo}: diferencia porcentual entre el valor teórico y el estimado por simulación.
+    \item \textbf{Número promedio de clientes en el sistema} ($\hat{L}$): métrica complementaria para verificar consistencia del modelo simulado.
+    \item \textbf{Convergencia estadística}: se evaluará la estabilidad de los valores estimados a través de múltiples ejecuciones o intervalos de tiempo simulados.
+\end{itemize}
+
 
 
 %---------------------------------------------------------------------------------
