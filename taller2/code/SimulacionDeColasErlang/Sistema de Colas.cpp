@@ -6,15 +6,27 @@
 #include "lcgrand.cpp"  /* Encabezado para el generador de numeros aleatorios */
 
 #define LIMITE_COLA 100  /* Capacidad maxima de la cola */
-#define OCUPADO      1  /* Indicador de Servidor Ocupado */
-#define LIBRE      0  /* Indicador de Servidor Libre */
+#define ERLANG_B 0
+#define ERLANG_C 1
+#define INF 1.0e+30
 
 int   sig_tipo_evento, num_clientes_espera, num_esperas_requerido, num_eventos,
       num_entra_cola, estado_servidor;
-float area_num_entra_cola, area_estado_servidor, media_entre_llegadas, media_atencion,
-      tiempo_simulacion, tiempo_llegada[LIMITE_COLA + 1], tiempo_ultimo_evento, tiempo_sig_evento[3],
-      total_de_esperas;
+float area_num_entra_cola, *area_estado_servidores, media_entre_llegadas, media_atencion,
+      tiempo_simulacion, tiempo_llegada[LIMITE_COLA + 1], tiempo_ultimo_evento,
+      total_de_esperas, erlangB, erlangC;
+float* tiempo_sig_evento;
 FILE  *parametros, *resultados;
+
+
+int num_servidores; // número de servidores
+int servidores_ocupados = 0;
+int clientes_bloqueados = 0;      // para Erlang B
+int clientes_que_esperaron = 0;   // para Erlang C
+int total_clientes_llegaron = 0;
+float tiempo_servidores_todos_ocupados = 0.0;
+
+int modo = ERLANG_B; 
 
 void  inicializar(void);
 void  controltiempo(void);
@@ -32,14 +44,11 @@ int main(void)  /* Funcion Principal */
     parametros  = fopen("param.txt",  "r");
     resultados = fopen("result.txt", "w");
 
-    /* Especifica el numero de eventos para la funcion controltiempo. */
-
-    num_eventos = 2;
-
     /* Lee los parametros de enrtrada. */
 
-    fscanf(parametros, "%f %f %d", &media_entre_llegadas, &media_atencion,
-           &num_esperas_requerido);
+    fscanf(parametros, "%f %f %d %d %d", &media_entre_llegadas, &media_atencion,
+           &num_esperas_requerido, &modo, &num_servidores);
+
 
     /* Escribe en el archivo de salida los encabezados del reporte y los parametros iniciales */
 
@@ -48,6 +57,8 @@ int main(void)  /* Funcion Principal */
             media_entre_llegadas);
     fprintf(resultados, "Tiempo promedio de atencion%16.3f minutos\n\n", media_atencion);
     fprintf(resultados, "Numero de clientes%14d\n\n", num_esperas_requerido);
+    fprintf(resultados, "Modo de simulación:              %s\n", (modo == ERLANG_B) ? "Erlang B (sin cola)" : "Erlang C (con cola)");
+    fprintf(resultados, "Número de servidores (m):        %d\n", num_servidores);
 
     /* iInicializa la simulacion. */
 
@@ -67,26 +78,22 @@ int main(void)  /* Funcion Principal */
 
         /* Invoca la funcion del evento adecuado. */
 
-        switch (sig_tipo_evento) {
-            case 1:
-                llegada();
-                break;
-            case 2:
-                salida();
-                break;
+        if (sig_tipo_evento == 1) {
+            llegada();
+        } else {
+            salida();  // aplica a cualquier servidor (2..m+1)
         }
     }
 
     /* Invoca el generador de reportes y termina la simulacion. */
 
     reportes();
-
+    delete[] area_estado_servidores;
     fclose(parametros);
     fclose(resultados);
 
     return 0;
 }
-
 
 void inicializar(void)  /* Funcion de inicializacion. */
 {
@@ -96,22 +103,30 @@ void inicializar(void)  /* Funcion de inicializacion. */
 
     /* Inicializa las variables de estado */
 
-    estado_servidor   = LIBRE;
     num_entra_cola        = 0;
     tiempo_ultimo_evento = 0.0;
+    servidores_ocupados = 0;
 
     /* Inicializa los contadores estadisticos. */
 
     num_clientes_espera  = 0;
     total_de_esperas    = 0.0;
     area_num_entra_cola      = 0.0;
-    area_estado_servidor = 0.0;
+    area_estado_servidores = new float[num_servidores];
+    clientes_bloqueados = 0;
+    clientes_que_esperaron = 0;
+    erlangC = 0;
+    erlangB = 0;
 
-    /* Inicializa la lista de eventos. Ya que no hay clientes, el evento salida
-       (terminacion del servicio) no se tiene en cuenta */
-
+    // Inicializar eventos: 0 no se usa, [1] = llegada, [2..m+1] = salidas de servidores
+    num_eventos = num_servidores + 1;
+    tiempo_sig_evento = (float*) malloc((num_eventos + 1) * sizeof(float));
     tiempo_sig_evento[1] = tiempo_simulacion + expon(media_entre_llegadas);
-    tiempo_sig_evento[2] = 1.0e+30;
+    for (int i = 2; i <= num_servidores + 1; ++i) {
+        tiempo_sig_evento[i] = 1.0e+30; // sin salida programada aún
+        area_estado_servidores[i] = 0;
+    }
+    
 }
 
 
@@ -133,7 +148,7 @@ void controltiempo(void)  /* Funcion controltiempo */
     /* Revisa si la lista de eventos esta vacia. */
 
     if (sig_tipo_evento == 0) {
-
+        
         /* La lista de eventos esta vacia, se detiene la simulacion. */
 
         fprintf(resultados, "\nLa lista de eventos esta vacia %f", tiempo_simulacion);
@@ -145,57 +160,61 @@ void controltiempo(void)  /* Funcion controltiempo */
     tiempo_simulacion = min_tiempo_sig_evento;
 }
 
-
 void llegada(void)  /* Funcion de llegada */
 {
     float espera;
+    ++total_clientes_llegaron;
 
     /* Programa la siguiente llegada. */
 
     tiempo_sig_evento[1] = tiempo_simulacion + expon(media_entre_llegadas);
 
-    /* Reisa si el servidor esta OCUPADO. */
-
-    if (estado_servidor == OCUPADO) {
-
-        /* Sservidor OCUPADO, aumenta el numero de clientes en cola */
-
-        ++num_entra_cola;
-
-        /* Verifica si hay condici�n de desbordamiento */
-
-        if (num_entra_cola > LIMITE_COLA) {
-
-            /* Se ha desbordado la cola, detiene la simulacion */
-
-            fprintf(resultados, "\nDesbordamiento del arreglo tiempo_llegada a la hora");
-            fprintf(resultados, "%f", tiempo_simulacion);
-            exit(2);
-        }
-
-        /* Todavia hay espacio en la cola, se almacena el tiempo de llegada del
-        	cliente en el ( nuevo ) fin de tiempo_llegada */
-
-        tiempo_llegada[num_entra_cola] = tiempo_simulacion;
-    }
-
-    else {
-
-        /*  El servidor esta LIBRE, por lo tanto el cliente que llega tiene tiempo de eespera=0
+    // Hay servidores disponibles
+    if (servidores_ocupados < num_servidores) {
+        /*  hay un servidor libre, por lo tanto el cliente que llega tiene tiempo de eespera=0
            (Las siguientes dos lineas del programa son para claridad, y no afectan
            el reultado de la simulacion ) */
 
         espera            = 0.0;
         total_de_esperas += espera;
 
-        /* Incrementa el numero de clientes en espera, y pasa el servidor a ocupado */
+        /* Incrementa el numero de clientes en espera, aumentar la cantidad de servidores ocupados*/
         ++num_clientes_espera;
-        estado_servidor = OCUPADO;
+        ++servidores_ocupados;
 
         /* Programa una salida ( servicio terminado ). */     
 
-        tiempo_sig_evento[2] = tiempo_simulacion + expon(media_atencion);
+        tiempo_sig_evento[servidores_ocupados + 1] = tiempo_simulacion + expon(media_atencion);
+        
     }
+
+    else {
+        // No hay servidores disponibles
+        if (modo == ERLANG_B) {
+            // En Erlang B, se bloquea el cliente
+            ++clientes_bloqueados;
+        }
+        else if (modo == ERLANG_C) {
+            // En Erlang C, el cliente entra a cola
+            /* Todos los servidores están ocupados, aumenta el numero de clientes en cola */
+            ++num_entra_cola;
+            ++clientes_que_esperaron;
+            /* Verifica si hay condici�n de desbordamiento */
+
+            if (num_entra_cola > LIMITE_COLA) {
+
+                /* Se ha desbordado la cola, detiene la simulacion */
+
+                fprintf(resultados, "\nDesbordamiento del arreglo tiempo_llegada a la hora");
+                fprintf(resultados, "%f", tiempo_simulacion);
+                exit(2);
+            }
+
+            // Registrar su hora de llegada en la cola
+            tiempo_llegada[num_entra_cola] = tiempo_simulacion;
+        }
+    }
+    
 }
 
 
@@ -204,14 +223,12 @@ void salida(void)  /* Funcion de Salida. */
     int   i;
     float espera;
 
+
     /* Revisa si la cola esta vacia */
-
     if (num_entra_cola == 0) {
-
-        /* La cola esta vacia, pasa el servidor a LIBRE y
-        no considera el evento de salida*/     
-        estado_servidor      = LIBRE;
-        tiempo_sig_evento[2] = 1.0e+30;
+        // No hay clientes esperando, liberar el tiempo del evento de salida actual
+        tiempo_sig_evento[sig_tipo_evento] = 1.0e+30;
+        servidores_ocupados--;
     }
 
     else {
@@ -227,14 +244,14 @@ void salida(void)  /* Funcion de Salida. */
 
         /*Incrementa el numero de clientes en espera, y programa la salida. */   
         ++num_clientes_espera;
-        tiempo_sig_evento[2] = tiempo_simulacion + expon(media_atencion);
+        tiempo_sig_evento[sig_tipo_evento] = tiempo_simulacion + expon(media_atencion);
 
         /* Mueve cada cliente en la cola ( si los hay ) una posicion hacia adelante */
+
         for (i = 1; i <= num_entra_cola; ++i)
             tiempo_llegada[i] = tiempo_llegada[i + 1];
     }
 }
-
 
 void reportes(void)  /* Funcion generadora de reportes. */
 {
@@ -243,9 +260,24 @@ void reportes(void)  /* Funcion generadora de reportes. */
             total_de_esperas / num_clientes_espera);
     fprintf(resultados, "Numero promedio en cola%10.3f\n\n",
             area_num_entra_cola / tiempo_simulacion);
-    fprintf(resultados, "Uso del servidor%15.3f\n\n",
-            area_estado_servidor / tiempo_simulacion);
+    fprintf(resultados, "Uso de Servidores\n\n");
+    for(int i=0; i<num_servidores; i++){
+        fprintf(resultados, "Uso del servidor %d : %15.3f\n", i+1,
+            area_estado_servidores[i]/tiempo_simulacion);
+    }
     fprintf(resultados, "Tiempo de terminacion de la simulacion%12.3f minutos", tiempo_simulacion);
+    if (modo == ERLANG_B) {  // Erlang B
+        float prob_bloqueo = (float)erlangB/tiempo_simulacion;;
+        fprintf(resultados, ">>> Modo Erlang B (sin cola)\n");
+        fprintf(resultados, "Clientes bloqueados (rechazados):           %d\n", clientes_bloqueados);
+        fprintf(resultados, "Probabilidad de bloqueo estimada (P_b):     %11.4f\n", prob_bloqueo);
+    }
+    else if (modo == ERLANG_C) {  // Erlang C
+        float prob_espera = (float)erlangC/tiempo_simulacion;
+        fprintf(resultados, ">>> Modo Erlang C (con cola)\n");
+        fprintf(resultados, "Clientes que debieron esperar:              %d\n", clientes_que_esperaron);
+        fprintf(resultados, "Probabilidad de espera estimada (P_w):      %11.4f\n", prob_espera);
+    }
 }
 
 
@@ -264,7 +296,23 @@ void actualizar_estad_prom_tiempo(void)  /* Actualiza los acumuladores de
     area_num_entra_cola      += num_entra_cola * time_since_last_event;
 
     /*Actualiza el area bajo la funcion indicadora de servidor ocupado*/
-    area_estado_servidor += estado_servidor * time_since_last_event;
+    for (int s = 0; s < num_servidores; ++s) {
+        int idx = s + 2;                       /* posición en tiempo_sig_evento   */
+        int ocupado = (tiempo_sig_evento[idx] < INF) ? 1 : 0;
+
+        /* Acumula el área solo para ese servidor */
+        area_estado_servidores[s] += ocupado * time_since_last_event;
+    }
+    
+    // Erlang C: tiempo donde todos los servidores están ocupados
+    if (servidores_ocupados == num_servidores && modo == ERLANG_C) {
+        erlangC += time_since_last_event;
+    }
+
+    // Erlang B: todos ocupados Y sin cola (clientes perdidos)
+    if (servidores_ocupados == num_servidores && modo == ERLANG_B) {
+        erlangB += time_since_last_event;
+    }
 }
 
 
