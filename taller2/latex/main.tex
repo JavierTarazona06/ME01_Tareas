@@ -162,6 +162,137 @@ o en el siguiente repositorio de GitHub:
 
 \section{Manual Usuario}\label{sec:man_u}
 
+\subsection{Erlang B y C}\label{subsec:erlang_bc}
+
+\subsubsection{Prerequisitos}
+Para la ejecución del simulador en un entorno Linux con Ubuntu, se requieren:
+\begin{itemize}
+    \item Conocimientos básicos de Linux y C++
+    \item Conexión a internet para descargar g++
+    \item En sistemas Windows se recomienda utilizar WSL (Windows Subsystem for Linux)
+\end{itemize}
+
+\subsubsection{Instalación de g++}
+Para instalar el compilador necesario en Ubuntu/WSL:
+\begin{verbatim}
+sudo apt update
+sudo apt install g++
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_1.png}
+    \caption{Proceso de instalación de g++}
+    \label{fig:instalacion}
+\end{figure}
+
+Verificación de la instalación:
+\begin{verbatim}
+g++ --version
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_2.png}
+    \caption{Verificación de la versión de g++}
+    \label{fig:version}
+\end{figure}
+
+\subsubsection{Instalación de Ubuntu en WSL (Opcional)}
+En caso de que se esté trabajando en windows hay varias alternativas para compilar y ejecutar el codigo c++. Acá presentamos una por medio de Ubuntu en WSL. Para instalarlo siga los siguientes pasos:
+
+\begin{enumerate}
+    \item Verificar/Activar característica WSL
+    
+    Ir al panel de control y seleccionar ``desistalar un programa`` en la sección de programas
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_6.png}
+    \caption{Panel de Control}
+    \label{fig:version}
+\end{figure}
+
+A continuación a la izquierda encontrará ``Activar o desactivar las características de Windows`` al oprimirlo le abrirá una ventana donde debe verificar que la casilla ``Subsistema de Windows para Linux`` este seleccionada, en caso de no estarlo seleccionela
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_7.png}
+    \caption{Características de Windows}
+    \label{fig:version}
+\end{figure}
+
+    \item Instalación
+    
+    Vaya a Microsoft Store y busque Ubuntu, oprima la primera opción y despues ``Obtener``, acá se instalará. Pueden salir cuadros de dialogo para pedir permisos, oprima aceptar. Una vez finalizada la descarga abra el programa.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_8.png}
+    \caption{Microsoft Store}
+    \label{fig:version}
+\end{figure}
+
+Finalmente siga los pasos para configurar el usuario y ejecute cualquier comando para verificar su correcto funcionamiento (Puede ussar el comando ls).
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_9.png}
+    \caption{Instalación exitosa de Ubuntu en WSL}
+    \label{fig:version}
+\end{figure}
+
+\end{enumerate}
+
+\subsubsection{Configuración de parámetros}
+Los parámetros de simulación se configuran en el archivo \texttt{param.txt} ubicado en \texttt{taller2/code/SimulacionDeColasErlang}. Los parámetros son:
+
+\begin{itemize}
+    \item \texttt{media\_entre\_llegadas}: Tiempo medio entre llegadas (float)
+    \item \texttt{media\_atencion}: Tiempo medio de atención (float)
+    \item \texttt{num\_esperas\_requerido}: Número de esperas a simular (integer)
+    \item \texttt{modo}: Tipo de modelo Erlang (0 para B, 1 para C)
+    \item \texttt{num\_servidores}: Cantidad de servidores (integer)
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_3.png}
+    \caption{Ejemplo de archivo de parámetros}
+    \label{fig:parametros}
+\end{figure}
+
+\subsubsection{Compilación y ejecución}
+Proceso para compilar y ejecutar:
+
+1. Compilación del programa:
+\begin{verbatim}
+g++ Sistema\ de\ Colas.cpp -o SistemaDeColas
+\end{verbatim}
+
+2. Ejecución del simulador:
+\begin{verbatim}
+./SistemaDeColas
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_4.png}
+    \caption{Proceso de compilación y ejecución}
+    \label{fig:compilacion}
+\end{figure}
+
+\subsubsection{Resultados}
+El programa genera un archivo \texttt{result.txt} con:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_5.png}
+    \caption{Ejemplo de archivo de resultados}
+    \label{fig:resultados}
+\end{figure}
+
+La estructura del archivo incluye primero los parámetros de entrada, como los tiempos promedio de llegada y atención, el número de clientes simulados y la configuración de servidores. Luego, muestra los resultados principales, como la probabilidad de bloqueo, el uso de cada servidor y métricas de desempeño (tiempos de espera y ocupación). Finalmente, indica el tiempo total de simulación y el número de clientes rechazados. Este formato permite analizar rápidamente el comportamiento del sistema y la eficiencia de los recursos.
 
 %---------------------------------------------------------------------------------
 % Manual técnico ------------------------------------------------------------------
