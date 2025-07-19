@@ -300,6 +300,122 @@ La estructura del archivo incluye primero los parámetros de entrada, como los t
 
 \section{Manual Técnico}
 
+\subsection{Geo/Geo/m}\label{subsec:geogeo_m}
+
+Simulador de un sistema de colas $(Geom/Geom/m):(FIFO/N/+ \infty)$ implementado en C++. El programa modela un sistema de colas con llegadas y servicios geométricos, múltiples servidores (m), capacidad finita (N) y disciplina FIFO.
+
+\subsubsection{Prerequisitos}
+
+\begin{itemize}
+    \item Compilador C++ compatible con C++11 o superior
+    \item Bibliotecas estándar: \texttt{stdio.h}, \texttt{stdlib.h}, \texttt{math.h}, \texttt{time.h}, \texttt{vector}
+    \item Generador de números aleatorios proporcionado en \texttt{lcgrand.cpp}
+    \item Sistema operativo: Windows/Linux/macOS
+\end{itemize}
+
+\subsubsection{Estructura del código}
+
+El programa sigue una estructura modular con las siguientes componentes principales:
+
+\begin{itemize}
+    \item \textbf{Variables globales}:
+    \begin{itemize}
+        \item Parámetros del sistema (N, m, p, s, num\_slots)
+        \item Estado del sistema (estado\_actual, servidores\_ocupados, cola\_length)
+        \item Estadísticas (tiempo\_en\_estado[], clientes\_perdidos, clientes\_llegados)
+    \end{itemize}
+    
+    \item \textbf{Funciones principales}:
+    \begin{itemize}
+        \item \texttt{main()}: Coordina el flujo del programa
+        \item \texttt{inicializar()}: Prepara el sistema para la simulación
+        \item \texttt{simular\_slot()}: Avanza la simulación un paso de tiempo
+        \item \texttt{calcular\_estadisticas()}: Calcula métricas de desempeño
+    \end{itemize}
+    
+    \item \textbf{Funciones auxiliares}:
+    \begin{itemize}
+        \item Generación aleatoria: \texttt{generar\_bernoulli()}, \texttt{generar\_binomial()}
+        \item Cálculos matemáticos: \texttt{factorial()}, \texttt{potencia()}, \texttt{comb()}
+        \item Modelo teórico: \texttt{geom\_geom\_m\_N\_p\_calc()}, \texttt{a\_func()}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Parámetros de la simulación}
+
+Los parámetros se leen del archivo \texttt{paramGeo.txt} con el formato:
+
+\begin{verbatim}
+N m p s num_slots
+\end{verbatim}
+
+Donde:
+\begin{itemize}
+    \item \textbf{N}: Capacidad máxima del sistema (clientes)
+    \item \textbf{m}: Número de servidores
+    \item \textbf{p}: Probabilidad de llegada en un slot
+    \item \textbf{s}: Probabilidad de finalización de servicio en un slot
+    \item \textbf{num\_slots}: Duración de la simulación (slots)
+\end{itemize}
+
+\subsubsection{Salidas de la simulación}
+
+El programa genera tres archivos de salida:
+
+\begin{itemize}
+    \item \texttt{estadisticas.txt}: Distribución de probabilidad del número de clientes en el sistema y probabilidad de bloqueo
+    \item \texttt{comparacion\_teorica.txt}: Comparación entre resultados simulados y teóricos
+    \item \texttt{resumen\_resultados.txt}: Métricas agregadas (utilización, promedio de clientes, throughput)
+\end{itemize}
+
+\subsubsection{Funciones principales}
+
+\paragraph{\texttt{main()}}
+\begin{itemize}
+    \item Lee parámetros de \texttt{paramGeo.txt}
+    \item Inicializa el sistema
+    \item Ejecuta el bucle principal de simulación
+    \item Coordina el cálculo y reporte de resultados
+\end{itemize}
+
+\paragraph{\texttt{simular\_slot()}}
+\begin{itemize}
+    \item Genera llegadas usando distribución Bernoulli(p)
+    \item Genera salidas usando distribución Binomial(servidores\_ocupados, s)
+    \item Actualiza el estado del sistema
+    \item Registra estadísticas
+\end{itemize}
+
+\paragraph{\texttt{geom\_geom\_m\_N\_p\_calc()}}
+Implementa el algoritmo para calcular las probabilidades de estado estacionario teóricas según el modelo Geom/Geom/m/N, basado en:
+\begin{itemize}
+    \item Thomas G. Robertazzi \textit{Computer Networks and Systems: Queueing Theory and Performance Evaluation Third Edition}
+    \item 6.4 The Geom/Geom/m/N Queing system
+\end{itemize}
+
+\paragraph{\texttt{a\_func()}}
+Función auxiliar que calcula $a_{i,j} \ 's$
+
+\subsubsection{Compilación y ejecución}
+
+Para compilar y ejecutar el simulador:
+
+\begin{verbatim}
+g++ sistemaGeoGeo.cpp -o sistemaGeoGeo 
+./sistemaGeoGeo
+\end{verbatim}
+
+\subsubsection{Extensión del código}
+
+Para modificar o extender el código:
+\begin{itemize}
+    \item Para cambiar el generador de números aleatorios, modificar \texttt{lcgrand.cpp}
+    \item Para añadir nuevas métricas, extender \texttt{calcular\_estadisticas()}
+    \item Para cambiar el modelo de llegadas/servicios, modificar \texttt{simular\_slot()}
+\end{itemize}
+
+
+
 
 %---------------------------------------------------------------------------------
 % Exprimentación ------------------------------------------------------------------
