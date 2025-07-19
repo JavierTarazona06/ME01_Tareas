@@ -179,7 +179,7 @@ void comparar_teoria(void)
     for (int i = 0; i <= N; i++)
     {
         double sim = (double)tiempo_en_estado[i] / num_slots;
-        double teor = calcular_prob_teorica_geo_geo_m_N(i); // calcular_prob_teorica(i);
+        double teor = calcular_prob_teorica_geo_geo_m_N(i, false); // calcular_prob_teorica(i);
         fprintf(f_teorico, "%d\t%.6f\t%.6f\t%.6f\n", i, sim, teor, fabs(sim - teor));
     }
 
@@ -404,7 +404,7 @@ std::vector<long double> geom_geom_m_N_p_calc(bool same_slot)
 long double calcular_prob_teorica_geo_geo_m_N(int i, bool same_slot)
 {
     // Obtener todas las probabilidades
-    std::vector<long double> result = geom_geom_m_N_p_calc();
+    std::vector<long double> result = geom_geom_m_N_p_calc(false);
 
     // Verificar que el índice esté dentro del rango válido
     if (i < 0 || i >= result.size())
@@ -421,7 +421,7 @@ long double calcular_prob_teorica_geo_geo_m_N(int i, bool same_slot)
 // Calcula la probabilidad teórica de bloqueo
 double calcular_pb_teorico_geo_geo_m_N(void)
 {
-    double pN = calcular_prob_teorica_geo_geo_m_N(N);
+    double pN = calcular_prob_teorica_geo_geo_m_N(N, false);
     double s0 = potencia(1.0 - s, m);
     return pN * s0;
 }
