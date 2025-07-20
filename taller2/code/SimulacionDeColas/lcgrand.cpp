@@ -6,7 +6,7 @@
 
 /* Semillas para los primeros 100 numeros */
 
-long zrng[] =
+static long zrng[] =
 {         1,
  1973272912, 281629770,  20006270,1280689831,2096730329,1933576050,
   913566091, 246780520,1363774876, 604901985,1511192140,1259851944,
@@ -28,7 +28,8 @@ long zrng[] =
 
 /* Genera el siguiente numero aleatorio */
 
-double lcgrand(int num) {
+float lcgrand(int num)
+{
     long zi, lowprd, hi31;
 
     zi     = zrng[num];
@@ -44,8 +45,5 @@ double lcgrand(int num) {
     if (zi < 0) zi += MODLUS;
     zrng[num] = zi;
     return (zi >> 7 | 1) / 16777216.0;
-}  
 
-
-
-
+}
