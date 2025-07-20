@@ -137,7 +137,85 @@ Para comparar los resultados simulados con los teóricos, se utilizarán las sig
 %---------------------------------------------------------------------------------
 
 
-\section{Diseño de la solución}\label{sec:disSol}
+\section{Diseño de la solución} \label{sec:disSol}
+
+\subsection*{Propósito general del sistema}
+
+El propósito principal de este sistema es extender un simulador de colas para que sea capaz de estimar de forma empírica las fórmulas de Erlang B y Erlang C, con el fin de comparar estos resultados simulados con sus respectivos valores teóricos. Esta comparación permitirá validar el funcionamiento del simulador y comprender el comportamiento de sistemas M/M/m y (M/ M/ m): (FIFO/ m/ +$\infty$) en distintos escenarios.
+
+\subsection*{Alcance de la simulación}
+
+La simulación desarrollada permite representar dos tipos de sistemas:
+\subsubsection*{Erlang B (M / M / m): (FIFO / m / +$\infty$)}
+
+Este modelo describe un sistema de colas caracterizado por:
+\begin{itemize}
+    \item Llegadas según un proceso de Poisson (M), con tasa $\lambda$.
+    \item Tiempos de servicio con distribución exponencial (M), con tasa $\mu$.
+    \item $m$ servidores en paralelo.
+    \item Política de atención FIFO (First In, First Out), 
+    \item Capacidad máxima del sistema igual al número de servidores ($m$), es decir, si todos los servidores están ocupados, los clientes son rechazados.
+\end{itemize}
+
+\subsubsection*{Erlang C (modelo M/M/m)}
+
+Este modelo describe un sistema de colas con la siguiente notación:
+
+\[
+\text{SISTEMA: } (M / M / m)
+\]
+
+Donde:
+\begin{itemize}
+    \item Las llegadas siguen un proceso de Poisson (tiempos entre llegadas exponenciales, "M").
+    \item Los tiempos de servicio también son exponenciales ("M").
+    \item Existen $m$ servidores paralelos.
+    \item La política de atención es FIFO (First In, First Out).
+    \item La capacidad del sistema es infinita: los clientes pueden esperar en cola si todos los servidores están ocupados.
+\end{itemize}
+
+
+La simulación incluye múltiples parámetros configurables como tasa de llegada ($\lambda$), tasa de servicio ($\mu$), número de servidores ($m$), duración total de la simulación y modo (Erlang B o C).
+
+\subsection{Metodología}
+
+Se utilizó un enfoque incremental en el desarrollo del simulador. En primer lugar, se implementó la lógica básica de eventos, enfocándose en el manejo de llegadas y salidas de clientes. Posteriormente, se incorporó una estructura de cola con atención por orden de llegada (FIFO), la cual permite simular el comportamiento del sistema bajo condiciones de espera. Una vez establecida la estructura de eventos y cola, se añadieron mecanismos para recolectar estadísticas relevantes, tales como el número de clientes perdidos en el caso del modelo Erlang B y la cantidad de clientes en espera para Erlang C.
+
+
+La lógica fue validada mediante pruebas controladas con parámetros pequeños, lo que permitió verificar el correcto funcionamiento del sistema. Finalmente, se realizaron comparaciones entre los resultados empíricos obtenidos a través de la simulación y los valores teóricos calculados con las fórmulas clásicas, con el fin de evaluar la precisión del simulador.
+
+\subsection{Estructura general del sistema}
+
+El sistema se compone de los siguientes módulos:
+
+\begin{itemize}
+    \item \textbf{Simulador de eventos discretos:} gestiona la línea de tiempo de eventos y actualiza el estado del sistema.
+    \item \textbf{Manejador de servidores:} controla cuántos servidores están ocupados y libera uno cuando un cliente finaliza su servicio.
+    \item \textbf{Cola de espera:} activa solo en el modo Erlang C para almacenar los clientes que no pueden ser atendidos inmediatamente.
+    \item \textbf{Recolector de estadísticas:} calcula métricas como tiempo promedio en sistema, cantidad de clientes perdidos (B) o en espera (C), y porcentaje de ocupación de servidores.
+\end{itemize}
+
+\subsection{Métricas y reglas de cálculo}
+
+Las principales métricas que calcula el simulador son:
+
+\textbf{Erlang B:} En el simulador, cuando un cliente llega y todos los servidores están ocupados, y si el sistema está configurado en modo Erlang B (sin cola), este cliente se cuenta como \textit{bloqueado}. La probabilidad empírica de bloqueo se estima como:
+    \[
+        \hat{B}_{sim} = \frac{\text{tiempo donde todos los m servidores están ocupados}}{\text{Tiempo total}}
+    \]
+\textbf{Erlang C:} En el simulador, si todos los servidores están ocupados y el modo es Erlang C, el cliente se coloca en cola. Se puede estimar la probabilidad empírica de espera como:
+    \[
+        \hat{C}_{tiempo} = \frac{\text{Tiempo acumulado con todos los servidores ocupados}}{\text{Tiempo total de simulación}}
+    \]
+Cada métrica se actualiza de forma acumulativa a lo largo de la simulación usando contadores y variables auxiliares.
+
+\subsection{Condiciones del entorno y parámetros de entrada}
+
+El sistema permite configurar diferentes parámetros mediante el archivo \texttt{param.txt}. Entre estos parámetros se encuentran: la tasa de llegada $\lambda$, la tasa de servicio $\mu$, la cantidad total de clientes a atender, el modo de simulación que puede ser Erlang B (0) o Erlang C (1), y el número de servidores $m$. Estos valores determinan el comportamiento general de la simulación y permiten ajustar el modelo a diferentes escenarios de análisis.
+
+\subsection{Exportación de resultados}
+
+Al finalizar la simulación, los datos más relevantes se exportan al archivo \texttt{result.txt}. Entre los resultados registrados se encuentran el porcentaje de pérdida de clientes en el caso de la simulación bajo el modelo Erlang B, el porcentaje de clientes que deben esperar en el caso del modelo Erlang C, y la utilización promedio del sistema, lo cual permite evaluar el rendimiento general de los recursos disponibles.
 
 
 %---------------------------------------------------------------------------------
