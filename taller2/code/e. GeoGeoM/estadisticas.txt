@@ -1,0 +1,13 @@
+=== RESULTADOS DE LA SIMULACION ===
+
+Estado	Probabilidad
+0	0.433937
+1	0.407076
+2	0.135888
+3	0.021281
+4	0.001738
+5	0.000079
+
+Clientes llegados: 300012969
+Clientes perdidos: 1902
+Probabilidad de bloqueo simulada: 0.000006
