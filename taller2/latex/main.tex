@@ -84,6 +84,89 @@
 %---------------------------------------------------------------------------------
 
 \section{Marco Teórico}\label{sec:marc}
+%---------------------------------------------------------------------------------
+% Simulación Erlang --------------------------------------------------------------
+%---------------------------------------------------------------------------------
+Cuando hablamos de simular modelos como los de Erlang, entramos en el terreno de la \textbf{Teoría de Colas}, que básicamente estudia cómo se forman y se comportan las filas de espera. Este tipo de análisis es muy útil en situaciones donde hay personas, llamadas o procesos que llegan a pedir un servicio, y un número limitado de recursos para atenderlos.
+
+Un sistema de colas está formado por ``clientes'' (que pueden ser usuarios, paquetes de datos, llamadas telefónicas, etc.) y uno o varios ``servidores'' que los atienden. Estos sistemas aparecen por todas partes: en centros de atención telefónica, redes de telecomunicaciones, hospitales, bancos, fábricas, etc.
+
+El objetivo de modelarlos es poder predecir su rendimiento y encontrar maneras de mejorarlo. Para eso, se utilizan modelos matemáticos que ayudan a estimar cosas como el tiempo promedio de espera, la probabilidad de que un cliente no sea atendido o el nivel de ocupación de los recursos.
+
+\subsubsection*{Componentes de un Sistema de Colas y Notación de Kendall}
+
+Todo sistema de colas se puede describir a partir de tres elementos básicos:
+
+\begin{enumerate}
+    \item \textbf{Llegadas:} Este proceso describe cómo y cuándo llegan los clientes. Lo más común es asumir que las llegadas siguen un \textit{proceso de Poisson}, lo que significa que los intervalos entre llegadas siguen una distribución \textit{exponencial}. Esta distribución tiene la ventaja de no depender del pasado (tiene la propiedad de falta de memoria).
+
+    \item \textbf{Servicio:} Incluye el número de servidores disponibles y cuánto tarda, en promedio, cada uno en atender a un cliente. En los modelos de Erlang, se asume que los tiempos de servicio también siguen una distribución exponencial.
+
+    \item \textbf{Disciplina de Cola:} Es la regla que define el orden en que los clientes serán atendidos. La más común es \textit{FIFO} (First-In, First-Out), es decir, se atiende en el orden de llegada.
+\end{enumerate}
+
+Para describir este tipo de sistemas usamos la \textbf{notación de Kendall}, que suele escribirse como \texttt{A/B/c}. Donde:
+
+\begin{itemize}
+    \item \textbf{A:} Distribución del tiempo entre llegadas.
+    \item \textbf{B:} Distribución del tiempo de servicio.
+    \item \textbf{c:} Número de servidores.
+\end{itemize}
+
+Cuando se usa la letra \textbf{M}, se refiere a una distribución \textit{exponencial} (por la palabra \textit{Markov}).
+
+\subsubsection*{Modelo Erlang B (M/M/s/s): sin espera}
+
+El modelo \textbf{Erlang B} representa un sistema donde, si todos los servidores están ocupados, los clientes simplemente no pueden ser atendidos y se van. Es decir, no hay cola. Este modelo se describe como \texttt{M/M/s/s}, y se aplica, por ejemplo, a centrales telefónicas con líneas limitadas.
+
+En este sistema:
+
+\begin{itemize}
+    \item Las llegadas siguen un proceso de Poisson.
+    \item Los servicios son exponenciales.
+    \item Hay \texttt{s} servidores.
+    \item La capacidad total es de \texttt{s} clientes (no se permite esperar).
+\end{itemize}
+
+Si llega alguien más y todos los servidores están ocupados, ese cliente se \textit{bloquea} y abandona el sistema. La métrica clave es la \textbf{probabilidad de bloqueo} \( P_b \), que se calcula con la \textbf{fórmula de Erlang B}:
+
+\begin{equation}
+P_b = \frac{\frac{A^s}{s!}}{\sum_{k=0}^{s} \frac{A^k}{k!}}
+\end{equation}
+
+donde:
+
+\begin{itemize}
+    \item \( A = \lambda / \mu \) es el \textit{tráfico ofrecido} (en Erlangs),
+    \item \( \lambda \) es la tasa de llegada,
+    \item \( \mu \) es la tasa de servicio,
+    \item \( s \) es el número de servidores.
+\end{itemize}
+
+\subsubsection*{Modelo Erlang C (M/M/s): con espera}
+
+El modelo \textbf{Erlang C}, a diferencia del anterior, permite que los clientes esperen si todos los servidores están ocupados. Este es el caso de, por ejemplo, un \textit{call center}, donde las llamadas se ponen en espera hasta que haya alguien disponible.
+
+Se representa como \texttt{M/M/s}, lo cual indica:
+
+\begin{itemize}
+    \item Llegadas de Poisson,
+    \item Servicios exponenciales,
+    \item \texttt{s} servidores,
+    \item Una cola con capacidad infinita.
+\end{itemize}
+
+La métrica principal es la \textbf{probabilidad de espera} \( P_w \), que se calcula con la \textbf{fórmula de Erlang C}:
+
+\begin{equation}
+P_w = \frac{\frac{A^s}{s!} \cdot \frac{s}{s - A}}{\sum_{k=0}^{s-1} \frac{A^k}{k!} + \frac{A^s}{s!} \cdot \frac{s}{s - A}}
+\end{equation}
+
+Este modelo requiere que el sistema sea \textit{estable}, es decir, que \( A/s < 1 \). A partir de esta probabilidad, también se pueden calcular otras métricas como el tiempo promedio de espera en la cola o la cantidad promedio de clientes esperando.
+
+\subsubsection*{Simulación: cuando la teoría no alcanza}
+
+Aunque estos modelos son muy útiles y permiten analizar muchas situaciones reales, se basan en supuestos matemáticos bastante estrictos. En la práctica, hay sistemas donde las condiciones no siguen al pie de la letra las distribuciones teóricas. Es ahí donde entra en juego la \textbf{simulación por eventos discretos}, que nos permite probar estos modelos bajo condiciones más realistas y observar cómo se comportarían en distintos escenarios.
 
 \subsection{Modelos de Colas}
 \subsubsection{Definición y Características}
@@ -961,19 +1044,19 @@ Para modificar o extender el código:
 \renewcommand{\refname}{}
 \begin{thebibliography}{9}
 
-\bibitem{ref} \label{ref:modSim} A. M. Law, *Simulation Modeling and Analysis*, 5th ed. 
-New York, NY, USA: McGraw-Hill Education, Jan. 2014, ISBN 978-0-07-340132-4. 
+\bibitem{ref} \label{ref:modSim} A. M. Law, *Simulation Modeling and Analysis*, 5th ed.
+New York, NY, USA: McGraw-Hill Education, Jan. 2014, ISBN 978-0-07-340132-4.
 
 \bibitem{ref} \label{ref:matSim} J. E. Ortiz T., “Modelos Matemáticos \& Simulación,”
- en *Apuntes de clase de la asignatura Modelos Estocásticos y Simulación en 
- Computación y Comunicaciones*, Departamento de Ingeniería de Sistemas e Industrial, 
- Universidad Nacional de Colombia, 2025. [En línea]. Disponible en: 
+ en *Apuntes de clase de la asignatura Modelos Estocásticos y Simulación en
+ Computación y Comunicaciones*, Departamento de Ingeniería de Sistemas e Industrial,
+ Universidad Nacional de Colombia, 2025. [En línea]. Disponible en:
  \url{https://drive.google.com/file/d/1c886yU4SFk9A97DGWr8JHiF3nd2au1Ns/view?usp=sharing}
 
- \bibitem{ref} \label{ref:cimColas} J. E. UOrtiz, “Simulador del modelo de colas M/M/1,” 
- código fuente en C++ (archivo .rar), basado en la sección 
- 1.4.4 de Averill M. Law, *Simulation Modeling and Analysis*, 
- th ed., McGraw-Hill, 2014. [En línea]. Disponible en: 
+ \bibitem{ref} \label{ref:cimColas} J. E. UOrtiz, “Simulador del modelo de colas M/M/1,”
+ código fuente en C++ (archivo .rar), basado en la sección
+ 1.4.4 de Averill M. Law, *Simulation Modeling and Analysis*,
+ th ed., McGraw-Hill, 2014. [En línea]. Disponible en:
  \url{https://drive.google.com/file/d/1-Mo9hqPwOegwTpx0KP2tbD9sLTNSXefd/view?usp=sharing}
 
 
