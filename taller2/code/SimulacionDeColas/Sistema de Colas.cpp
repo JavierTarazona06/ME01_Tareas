@@ -5,6 +5,7 @@
 #include <math.h>
 #include "lcgrand.cpp" /* Encabezado para el generador de numeros aleatorios */
 #include <iostream>
+#include <map>
 
 #define LIMITE_COLA 100 /* Capacidad maxima de la cola */
 #define OCUPADO 1       /* Indicador de Servidor Ocupado */
@@ -14,6 +15,8 @@ float *tiempos_entre_llegadas;
 float *tiempos_atencion;
 int total_atendidos = 0;
 int total_llegadas = 0;
+
+std::map<int, float> tiempos_ocupacion;
 
 int sig_tipo_evento, num_clientes_espera, num_esperas_requerido, num_eventos,
     num_entra_cola, estado_servidor;
@@ -28,6 +31,9 @@ void llegada(void);
 void salida(void);
 void reportes(void);
 void actualizar_estad_prom_tiempo(void);
+void actualizar_ocupacion_sistema(void);
+void actualizarMapa(std::map<int, int> &mapa, int clave, int n);
+
 float expon(float mean);
 
 int main(void) /* Funcion Principal */
@@ -72,6 +78,10 @@ int main(void) /* Funcion Principal */
         /* Actualiza los acumuladores estadisticos de tiempo promedio */
 
         actualizar_estad_prom_tiempo();
+
+        /* Actualiza los valores de Ocupacion del sistema*/
+
+        actualizar_ocupacion_sistema();
 
         /* Invoca la funcion del evento adecuado. */
 
@@ -164,7 +174,7 @@ void controltiempo(void) /* Funcion controltiempo */
 void llegada(void) /* Funcion de llegada */
 {
     float espera;
-
+    std::cout << "llegada " << tiempo_simulacion << std::endl;
     // tiempos_entre_llegadas[total_llegadas] = tiempo_simulacion;
     // total_llegadas++;
 
@@ -217,7 +227,7 @@ void llegada(void) /* Funcion de llegada */
         /* Programa una salida ( servicio terminado ). */
 
         tiempo_sig_evento[2] = tiempo_simulacion + expon(media_atencion);
-        std::cout << "genera tiempo: " << expon(media_atencion) << std::endl;
+        // std::cout << "genera tiempo: " << expon(media_atencion) << std::endl;
         tiempos_atencion[total_atendidos] = tiempo_sig_evento[2] - tiempo_simulacion;
         total_atendidos++;
     }
@@ -227,7 +237,7 @@ void salida(void) /* Funcion de Salida. */
 {
     int i;
     float espera;
-
+    std::cout << "salida " << tiempo_simulacion << std::endl;
     /* Revisa si la cola esta vacia */
 
     if (num_entra_cola == 0)
@@ -312,7 +322,7 @@ void actualizar_estad_prom_tiempo(void) /* Actualiza los acumuladores de
         del ultimo evento */
 
     time_since_last_event = tiempo_simulacion - tiempo_ultimo_evento;
-    tiempo_ultimo_evento = tiempo_simulacion;
+    // tiempo_ultimo_evento = tiempo_simulacion; se actualiza más adelante
 
     /* Actualiza el area bajo la funcion de numero_en_cola */
     area_num_entra_cola += num_entra_cola * time_since_last_event;
@@ -321,10 +331,50 @@ void actualizar_estad_prom_tiempo(void) /* Actualiza los acumuladores de
     area_estado_servidor += estado_servidor * time_since_last_event;
 }
 
-float expon(float media) /* Funcion generadora de la exponencias */
+void actualizarMapa(std::map<int, float> &mapa, int clave, float n)
+{
+    if (mapa.find(clave) == mapa.end())
+    {
+        // La clave no existe, se registra con n
+        mapa[clave] = n;
+    }
+    else
+    {
+        // La clave existe, se suma n al valor actual
+        mapa[clave] += n;
+    }
+}
+
+void actualizar_ocupacion_sistema(void) /* Actualiza los acumuladores de
+                                                       area para las estadisticas de tiempo promedio. */
+{
+    float time_since_last_event;
+
+    // se agregan la cantidad en la cola
+    int n = num_entra_cola;
+
+    // se agregan los usuarios en el servidor
+    if (estado_servidor == OCUPADO)
+        n++;
+
+    /* Calcula el tiempo desde el ultimo evento, y actualiza el marcador
+        del ultimo evento */
+    time_since_last_event = tiempo_simulacion - tiempo_ultimo_evento;
+    tiempo_ultimo_evento = tiempo_simulacion;
+
+    // se guarda el valor
+    actualizarMapa(tiempos_ocupacion, n, time_since_last_event);
+
+    std::cout << "n " << n << "tiempo" << time_since_last_event << std::endl;
+    for (const auto &par : tiempos_ocupacion)
+    {
+        std::cout << par.first << ": " << par.second << std::endl;
+    }
+}
+
+float expon(float media)  /* Funcion generadora de la exponencias */
 {
     /* Retorna una variable aleatoria exponencial con media "media"*/
-    // std::cout << "lcgrand: " << lcgrand(1) << std::endl;
-    float u = (float)rand() / (RAND_MAX + 1.0);
-    return -media * log(1.0 - u);
+
+    return -media * log(lcgrand(1));
 }

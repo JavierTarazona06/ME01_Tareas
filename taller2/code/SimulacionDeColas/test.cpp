@@ -3,25 +3,40 @@
 #include <cstdlib>
 #include <ctime>
 #include <cmath>
+#include "lcgrand.cpp" /* Encabezado para el generador de numeros aleatorios */
 
 // Función para generar números exponenciales
-float expon(float media) {
+/*float expon(float media) {
     float u = (float)rand() / (RAND_MAX + 1.0);
     return -media * log(1.0 - u);
+}*/
+
+int lcgrand_counter;
+
+float expon(float media) /* Funcion generadora de la exponencias */
+{
+    /* Retorna una variable aleatoria exponencial con media "media"*/
+    lcgrand_counter++;
+    int p = (lcgrand_counter / 100) % 95;
+    std::cout << "Se generaron " << p << "  " << lcgrand(p) << std::endl;
+    return -media * log(lcgrand(p));
 }
 
-int main() {
+int main()
+{
     // Configuración inicial
-    const int NUM_DATOS = 1000;  // Cantidad de números a generar
-    const float MEDIA = 6.0;      // Media de la distribución exponencial
-    const char* NOMBRE_ARCHIVO = "test.csv";
+    const int NUM_DATOS = 1000; // Cantidad de números a generar
+    const float MEDIA = 6.0;    // Media de la distribución exponencial
+    const char *NOMBRE_ARCHIVO = "test.csv";
+    lcgrand_counter = 0;
 
     // Inicializar semilla aleatoria
-    //std::srand(std::time(0));
+    // std::srand(std::time(0));
 
     // Abrir archivo CSV
     std::ofstream archivo(NOMBRE_ARCHIVO);
-    if (!archivo.is_open()) {
+    if (!archivo.is_open())
+    {
         std::cerr << "Error al abrir el archivo " << NOMBRE_ARCHIVO << std::endl;
         return 1;
     }
@@ -30,7 +45,8 @@ int main() {
     archivo << "Numero,Valor\n";
 
     // Generar y guardar los datos
-    for (int i = 0; i < NUM_DATOS; ++i) {
+    for (int i = 0; i < NUM_DATOS; ++i)
+    {
         float valor = expon(MEDIA);
         archivo << i + 1 << "," << valor << "\n";
     }
