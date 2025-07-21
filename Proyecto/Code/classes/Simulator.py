@@ -2,17 +2,18 @@ import random
 from collections import defaultdict
 from typing import List, Dict, Tuple
 
-from classes.Turista import Turista
-from classes.GrupoTuristas import GrupoTuristas
+from classes.Grupo import Grupo
 
 
 class Simulador:
-    def __init__(self, seed, grupo):
+    def __init__(self, seed: int, grupo: Grupo):
         random.seed(seed)  # Para reproducibilidad
         self.grupo = grupo
 
     def simular_grupo(self):
-        """Crea y simula un grupo de turistas"""
+        resultados = self.grupo.realizarVotacion()
+
+        return resultados
 
         # Realizar diferentes tipos de votación
         print("\nResultados de votación:")
