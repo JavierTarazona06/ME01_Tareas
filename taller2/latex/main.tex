@@ -862,7 +862,122 @@ Para modificar o extender el código:
 
 \section{Experimentación}\label{sec:exp}
 
+Al ejecutar la simulación se puede estimar la función $\hat P_n$ a partir de los datos obtenidos donde se obtiene al simular:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc.png}
+    \caption{Resultados Simulados}
+    \label{fig:enter-label}
+\end{figure}
 
+La función de densidad teórica presentada en la seccion 6.4 The Geom/Geom/m/N Queing system del libro Computer Networks and Systems: Queueing Theory and Performance Evaluation Third Edition escrito por Thomas G. Robertazzi se define con el procedimiento:
+
+\begin{enumerate}
+    \item Defina $P_N = 1.0$
+    \item Inicialice $a_{i,j}\ 's$
+    \item $i = N-1$
+    \item $	P_i=\frac{1}{a_{i,i+1}}\sum_{n=i+1}^{i+m}\sum_{j=n-m}^{i}{a_{n,j}P_n}$
+    \item $i=i-1$
+    \item Repetir pasos 4 y 5 hasta que $i<0$
+    \item Encontrar $\sum {P_i}$
+    \item Dividir todos los $P_i\ 's$ resultantes de los pasos 1 y 4 sobre la suma del paso 7
+\end{enumerate}
+
+Tambien para el algoritmo anterior se define $a_{n,n-l}$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc1.png}
+    \caption{$a_{n,n-l}$ caso en que un cliente no puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc2.png}
+    \caption{$a_{N,N}$ caso en que un cliente no puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+Para el caso en que un cliente puede llegar y ser atendido en el mismo slot de tiempo, para el caso contrario se tienen algunas variaciones de $a_{n,n-l}$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc3.png}
+    \caption{$a_{n,n-l}$ caso en que un cliente puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc4.png}
+    \caption{$a_{N,N}$ caso en que un cliente puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+Teniendo esto en cuenta se programa en Py cada paso de la siguiente forma:
+
+Paso 1: Se define $P_N$ y el arreglo P:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc5.png}
+    \caption{Paso 1}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 2: No se inicializan las $a_{i,j}\ ´s$ si no las funciones que permiten obtenerlas, acá se llama la función de combinación combEq0() que devuelve 0 para combinaciones invalidas.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc6.png}
+    \caption{Paso 2}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 3,4,5,6: Se inicializa $i$, i se itera decreciendo i para obetener los $P_i \ 's$ hasta que $i<0$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc7.png}
+    \caption{Pasos 3, 4, 5 y 6}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 7: Se calcula la sumatoria de los $P_i$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc8.png}
+    \caption{Paso 7}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 8: Se normalizan los $P_i$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc9.png}
+    \caption{Paso 8}
+    \label{fig:enter-label}
+\end{figure}
+
+A continuación se comparan los resultados simulados contra los teóricos
+
+\paragraph{Simulación con 1,000 slots de tiempo:}
+Los resultados presentan diferencias significativas respecto a los valores teóricos, particularmente en los estados más frecuentes (0 y 1) con errores relativos del 4.14\% y 7.35\% respectivamente. Para estados menos probables como el 3, el error relativo alcanza un 57.69\%, evidenciando la insuficiencia del tamaño muestral para estimar adecuadamente probabilidades bajas. La probabilidad de bloqueo $P_b$ no fue capturada en absoluto por la simulación.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc10.png}
+    \caption{Simulación 1000 slots de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+\paragraph{Simulación con 100,000 slots de tiempo:}
+Se observa una notable mejoría en la precisión, con errores relativos inferiores al 1\% para los estados principales. La diferencia absoluta máxima se reduce de 0.029912 a solo 0.002666 en el estado 1. Para el estado 3, el error relativo cae dramáticamente del 57.69\% a solo 0.20\%. La probabilidad de bloqueo $P_b$ ahora es detectable, aunque con un error relativo mayor debido a su extrema rareza.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc11.png}
+    \caption{Simulación 100000 slots de tiempo}
+    \label{fig:enter-label}
+\end{figure}
 
 %---------------------------------------------------------------------------------
 % Conclusiones ---------------------------------------------------------
