@@ -1208,7 +1208,7 @@ Los parámetros de simulación se configuran en el archivo \texttt{param.txt} ub
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_3.png}
+    \includegraphics[width=0.5\textwidth]{images/manualUsuarioErlangBC_3.png}
     \caption{Ejemplo de archivo de parámetros}
     \label{fig:parametros}
 \end{figure}
@@ -1244,6 +1244,228 @@ El programa genera un archivo \texttt{result.txt} con:
 \end{figure}
 
 La estructura del archivo incluye primero los parámetros de entrada, como los tiempos promedio de llegada y atención, el número de clientes simulados y la configuración de servidores. Luego, muestra los resultados principales, como la probabilidad de bloqueo, el uso de cada servidor y métricas de desempeño (tiempos de espera y ocupación). Finalmente, indica el tiempo total de simulación y el número de clientes rechazados. Este formato permite analizar rápidamente el comportamiento del sistema y la eficiencia de los recursos.
+
+% Manual de Usuario Geo Geo 
+
+\subsection{Modelo Geo/Geo/m/N}\label{subsec:geogeo}
+
+Este manual proporciona una guía completa para el uso del simulador de sistemas de colas tipo Geom/Geom/m/N. El simulador permite analizar el comportamiento de sistemas con:
+\begin{itemize}
+    \item Llegadas geométricas discretas
+    \item Tiempos de servicio geométricos
+    \item $m$ servidores en paralelo
+    \item Capacidad limitada $N$ (incluyendo clientes en servicio y en cola)
+\end{itemize}
+
+\subsection{Teoría del Sistema de Colas}
+Un sistema de colas Geom/Geom/m/N se caracteriza por:
+\begin{itemize}
+    \item \textbf{Proceso de llegada}: Geométrico con probabilidad $p$ de llegada por slot de tiempo
+    \item \textbf{Proceso de servicio}: Geométrico con probabilidad $s$ de finalización de servicio por slot
+    \item \textbf{Número de servidores}: $m$ servidores trabajando en paralelo
+    \item \textbf{Capacidad del sistema}: Máximo $N$ clientes en el sistema
+    \item \textbf{Disciplina}: FIFO (First In, First Out)
+\end{itemize}
+
+\section{Requisitos del Sistema}
+
+\subsection{Requisitos de Hardware}
+\begin{itemize}
+    \item Procesador: Cualquier procesador x86/x64 moderno
+    \item Memoria RAM: Mínimo 512 MB
+    \item Espacio en disco: 50 MB libres
+\end{itemize}
+
+\subsection{Requisitos de Software}
+\begin{itemize}
+    \item Sistema operativo: Windows, Linux o macOS
+    \item Compilador C++: GCC, Clang o Microsoft Visual C++
+    \item Bibliotecas estándar de C++
+\end{itemize}
+
+\section{Instalación y Compilación}
+
+\subsection{Estructura de Archivos}
+El programa requiere los siguientes archivos:
+\begin{itemize}
+    \item \texttt{simulador.cpp}: Código fuente principal
+    \item \texttt{lcgrand.cpp}: Generador de números aleatorios (ubicado en \texttt{../SimulacionDeColas/})
+    \item \texttt{paramGeo.txt}: Archivo de parámetros de entrada
+\end{itemize}
+
+\subsection{Compilación}
+Para compilar el programa, utilice el siguiente comando:
+
+\begin{lstlisting}[language=bash]
+g++ -o sistemaGeoGeo sistemaGeoGeo.cpp -lm
+\end{lstlisting}
+
+En sistemas Windows con MinGW:
+\begin{lstlisting}[language=bash]
+g++ -o sistemaGeoGeo.exe sistemaGeoGeo.cpp -lm
+\end{lstlisting}
+
+\section{Configuración de Parámetros}
+
+\subsection{Archivo de Parámetros (paramGeo.txt)}
+Antes de ejecutar la simulación, debe crear el archivo \texttt{paramGeo.txt} con los parámetros del sistema:
+
+\begin{lstlisting}
+N m p s num_slots
+\end{lstlisting}
+
+Donde:
+\begin{itemize}
+    \item \texttt{N}: Capacidad máxima del sistema $(1 \leq N \leq 1000)$
+    \item \texttt{m}: Número de servidores $(1 \leq m \leq 10)$
+    \item \texttt{p}: Probabilidad de llegada por slot $(0 < p < 1)$
+    \item \texttt{s}: Probabilidad de finalización de servicio por slot $(0 < s < 1)$
+    \item \texttt{num\_slots}: Número de slots de tiempo a simular
+\end{itemize}
+
+\subsection{Ejemplo de Configuración}
+\begin{lstlisting}
+5 2 0.3 0.4 100000
+\end{lstlisting}
+
+Este ejemplo configura:
+\begin{itemize}
+    \item Capacidad máxima: 5 clientes
+    \item Número de servidores: 2
+    \item Probabilidad de llegada: 30\%
+    \item Probabilidad de servicio: 40\%
+    \item Duración: 100,000 slots
+\end{itemize}
+
+\section{Ejecución del Simulador}
+
+\subsection{Comando de Ejecución}
+Una vez compilado, ejecute el programa con:
+
+\begin{lstlisting}[language=bash]
+./sistemaGeoGeo
+\end{lstlisting}
+
+En Windows:
+\begin{lstlisting}[language=bash]
+sistemaGeoGeo.exe
+\end{lstlisting}
+
+\subsection{Salida en Consola}
+El programa mostrará información durante la ejecución:
+
+\begin{lstlisting}
+Simulador del sistema (Geom/Geom/m):(FIFO/N/+oo)
+Parametros: N=5, m=2, p=0.30, s=0.40
+Numero de slots: 100000
+
+Simulacion completada. Resultados guardados en archivos de texto.
+\end{lstlisting}
+
+\section{Archivos de Resultados}
+
+El simulador genera tres archivos de salida:
+
+\subsection{estadisticas.txt}
+Contiene las probabilidades de estado simuladas:
+\begin{itemize}
+    \item Distribución de probabilidades por estado
+    \item Número total de clientes llegados
+    \item Número de clientes perdidos (bloqueados)
+    \item Probabilidad de bloqueo simulada
+\end{itemize}
+
+\subsection{comparacion\_teorica.txt}
+Compara los resultados simulados con los teóricos:
+\begin{itemize}
+    \item Probabilidades simuladas vs. teóricas por estado
+    \item Diferencias absolutas entre valores
+    \item Comparación de probabilidades de bloqueo
+\end{itemize}
+
+\subsection{resumen\_resultados.txt}
+Presenta un resumen ejecutivo del sistema:
+\begin{itemize}
+    \item Número total de slots simulados
+    \item Porcentaje de utilización del sistema
+    \item Número promedio de clientes en el sistema
+    \item Throughput (clientes atendidos por slot)
+\end{itemize}
+
+\section{Ejemplos de Uso}
+
+\subsection{Ejemplo 1: Sistema Básico}
+
+\textbf{Configuración (paramGeo.txt):}
+\begin{lstlisting}
+3 1 0.25 0.5 50000
+\end{lstlisting}
+
+\textbf{Interpretación:}
+\begin{itemize}
+    \item Sistema con capacidad para 3 clientes
+    \item 1 servidor
+    \item 25\% probabilidad de llegada
+    \item 50\% probabilidad de servicio
+\end{itemize}
+
+\subsection{Ejemplo 2: Sistema Multi-servidor}
+
+\textbf{Configuración (paramGeo.txt):}
+\begin{lstlisting}
+10 3 0.4 0.3 200000
+\end{lstlisting}
+
+\textbf{Interpretación:}
+\begin{itemize}
+    \item Sistema con capacidad para 10 clientes
+    \item 3 servidores en paralelo
+    \item 40\% probabilidad de llegada
+    \item 30\% probabilidad de servicio por servidor
+\end{itemize}
+
+\section{Solución de Problemas}
+
+\subsection{Errores Comunes}
+
+\subsubsection{Error: No se pudo abrir 'paramGeo.txt'}
+\paragraph{Causa:} El archivo de parámetros no existe o no está en el directorio correcto.
+
+\paragraph{Solución:} 
+\begin{enumerate}
+    \item Verifique que el archivo existe
+    \item Confirme que está en el mismo directorio que el ejecutable
+    \item Revise los permisos de lectura del archivo
+\end{enumerate}
+
+\subsubsection{Error: Formato incorrecto en 'paramGeo.txt'}
+\paragraph{Causa:} Los parámetros no están en el formato correcto.
+% Dejar un enter
+\paragraph{Solución:}
+\begin{enumerate}
+    \item Asegúrese de que hay exactamente 5 valores
+    \item Verifique que están separados por espacios
+    \item Confirme que los valores numéricos son válidos
+\end{enumerate}
+
+\subsubsection{Error: No se pudieron crear archivos de salida}
+\paragraph{Causa:} Problemas de permisos de escritura.
+\paragraph{Solución:}
+\begin{enumerate}
+    \item Verifique permisos de escritura en el directorio
+    \item Libere espacio en disco si es necesario
+    \item Ejecute desde un directorio con permisos adecuados
+\end{enumerate}
+
+\subsection{Optimización del Rendimiento}
+
+\subsubsection{Selección del Número de Slots}
+Para obtener resultados precisos:
+\begin{itemize}
+    \item Use al menos 10,000 slots para sistemas simples
+    \item Use 100,000 o más slots para análisis detallados
+    \item Incremente si las diferencias teóricas-simuladas son grandes
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual técnico ------------------------------------------------------------------
@@ -1451,7 +1673,7 @@ Paso 3,4,5,6: Se inicializa $i$, i se itera decreciendo i para obetener los $P_i
 Paso 7: Se calcula la sumatoria de los $P_i$
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc8.png}
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc8.png}
     \caption{Paso 7}
     \label{fig:enter-label}
 \end{figure}
@@ -1459,7 +1681,7 @@ Paso 7: Se calcula la sumatoria de los $P_i$
 Paso 8: Se normalizan los $P_i$
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc9.png}
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc9.png}
     \caption{Paso 8}
     \label{fig:enter-label}
 \end{figure}
