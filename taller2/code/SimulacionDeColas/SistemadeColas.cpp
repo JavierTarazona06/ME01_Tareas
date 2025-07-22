@@ -8,7 +8,7 @@
 #include <map>
 #include <cstdlib>
 
-#define LIMITE_COLA 100 /* Capacidad maxima de la cola */
+#define LIMITE_COLA 1000 /* Capacidad maxima de la cola */
 #define OCUPADO 1       /* Indicador de Servidor Ocupado */
 #define LIBRE 0         /* Indicador de Servidor Libre */
 
@@ -52,7 +52,7 @@ int main(int argc, char* argv[]) /* Funcion Principal */
 
     /* Lee los parametros de enrtrada. */
 
-    if (argc >= 4) {
+    if (argc >= 5) {
         media_entre_llegadas = atof(argv[1]);
         media_atencion = atof(argv[2]);
         num_esperas_requerido = atoi(argv[3]);

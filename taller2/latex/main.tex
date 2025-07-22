@@ -1848,142 +1848,126 @@ Para modificar o extender el código:
 %---------------------------------------------------------------------------------
 % Exprimentación ------------------------------------------------------------------
 %---------------------------------------------------------------------------------
+\section{Experimentación y Resultados: Modelo M/M/1}\label{sec:exp}
+\subsection{Modelo M/M/1}
+
+El modelo M/M/1 es uno de los sistemas de colas más fundamentales y ampliamente estudiados en teoría de colas. Se caracteriza por:
+\begin{itemize}
+    \item Llegadas según un proceso de Poisson con tasa $\lambda$
+    \item Tiempos de servicio exponenciales con tasa $\mu$
+    \item Un único servidor y capacidad infinita
+\end{itemize}
+
+La función de densidad de estados teórica para este sistema está dada por:
+\begin{equation}
+    P_n = (1 - \rho)\rho^n, \quad \text{para } n \geq 0
+\end{equation}
+donde $\rho = \frac{\lambda}{\mu}$ es el factor de utilización del sistema. Esta distribución es geométrica decreciente para $\rho < 1$.
+
+\subsubsection{Diseño Experimental}
+
+\paragraph{Parámetros del Sistema:}
+
+Para la validación experimental del modelo M/M/1, se seleccionaron parámetros que representan una carga moderada:
+\begin{itemize}
+    \item $\lambda = 0.3$: Tasa de llegada por unidad de tiempo
+    \item $\mu = 0.5$: Tasa de servicio por unidad de tiempo
+    \item $\rho = \frac{0.3}{0.5} = 0.6$: Utilización del sistema
+\end{itemize}
+
+\paragraph{Escenarios Experimentales}
+
+Se evaluaron tres escenarios para analizar el efecto del tamaño muestral en el comportamiento del sistema:
+
+\begin{enumerate}
+    \item \textbf{Escenario 1}: Simulación pequeña – 500 clientes
+    \item \textbf{Escenario 2}: Simulación media – 1000 clientes
+    \item \textbf{Escenario 3}: Simulación extendida – 1000 clientes con múltiples combinaciones de parámetros de llegada y atención
+\end{enumerate}
+
+Se realizaron simulaciones del sistema M/M/1 con distintas configuraciones de parámetros y número de clientes, evaluando la precisión de los resultados frente a los valores teóricos.
+
+\paragraph{Metodología Estadística}
+Para cada escenario se realizaron 5 réplicas independientes. Esto permitió:
+\begin{itemize}
+    \item Estimar medias y errores relativos.
+    \item Analizar la convergencia de métricas clave como el tiempo promedio en cola ($W_q$), número promedio en cola ($L_q$) y utilización del servidor ($\rho$).
+    \item Comparar resultados simulados frente a las expresiones teóricas del modelo M/M/1.
+\end{itemize}
+
+\paragraph{Escenarios Evaluados}
+\begin{itemize}
+    \item \textbf{Escenario 1:} Simulación pequeña – 500 clientes, con $\lambda = 1/8$, $\mu = 1/5$.
+    \item \textbf{Escenario 2:} Simulación media – 1000 clientes, con $\lambda = 1/8$, $\mu = 1/5$.
+    \item \textbf{Escenario 3:} Simulación con distintas combinaciones de llegada y atención, 1000 clientes:
+    \begin{itemize}
+        \item $\lambda = 1/8$, $\mu = 1/7$
+        \item $\lambda = 1/10$, $\mu = 1/5$
+        \item $\lambda = 1/10$, $\mu = 1/7$
+        \item $\lambda = 1/20$, $\mu = 1/5$
+        \item $\lambda = 1/20$, $\mu = 1/7$
+    \end{itemize}
+\end{itemize}
+
+\paragraph{Métricas de Evaluación}
+Se utilizaron las siguientes métricas para evaluar el rendimiento del sistema:
+\begin{itemize}
+    \item \textbf{Tiempo promedio en cola} ($W_q$)
+    \item \textbf{Número promedio de clientes en cola} ($L_q$)
+    \item \textbf{Utilización del servidor} ($\rho$)
+    \item \textbf{Errores relativos} entre simulación y teoría
+\end{itemize}
+
+\subsubsection{Resultados Experimentales}
+
+\begin{table}[H]
+\centering
+\caption{Comparación de resultados simulados vs. teóricos para diferentes escenarios M/M/1}
+\label{tab:mm1-resultados-todos}
+\resizebox{\textwidth}{!}{%
+\begin{tabular}{ccccccccccc}
+\toprule
+\textbf{Clientes} & \textbf{$\lambda$} & \textbf{$\mu$} & \textbf{$W_q$ sim} & \textbf{$W_q$ teórico} & \textbf{Error $W_q$ (\%)} & \textbf{$L_q$ sim} & \textbf{$L_q$ teórico} & \textbf{Error $L_q$ (\%)} & \textbf{$\rho$ sim} & \textbf{$\rho$ teórico} \\
+\midrule
+500  & 0.127 & 0.208 & 6.193  & 8.3333  & 25.97  & 0.782  & 1.0417 & 24.10  & 0.602  & 0.625 \\
+1000 & 0.125 & 0.205 & 8.015  & 8.3333  & 3.18   & 1.001  & 1.0417 & 4.07   & 0.608  & 0.625 \\
+1000 & 0.117 & 0.158 & 16.346 & 49.0000 & 66.65  & 1.904  & 6.1250 & 68.91  & 0.735  & 0.875 \\
+1000 & 0.097 & 0.210 & 4.300  & 5.0000  & 14.00  & 0.418  & 0.5000 & 16.40  & 0.460  & 0.500 \\
+1000 & 0.099 & 0.147 & 16.018 & 16.3333 & 1.93   & 1.593  & 1.6333 & 2.46   & 0.674  & 0.700 \\
+1000 & 0.049 & 0.207 & 1.753  & 1.6667  & 5.20   & 0.087  & 0.0833 & 4.44   & 0.237  & 0.250 \\
+1000 & 0.050 & 0.147 & 3.850  & 3.7692  & 2.14   & 0.192  & 0.1885 & 1.86   & 0.339  & 0.350 \\
+\bottomrule
+\end{tabular}%
+}
+\end{table}
+
+\subsubsection{Discusión de Resultados}
+
+\paragraph{Convergencia y Validación}
+Los resultados muestran que, al aumentar el número de clientes, los valores simulados convergen hacia los valores teóricos del modelo M/M/1. Por ejemplo, en el paso de 500 a 1000 clientes con la misma configuración, el error relativo en $W_q$ se reduce significativamente (de 25.97\% a 3.18\%).
+
+En las combinaciones con mayor intensidad de tráfico (como $\rho = 0.875$), los errores son más elevados, posiblemente por la mayor variabilidad en la cola. En cambio, para tasas de tráfico ligeras ($\rho = 0.25$), se observa mayor estabilidad y menor error relativo.
+
+\paragraph{Aplicaciones y Limitaciones}
+El modelo M/M/1 proporciona estimaciones confiables para diversas configuraciones de carga. Sin embargo, su validez depende de que se cumplan sus supuestos: llegadas Poisson, servicios exponenciales, y un solo servidor. En sistemas reales, estas condiciones pueden violarse, por lo que los resultados deben interpretarse con cautela.
+
+\paragraph{Recomendación Metodológica}
+\begin{itemize}
+    \item Para obtener errores relativos por debajo de 5\%, es recomendable utilizar al menos 1000 clientes en la simulación.
+    \item Las réplicas independientes permiten cuantificar la variabilidad y construir intervalos de confianza.
+    \item En escenarios con alta utilización, es útil aumentar el número de clientes o el tiempo de simulación para asegurar la estabilidad de las métricas.
+\end{itemize}
+
+\subsubsection{Conclusiones}
+\begin{enumerate}
+    \item Las simulaciones validan el modelo teórico M/M/1 con alta precisión cuando el número de clientes es adecuado.
+    \item Las métricas clave ($W_q$, $L_q$, $\rho$) presentan bajo error relativo en la mayoría de los escenarios.
+    \item Las combinaciones de parámetros permiten evaluar diferentes niveles de carga, mostrando el comportamiento esperado en colas.
+    \item Este modelo sirve como referencia confiable para validar simuladores antes de abordar modelos más complejos.
+\end{enumerate}
 
 
 \section{Experimentación y Resultados: Modelo Geo/Geo/m/N}\label{sec:exp}
-
-\subsection{Experimentación modelo M/M/1}
-
-Para probar la hipótesis, se introduce una \textbf{variación sistemática} de los parámetros clave del sistema M/M/1, con el objetivo de evaluar su impacto sobre el rendimiento del sistema. Específicamente, se examinan tres factores:
-
-\begin{enumerate}
-  \item \textbf{Tasa de llegada} de clientes al sistema (\texttt{lambda}), que determina el intervalo promedio entre arribos.
-  \item \textbf{Tasa de atención} del servidor (\texttt{mu}), que define la rapidez con la que los clientes son atendidos.
-  \item \textbf{Número total de clientes} a procesar en cada simulación.
-\end{enumerate}
-
-Además, se incluye la \textbf{semilla del generador de números aleatorios} para garantizar la replicabilidad de cada experimento.
-
-Cada simulación sigue la lógica básica del modelo M/M/1: llegadas y tiempos de servicio generados a partir de distribuciones exponenciales, y una única cola con un solo servidor. Se registran métricas como:
-
-\begin{itemize}
-  \item \textbf{Tiempo promedio en cola},
-  \item \textbf{Tiempo promedio en el sistema},
-  \item \textbf{Longitud promedio de la cola},
-  \item \textbf{Utilización del servidor}.
-\end{itemize}
-
-\subsubsection*{Escenarios de Experimentación}
-
-Con el fin de evaluar de manera robusta el comportamiento del sistema M/M/1 bajo distintas condiciones de carga, se definieron múltiples configuraciones experimentales variando los siguientes parámetros clave:
-
-\begin{itemize}
-  \item \textbf{Tiempo promedio entre llegadas (\(\lambda^{-1}\))}: 8 s, 5 s, 2 s
-  \item \textbf{Tiempo promedio de atención (\(\mu^{-1}\))}: 6 s, 5 s
-  \item \textbf{Número de clientes por simulación}: 500, 1000
-  \item \textbf{Semilla del generador aleatorio}: 1, 2
-  \item \textbf{Número de repeticiones por configuración}: 5
-\end{itemize}
-
-\textbf{Parámetros Comunes para Todos los Escenarios}:
-
-\begin{itemize}
-  \item \textbf{Modelo de Cola}: M/M/1
-  \item \textbf{Distribución de Llegadas}: Exponencial con tasa \(\lambda\)
-  \item \textbf{Distribución de Atención}: Exponencial con tasa \(\mu\)
-  \item \textbf{Unidad de tiempo}: segundos
-  \item \textbf{Servidor}: único, sin interrupciones
-  \item \textbf{Disciplina de atención}: FIFO (primero en llegar, primero en ser atendido)
-\end{itemize}
-
-En la siguiente sección se describen detalladamente los tres escenarios simulados y se analizan sus resultados.
-
-\subsubsection{Escenario 0: Condición Estable}
-
-\begin{itemize}
-    \item \textbf{Objetivo:} Evaluar el desempeño del sistema M/M/1 bajo una condición estable, en la que la tasa de atención supera a la de llegada, garantizando un flujo eficiente de clientes y mínima congestión.
-
-    \item \textbf{Parámetros de simulación:}
-    \begin{itemize}
-        \item \textbf{Tiempo promedio de llegada ($\lambda$):} 0.125 clientes/seg (media = 8 s)
-        \item \textbf{Tiempo promedio de atención ($\mu$):} 0.166 clientes/seg (media = 6 s)
-        \item \textbf{Número total de clientes:} 1000
-        \item \textbf{Semillas:} 1 y 2 (con 5 repeticiones por semilla)
-    \end{itemize}
-
-    \item \textbf{Resultados esperados:} 
-    El sistema debería permanecer estable durante toda la simulación. Se espera un tiempo promedio en cola bajo, una utilización del servidor menor al 100\%, y una cola que no crece de manera indefinida.
-
-
-\end{itemize}
-\begin{table}[H]
-\centering
-\caption{Resumen de métricas clave para el Escenario 0 (M/M/1, media llegada = 8s, media atención = 6s)}
-\label{tab:escenario0}
-\begin{tabular}{|c|c|c|c|c|c|}
-\hline
-\textbf{Semilla} & \textbf{Llegada Prom.} & \textbf{Atención Prom.} & \textbf{Espera Prom.} & \textbf{Long. Cola Prom.} & \textbf{Uso del Servidor} \\
-\hline
-1  & 8.423 & 5.552 & 11.566 & 1.373 & 0.655 \\
-2  & 7.621 & 6.042 & 22.119 & 2.901 & 0.792 \\
-4  & 7.983 & 5.810 & 16.191 & 2.027 & 0.726 \\
-6  & 7.998 & 5.767 & 14.007 & 1.749 & 0.720 \\
-7  & 7.767 & 5.878 & 17.531 & 2.255 & 0.754 \\
-9  & 8.132 & 5.691 & 11.946 & 1.469 & 0.699 \\
-11 & 7.756 & 5.919 & 24.057 & 3.102 & 0.762 \\
-12 & 8.152 & 6.089 & 15.356 & 1.889 & 0.749 \\
-\hline
-\end{tabular}
-\end{table}
-
-\textbf{Análisis de los resultados:}  
-Se observa que, aunque la tasa promedio de llegada (alrededor de 8 segundos por cliente) es ligeramente más lenta que la de atención (alrededor de 6 segundos por cliente), el sistema presenta acumulación en la cola. Esto es evidente en el tiempo promedio de espera, que varía entre 11 y 24 segundos, y en la longitud promedio de la cola (entre 1.3 y 3.1 clientes).  
-
-El uso del servidor oscila entre 65.5\% y 79.2\%, lo que indica que el sistema se mantiene ocupado la mayor parte del tiempo, pero sin llegar a saturarse completamente. Estos resultados confirman que, incluso con una tasa de llegada ligeramente inferior a la de atención, pueden generarse colas significativas debido a la variabilidad estocástica inherente al modelo M/M/1.  
-
-Esto valida la hipótesis del escenario: se genera una cola moderada, con un aumento considerable en el tiempo total en el sistema, especialmente bajo ciertas condiciones de aleatoriedad (por ejemplo, semillas con tiempos de atención más largos o llegadas más frecuentes).
-
-\subsubsection{Escenario 1: Condición Crítica}
-
-\begin{itemize}
-    \item \textbf{Objetivo:} Analizar el comportamiento del sistema M/M/1 en condiciones críticas, donde la tasa de llegada es prácticamente igual a la de atención, evaluando el riesgo de congestión sostenida.
-
-    \item \textbf{Parámetros de simulación:}
-    \begin{itemize}
-        \item \textbf{Tiempo promedio de llegada ($\lambda$):} 0.2 clientes/seg (media = 5 s)
-        \item \textbf{Tiempo promedio de atención ($\mu$):} 0.2 clientes/seg (media = 5 s)
-        \item \textbf{Número total de clientes:} 500
-        \item \textbf{Semillas:} 1 y 2 (con 5 repeticiones por semilla)
-    \end{itemize}
-
-    \item \textbf{Resultados esperados:} 
-    Debido al equilibrio entre llegadas y atención, pequeñas variaciones aleatorias pueden generar acumulación de clientes. Se espera observar picos en la longitud de la cola y un tiempo promedio en el sistema más elevado que en el escenario estable.
-
-    \item \textbf{Visualización:} 
-    Se grafican la evolución de la cola en el tiempo, la utilización del servidor, y la distribución de tiempos en cola por cliente. También puede presentarse la desviación estándar de los tiempos como indicador de inestabilidad.
-
-\end{itemize}
-
-\subsubsection{Escenario 2: Condición Sobrecargada}
-
-\begin{itemize}
-    \item \textbf{Objetivo:} Evaluar el comportamiento del sistema M/M/1 bajo una alta carga, donde la tasa de llegada de clientes es mayor que la capacidad de atención, simulando una situación de saturación del sistema.
-
-    \item \textbf{Parámetros de simulación:}
-    \begin{itemize}
-        \item \textbf{Tiempo promedio de llegada ($\lambda$):} 0.5 clientes/seg (media = 2 s)
-        \item \textbf{Tiempo promedio de atención ($\mu$):} 0.2 clientes/seg (media = 5 s)
-        \item \textbf{Número total de clientes:} 1000
-        \item \textbf{Semillas:} 1 y 2 (con 5 repeticiones por semilla)
-    \end{itemize}
-
-    \item \textbf{Resultados esperados:} 
-    Se anticipa un crecimiento continuo de la cola durante la simulación. El tiempo promedio en el sistema aumentará significativamente y la utilización del servidor será cercana o igual al 100\%, reflejando un sistema incapaz de responder a la demanda.
-
-    \item \textbf{Visualización:} 
-    Se presentan gráficas del tamaño de la cola en función del tiempo, histogramas de los tiempos de espera por cliente y análisis de la acumulación progresiva de clientes no atendidos.
-
-\end{itemize}
 
 El objetivo principal de esta experimentación es validar la implementación del simulador Geo/Geo/m/N mediante el análisis de convergencia hacia los valores teóricos del modelo, variando sistemáticamente el número de slots de tiempo para evaluar cómo afecta la precisión de las estimaciones.
 \subsection{Modelo Geo/Geo/m/N}

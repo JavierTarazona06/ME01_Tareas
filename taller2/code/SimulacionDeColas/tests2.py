@@ -1,14 +1,14 @@
 import subprocess
 
 # Parámetros a variar
-tiempos_llegada = [8] 
-tiempos_atencion = [5]
-num_clientes = [100]
+tiempos_llegada = [8,10, 20] 
+tiempos_atencion = [5,7]
+num_clientes = [1000]
 semillas = [1]  # Semillas para la aleatoriedad
 n_repeticiones = 5  # Número de veces que se repite cada simulación
 
-with open("resultados_todas_simulaciones.csv", "w") as resumen:
-    resumen.write("Semilla,Llegada,Atencion,Clientes,LlegadaPromedio,AtenciónPromedio,EsperaPromedio,NumCola,ServidorUso,TiempoTotal\n")
+with open("resultados_todas_simulaciones2.csv", "w") as resumen:
+    resumen.write("Semilla,Llegada,Atencion,Clientes,LlegadaPromedio,AtenciónPromedio,EsperaPromedio,NumCola,ServidorUso,TiempoTotal,Wq_teorico,Lq_teorico,Uso_teorico,Error_Wq,Error_Lq,Error_Uso\n")
     
     for semilla in semillas:
         for llegada in tiempos_llegada:
@@ -44,7 +44,8 @@ with open("resultados_todas_simulaciones.csv", "w") as resumen:
                             if "Tiempo de terminacion de la simulacion:" in line:
                                 suma_tiempo_total += float(line.split(":")[1].strip().split()[0])
 
-                    # Calcula los promedios
+
+                    # Promedios simulados
                     prom_llegada = suma_llegada / n_repeticiones
                     prom_atencion = suma_atencion / n_repeticiones
                     espera = suma_espera / n_repeticiones
@@ -52,4 +53,17 @@ with open("resultados_todas_simulaciones.csv", "w") as resumen:
                     uso = suma_uso / n_repeticiones
                     tiempo_total = suma_tiempo_total / n_repeticiones
 
-                    resumen.write(f"{semilla},{llegada},{atencion},{clientes},{prom_llegada:.4f},{prom_atencion:.4f},{espera:.4f},{num_cola:.4f},{uso:.4f},{tiempo_total:.4f}\n")
+                    # Parámetros teóricos
+                    λ = 1 / llegada
+                    μ = 1 / atencion
+                    rho = λ / μ
+                    Wq_teorico = rho / (μ * (1 - rho))
+                    Lq_teorico = (rho**2) / (1 - rho)
+                    uso_teorico = rho
+
+                    # Errores absolutos
+                    error_Wq = abs(espera - Wq_teorico)
+                    error_Lq = abs(num_cola - Lq_teorico)
+                    error_uso = abs(uso - uso_teorico)
+
+                    resumen.write(f"{semilla},{llegada},{atencion},{clientes},{prom_llegada:.4f},{prom_atencion:.4f},{espera:.4f},{num_cola:.4f},{uso:.4f},{tiempo_total:.4f},{Wq_teorico:.4f},{Lq_teorico:.4f},{uso_teorico:.4f},{error_Wq:.4f},{error_Lq:.4f},{error_uso:.4f}\n")
