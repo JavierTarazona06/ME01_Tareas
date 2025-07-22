@@ -35,7 +35,7 @@ void  salida(void);
 void  reportes(void);
 void  actualizar_estad_prom_tiempo(void);
 float expon(float mean);
-
+int obtener_servidor_libre();
 
 int main(void)  /* Funcion Principal */
 {
@@ -123,7 +123,7 @@ void inicializar(void)  /* Funcion de inicializacion. */
     tiempo_sig_evento = (float*) malloc((num_eventos + 1) * sizeof(float));
     tiempo_sig_evento[1] = tiempo_simulacion + expon(media_entre_llegadas);
     for (int i = 2; i <= num_servidores + 1; ++i) {
-        tiempo_sig_evento[i] = 1.0e+30; // sin salida programada aún
+        tiempo_sig_evento[i] = INF; // sin salida programada aún
         area_estado_servidores[i] = 0;
     }
     
@@ -183,9 +183,8 @@ void llegada(void)  /* Funcion de llegada */
         ++servidores_ocupados;
 
         /* Programa una salida ( servicio terminado ). */     
-
-        tiempo_sig_evento[servidores_ocupados + 1] = tiempo_simulacion + expon(media_atencion);
-        
+        int servidor = obtener_servidor_libre();
+        tiempo_sig_evento[servidor] = tiempo_simulacion + expon(media_atencion);
     }
 
     else {
@@ -217,6 +216,15 @@ void llegada(void)  /* Funcion de llegada */
     
 }
 
+int obtener_servidor_libre(){
+    for (int i = 2; i <= num_servidores + 1; ++i) {
+        if (tiempo_sig_evento[i] >= INF) {
+            return i; // índice en tiempo_sig_evento[]
+        }
+    }
+    return -1;
+}
+
 
 void salida(void)  /* Funcion de Salida. */
 {
@@ -227,7 +235,7 @@ void salida(void)  /* Funcion de Salida. */
     /* Revisa si la cola esta vacia */
     if (num_entra_cola == 0) {
         // No hay clientes esperando, liberar el tiempo del evento de salida actual
-        tiempo_sig_evento[sig_tipo_evento] = 1.0e+30;
+        tiempo_sig_evento[sig_tipo_evento] = INF;
         servidores_ocupados--;
     }
 
