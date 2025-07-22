@@ -126,6 +126,8 @@ def erlang_c(lambda_rate: float, mu_rate: float, servers: int) -> float:
 
 if __name__ == "__main__":
     print(erlang_b_direct(1/5, 1/6, 2))
+    print(erlang_b_direct(1/5, 1/6, 5))
     print(erlang_c(1/5, 1/6, 2))
     print(erlang_c(1/5, 1/6, 5))
+    print(erlang_c(1/2, 1/15, 10))
     

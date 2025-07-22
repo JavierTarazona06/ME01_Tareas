@@ -4,20 +4,23 @@ Tiempo promedio de llegada      5.000 minutos
 
 Tiempo promedio de atencion           6.000 minutos
 
-Numero de clientes             8
+Numero de clientes         10000
 
-Modo de simulación:              Erlang B (sin cola)
-Número de servidores (m):        2
+Modo de simulación:              Erlang C (con cola)
+Número de servidores (m):        5
 
 
-Espera promedio en la cola      0.000 minutos
+Espera promedio en la cola      0.018 minutos
 
-Numero promedio en cola     0.000
+Numero promedio en cola     0.004
 
 Uso de Servidores
 
-Uso del servidor 1 :           0.600
-Uso del servidor 2 :           0.257
-Tiempo de terminacion de la simulacion      32.383 minutos>>> Modo Erlang B (sin cola)
-Clientes bloqueados (rechazados):           1
-Probabilidad de bloqueo estimada (P_b):          0.2103
+Uso del servidor 1 :           0.541
+Uso del servidor 2 :           0.359
+Uso del servidor 3 :           0.181
+Uso del servidor 4 :           0.074
+Uso del servidor 5 :           0.024
+Tiempo de terminacion de la simulacion   50048.648 minutos>>> Modo Erlang C (con cola)
+Clientes que debieron esperar:              78
+Probabilidad de espera estimada (P_w):           0.0078
