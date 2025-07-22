@@ -16,7 +16,7 @@ Numero promedio en cola     0.000
 
 Uso de Servidores
 
-Uso del servidor 1 : 77758982355412279401465774080.000
+Uso del servidor 1 :           0.600
 Uso del servidor 2 :           0.257
 Tiempo de terminacion de la simulacion      32.383 minutos>>> Modo Erlang B (sin cola)
 Clientes bloqueados (rechazados):           1
