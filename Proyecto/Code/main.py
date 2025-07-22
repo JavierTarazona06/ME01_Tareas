@@ -1,4 +1,4 @@
-import random
+from utils import random_utils as random  # Usar utilidades personalizadas
 from collections import defaultdict
 import sys
 from datetime import datetime

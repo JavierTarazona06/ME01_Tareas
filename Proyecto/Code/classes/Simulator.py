@@ -1,4 +1,4 @@
-import random
+from utils import random_utils as random
 from collections import defaultdict
 from typing import List, Dict, Tuple
 

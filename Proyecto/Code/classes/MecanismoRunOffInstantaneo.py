@@ -1,4 +1,4 @@
-import random
+from utils import random_utils as random
 
 from classes.MecanismoVotacion import MecanismoVotacion
 from collections import defaultdict
