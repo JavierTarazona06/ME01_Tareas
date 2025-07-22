@@ -171,16 +171,20 @@ void controltiempo(void) /* Funcion controltiempo */
         /* La lista de eventos esta vacia, se detiene la simulacion. */
 
         fprintf(resultados, "\nLa lista de eventos esta vacia %f", tiempo_simulacion);
+        printf("Lista de eventos vacia");
         exit(1);
     }
 
     /* TLa lista de eventos no esta vacia, adelanta el reloj de la simulacion. */
+    
 
     tiempo_simulacion = min_tiempo_sig_evento;
 }
 
 void llegada(void) /* Funcion de llegada */
 {
+
+    //  printf(    "Tiempo de simulacion: %.3f\n", num_entra_cola);
     float espera;
     // std::cout << "llegada " << tiempo_simulacion << std::endl;
     // tiempos_entre_llegadas[total_llegadas] = tiempo_simulacion;
@@ -209,6 +213,7 @@ void llegada(void) /* Funcion de llegada */
 
             fprintf(resultados, "\nDesbordamiento del arreglo tiempo_llegada a la hora");
             fprintf(resultados, "%f", tiempo_simulacion);
+            printf( "Cola desbordada");
             exit(2);
         }
 

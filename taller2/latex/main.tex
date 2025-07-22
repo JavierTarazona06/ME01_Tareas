@@ -676,6 +676,141 @@ o en el siguiente repositorio de GitHub:
 
 \section{Manual Usuario}\label{sec:man_u}
 
+\subsection{M/M/1}\label{subsec:mm1_usuario}
+
+\subsubsection{Prerequisitos}
+Para la ejecución del simulador en un entorno Linux con Ubuntu, se requieren:
+\begin{itemize}
+    \item Conocimientos básicos de Linux y C++
+    \item Conexión a internet para descargar g++
+    \item En sistemas Windows se recomienda utilizar WSL (Windows Subsystem for Linux)
+\end{itemize}
+
+\subsubsection{Instalación de g++}
+Para instalar el compilador necesario en Ubuntu/WSL:
+\begin{verbatim}
+sudo apt update
+sudo apt install g++
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_1.png}
+    \caption{Proceso de instalación de g++}
+    \label{fig:instalacion_mm1}
+\end{figure}
+
+Verificación de la instalación:
+\begin{verbatim}
+g++ --version
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_2.png}
+    \caption{Verificación de la versión de g++}
+    \label{fig:version_mm1}
+\end{figure}
+
+\subsubsection{Instalación de Ubuntu en WSL (Opcional)}
+En caso de que se esté trabajando en Windows, se recomienda utilizar WSL. Para instalarlo siga los siguientes pasos:
+
+\begin{enumerate}
+    \item Verificar/Activar característica WSL
+
+    Ir al panel de control y seleccionar ``desinstalar un programa`` en la sección de programas.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_6.png}
+    \caption{Panel de Control}
+    \label{fig:panel_mm1}
+    \end{figure}
+
+    A continuación, a la izquierda encontrará ``Activar o desactivar las características de Windows``. Al oprimirlo, le abrirá una ventana donde debe verificar que la casilla ``Subsistema de Windows para Linux`` esté seleccionada.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_7.png}
+    \caption{Características de Windows}
+    \label{fig:caracteristicas_mm1}
+    \end{figure}
+
+    \item Instalación
+
+    Vaya a Microsoft Store y busque Ubuntu, oprima la primera opción y después ``Obtener``. Una vez finalizada la descarga, abra el programa.
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_8.png}
+    \caption{Microsoft Store}
+    \label{fig:store_mm1}
+    \end{figure}
+
+    Finalmente, siga los pasos para configurar el usuario y ejecute cualquier comando para verificar su correcto funcionamiento (puede usar el comando \texttt{ls}).
+
+    \begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_9.png}
+    \caption{Instalación exitosa de Ubuntu en WSL}
+    \label{fig:instalacion_wsl_mm1}
+    \end{figure}
+\end{enumerate}
+
+\subsubsection{Configuración de parámetros}
+Los parámetros de simulación se configuran en el archivo \texttt{param.txt} ubicado en \texttt{taller2/code/SimulacionDeColas}. Los parámetros son:
+
+\begin{itemize}
+    \item \texttt{media\_entre\_llegadas}: Tiempo medio entre llegadas (float)
+    \item \texttt{media\_atencion}: Tiempo medio de atención (float)
+    \item \texttt{num\_esperas\_requerido}: Número de clientes a simular (integer)
+    \item \texttt{semilla}: Semilla para el generador aleatorio (integer)
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_3.png}
+    \caption{Ejemplo de archivo de parámetros}
+    \label{fig:parametros_mm1}
+\end{figure}
+
+\subsubsection{Compilación y ejecución}
+Proceso para compilar y ejecutar:
+
+1. Compilación del programa:
+\begin{verbatim}
+g++ SistemadeColas.cpp lcgrand.cpp -o SistemadeColas
+\end{verbatim}
+
+2. Ejecución del simulador:
+\begin{verbatim}
+./SistemadeColas
+\end{verbatim}
+
+También puede ejecutarse con parámetros desde la línea de comandos:
+\begin{verbatim}
+./SistemadeColas <media_entre_llegadas> <media_atencion> <num_esperas_requerido> <semilla>
+\end{verbatim}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_4.png}
+    \caption{Proceso de compilación y ejecución}
+    \label{fig:compilacion_mm1}
+\end{figure}
+
+\subsubsection{Resultados}
+El programa genera un archivo \texttt{result.txt} con:
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_5.png}
+    \caption{Ejemplo de archivo de resultados}
+    \label{fig:resultados_mm1}
+\end{figure}
+
+La estructura del archivo incluye primero los parámetros de entrada, como los tiempos promedio de llegada y atención, el número de clientes simulados y la semilla utilizada. Luego, muestra los resultados principales, como el tiempo promedio en cola, la utilización del servidor y métricas de desempeño. Finalmente, indica el tiempo total de simulación. Este formato permite analizar rápidamente el comportamiento del sistema y la eficiencia de los recursos.
+
 \subsection{Erlang B y C}\label{subsec:erlang_bc}
 
 \subsubsection{Prerequisitos}
@@ -814,6 +949,126 @@ La estructura del archivo incluye primero los parámetros de entrada, como los t
 
 \section{Manual Técnico}
 
+\subsection{M/M/1}\label{subsec:mm1}
+
+Simulador de un sistema de colas $(M/M/1):(FIFO/\infty)$ implementado en C++. El programa modela un sistema de colas con llegadas y servicios exponenciales, un solo servidor, capacidad infinita y disciplina FIFO.
+
+\subsubsection{Prerequisitos}
+
+\begin{itemize}
+    \item Compilador C++ compatible con C++11 o superior
+    \item Bibliotecas estándar: \texttt{stdio.h}, \texttt{stdlib.h}, \texttt{math.h}, \texttt{time.h}
+    \item Generador de números aleatorios proporcionado en \texttt{lcgrand.cpp}
+    \item Sistema operativo: Windows/Linux/macOS
+\end{itemize}
+
+\subsubsection{Estructura del código}
+
+El programa sigue una estructura modular con las siguientes componentes principales:
+
+\begin{itemize}
+    \item \textbf{Variables globales}:
+    \begin{itemize}
+        \item Parámetros del sistema (\texttt{media\_entre\_llegadas}, \texttt{media\_atencion}, \texttt{num\_esperas\_requerido}, \texttt{semilla})
+        \item Estado del sistema (tiempo de simulación, número de clientes en cola, estado del servidor)
+        \item Estadísticas (tiempo promedio en cola, ocupación del servidor, tiempos de llegada y atención)
+    \end{itemize}
+    
+    \item \textbf{Funciones principales}:
+    \begin{itemize}
+        \item \texttt{main()}: Coordina el flujo del programa
+        \item \texttt{inicializar()}: Prepara el sistema para la simulación
+        \item \texttt{controltiempo()}: Gestiona el avance de eventos
+        \item \texttt{llegada()}, \texttt{salida()}: Procesan los eventos de llegada y salida de clientes
+        \item \texttt{reportes()}: Calcula y reporta las métricas de desempeño
+    \end{itemize}
+    
+    \item \textbf{Funciones auxiliares}:
+    \begin{itemize}
+        \item Generación aleatoria: \texttt{expon()}, \texttt{lcgrand()}
+        \item Actualización de estadísticas: \texttt{actualizar\_estad\_prom\_tiempo()}, \texttt{actualizar\_ocupacion\_sistema()}
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Parámetros de la simulación}
+
+Los parámetros se leen del archivo \texttt{param.txt} con el formato:
+
+\begin{verbatim}
+media_entre_llegadas media_atencion num_esperas_requerido semilla
+\end{verbatim}
+
+Donde:
+\begin{itemize}
+    \item \textbf{media\_entre\_llegadas}: Tiempo medio entre llegadas (float)
+    \item \textbf{media\_atencion}: Tiempo medio de atención (float)
+    \item \textbf{num\_esperas\_requerido}: Número de clientes a simular (integer)
+    \item \textbf{semilla}: Semilla para el generador aleatorio (integer)
+\end{itemize}
+
+\subsubsection{Salidas de la simulación}
+
+El programa genera los siguientes archivos de salida:
+
+\begin{itemize}
+    \item \texttt{result.txt}: Reporte detallado de parámetros y métricas principales (tiempos promedio, ocupación, etc.)
+    \item \texttt{resultados\_simulacion.csv}: Datos por cliente (opcional, para análisis detallado)
+    \item Salida estándar (consola): Línea resumen en formato CSV para integración con scripts externos
+\end{itemize}
+
+\subsubsection{Funciones principales}
+
+\paragraph{\texttt{main()}}
+\begin{itemize}
+    \item Lee parámetros de \texttt{param.txt} o desde la línea de comandos
+    \item Inicializa el sistema
+    \item Ejecuta el bucle principal de simulación hasta completar el número de clientes requerido
+    \item Coordina el cálculo y reporte de resultados
+\end{itemize}
+
+\paragraph{\texttt{controltiempo()}}
+\begin{itemize}
+    \item Determina el siguiente evento (llegada o salida)
+    \item Actualiza el reloj de simulación
+\end{itemize}
+
+\paragraph{\texttt{llegada()}, \texttt{salida()}}
+\begin{itemize}
+    \item \texttt{llegada()}: Procesa la llegada de un cliente, actualiza la cola y programa el siguiente evento
+    \item \texttt{salida()}: Procesa la salida de un cliente, actualiza el estado del servidor y la cola
+\end{itemize}
+
+\paragraph{\texttt{reportes()}}
+\begin{itemize}
+    \item Calcula métricas agregadas: tiempo promedio en cola, ocupación del servidor, tiempo total de simulación
+    \item Exporta los resultados a los archivos de salida
+    \item Imprime resumen en consola para integración con scripts
+\end{itemize}
+
+\subsubsection{Compilación y ejecución}
+
+Para compilar y ejecutar el simulador:
+
+\begin{verbatim}
+g++ SistemadeColas.cpp lcgrand.cpp -o SistemadeColas
+./SistemadeColas
+\end{verbatim}
+
+También puede ejecutarse con parámetros desde la línea de comandos:
+
+\begin{verbatim}
+./SistemadeColas <media_entre_llegadas> <media_atencion> <num_esperas_requerido> <semilla>
+\end{verbatim}
+
+\subsubsection{Extensión del código}
+
+Para modificar o extender el código:
+\begin{itemize}
+    \item Para cambiar el generador de números aleatorios, modificar \texttt{lcgrand.cpp}
+    \item Para añadir nuevas métricas, extender \texttt{reportes()}
+    \item Para cambiar el modelo de llegadas/servicios, modificar \texttt{expon()} y la lógica de eventos
+\end{itemize}
+
 \subsection{Geo/Geo/m}\label{subsec:geogeo_m}
 
 Simulador de un sistema de colas $(Geom/Geom/m):(FIFO/N/+ \infty)$ implementado en C++. El programa modela un sistema de colas con llegadas y servicios geométricos, múltiples servidores (m), capacidad finita (N) y disciplina FIFO.
@@ -938,6 +1193,140 @@ Para modificar o extender el código:
 
 \section{Experimentación}\label{sec:exp}
 
+\subsection{Experimentación modelo M/M/1}
+
+Para probar la hipótesis, se introduce una \textbf{variación sistemática} de los parámetros clave del sistema M/M/1, con el objetivo de evaluar su impacto sobre el rendimiento del sistema. Específicamente, se examinan tres factores:
+
+\begin{enumerate}
+  \item \textbf{Tasa de llegada} de clientes al sistema (\texttt{lambda}), que determina el intervalo promedio entre arribos.
+  \item \textbf{Tasa de atención} del servidor (\texttt{mu}), que define la rapidez con la que los clientes son atendidos.
+  \item \textbf{Número total de clientes} a procesar en cada simulación.
+\end{enumerate}
+
+Además, se incluye la \textbf{semilla del generador de números aleatorios} para garantizar la replicabilidad de cada experimento.
+
+Cada simulación sigue la lógica básica del modelo M/M/1: llegadas y tiempos de servicio generados a partir de distribuciones exponenciales, y una única cola con un solo servidor. Se registran métricas como:
+
+\begin{itemize}
+  \item \textbf{Tiempo promedio en cola},
+  \item \textbf{Tiempo promedio en el sistema},
+  \item \textbf{Longitud promedio de la cola},
+  \item \textbf{Utilización del servidor}.
+\end{itemize}
+
+\subsubsection*{Escenarios de Experimentación}
+
+Con el fin de evaluar de manera robusta el comportamiento del sistema M/M/1 bajo distintas condiciones de carga, se definieron múltiples configuraciones experimentales variando los siguientes parámetros clave:
+
+\begin{itemize}
+  \item \textbf{Tiempo promedio entre llegadas (\(\lambda^{-1}\))}: 8 s, 5 s, 2 s
+  \item \textbf{Tiempo promedio de atención (\(\mu^{-1}\))}: 6 s, 5 s
+  \item \textbf{Número de clientes por simulación}: 500, 1000
+  \item \textbf{Semilla del generador aleatorio}: 1, 2
+  \item \textbf{Número de repeticiones por configuración}: 5
+\end{itemize}
+
+\textbf{Parámetros Comunes para Todos los Escenarios}:
+
+\begin{itemize}
+  \item \textbf{Modelo de Cola}: M/M/1
+  \item \textbf{Distribución de Llegadas}: Exponencial con tasa \(\lambda\)
+  \item \textbf{Distribución de Atención}: Exponencial con tasa \(\mu\)
+  \item \textbf{Unidad de tiempo}: segundos
+  \item \textbf{Servidor}: único, sin interrupciones
+  \item \textbf{Disciplina de atención}: FIFO (primero en llegar, primero en ser atendido)
+\end{itemize}
+
+En la siguiente sección se describen detalladamente los tres escenarios simulados y se analizan sus resultados.
+
+\subsubsection{Escenario 0: Condición Estable}
+
+\begin{itemize}
+    \item \textbf{Objetivo:} Evaluar el desempeño del sistema M/M/1 bajo una condición estable, en la que la tasa de atención supera a la de llegada, garantizando un flujo eficiente de clientes y mínima congestión.
+
+    \item \textbf{Parámetros de simulación:}
+    \begin{itemize}
+        \item \textbf{Tiempo promedio de llegada ($\lambda$):} 0.125 clientes/seg (media = 8 s)
+        \item \textbf{Tiempo promedio de atención ($\mu$):} 0.166 clientes/seg (media = 6 s)
+        \item \textbf{Número total de clientes:} 1000
+        \item \textbf{Semillas:} 1 y 2 (con 5 repeticiones por semilla)
+    \end{itemize}
+
+    \item \textbf{Resultados esperados:} 
+    El sistema debería permanecer estable durante toda la simulación. Se espera un tiempo promedio en cola bajo, una utilización del servidor menor al 100\%, y una cola que no crece de manera indefinida.
+
+
+\end{itemize}
+\begin{table}[H]
+\centering
+\caption{Resumen de métricas clave para el Escenario 0 (M/M/1, media llegada = 8s, media atención = 6s)}
+\label{tab:escenario0}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+\textbf{Semilla} & \textbf{Llegada Prom.} & \textbf{Atención Prom.} & \textbf{Espera Prom.} & \textbf{Long. Cola Prom.} & \textbf{Uso del Servidor} \\
+\hline
+1  & 8.423 & 5.552 & 11.566 & 1.373 & 0.655 \\
+2  & 7.621 & 6.042 & 22.119 & 2.901 & 0.792 \\
+4  & 7.983 & 5.810 & 16.191 & 2.027 & 0.726 \\
+6  & 7.998 & 5.767 & 14.007 & 1.749 & 0.720 \\
+7  & 7.767 & 5.878 & 17.531 & 2.255 & 0.754 \\
+9  & 8.132 & 5.691 & 11.946 & 1.469 & 0.699 \\
+11 & 7.756 & 5.919 & 24.057 & 3.102 & 0.762 \\
+12 & 8.152 & 6.089 & 15.356 & 1.889 & 0.749 \\
+\hline
+\end{tabular}
+\end{table}
+
+\textbf{Análisis de los resultados:}  
+Se observa que, aunque la tasa promedio de llegada (alrededor de 8 segundos por cliente) es ligeramente más lenta que la de atención (alrededor de 6 segundos por cliente), el sistema presenta acumulación en la cola. Esto es evidente en el tiempo promedio de espera, que varía entre 11 y 24 segundos, y en la longitud promedio de la cola (entre 1.3 y 3.1 clientes).  
+
+El uso del servidor oscila entre 65.5\% y 79.2\%, lo que indica que el sistema se mantiene ocupado la mayor parte del tiempo, pero sin llegar a saturarse completamente. Estos resultados confirman que, incluso con una tasa de llegada ligeramente inferior a la de atención, pueden generarse colas significativas debido a la variabilidad estocástica inherente al modelo M/M/1.  
+
+Esto valida la hipótesis del escenario: se genera una cola moderada, con un aumento considerable en el tiempo total en el sistema, especialmente bajo ciertas condiciones de aleatoriedad (por ejemplo, semillas con tiempos de atención más largos o llegadas más frecuentes).
+
+\subsubsection{Escenario 1: Condición Crítica}
+
+\begin{itemize}
+    \item \textbf{Objetivo:} Analizar el comportamiento del sistema M/M/1 en condiciones críticas, donde la tasa de llegada es prácticamente igual a la de atención, evaluando el riesgo de congestión sostenida.
+
+    \item \textbf{Parámetros de simulación:}
+    \begin{itemize}
+        \item \textbf{Tiempo promedio de llegada ($\lambda$):} 0.2 clientes/seg (media = 5 s)
+        \item \textbf{Tiempo promedio de atención ($\mu$):} 0.2 clientes/seg (media = 5 s)
+        \item \textbf{Número total de clientes:} 500
+        \item \textbf{Semillas:} 1 y 2 (con 5 repeticiones por semilla)
+    \end{itemize}
+
+    \item \textbf{Resultados esperados:} 
+    Debido al equilibrio entre llegadas y atención, pequeñas variaciones aleatorias pueden generar acumulación de clientes. Se espera observar picos en la longitud de la cola y un tiempo promedio en el sistema más elevado que en el escenario estable.
+
+    \item \textbf{Visualización:} 
+    Se grafican la evolución de la cola en el tiempo, la utilización del servidor, y la distribución de tiempos en cola por cliente. También puede presentarse la desviación estándar de los tiempos como indicador de inestabilidad.
+
+\end{itemize}
+
+\subsubsection{Escenario 2: Condición Sobrecargada}
+
+\begin{itemize}
+    \item \textbf{Objetivo:} Evaluar el comportamiento del sistema M/M/1 bajo una alta carga, donde la tasa de llegada de clientes es mayor que la capacidad de atención, simulando una situación de saturación del sistema.
+
+    \item \textbf{Parámetros de simulación:}
+    \begin{itemize}
+        \item \textbf{Tiempo promedio de llegada ($\lambda$):} 0.5 clientes/seg (media = 2 s)
+        \item \textbf{Tiempo promedio de atención ($\mu$):} 0.2 clientes/seg (media = 5 s)
+        \item \textbf{Número total de clientes:} 1000
+        \item \textbf{Semillas:} 1 y 2 (con 5 repeticiones por semilla)
+    \end{itemize}
+
+    \item \textbf{Resultados esperados:} 
+    Se anticipa un crecimiento continuo de la cola durante la simulación. El tiempo promedio en el sistema aumentará significativamente y la utilización del servidor será cercana o igual al 100\%, reflejando un sistema incapaz de responder a la demanda.
+
+    \item \textbf{Visualización:} 
+    Se presentan gráficas del tamaño de la cola en función del tiempo, histogramas de los tiempos de espera por cliente y análisis de la acumulación progresiva de clientes no atendidos.
+
+\end{itemize}
+
+
 
 
 %---------------------------------------------------------------------------------
@@ -952,10 +1341,6 @@ Para modificar o extender el código:
 %---------------------------------------------------------------------------------
 
 \section{Recomendaciones}\label{secrecomen}
-
-
-
-
 
 \section{Referencias}
 \renewcommand{\refname}{}
