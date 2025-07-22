@@ -7,7 +7,13 @@
 \usepackage{adjustbox}
 \usepackage{amsmath}
 \usepackage[spanish]{babel}
-
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+\usepackage{mdframed}
+\usepackage{caption}
+\usepackage{subcaption}
 \usepackage{listings}
 \hypersetup{
     colorlinks=true,
@@ -577,65 +583,414 @@ Para comparar los resultados simulados con los teóricos, se utilizarán las sig
 
 \section{Diseño de la solución} \label{sec:disSol}
 
-\subsection*{Propósito general del sistema}
+\subsection{Fases de la Simulación}
 
-El propósito principal de este sistema es extender un simulador de colas para que sea capaz de estimar de forma empírica las fórmulas de Erlang B y Erlang C, con el fin de comparar estos resultados simulados con sus respectivos valores teóricos. Esta comparación permitirá validar el funcionamiento del simulador y comprender el comportamiento de sistemas M/M/m y (M/ M/ m): (FIFO/ m/ +$\infty$) en distintos escenarios.
+Para garantizar que el incremento en la complejidad de los sistemas estudiados fuese gradual y comprensible, el desarrollo y análisis de la simulación se organizará en tres fases:
 
-\subsection*{Alcance de la simulación}
+\subsubsection{Fase 1: Modelo Base - Sistema M/M/1}
 
-La simulación desarrollada permite representar dos tipos de sistemas:
-\subsubsection*{Erlang B (M / M / m): (FIFO / m / +$\infty$)}
-
-Este modelo describe un sistema de colas caracterizado por:
-\begin{itemize}
-    \item Llegadas según un proceso de Poisson (M), con tasa $\lambda$.
-    \item Tiempos de servicio con distribución exponencial (M), con tasa $\mu$.
-    \item $m$ servidores en paralelo.
-    \item Política de atención FIFO (First In, First Out), 
-    \item Capacidad máxima del sistema igual al número de servidores ($m$), es decir, si todos los servidores están ocupados, los clientes son rechazados.
-\end{itemize}
-
-\subsubsection*{Erlang C (modelo M/M/m)}
-
-Este modelo describe un sistema de colas con la siguiente notación:
-
-\[
-\text{SISTEMA: } (M / M / m)
-\]
-
-Donde:
-\begin{itemize}
-    \item Las llegadas siguen un proceso de Poisson (tiempos entre llegadas exponenciales, "M").
-    \item Los tiempos de servicio también son exponenciales ("M").
-    \item Existen $m$ servidores paralelos.
-    \item La política de atención es FIFO (First In, First Out).
-    \item La capacidad del sistema es infinita: los clientes pueden esperar en cola si todos los servidores están ocupados.
-\end{itemize}
-
-
-La simulación incluye múltiples parámetros configurables como tasa de llegada ($\lambda$), tasa de servicio ($\mu$), número de servidores ($m$), duración total de la simulación y modo (Erlang B o C).
-
-\subsection{Metodología}
-
-Se utilizó un enfoque incremental en el desarrollo del simulador. En primer lugar, se implementó la lógica básica de eventos, enfocándose en el manejo de llegadas y salidas de clientes. Posteriormente, se incorporó una estructura de cola con atención por orden de llegada (FIFO), la cual permite simular el comportamiento del sistema bajo condiciones de espera. Una vez establecida la estructura de eventos y cola, se añadieron mecanismos para recolectar estadísticas relevantes, tales como el número de clientes perdidos en el caso del modelo Erlang B y la cantidad de clientes en espera para Erlang C.
-
-
-La lógica fue validada mediante pruebas controladas con parámetros pequeños, lo que permitió verificar el correcto funcionamiento del sistema. Finalmente, se realizaron comparaciones entre los resultados empíricos obtenidos a través de la simulación y los valores teóricos calculados con las fórmulas clásicas, con el fin de evaluar la precisión del simulador.
-
-\subsection{Estructura general del sistema}
-
-El sistema se compone de los siguientes módulos:
+Se inicia con un sistema de colas con un único servidor, una cola de tamaño N y tiempos de llegada y servicio modelados mediante distribuciones exponenciales. En esta sección se analizan métricas fundamentales como:
 
 \begin{itemize}
-    \item \textbf{Simulador de eventos discretos:} gestiona la línea de tiempo de eventos y actualiza el estado del sistema.
-    \item \textbf{Manejador de servidores:} controla cuántos servidores están ocupados y libera uno cuando un cliente finaliza su servicio.
-    \item \textbf{Cola de espera:} activa solo en el modo Erlang C para almacenar los clientes que no pueden ser atendidos inmediatamente.
-    \item \textbf{Recolector de estadísticas:} calcula métricas como tiempo promedio en sistema, cantidad de clientes perdidos (B) o en espera (C), y porcentaje de ocupación de servidores.
+    \item \textbf{Utilización del servidor}: Proporción de tiempo que el servidor está ocupado
+    \item \textbf{Longitud promedio de la cola}: Número esperado de clientes esperando en la cola
+    \item \textbf{Tiempo promedio de espera}: Tiempo que un cliente pasa en el sistema antes de ser atendido
 \end{itemize}
 
-\subsection{Métricas y reglas de cálculo}
+Este modelo funciona como base para extender la simulación hacia configuraciones más complejas, permitiendo establecer una arquitectura de simulación y diferentes módulos que se mantienen durante todas las simulaciones.
 
-Las principales métricas que calcula el simulador son:
+\subsubsection{Fase 2: Extensión a M/M/m (Erlang B y C)}
+
+Al modelo base M/M/1 se le incorpora la posibilidad de múltiples servidores ($m$), obteniendo así un sistema M/M/m. Esta extensión incluye dos variantes importantes:
+
+\begin{itemize}
+    \item \textbf{Erlang B}: Sistema sin cola de espera, donde los clientes son rechazados si todos los servidores están ocupados
+    \item \textbf{Erlang C}: Sistema con cola de espera ilimitada
+\end{itemize}
+
+Para el caso del cálculo de la probabilidad de bloqueo (Erlang B), el sistema mantiene los tiempos de llegada y servicio modelados con distribuciones exponenciales, así como la atención de $m$ servidores; pero en este caso no se tiene cola, permitiendo simular los bloqueos.
+
+A las métricas del modelo M/M/1 se añaden las siguientes:
+\begin{itemize}
+    \item Probabilidad de bloqueo (Erlang B)
+    \item Probabilidad de espera (Erlang C)
+\end{itemize}
+
+\subsubsection{Fase 3: Modelo Geo/Geo/m/N (Tiempo Discreto)}
+
+En numerosos sistemas reales, especialmente en redes de comunicaciones y sistemas digitales, el tiempo evoluciona de manera discreta en lugar de continua. Por esta razón, se implementa un modelo Geo/Geo/m/N que opera en slots de tiempo discretos, donde:
+
+\begin{itemize}
+    \item Las llegadas de clientes siguen una distribución geométrica (equivalente discreta de la exponencial)
+    \item Los tiempos de servicio también siguen una distribución geométrica  
+    \item Hay $m$ servidores en paralelo
+    \item El sistema tiene una capacidad máxima de $N$ clientes
+\end{itemize}
+
+En este modelo, cada slot de tiempo representa una unidad temporal discreta durante la cual pueden ocurrir llegadas y salidas de clientes. La probabilidad de llegada en cada slot es $p$, y la probabilidad de que un cliente termine su servicio en cada slot es $s$.
+
+Este enfoque es particularmente útil para modelar sistemas de telecomunicaciones, redes de datos, y otros sistemas donde los eventos ocurren en intervalos de tiempo fijos y discretos.
+
+Cada una de estas fases está diseñada de manera modular, permitiendo la evolución progresiva de la simulación sin afectar el código base. Esto facilitará la implementación y comparación de los distintos modelos, asegurando que la simulación sea flexible y adaptable a diferentes configuraciones.
+
+\subsection{Metodología y Herramientas}
+
+Para el desarrollo de las simulaciones se emplea el lenguaje de programación C++. La selección de herramientas específicas varía según la fase:
+
+\begin{itemize}
+    \item \textbf{Fases 1 y 2 (Modelos continuos)}: Se utiliza la librería \texttt{lcgrand.cpp} para la generación de tiempos de llegada y servicio, basándose en el teorema fundamental de la simulación
+    \item \textbf{Fase 3 (Modelo discreto)}: Se implementa un simulador de tiempo discreto que opera por slots
+\end{itemize}
+
+\subsection{Métricas de Evaluación}
+
+Para la validación de las simulaciones y estudio de los modelos se utilizarán las siguientes métricas de evaluación:
+
+\begin{itemize}
+    \item \textbf{Tiempo promedio de espera en la cola}: $W_q$
+    \item \textbf{Tiempo promedio de espera en el sistema}: $W$
+    \item \textbf{Utilización de los servidores}: $\rho$
+    \item \textbf{Número promedio de clientes en la cola}: $L_q$
+    \item \textbf{Número promedio de clientes en el sistema}: $L$
+    \item \textbf{Probabilidad de Bloqueo (Erlang B)}: $P_b$
+    \item \textbf{Probabilidad de Espera (Erlang C)}: $P_w$
+    \item \textbf{Throughput del sistema}: $\gamma$ (específico para modelo Geo/Geo)
+\end{itemize}
+
+Estas métricas obtenidas a partir de la simulación se comparan con los valores teóricos esperados, para calificar la calidad de las simulaciones, así como para identificar deficiencias en las diferentes implementaciones.
+
+\subsection{Arquitectura del Sistema - Modelo SAO}
+
+Para el desarrollo de las simulaciones de los diferentes sistemas, se sigue el modelo SAO, donde cada simulación se estructura en tres módulos principales:
+
+\subsubsection{Sistema (S)}
+
+El sistema es una entidad que se desea estudiar de forma aislada, representado por el sistema de colas que se está modelando. Dependiendo de la fase, este sistema será:
+
+\begin{itemize}
+    \item \textbf{Fase 1}: Sistema M/M/1 con una cola
+    \item \textbf{Fase 2}: Sistema M/M/m con múltiples servidores  
+    \item \textbf{Fase 3}: Sistema Geo/Geo/m/N con tiempo discreto basado en slots
+\end{itemize}
+
+\subsubsection{Ambiente (A)}
+
+Es el entorno dentro del cual se encuentra inmerso el sistema, representado por las condiciones externas de los sistemas de colas que afectan su comportamiento:
+
+\begin{itemize}
+    \item \textbf{Parámetros de entrada}:
+    \begin{itemize}
+        \item Para M/M/1 y M/M/m: tasas de llegada ($\lambda$) y servicio ($\mu$), número de servidores ($m$)
+        \item Para Geo/Geo/m/N: probabilidad de llegada ($p$), probabilidad de servicio ($s$), número de servidores ($m$), capacidad máxima ($N$)
+    \end{itemize}
+    \item \textbf{Condiciones iniciales}:
+    \begin{itemize}
+        \item Para modelos continuos: tiempo de simulación y número de clientes a procesar
+        \item Para modelo discreto: número de slots de tiempo a simular
+    \end{itemize}
+    \item \textbf{Distribuciones de probabilidad}: Definen el comportamiento de las llegadas y servicios del sistema
+\end{itemize}
+
+\subsubsection{Observatorio (O)}
+
+Este módulo se encarga de medir, cuantificar y observar el desempeño del sistema dentro del ambiente. Es responsable de:
+
+\begin{itemize}
+    \item Recolectar los datos de la simulación en cada fase
+    \item Generar los reportes de resultados
+    \item Comparar los resultados teóricos con los empíricos
+\end{itemize}
+
+\subsection{Implementación de la Arquitectura}
+
+Para implementar la arquitectura SAO, se desarrollan los siguientes módulos:
+
+\subsection{Módulo 1: Inicialización del Sistema}
+\begin{algorithm}[H]
+\caption{Inicialización del Sistema}
+\begin{algorithmic}[1]
+\REQUIRE tipo\_modelo, parámetros
+\STATE \textbf{Inicializar variables según modelo:}
+\IF{tipo\_modelo = "M/M/1"}
+    \STATE $\lambda \gets$ parámetros.tasa\_llegada
+    \STATE $\mu \gets$ parámetros.tasa\_servicio
+    \STATE estado\_servidor $\gets$ LIBRE
+    \STATE num\_en\_cola $\gets$ 0
+\ELSIF{tipo\_modelo = "M/M/m"}
+    \STATE $\lambda \gets$ parámetros.tasa\_llegada
+    \STATE $\mu \gets$ parámetros.tasa\_servicio
+    \STATE $m \gets$ parámetros.num\_servidores
+    \STATE modo $\gets$ parámetros.modo\_erlang \COMMENT{B o C}
+    \STATE capacidad $\gets$ (modo = ERLANG\_B) ? $m$ : parámetros.$N$
+\ELSE
+    \STATE \textbf{Geom/Geom/m/N}
+    \STATE $p \gets$ parámetros.prob\_llegada
+    \STATE $s \gets$ parámetros.prob\_servicio
+    \STATE $m \gets$ parámetros.num\_servidores
+    \STATE $N \gets$ parámetros.capacidad\_maxima
+    \STATE estado\_actual $\gets$ 0
+    \STATE tiempo\_en\_estado[0..N] $\gets$ 0
+\ENDIF
+\STATE tiempo\_simulacion $\gets$ 0
+\STATE InicializarContadoresEstadísticos()
+\STATE ProgramarPrimerEvento()
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Descripción:} Este módulo prepara el sistema según el modelo seleccionado, inicializando las variables de estado y parámetros fundamentales. Configura las condiciones iniciales para la simulación.
+
+\subsection{Módulo 2: Manejo del Tiempo-Espacio}
+
+\begin{algorithm}[H]
+\caption{Manejo del Tiempo Continuo (M/M)}
+\begin{algorithmic}[1]
+\STATE min\_tiempo $\gets \infty$
+\STATE siguiente\_evento $\gets$ NULL
+\FOR{cada evento en lista\_eventos}
+    \IF{evento.tiempo $<$ min\_tiempo}
+        \STATE min\_tiempo $\gets$ evento.tiempo
+        \STATE siguiente\_evento $\gets$ evento
+    \ENDIF
+\ENDFOR
+\STATE tiempo\_simulacion $\gets$ min\_tiempo
+\RETURN siguiente\_evento
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Manejo del Tiempo Discreto (Geom/Geom)}
+\begin{algorithmic}[1]
+\STATE slot\_actual $\gets$ slot\_actual + 1
+\STATE ActualizarEstadísticasTiempoEstado()
+\RETURN slot\_actual
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Descripción:} Estos algoritmos gestionan el avance del tiempo de simulación. La versión continua determina el próximo evento a procesar, mientras que la discreta avanza en unidades de slots.
+
+\subsection{Módulo 3: Procesamiento de Eventos}
+
+\begin{algorithm}[H]
+\caption{Evento de Llegada (M/M/m)}
+\begin{algorithmic}[1]
+\STATE ProgramarSiguienteLlegada(tiempo\_simulacion + Exponencial($\lambda$))
+\IF{servidores\_ocupados $< m$}
+    \STATE servidores\_ocupados $\gets$ servidores\_ocupados + 1
+    \STATE servidor\_asignado $\gets$ AsignarServidorLibre()
+    \STATE ProgramarSalida(servidor\_asignado, tiempo\_simulacion + Exponencial($\mu$))
+\ELSE
+    \IF{modo = ERLANG\_C $\land$ num\_en\_cola $<$ capacidad\_cola}
+        \STATE num\_en\_cola $\gets$ num\_en\_cola + 1
+        \STATE clientes\_que\_esperaron $\gets$ clientes\_que\_esperaron + 1
+    \ELSE
+        \STATE clientes\_bloqueados $\gets$ clientes\_bloqueados + 1
+    \ENDIF
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Procesamiento de Slot (Geom/Geom/m/N)}
+\begin{algorithmic}[1]
+\STATE tiempo\_en\_estado[estado\_actual] $\gets$ tiempo\_en\_estado[estado\_actual] + 1
+\STATE llegadas $\gets$ Bernoulli($p$)
+\STATE salidas $\gets$ Binomial($\min$(estado\_actual, $m$), $s$)
+\STATE estado\_actual $\gets \max$(0, estado\_actual $-$ salidas)
+\IF{llegadas = 1}
+    \IF{estado\_actual $< N$}
+        \STATE estado\_actual $\gets$ estado\_actual + 1
+        \STATE clientes\_llegados $\gets$ clientes\_llegados + 1
+    \ELSE
+        \STATE clientes\_perdidos $\gets$ clientes\_perdidos + 1
+    \ENDIF
+\ENDIF
+\STATE servidores\_ocupados $\gets \min$(estado\_actual, $m$)
+\STATE cola\_actual $\gets \max$(0, estado\_actual $-$ $m$)
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Descripción:} Estos algoritmos procesan los eventos fundamentales de llegada y servicio. El primero maneja llegadas continuas, mientras que el segundo procesa slots discretos completos.
+
+\subsection{Módulo 4: Generación de Variables Aleatorias}
+
+\begin{algorithm}[H]
+\caption{Funciones de Generación Aleatoria}
+\begin{algorithmic}[1]
+    \STATE \textbf{Función} GenerarExponencial(media)
+    \STATE \hspace{1em} u $\gets$ lcgrand(semilla)
+    \STATE \hspace{1em} \textbf{return} $-\text{media} \times \ln(u)$
+
+    \STATE \textbf{Función} GenerarBernoulli(p)
+    \STATE \hspace{1em} u $\gets$ lcgrand(semilla)
+    \STATE \hspace{1em} \textbf{return} (u < p) ? 1 : 0
+
+    \STATE \textbf{Función} GenerarBinomial(n, p)
+    \STATE \hspace{1em} éxitos $\gets$ 0
+    \FOR{i $\gets$ 1 \TO n}
+        \STATE \hspace{2em} éxitos $\gets$ éxitos + GenerarBernoulli(p)
+    \ENDFOR
+    \STATE \hspace{1em} \textbf{return} éxitos
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Descripción:} Este módulo proporciona las funciones esenciales para la generación de variables aleatorias según las distribuciones requeridas por los diferentes modelos.
+
+\subsection{Módulo 5: Generación de Reportes}
+
+\begin{algorithm}[H]
+\caption{Generación de Reportes}
+\begin{algorithmic}[1]
+\IF{tipo\_modelo $\in$ ["M/M/1", "M/M/m"]}
+    \STATE utilización $\gets$ área\_servidores\_ocupados / tiempo\_simulacion
+    \STATE $L \gets$ área\_num\_en\_sistema / tiempo\_simulacion
+    \STATE $W \gets$ total\_esperas / clientes\_atendidos
+    \STATE $\lambda$\_efectiva $\gets$ clientes\_atendidos / tiempo\_simulacion
+    \IF{modo = ERLANG\_B}
+        \STATE $P_b \gets$ clientes\_bloqueados / clientes\_llegados
+    \ELSIF{modo = ERLANG\_C}
+        \STATE $P_w \gets$ clientes\_que\_esperaron / clientes\_llegados
+    \ENDIF
+\ELSE
+    \STATE \textbf{Geo/Geo/m/N}
+    \FOR{$n \gets 0$ \TO $N$}
+        \STATE $P_n \gets$ tiempo\_en\_estado[$n$] / total\_slots
+    \ENDFOR
+    \STATE $P_b \gets$ clientes\_perdidos / clientes\_llegados
+    \STATE $L \gets \sum_{n=0}^N (n \times P_n)$
+    \STATE $Y \gets p \times (1 - P_b)$ \COMMENT{Throughput}
+    \STATE $W \gets L / Y$ \COMMENT{Ley de Little}
+\ENDIF
+\STATE EscribirArchivo("estadisticas.txt", métricas\_simuladas)
+\STATE EscribirArchivo("comparacion\_teorica.txt", comparación)
+\STATE EscribirArchivo("resumen\_resultados.txt", resumen)
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Descripción:} Calcula las métricas de desempeño clave para cada modelo y genera los archivos de salida con los resultados de la simulación.
+
+\subsection{Módulo 6: Ciclo Principal de Simulación}
+
+\begin{algorithm}[H]
+\caption{Simulador Principal (Tiempo Continuo)}
+\begin{algorithmic}[1]
+\STATE Inicialización(tipo\_modelo, parámetros)
+\WHILE{clientes\_procesados $<$ num\_clientes\_requeridos}
+    \STATE evento $\gets$ ManejoTiempoContinuo()
+    \STATE ActualizarEstadísticasPromedio()
+    \IF{evento.tipo = LLEGADA}
+        \STATE EventoLlegada()
+    \ELSE
+        \STATE EventoSalida(evento.servidor)
+    \ENDIF
+\ENDWHILE
+\STATE GenerarReportes()
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}[H]
+\caption{Simulador Principal (Tiempo Discreto)}
+\begin{algorithmic}[1]
+\STATE Inicialización("Geom/Geom/m/N", parámetros)
+\FOR{slot $\gets 1$ \TO num\_slots}
+    \STATE ProcesarSlotGeomGeom()
+\ENDFOR
+\STATE GenerarReportes()
+\end{algorithmic}
+\end{algorithm}
+
+\textbf{Descripción:} Estos algoritmos representan los bucles principales de simulación para los modelos de tiempo continuo y discreto respectivamente, coordinando todos los módulos anteriores.
+
+
+\subsection{Modelos Específicos}
+\subsubsection{Modelo M/M/1}
+
+El modelo M/M/1 es el caso más básico en la teoría de colas y representa un sistema en el que los clientes llegan de forma aleatoria (siguiendo alguna distribución) y son atendidos por un solo servidor. En este modelo, los tiempos entre llegadas siguen una distribución exponencial con tasa $\lambda$, lo que implica que los clientes llegan según un proceso de Poisson. Así mismo, el tiempo de servicio también es exponencial con una tasa $\mu$, lo que indica que los clientes son atendidos con una duración media de $1/\mu$ minutos.
+
+Una característica clave de este sistema es que se tiene una cola de capacidad N, la cual sigue un comportamiento de atención FIFO (First In, First Out), lo que significa que los clientes son atendidos en el orden en que llegan. Como en todas las simulaciones que se tratan aquí, estas son simulaciones de eventos discretos, donde el tiempo avanza en función a estos mismos y no de manera continua. En este caso, los eventos que se manejan son:
+
+\begin{itemize}
+    \item \textbf{Evento de llegada}: Simula la situación en donde un nuevo cliente ingresa al sistema.
+    \item \textbf{Evento de salida}: Simula que un cliente finaliza su servicio y abandona el sistema.
+\end{itemize}
+
+% Insertar Figura MM1FLujo
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/flujos/MM1FLujo.png}
+    \caption{Diagrama de flujo del sistema M/M/1}
+    \label{fig:mm1_flujo}
+\end{figure}
+
+Dado que el sistema no rechaza clientes, la cantidad de usuarios en espera puede crecer indefinidamente si la tasa de llegada es mayor que la tasa de servicio ($\lambda > \mu$). Para que el sistema sea estable, se debe cumplir que $\lambda < \mu$, lo que garantiza que la utilización del servidor ($\rho = \lambda/\mu$) se mantenga por debajo del 100\%.
+
+Las fórmulas clave del modelo son:
+\begin{align}
+\rho &= \frac{\lambda}{\mu} \quad \text{(Utilización)} \\
+L_q &= \frac{\rho^2}{1-\rho} \quad \text{(Clientes en cola)} \\
+W_q &= \frac{\lambda}{\mu(\mu - \lambda)} \quad \text{(Tiempo en cola)} \\
+L &= \frac{\rho}{1-\rho} \quad \text{(Clientes en sistema)}
+\end{align}
+
+\paragraph{Eventos}
+
+\subparagraph{Llegada}
+La llegada de un cliente al sistema M/M/1 se simula generando un tiempo de llegada aleatorio basado en una distribución exponencial con tasa $\lambda$. Si el servidor está libre, el cliente comienza su servicio inmediatamente; si no, se coloca en la cola.
+% Aquí se incluirá la Figura 4. Evento llegada sistema M/M/1
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.6\textwidth]{images/flujos/MM1Llegada.png}
+    \caption{Evento de llegada en el sistema M/M/1}
+    \label{fig:mm1_llegada}
+\end{figure}
+
+
+\subparagraph{Salida}
+Cuando un cliente finaliza su servicio, se genera un evento de salida que libera al servidor. Si hay clientes en la cola, el siguiente cliente comienza su servicio inmediatamente; si no, el servidor queda libre.
+% Aquí se incluirá la Figura 5. Evento salida sistema M/M/1
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{images/flujos/MM1Salida.png}
+    \caption{Evento de salida en el sistema M/M/1}
+    \label{fig:mm1_salida}
+\end{figure}
+
+\subsubsection{Modelo M/M/m}
+
+El modelo M/M/m representa una extensión del sistema de colas M/M/1, en la que hay $m$ servidores en paralelo en lugar de solo uno. Este sistema sigue teniendo llegadas de clientes siguiendo un proceso de Poisson con tasa $\lambda$ y tiempos de servicio exponenciales con tasa $\mu$. Sin embargo, la diferencia clave es que hay múltiples servidores disponibles para atender a los clientes simultáneamente.
+
+% Insertar Figura 5. Flujo M/M/m
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/flujos/ErlangFujo.png}
+    \caption{Diagrama de flujo del sistema M/M/m}
+    \label{fig:mm_m_flujo}
+\end{figure}
+
+En este caso, los eventos que se manejan son:
+
+\begin{itemize}
+    \item \textbf{Evento de llegada}: Simula la situación en donde un nuevo cliente ingresa al sistema.
+% Insertar Figura 5. Evento llegada ErlandLlegada
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/flujos/ErlangLlegada.png}
+    \caption{Evento de llegada en el sistema M/M/m}
+    \label{fig:mm_m_llegada}
+\end{figure}
+
+    \item \textbf{Evento de salida por servidor}: Simula que un cliente finaliza su servicio y abandona uno de los $m$ servidores y posteriormente el sistema.
+
+% Insertar Figura 6. Evento salida ErlandSalida
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/flujos/ErlangSalida.png}
+    \caption{Evento de salida en el sistema M/M/m}
+    \label{fig:mm_m_salida}
+\end{figure}
+\end{itemize}
+
+Las métricas principales adicionales son:
 
 \textbf{Erlang B:} En el simulador, cuando un cliente llega y todos los servidores están ocupados, y si el sistema está configurado en modo Erlang B (sin cola), este cliente se cuenta como \textit{bloqueado}. La probabilidad empírica de bloqueo se estima como:
     \[
@@ -647,13 +1002,95 @@ Las principales métricas que calcula el simulador son:
     \]
 Cada métrica se actualiza de forma acumulativa a lo largo de la simulación usando contadores y variables auxiliares.
 
-\subsection{Condiciones del entorno y parámetros de entrada}
+\subsubsection{Modelo Geo/Geo/m/N}
 
-El sistema permite configurar diferentes parámetros mediante el archivo \texttt{param.txt}. Entre estos parámetros se encuentran: la tasa de llegada $\lambda$, la tasa de servicio $\mu$, la cantidad total de clientes a atender, el modo de simulación que puede ser Erlang B (0) o Erlang C (1), y el número de servidores $m$. Estos valores determinan el comportamiento general de la simulación y permiten ajustar el modelo a diferentes escenarios de análisis.
+El modelo Geo/Geo/m/N representa un sistema de colas de tiempo discreto que es el análogo discreto del sistema M/M/m/N de tiempo continuo. Este modelo se basa en el trabajo presentado en la sección 6.4 "The Geom/Geom/m/N Queueing System" del libro "Computer Networks and Systems: Queueing Theory and Performance Evaluation Third Edition" de Thomas G. Robertazzi.
 
-\subsection{Exportación de resultados}
+\paragraph{Características del Sistema}
 
-Al finalizar la simulación, los datos más relevantes se exportan al archivo \texttt{result.txt}. Entre los resultados registrados se encuentran el porcentaje de pérdida de clientes en el caso de la simulación bajo el modelo Erlang B, el porcentaje de clientes que deben esperar en el caso del modelo Erlang C, y la utilización promedio del sistema, lo cual permite evaluar el rendimiento general de los recursos disponibles.
+El sistema Geo/Geo/m/N se caracteriza por:
+
+\begin{itemize}
+    \item \textbf{Tiempo discreto}: La simulación opera en slots de tiempo fijos
+    \item \textbf{Llegadas geométricas}: En cada slot, llega un cliente con probabilidad $p$ (proceso de Bernoulli)
+    \item \textbf{Servicios geométricos}: En cada slot, cada servidor ocupado completa el servicio con probabilidad $s$
+    \item \textbf{Múltiples servidores}: Hasta $m$ clientes pueden ser atendidos simultáneamente
+    \item \textbf{Capacidad finita}: El sistema puede contener máximo $N$ clientes (incluyendo los en servicio)
+    \item \textbf{Política FIFO}: Los clientes son atendidos en orden de llegada
+    \item \textbf{Bloqueo}: Si el sistema está lleno ($N$ clientes), las nuevas llegadas se pierden
+\end{itemize}
+
+\paragraph{Diferencias con Modelos Continuos}
+
+A diferencia de los modelos M/M/1 y M/M/m de tiempo continuo, el modelo Geo/Geo/m/N presenta las siguientes características distintivas:
+
+\begin{itemize}
+    \item \textbf{Avance por slots}: El tiempo avanza en unidades discretas fijas
+    \item \textbf{Eventos simultáneos}: En un mismo slot pueden ocurrir múltiples llegadas y salidas
+    \item \textbf{Distribuciones discretas}: Las llegadas siguen distribución geométrica (análogo discreto de la exponencial)
+    \item \textbf{Capacidad limitada}: El sistema tiene un número máximo $N$ de clientes
+    \item \textbf{Sin eventos programados}: No se mantiene una lista de eventos futuros
+\end{itemize}
+
+\paragraph{Parámetros del Sistema}
+
+\begin{itemize}
+    \item $N$: Capacidad máxima del sistema (número total de clientes que puede contener)
+    \item $m$: Número de servidores (máximo número de clientes que pueden ser atendidos simultáneamente)
+    \item $p$: Probabilidad de llegada de un cliente en un slot ($0 \leq p \leq 1$)
+    \item $s$: Probabilidad de que un cliente termine su servicio en un slot ($0 \leq s \leq 1$)
+    \item $num\_slots$: Número de slots de tiempo para la simulación
+\end{itemize}
+
+% Insertar Figura 7. Flujo Geo/Geo/m/N
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\textwidth]{images/flujos/GeoFlujo.png}
+    \caption{Diagrama de flujo del sistema Geo/Geo/m/N}
+    \label{fig:geo_geo_flujo}
+\end{figure}
+
+% Insertar Figura 8. Slots Geo/Geo/m/N
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.3\textwidth]{images/flujos/GeoSlot.png}
+    \caption{Slots de tiempo en el sistema Geo/Geo/m/N}
+    \label{fig:geo_geo_slots}
+\end{figure}
+\paragraph{Métricas Específicas}
+
+Para este modelo se calculan métricas específicas:
+
+\begin{itemize}
+    \item \textbf{Distribución de probabilidad}: $\hat{P}_n = \frac{\text{tiempo en estado } n}{\text{num\_slots}}$
+    \item \textbf{Probabilidad de bloqueo}: $\hat{p}_b = \frac{\text{clientes\_perdidos}}{\text{clientes\_llegados}}$
+    \item \textbf{Throughput}: $\gamma = \frac{\text{clientes\_llegados - clientes\_perdidos}}{\text{num\_slots}}$
+    \item \textbf{Utilización}: $U = \frac{\text{slots donde sistema no vacío}}{\text{num\_slots}} \times 100\%$
+\end{itemize}
+
+\paragraph{Algoritmo Teórico de Robertazzi}
+
+El cálculo de las probabilidades teóricas se realiza mediante el algoritmo recursivo descrito por Robertazzi, que se basa en la relación de recurrencia para calcular las probabilidades de estado del sistema Geo/Geo/m/N. El algoritmo es el siguiente:
+
+\begin{algorithm}[H]
+\caption{Algoritmo de Robertazzi para Geo/Geo/m/N}
+\begin{algorithmic}[1]
+\STATE $P_0 \leftarrow \frac{1}{\sum_{k=0}^{m} \frac{(p \cdot m)^k}{k!}}$ \COMMENT{Probabilidad de que el sistema esté vacío}
+\FOR{$n = 1$ TO $N$}
+    \IF{$n < m$}
+        \STATE $P_n \leftarrow P_0 \cdot \frac{(p \cdot m)^n}{n!}$
+    \ELSE
+        \STATE $P_n \leftarrow P_0 \cdot \frac{(p \cdot m)^m}{m!} \cdot \left(\frac{p}{m}\right)^{n-m}$
+    \ENDIF
+\ENDFOR
+\STATE $P_b \leftarrow P_N$ \COMMENT{Probabilidad de bloqueo}
+\STATE $P_w \leftarrow \frac{P_b}{1 - P_b}$ \COMMENT{Probabilidad de espera}
+\end{algorithmic}
+\end{algorithm}
+
+\subsection{Criterios de Validación}
+
+Para validar la correctitud de las simulaciones, se compararán los resultados simulados con los valores teóricos.
 
 
 %---------------------------------------------------------------------------------
@@ -771,7 +1208,7 @@ Los parámetros de simulación se configuran en el archivo \texttt{param.txt} ub
 
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.8\textwidth]{images/manualUsuarioErlangBC_3.png}
+    \includegraphics[width=0.5\textwidth]{images/manualUsuarioErlangBC_3.png}
     \caption{Ejemplo de archivo de parámetros}
     \label{fig:parametros}
 \end{figure}
@@ -807,6 +1244,228 @@ El programa genera un archivo \texttt{result.txt} con:
 \end{figure}
 
 La estructura del archivo incluye primero los parámetros de entrada, como los tiempos promedio de llegada y atención, el número de clientes simulados y la configuración de servidores. Luego, muestra los resultados principales, como la probabilidad de bloqueo, el uso de cada servidor y métricas de desempeño (tiempos de espera y ocupación). Finalmente, indica el tiempo total de simulación y el número de clientes rechazados. Este formato permite analizar rápidamente el comportamiento del sistema y la eficiencia de los recursos.
+
+% Manual de Usuario Geo Geo 
+
+\subsection{Modelo Geo/Geo/m/N}\label{subsec:geogeo}
+
+Este manual proporciona una guía completa para el uso del simulador de sistemas de colas tipo Geom/Geom/m/N. El simulador permite analizar el comportamiento de sistemas con:
+\begin{itemize}
+    \item Llegadas geométricas discretas
+    \item Tiempos de servicio geométricos
+    \item $m$ servidores en paralelo
+    \item Capacidad limitada $N$ (incluyendo clientes en servicio y en cola)
+\end{itemize}
+
+\subsection{Teoría del Sistema de Colas}
+Un sistema de colas Geom/Geom/m/N se caracteriza por:
+\begin{itemize}
+    \item \textbf{Proceso de llegada}: Geométrico con probabilidad $p$ de llegada por slot de tiempo
+    \item \textbf{Proceso de servicio}: Geométrico con probabilidad $s$ de finalización de servicio por slot
+    \item \textbf{Número de servidores}: $m$ servidores trabajando en paralelo
+    \item \textbf{Capacidad del sistema}: Máximo $N$ clientes en el sistema
+    \item \textbf{Disciplina}: FIFO (First In, First Out)
+\end{itemize}
+
+\section{Requisitos del Sistema}
+
+\subsection{Requisitos de Hardware}
+\begin{itemize}
+    \item Procesador: Cualquier procesador x86/x64 moderno
+    \item Memoria RAM: Mínimo 512 MB
+    \item Espacio en disco: 50 MB libres
+\end{itemize}
+
+\subsection{Requisitos de Software}
+\begin{itemize}
+    \item Sistema operativo: Windows, Linux o macOS
+    \item Compilador C++: GCC, Clang o Microsoft Visual C++
+    \item Bibliotecas estándar de C++
+\end{itemize}
+
+\section{Instalación y Compilación}
+
+\subsection{Estructura de Archivos}
+El programa requiere los siguientes archivos:
+\begin{itemize}
+    \item \texttt{simulador.cpp}: Código fuente principal
+    \item \texttt{lcgrand.cpp}: Generador de números aleatorios (ubicado en \texttt{../SimulacionDeColas/})
+    \item \texttt{paramGeo.txt}: Archivo de parámetros de entrada
+\end{itemize}
+
+\subsection{Compilación}
+Para compilar el programa, utilice el siguiente comando:
+
+\begin{lstlisting}[language=bash]
+g++ -o sistemaGeoGeo sistemaGeoGeo.cpp -lm
+\end{lstlisting}
+
+En sistemas Windows con MinGW:
+\begin{lstlisting}[language=bash]
+g++ -o sistemaGeoGeo.exe sistemaGeoGeo.cpp -lm
+\end{lstlisting}
+
+\section{Configuración de Parámetros}
+
+\subsection{Archivo de Parámetros (paramGeo.txt)}
+Antes de ejecutar la simulación, debe crear el archivo \texttt{paramGeo.txt} con los parámetros del sistema:
+
+\begin{lstlisting}
+N m p s num_slots
+\end{lstlisting}
+
+Donde:
+\begin{itemize}
+    \item \texttt{N}: Capacidad máxima del sistema $(1 \leq N \leq 1000)$
+    \item \texttt{m}: Número de servidores $(1 \leq m \leq 10)$
+    \item \texttt{p}: Probabilidad de llegada por slot $(0 < p < 1)$
+    \item \texttt{s}: Probabilidad de finalización de servicio por slot $(0 < s < 1)$
+    \item \texttt{num\_slots}: Número de slots de tiempo a simular
+\end{itemize}
+
+\subsection{Ejemplo de Configuración}
+\begin{lstlisting}
+5 2 0.3 0.4 100000
+\end{lstlisting}
+
+Este ejemplo configura:
+\begin{itemize}
+    \item Capacidad máxima: 5 clientes
+    \item Número de servidores: 2
+    \item Probabilidad de llegada: 30\%
+    \item Probabilidad de servicio: 40\%
+    \item Duración: 100,000 slots
+\end{itemize}
+
+\section{Ejecución del Simulador}
+
+\subsection{Comando de Ejecución}
+Una vez compilado, ejecute el programa con:
+
+\begin{lstlisting}[language=bash]
+./sistemaGeoGeo
+\end{lstlisting}
+
+En Windows:
+\begin{lstlisting}[language=bash]
+sistemaGeoGeo.exe
+\end{lstlisting}
+
+\subsection{Salida en Consola}
+El programa mostrará información durante la ejecución:
+
+\begin{lstlisting}
+Simulador del sistema (Geom/Geom/m):(FIFO/N/+oo)
+Parametros: N=5, m=2, p=0.30, s=0.40
+Numero de slots: 100000
+
+Simulacion completada. Resultados guardados en archivos de texto.
+\end{lstlisting}
+
+\section{Archivos de Resultados}
+
+El simulador genera tres archivos de salida:
+
+\subsection{estadisticas.txt}
+Contiene las probabilidades de estado simuladas:
+\begin{itemize}
+    \item Distribución de probabilidades por estado
+    \item Número total de clientes llegados
+    \item Número de clientes perdidos (bloqueados)
+    \item Probabilidad de bloqueo simulada
+\end{itemize}
+
+\subsection{comparacion\_teorica.txt}
+Compara los resultados simulados con los teóricos:
+\begin{itemize}
+    \item Probabilidades simuladas vs. teóricas por estado
+    \item Diferencias absolutas entre valores
+    \item Comparación de probabilidades de bloqueo
+\end{itemize}
+
+\subsection{resumen\_resultados.txt}
+Presenta un resumen ejecutivo del sistema:
+\begin{itemize}
+    \item Número total de slots simulados
+    \item Porcentaje de utilización del sistema
+    \item Número promedio de clientes en el sistema
+    \item Throughput (clientes atendidos por slot)
+\end{itemize}
+
+\section{Ejemplos de Uso}
+
+\subsection{Ejemplo 1: Sistema Básico}
+
+\textbf{Configuración (paramGeo.txt):}
+\begin{lstlisting}
+3 1 0.25 0.5 50000
+\end{lstlisting}
+
+\textbf{Interpretación:}
+\begin{itemize}
+    \item Sistema con capacidad para 3 clientes
+    \item 1 servidor
+    \item 25\% probabilidad de llegada
+    \item 50\% probabilidad de servicio
+\end{itemize}
+
+\subsection{Ejemplo 2: Sistema Multi-servidor}
+
+\textbf{Configuración (paramGeo.txt):}
+\begin{lstlisting}
+10 3 0.4 0.3 200000
+\end{lstlisting}
+
+\textbf{Interpretación:}
+\begin{itemize}
+    \item Sistema con capacidad para 10 clientes
+    \item 3 servidores en paralelo
+    \item 40\% probabilidad de llegada
+    \item 30\% probabilidad de servicio por servidor
+\end{itemize}
+
+\section{Solución de Problemas}
+
+\subsection{Errores Comunes}
+
+\subsubsection{Error: No se pudo abrir 'paramGeo.txt'}
+\paragraph{Causa:} El archivo de parámetros no existe o no está en el directorio correcto.
+
+\paragraph{Solución:} 
+\begin{enumerate}
+    \item Verifique que el archivo existe
+    \item Confirme que está en el mismo directorio que el ejecutable
+    \item Revise los permisos de lectura del archivo
+\end{enumerate}
+
+\subsubsection{Error: Formato incorrecto en 'paramGeo.txt'}
+\paragraph{Causa:} Los parámetros no están en el formato correcto.
+% Dejar un enter
+\paragraph{Solución:}
+\begin{enumerate}
+    \item Asegúrese de que hay exactamente 5 valores
+    \item Verifique que están separados por espacios
+    \item Confirme que los valores numéricos son válidos
+\end{enumerate}
+
+\subsubsection{Error: No se pudieron crear archivos de salida}
+\paragraph{Causa:} Problemas de permisos de escritura.
+\paragraph{Solución:}
+\begin{enumerate}
+    \item Verifique permisos de escritura en el directorio
+    \item Libere espacio en disco si es necesario
+    \item Ejecute desde un directorio con permisos adecuados
+\end{enumerate}
+
+\subsection{Optimización del Rendimiento}
+
+\subsubsection{Selección del Número de Slots}
+Para obtener resultados precisos:
+\begin{itemize}
+    \item Use al menos 10,000 slots para sistemas simples
+    \item Use 100,000 o más slots para análisis detallados
+    \item Incremente si las diferencias teóricas-simuladas son grandes
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Manual técnico ------------------------------------------------------------------
@@ -936,8 +1595,298 @@ Para modificar o extender el código:
 %---------------------------------------------------------------------------------
 
 
-\section{Experimentación}\label{sec:exp}
+\section{Experimentación y Resultados: Modelo Geo/Geo/m/N}\label{sec:exp}
+El objetivo principal de esta experimentación es validar la implementación del simulador Geo/Geo/m/N mediante el análisis de convergencia hacia los valores teóricos del modelo, variando sistemáticamente el número de slots de tiempo para evaluar cómo afecta la precisión de las estimaciones.
+\subsection{Modelo Geo/Geo/m/N}
 
+La función de densidad teórica presentada en la seccion 6.4 The Geom/Geom/m/N Queing system del libro Computer Networks and Systems: Queueing Theory and Performance Evaluation Third Edition escrito por Thomas G. Robertazzi se define con el procedimiento:
+
+\begin{enumerate}
+    \item Defina $P_N = 1.0$
+    \item Inicialice $a_{i,j}\ 's$
+    \item $i = N-1$
+    \item $	P_i=\frac{1}{a_{i,i+1}}\sum_{n=i+1}^{i+m}\sum_{j=n-m}^{i}{a_{n,j}P_n}$
+    \item $i=i-1$
+    \item Repetir pasos 4 y 5 hasta que $i<0$
+    \item Encontrar $\sum {P_i}$
+    \item Dividir todos los $P_i\ 's$ resultantes de los pasos 1 y 4 sobre la suma del paso 7
+\end{enumerate}
+
+Tambien para el algoritmo anterior se define $a_{n,n-l}$:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc1.png}
+    \caption{$a_{n,n-l}$ caso en que un cliente no puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure} [H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc2.png}
+    \caption{$a_{N,N}$ caso en que un cliente no puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+Para el caso en que un cliente puede llegar y ser atendido en el mismo slot de tiempo, para el caso contrario se tienen algunas variaciones de $a_{n,n-l}$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc3.png}
+    \caption{$a_{n,n-l}$ caso en que un cliente puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc4.png}
+    \caption{$a_{N,N}$ caso en que un cliente puede llegar y ser atendido en el mismo slot de tiempo}
+    \label{fig:enter-label}
+\end{figure}
+
+Teniendo esto en cuenta se programa en Py cada paso de la siguiente forma:
+
+Paso 1: Se define $P_N$ y el arreglo P:
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc5.png}
+    \caption{Paso 1}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 2: No se inicializan las $a_{i,j}\ ´s$ si no las funciones que permiten obtenerlas, acá se llama la función de combinación combEq0() que devuelve 0 para combinaciones invalidas.
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc6.png}
+    \caption{Paso 2}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 3,4,5,6: Se inicializa $i$, i se itera decreciendo i para obetener los $P_i \ 's$ hasta que $i<0$
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.75\linewidth]{images/imageGeoGeoMCalc7.png}
+    \caption{Pasos 3, 4, 5 y 6}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 7: Se calcula la sumatoria de los $P_i$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc8.png}
+    \caption{Paso 7}
+    \label{fig:enter-label}
+\end{figure}
+
+Paso 8: Se normalizan los $P_i$
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.5\linewidth]{images/imageGeoGeoMCalc9.png}
+    \caption{Paso 8}
+    \label{fig:enter-label}
+\end{figure}
+
+\subsubsection{Diseño Experimental}
+
+\paragraph{Parámetros del Sistema:}
+
+Para esta experimentación se utilizaron parámetros específicos que representan un sistema moderadamente cargado:
+\begin{itemize}
+    \item $N=5$: Capacidad máxima del sistema
+    \item $m=5$: Número de servidores
+    \item $p=0.30$: Probabilidad de llegada por slot
+    \item $s=0.40$: Probabilidad de completar servicio por slot
+\end{itemize}
+
+\paragraph{Escenarios Experimentales}
+Se diseñaron tres escenarios para analizar el efecto del tamaño muestral en la convergencia:
+\begin{enumerate}
+    \item \textbf{Escenario 1}: Simulación Corta - 100,000 slots
+    \item \textbf{Escenario 2}: Simulación Media - 500,000 slots
+    \item \textbf{Escenario 3}: Simulación Larga - 2,000,000 slots
+\end{enumerate}
+
+\paragraph{Metodología Estadística}
+Cada escenario se ejecutó con 30 réplicas independientes para:
+\begin{itemize}
+    \item Obtener intervalos de confianza del 95\%
+    \item Calcular medias y desviaciones estándar robustas
+    \item Evaluar la variabilidad entre ejecuciones
+    \item Aplicar el teorema del límite central
+\end{itemize}
+
+\paragraph{Métricas de Evaluación}
+Se evaluaron las siguientes métricas de desempeño:
+\begin{itemize}
+    \item \textbf{Función de densidad}: $\hat{P}_n$ para $n = 0, 1, 2, 3, 4, 5$
+    \item \textbf{Probabilidad de bloqueo}: $\hat{p}_b$
+    \item \textbf{Métricas operacionales}: Utilización, número promedio de clientes, throughput
+    \item \textbf{Métricas de convergencia}: Error relativo, coeficiente de variación, error estándar
+\end{itemize}
+
+\subsubsection{Resultados Experimentales}
+
+\paragraph{Escenario 1: Simulación Corta (100,000 slots)}
+
+\textbf{Función de Densidad de Estados:}
+\begin{table}[H]
+    \centering
+    \caption{Resultados Escenario 1 - Función de densidad de estados}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Estado} & \textbf{P\_simulada} & \textbf{Desv\_Std} & \textbf{P\_teórica} & \textbf{Error\_Abs} & \textbf{Error\_Rel(\%)} \\
+        \hline
+        0 & 0.433036 & 0.002572 & 0.433954 & 0.000919 & 0.21 \\
+        1 & 0.407581 & 0.001741 & 0.407088 & 0.000493 & 0.12 \\
+        2 & 0.135981 & 0.001744 & 0.135865 & 0.000116 & 0.09 \\
+        3 & 0.021515 & 0.000598 & 0.021273 & 0.000242 & 1.14 \\
+        4 & 0.001791 & 0.000148 & 0.001739 & 0.000051 & 2.94 \\
+        5 & 0.000096 & 0.000029 & 0.000080 & 0.000016 & 19.87 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Análisis del Escenario 1:}
+Los estados más probables (0, 1, 2) muestran una excelente aproximación con errores relativos inferiores al 0.25\%. Sin embargo, el estado menos probable (estado 5) presenta un error relativo del 19.87\% , evidenciando las limitaciones del tamaño muestral para eventos raros.
+
+\textbf{Probabilidad de Bloqueo:}
+\begin{align}
+    \hat{p}_b &= 0.00001112 \pm 0.00002026 \\
+    p_b &= 0.00000623 \\
+    \text{Error relativo} &= 78.57\%
+\end{align}
+El intervalo de confianza del 95\% es [0.00000355, 0.00001869], el cual contiene el valor teórico. El alto coeficiente de variación (1.8223) indica una variabilidad considerable entre réplicas.
+
+\paragraph{Escenario 2: Simulación Media (500,000 slots)}
+
+\textbf{Función de Densidad de Estados:}
+\begin{table}[H]
+    \centering
+    \caption{Resultados Escenario 2 - Función de densidad de estados}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Estado} & \textbf{P\_simulada} & \textbf{Desv\_Std} & \textbf{P\_teórica} & \textbf{Error\_Abs} & \textbf{Error\_Rel(\%)} \\
+        \hline
+        0 & 0.433181 & 0.000723 & 0.433954 & 0.000773 & 0.18 \\
+        1 & 0.407519 & 0.000594 & 0.407088 & 0.000431 & 0.11 \\
+        2 & 0.135997 & 0.000612 & 0.135865 & 0.000131 & 0.10 \\
+        3 & 0.021425 & 0.000199 & 0.021273 & 0.000152 & 0.71 \\
+        4 & 0.001781 & 0.000032 & 0.001739 & 0.000042 & 2.39 \\
+        5 & 0.000097 & 0.000006 & 0.000080 & 0.000017 & 21.37 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Análisis del Escenario 2:}
+Se observa una reducción significativa en las desviaciones estándar (factor de 3-4) para todos los estados, confirmando el efecto estabilizador del aumento del tamaño muestral. Los errores relativos se mantienen consistentemente bajos para los estados principales.
+
+\textbf{Probabilidad de Bloqueo:}
+\begin{align}
+    \hat{p}_b &= 0.00000998 \pm 0.00000969 \\
+    \text{Error relativo} &= 60.25\%
+\end{align}
+El coeficiente de variación se reduce a 0.9706, representando una mejora del 47\% respecto al escenario anterior. Sin embargo, el valor teórico queda fuera del intervalo de confianza [0.00000636, 0.00001360].
+
+\paragraph{Escenario 3: Simulación Larga (2,000,000 slots)}
+
+\textbf{Función de Densidad de Estados:}
+\begin{table}[H]
+    \centering
+    \caption{Resultados Escenario 3 - Función de densidad de estados}
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        \textbf{Estado} & \textbf{P\_simulada} & \textbf{Desv\_Std} & \textbf{P\_teórica} & \textbf{Error\_Abs} & \textbf{Error\_Rel(\%)} \\
+        \hline
+        0 & 0.433100 & 0.000239 & 0.433954 & 0.000854 & 0.20 \\
+        1 & 0.406955 & 0.000252 & 0.407088 & 0.000133 & 0.03 \\
+        2 & 0.136554 & 0.000127 & 0.135865 & 0.000689 & 0.51 \\
+        3 & 0.021528 & 0.000075 & 0.021273 & 0.000255 & 1.20 \\
+        4 & 0.001778 & 0.000010 & 0.001739 & 0.000039 & 2.24 \\
+        5 & 0.000085 & 0.000006 & 0.000080 & 0.000005 & 6.49 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\textbf{Análisis del Escenario 3:}
+Este escenario produce los resultados más precisos, con una mejora dramática en la estimación del estado 5 (error relativo reducido de 21.37\% a 6.49\%). Todas las desviaciones estándar alcanzan sus valores mínimos.
+
+\textbf{Probabilidad de Bloqueo:}
+\begin{align}
+    \hat{p}_b &= 0.00000627 \pm 0.00000320 \\
+    p_b &= 0.00000623 \\
+    \text{Error relativo} &= 0.64\%
+\end{align}
+Se logra una convergencia prácticamente perfecta, con el valor teórico dentro del intervalo de confianza [0.00000507, 0.00000746] y un error relativo inferior al 1\%.
+
+\subsubsection{Análisis de Convergencia}
+La progresión de las métricas de convergencia demuestra el comportamiento esperado según la Ley de los Grandes Números:
+\begin{table}[H]
+    \centering
+    \caption{Evolución de métricas de convergencia para la probabilidad de bloqueo}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Métrica} & \textbf{100K slots} & \textbf{500K slots} & \textbf{2M slots} \\
+        \hline
+        Error relativo (\%) & 78.57 & 60.25 & 0.64 \\
+        Coeficiente de variación & 1.8223 & 0.9706 & 0.5105 \\
+        Error estándar & $3.70 \times 10^{-6}$ & $1.77 \times 10^{-6}$ & $5.8 \times 10^{-7}$ \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\subsubsection{Métricas Operacionales del Sistema}
+Las métricas operacionales se mantuvieron notablemente estables a través de todos los escenarios:
+\begin{table}[H]
+    \centering
+    \caption{Métricas operacionales del sistema por escenario}
+    \begin{tabular}{|l|c|c|c|}
+        \hline
+        \textbf{Métrica} & \textbf{100K slots} & \textbf{500K slots} & \textbf{2M slots} \\
+        \hline
+        Utilización (\%) & 56.70 & 56.68 & 56.69 \\
+        Número promedio de clientes & 0.7517 & 0.7514 & 0.7522 \\
+        Throughput (clientes/slot) & 0.300352 & 0.300452 & 0.300449 \\
+        \hline
+    \end{tabular}
+\end{table}
+Esta consistencia valida la correcta implementación del simulador y confirma que las variaciones observadas en las probabilidades de estado se deben únicamente a la variabilidad estadística.
+
+\subsubsection{Discusión de Resultados}
+
+\paragraph{Validación del Modelo Teórico}
+La convergencia sistemática hacia los valores teóricos del algoritmo de Robertazzi confirma:
+\begin{itemize}
+    \item La correcta implementación del simulador Geo/Geo/m/N
+    \item La validez del modelo teórico para estos parámetros
+    \item La aplicabilidad práctica del método para sistemas discretos
+\end{itemize}
+
+\paragraph{Implicaciones para Eventos Raros}
+La probabilidad de bloqueo ($p_b \approx 6.23 \times 10^{-6}$) representa un desafío típico en simulación de eventos raros:
+\begin{itemize}
+    \item Requiere simulaciones extensas para obtener estimaciones precisas
+    \item La variabilidad decrece proporcionalmente a $\sqrt{n}$ donde $n$ es el número de slots
+    \item Para errores relativos < 5\%, se necesitan al menos 2 millones de slots
+\end{itemize}
+
+\paragraph{Eficiencia Computacional vs. Precisión}
+Los resultados sugieren un trade-off óptimo:
+\begin{itemize}
+    \item \textbf{100K slots}: Adecuado para análisis preliminares (tiempo: segundos)
+    \item \textbf{500K slots}: Equilibrio entre precisión y tiempo computacional (tiempo: minutos)
+    \item \textbf{2M slots}: Máxima precisión para análisis definitivos (tiempo: decenas de minutos)
+\end{itemize}
+
+\subsubsection{Conclusiones de la Experimentación}
+\begin{enumerate}
+    \item \textbf{Convergencia verificada}: El simulador converge consistentemente hacia los valores teóricos, validando tanto la implementación como el modelo de Robertazzi.
+    \item \textbf{Escalabilidad del error}: Los eventos raros requieren tamaños muestrales significativamente mayores, siguiendo el comportamiento teórico esperado.
+    \item \textbf{Robustez estadística}: Las 30 réplicas independientes proporcionan intervalos de confianza confiables y permiten evaluar la variabilidad entre ejecuciones.
+    \item \textbf{Aplicabilidad práctica}: Los resultados demuestran que el modelo Geo/Geo/m/N es una herramienta válida para el análisis de sistemas de colas discretos en aplicaciones reales.
+    \item \textbf{Recomendación metodológica}: Para sistemas con probabilidades de bloqueo del orden de $10^{-6}$, se recomienda un mínimo de 2 millones de slots para obtener estimaciones con error relativo inferior al 1\%.
+\end{enumerate}
+
+Esta experimentación establece una base sólida para la aplicación del simulador en estudios más complejos y valida la metodología propuesta para el análisis de sistemas de colas discretos.
 
 
 %---------------------------------------------------------------------------------
