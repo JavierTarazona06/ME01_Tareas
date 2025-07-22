@@ -1,0 +1,115 @@
+=== ESCENARIO: GRUPO DE AMIGOS EN NUEVA YORK ===
+
+--- Información Inicial ---
+no hay candidato condorcet
+
+Preferencias individuales:
+Ana: MoMA, Broadway, Times Square, Distrito Financiero, Central Park
+Bruno: Central Park, Times Square, Distrito Financiero, MoMA, Broadway
+Carlos: Times Square, Broadway, Central Park, MoMA, Distrito Financiero
+Diana: Distrito Financiero, MoMA, Central Park, Broadway, Times Square
+Elena: Broadway, Times Square, Central Park, MoMA, Distrito Financiero
+
+--- Votación por Pluralidad ---
+Resultado: MoMA con 1 votos
+
+--- Votación por Método Borda ---
+Resultado: Times Square con puntuación Borda 17
+
+--- Votación por Aprobación ---
+Resultado: Times Square con 4 aprobaciones
+
+--- Votación por RunOff Instantáneo ---
+Resultado: MoMA con historial {1: {'MoMA': 1, 'Central Park': 1, 'Times Square': 1, 'Distrito Financiero': 1, 'Broadway': 1}, 2: {'MoMA': 1, 'Central Park': 1, 'Broadway': 2, 'Distrito Financiero': 1}, 3: {'MoMA': 2, 'Central Park': 1, 'Broadway': 2}, 4: {'MoMA': 3, 'Broadway': 2}}
+
+=== NEGOCIACIÓN ENTRE ANA Y BRUNO ===
+
+--- Negociación entre Turistas ---
+no hay candidato condorcet
+
+Matriz de Utilidades Cruzadas
+Bruno ↓ || Ana →    MoMA           Broadway       Times Square   Distrito FinancieroCentral Park   
+-----------------------------------------------------------------------------------------------
+Central Park        (5, 5)         (5, 4)         (5, 3)         (5, 2)         (5, 1)         
+Times Square        (4, 5)         (4, 4)         (4, 3)         (4, 2)         (4, 1)         
+Distrito Financiero (3, 5)         (3, 4)         (3, 3)         (3, 2)         (3, 1)         
+MoMA                (2, 5)         (2, 4)         (2, 3)         (2, 2)         (2, 1)         
+Broadway            (1, 5)         (1, 4)         (1, 3)         (1, 2)         (1, 1)         
+
+Preferencias de la pareja:
+Ana: MoMA, Broadway, Times Square, Distrito Financiero, Central Park
+Bruno: Central Park, Times Square, Distrito Financiero, MoMA, Broadway
+
+-- Negociación Alternada Trivial --
+Resultado: MoMA con puntuación {'Ana': 5, 'Bruno': 2}
+
+-- Negociación Alternada Normal --
+Ronda 0: Ana propuso MoMA
+Bruno rechazó (utilidad 2 < 0)
+Ronda 1: Bruno propuso Central Park
+Ana rechazó (utilidad 1 < 0)
+Ronda 2: Ana propuso Broadway
+Bruno rechazó (utilidad 1 < 0)
+Resultado: Times Square con puntuación {'Bruno': 4, 'Ana': 3}
+
+-- Negociación Alternada Impaciente --
+Ronda 0: Ana propuso MoMA
+Bruno rechazó (utilidad 2 < 0)
+Ronda 1: Bruno propuso Central Park
+Ana rechazó (utilidad 1 < 0)
+Ronda 2: Ana propuso Broadway
+Bruno rechazó (utilidad 1 < 0)
+Resultado: Times Square con puntuación {'Bruno': 4, 'Ana': 3}
+
+=== NEGOCIACIÓN ENTRE CARLOS Y DIANA ===
+
+--- Negociación entre Turistas ---
+no hay candidato condorcet
+
+Matriz de Utilidades Cruzadas
+Diana ↓ || Carlos → Times Square   Broadway       Central Park   MoMA           Distrito Financiero
+-----------------------------------------------------------------------------------------------
+Distrito Financiero (5, 5)         (5, 4)         (5, 3)         (5, 2)         (5, 1)         
+MoMA                (4, 5)         (4, 4)         (4, 3)         (4, 2)         (4, 1)         
+Central Park        (3, 5)         (3, 4)         (3, 3)         (3, 2)         (3, 1)         
+Broadway            (2, 5)         (2, 4)         (2, 3)         (2, 2)         (2, 1)         
+Times Square        (1, 5)         (1, 4)         (1, 3)         (1, 2)         (1, 1)         
+
+Preferencias de la pareja:
+Carlos: Times Square, Broadway, Central Park, MoMA, Distrito Financiero
+Diana: Distrito Financiero, MoMA, Central Park, Broadway, Times Square
+
+-- Negociación Alternada Trivial --
+Resultado: Times Square con puntuación {'Carlos': 5, 'Diana': 1}
+
+-- Negociación Alternada Normal --
+Ronda 0: Carlos propuso Times Square
+Diana rechazó (utilidad 1 < 0)
+Ronda 1: Diana propuso Distrito Financiero
+Carlos rechazó (utilidad 1 < 0)
+Ronda 2: Carlos propuso Broadway
+Diana rechazó (utilidad 2 < 0)
+Ronda 3: Diana propuso MoMA
+Carlos rechazó (utilidad 2 < 0)
+Resultado: Central Park con puntuación {'Carlos': 3, 'Diana': 3}
+
+-- Negociación Alternada Impaciente --
+Ronda 0: Carlos propuso Times Square
+Diana rechazó (utilidad 1 < 0)
+Ronda 1: Diana propuso Distrito Financiero
+Carlos rechazó (utilidad 1 < 0)
+Ronda 2: Carlos propuso Broadway
+Diana rechazó (utilidad 2 < 0)
+Resultado: MoMA con puntuación {'Diana': 4, 'Carlos': 2}
+
+=== ANÁLISIS FINAL ===
+
+=== ANÁLISIS DE RESULTADOS ===
+Método pluralidad: Actividad elegida = MoMA, Utilidad total = 15
+Método borda: Actividad elegida = Times Square, Utilidad total = 17
+Método aprobacion: Actividad elegida = Times Square, Utilidad total = 17
+Método runoff: Actividad elegida = MoMA, Utilidad total = 15
+
+El método que maximiza la utilidad total es: borda con 17 puntos de utilidad
+
+Simulación completada.

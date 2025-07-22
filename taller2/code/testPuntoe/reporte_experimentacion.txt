@@ -1,0 +1,115 @@
+=== REPORTE DE EXPERIMENTACION SISTEMA GEOM/GEOM/M/N ===
+OBJETIVO: Analizar convergencia variando número de slots
+PARAMETROS LEIDOS: N=5, m=5, p=0.30, s=0.40
+EJECUCIONES POR ESCENARIO: 30
+Fecha: Jul 21 2025
+Hora: 20:59:06
+
+========================================
+Escenario 1: Simulación Corta (100K slots)
+========================================
+Parámetros: N=5, m=5, p=0.30, s=0.40
+Slots por ejecución: 100000
+Número de ejecuciones: 30
+
+I. FUNCIÓN DE DENSIDAD DE ESTADOS
+Estado	P_simulada	Desv_Std	P_teorica	Error_Abs	Error_Rel(%)
+------	----------	--------	---------	---------	----------
+0	0.433036	0.002572	0.433954	0.000919	0.21
+1	0.407581	0.001741	0.407088	0.000493	0.12
+2	0.135981	0.001744	0.135865	0.000116	0.09
+3	0.021515	0.000598	0.021273	0.000242	1.14
+4	0.001791	0.000148	0.001739	0.000051	2.94
+5	0.000096	0.000029	0.000080	0.000016	19.87
+
+II. PROBABILIDAD DE BLOQUEO
+P_b simulada:     0.00001112 ± 0.00002026
+P_b teórica:      0.00000623
+Error absoluto:   0.00000489
+Error relativo:   78.57%
+
+III. MÉTRICAS ADICIONALES DEL SISTEMA
+Utilización:                 0.5670 (56.7%)
+Número promedio de clientes: 0.7517
+Throughput:                  0.300352 clientes/slot
+
+IV. INTERVALO DE CONFIANZA P_b (95%)
+[0.00000355, 0.00001869]
+¿Teórico dentro del IC? SÍ
+
+V. ANÁLISIS DE CONVERGENCIA (100000 slots)
+Coeficiente de variación P_b: 1.8223
+Error estándar P_b:          0.00000370
+
+========================================
+Escenario 2: Simulación Media (500K slots)
+========================================
+Parámetros: N=5, m=5, p=0.30, s=0.40
+Slots por ejecución: 500000
+Número de ejecuciones: 30
+
+I. FUNCIÓN DE DENSIDAD DE ESTADOS
+Estado	P_simulada	Desv_Std	P_teorica	Error_Abs	Error_Rel(%)
+------	----------	--------	---------	---------	----------
+0	0.433181	0.000723	0.433954	0.000773	0.18
+1	0.407519	0.000594	0.407088	0.000431	0.11
+2	0.135997	0.000612	0.135865	0.000131	0.10
+3	0.021425	0.000199	0.021273	0.000152	0.71
+4	0.001781	0.000032	0.001739	0.000042	2.39
+5	0.000097	0.000006	0.000080	0.000017	21.37
+
+II. PROBABILIDAD DE BLOQUEO
+P_b simulada:     0.00000998 ± 0.00000969
+P_b teórica:      0.00000623
+Error absoluto:   0.00000375
+Error relativo:   60.25%
+
+III. MÉTRICAS ADICIONALES DEL SISTEMA
+Utilización:                 0.5668 (56.7%)
+Número promedio de clientes: 0.7514
+Throughput:                  0.300452 clientes/slot
+
+IV. INTERVALO DE CONFIANZA P_b (95%)
+[0.00000636, 0.00001360]
+¿Teórico dentro del IC? NO
+
+V. ANÁLISIS DE CONVERGENCIA (500000 slots)
+Coeficiente de variación P_b: 0.9706
+Error estándar P_b:          0.00000177
+
+========================================
+Escenario 3: Simulación Larga (2M slots)
+========================================
+Parámetros: N=5, m=5, p=0.30, s=0.40
+Slots por ejecución: 2000000
+Número de ejecuciones: 30
+
+I. FUNCIÓN DE DENSIDAD DE ESTADOS
+Estado	P_simulada	Desv_Std	P_teorica	Error_Abs	Error_Rel(%)
+------	----------	--------	---------	---------	----------
+0	0.433100	0.000239	0.433954	0.000854	0.20
+1	0.406955	0.000252	0.407088	0.000133	0.03
+2	0.136554	0.000127	0.135865	0.000689	0.51
+3	0.021528	0.000075	0.021273	0.000255	1.20
+4	0.001778	0.000010	0.001739	0.000039	2.24
+5	0.000085	0.000006	0.000080	0.000005	6.49
+
+II. PROBABILIDAD DE BLOQUEO
+P_b simulada:     0.00000627 ± 0.00000320
+P_b teórica:      0.00000623
+Error absoluto:   0.00000004
+Error relativo:   0.64%
+
+III. MÉTRICAS ADICIONALES DEL SISTEMA
+Utilización:                 0.5669 (56.7%)
+Número promedio de clientes: 0.7522
+Throughput:                  0.300449 clientes/slot
+
+IV. INTERVALO DE CONFIANZA P_b (95%)
+[0.00000507, 0.00000746]
+¿Teórico dentro del IC? SÍ
+
+V. ANÁLISIS DE CONVERGENCIA (2000000 slots)
+Coeficiente de variación P_b: 0.5105
+Error estándar P_b:          0.00000058
+
