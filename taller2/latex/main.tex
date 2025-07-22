@@ -51,7 +51,7 @@
     \vspace{3cm}
 
     % Detalles del laboratorio y actividad
-    {\large \textbf{Taller 1} \par}
+    {\large \textbf{Taller 2} \par}
     \vspace{3cm}
 
     % Lista de integrantes
@@ -69,7 +69,7 @@
     \par\vspace{3cm}
 
     % Fecha
-    {\large Julio 13 de 2025 \par}
+    {\large Julio 21 de 2025 \par}
 \end{titlepage}
 
 \tableofcontents % Inserta la tabla de contenidos
@@ -1099,7 +1099,7 @@ Para validar la correctitud de las simulaciones, se compararán los resultados s
 
 \section{Código Fuente}\label{sec:cod}
 
-El código fuente completo se encuentra adjunto como Taller1.zip
+El código fuente completo se encuentra adjunto como Taller2.zip
 o en el siguiente repositorio de GitHub:
 
 \begin{center}
@@ -1331,7 +1331,9 @@ Finalmente siga los pasos para configurar el usuario y ejecute cualquier comando
 \end{enumerate}
 
 \subsubsection{Configuración de parámetros}
-Los parámetros de simulación se configuran en el archivo \texttt{param.txt} ubicado en \texttt{taller2/code/SimulacionDeColasErlang}. Los parámetros son:
+Los parámetros de simulación se configuran en el archivo 
+\texttt{param.txt} ubicado en \texttt{taller2/code/}
+\texttt{SimulacionDeColasErlang}. Los parámetros son:
 
 \begin{itemize}
     \item \texttt{media\_entre\_llegadas}: Tiempo medio entre llegadas (float)
@@ -2261,19 +2263,210 @@ Los resultados sugieren un trade-off óptimo:
 
 Esta experimentación establece una base sólida para la aplicación del simulador en estudios más complejos y valida la metodología propuesta para el análisis de sistemas de colas discretos.
 
+\subsection{Pruebas Erlang}\label{subsec:pruebas_erlang}
 
-%---------------------------------------------------------------------------------
-% Conclusiones ---------------------------------------------------------
-%---------------------------------------------------------------------------------
+\subsubsection{Erlang B, probabilidad de bloqueo}\label{subsec:erlang_b_prob_bloq}
 
-\section{Conclusiones}\label{sec:concl}
+Para validar el simulador, se realizó un experimento con los siguientes parámetros:
 
+\begin{itemize}
+    \item Media entre llegadas ($\lambda$): 5 minutos
+    \item Media de atención ($\mu$): 6 minutos
+    \item Número de clientes a simular: 100
+    \item Modo: 0 (Erlang B, sin cola)
+    \item Número de servidores ($m$): 2
+\end{itemize}
 
-%---------------------------------------------------------------------------------
-% Recomendaciones ---------------------------------------------------------
-%---------------------------------------------------------------------------------
+\textbf{Cálculo teórico:}
 
-\section{Recomendaciones}\label{secrecomen}
+La fórmula de Erlang B para la probabilidad de bloqueo $p_m$ es:
+\begin{equation*}
+p_m = \frac{\frac{1}{m!}\left(\frac{\lambda}{\mu}\right)^m}{1 + \sum_{n=1}^{m} \frac{1}{n!}\left(\frac{\lambda}{\mu}\right)^n}
+\end{equation*}
+donde:
+\begin{itemize}
+    \item $\lambda$ es la tasa de llegadas
+    \item $\mu$ es la tasa de servicio
+    \item $m$ es el número de servidores
+\end{itemize}
+
+Para este caso:
+\begin{align*}
+    \lambda &= 1/5 \text{ clientes/minuto} \\
+    \mu &= 1/6 \text{ clientes/minuto} \\
+    A &= \frac{1/5}{1/6} = 1.2 \\
+    m &= 2
+\end{align*}
+
+\begin{align*}
+p_m &= \frac{\frac{1}{2!}\left(\frac{1/5}{1/6}\right)^2}{1 + \frac{1}{1!}\left(\frac{1/5}{1/6}\right)^1 + \frac{1}{2!}\left(\frac{1/5}{1/6}\right)^2} \\
+    &= \frac{\frac{1}{2}\cdot(1.2)^2}{1 + 1.2 + \frac{1}{2}\cdot(1.2)^2} \\
+    &= \frac{0.72}{2.92} \approx 0.2466
+\end{align*}
+
+\textbf{Resultados simulados:}
+
+\begin{verbatim}
+Sistema de Colas Simple
+
+Tiempo promedio de llegada      5.000 minutos
+Tiempo promedio de atencion           6.000 minutos
+Numero de clientes           100
+Modo de simulación:              Erlang B (sin cola)
+Número de servidores (m):        2
+Espera promedio en la cola      0.000 minutos
+Numero promedio en cola     0.000
+Uso de Servidores
+Uso del servidor 1 :           0.021
+Uso del servidor 2 :           0.544
+Tiempo de terminacion de la simulacion     982.220 minutos>>> Modo Erlang B (sin cola)
+Clientes bloqueados (rechazados):           105
+Probabilidad de bloqueo estimada (P_b):          0.5426
+\end{verbatim}
+
+\textbf{Análisis:}
+
+El valor simulado de la probabilidad de bloqueo ($P_b = 0.5426$) es considerablemente mayor que el valor teórico ($\approx 0.2466$). Esto es esperable cuando el número de clientes simulados es bajo (100), ya que la variabilidad estadística es mucho mayor y los resultados pueden alejarse del valor teórico. Para obtener una mejor aproximación al valor teórico, se recomienda aumentar el número de clientes simulados (por ejemplo, a 10,000 o más).
+
+\subsubsection{Erlang C, probabilidad de espera}\label{subsec:erlang_c_prob_espe}
+
+Para validar el simulador bajo el modelo Erlang C (con cola), se realizó un experimento con los siguientes parámetros:
+
+\begin{itemize}
+    \item Media entre llegadas ($\lambda$): 5 minutos
+    \item Media de atención ($\mu$): 6 minutos
+    \item Número de clientes a simular: 100
+    \item Modo: 1 (Erlang C, con cola)
+    \item Número de servidores ($m$): 2
+\end{itemize}
+
+\textbf{Cálculo teórico:}
+
+La fórmula de Erlang C para la probabilidad de que un cliente tenga que esperar (haya cola) es:
+\begin{equation*}
+p(\text{cola}) = \frac{\frac{1}{m!}\left(\frac{\lambda}{\mu}\right)^m \left( \frac{1}{1-\rho} \right)}{1 + \sum_{n=1}^{m-1} \frac{1}{n!}\left(\frac{\lambda}{\mu}\right)^n + \frac{1}{m!}\left(\frac{\lambda}{\mu}\right)^m \left( \frac{1}{1-\rho} \right)}
+\end{equation*}
+donde:
+\begin{itemize}
+    \item $\lambda$ es la tasa de llegadas
+    \item $\mu$ es la tasa de servicio
+    \item $m$ es el número de servidores
+    \item $\rho = \frac{\lambda}{m\mu}$ es la utilización del sistema
+\end{itemize}
+
+Para este caso:
+\begin{align*}
+    \lambda &= 1/5 \text{ clientes/minuto} \\
+    \mu &= 1/6 \text{ clientes/minuto} \\
+    m &= 2 \\
+    \rho &= \frac{1/5}{2 \times 1/6} = \frac{1/5}{1/3} = 0.6
+\end{align*}
+
+\begin{align*}
+p(\text{cola}) &= \frac{\frac{1}{2!}\left(1.2\right)^2 \left( \frac{1}{1-0.6} \right)}{1 + \frac{1}{1!}(1.2)^1 + \frac{1}{2!}(1.2)^2 \left( \frac{1}{1-0.6} \right)} \\
+    &= \frac{0.72 \times 2.5}{1 + 1.2 + 0.72 \times 2.5} \\
+    &= \frac{1.8}{4.0} = 0.45
+\end{align*}
+
+\textbf{Resultados simulados:}
+
+\begin{verbatim}
+Sistema de Colas Simple
+
+Tiempo promedio de llegada      5.000 minutos
+Tiempo promedio de atencion           6.000 minutos
+Numero de clientes           100
+Modo de simulación:              Erlang C (con cola)
+Número de servidores (m):        2
+
+Espera promedio en la cola      7.972 minutos
+Numero promedio en cola     1.330
+Uso de Servidores
+Uso del servidor 1 :           0.026
+Uso del servidor 2 :           0.782
+Tiempo de terminacion de la simulacion     599.268 minutos>>> Modo Erlang C (con cola)
+Clientes que debieron esperar:              70
+Probabilidad de espera estimada (P_w):           0.7761
+\end{verbatim}
+
+\textbf{Análisis:}
+
+Dado que el número de clientes simulados es bajo (100), es esperable que la probabilidad de espera simulada difiera del valor teórico ($0.45$) debido a la alta variabilidad estadística inherente a muestras pequeñas. Esto puede provocar que el valor simulado sea mayor o menor que el teórico, y que la dispersión entre ejecuciones sea significativa. Para obtener una mejor aproximación al valor teórico, se recomienda aumentar el número de clientes simulados (por ejemplo, a 10,000 o más), lo que reduce la variabilidad y permite que la simulación converja hacia el valor esperado por la teoría de colas. Si la diferencia entre el valor simulado y el teórico persiste incluso con muestras grandes, se recomienda revisar la correcta interpretación de los parámetros y la implementación del simulador.
+
+\subsubsection{Erlang C, probabilidad de espera con más servidores}
+
+Para analizar el efecto de aumentar el número de servidores en la probabilidad de espera, se realizó un experimento bajo el modelo Erlang C (con cola) con los siguientes parámetros:
+
+\begin{itemize}
+    \item Media entre llegadas ($\lambda$): 5 minutos
+    \item Media de atención ($\mu$): 6 minutos
+    \item Número de clientes a simular: 100
+    \item Modo: 1 (Erlang C, con cola)
+    \item Número de servidores ($m$): 5
+\end{itemize}
+
+\textbf{Cálculo teórico:}
+
+La fórmula de Erlang C para la probabilidad de que un cliente tenga que esperar (haya cola) es:
+\begin{equation*}
+p(\text{cola}) = \frac{\frac{1}{m!}\left(\frac{\lambda}{\mu}\right)^m \left( \frac{1}{1-\rho} \right)}{1 + \sum_{n=1}^{m-1} \frac{1}{n!}\left(\frac{\lambda}{\mu}\right)^n + \frac{1}{m!}\left(\frac{\lambda}{\mu}\right)^m \left( \frac{1}{1-\rho} \right)}
+\end{equation*}
+donde:
+\begin{itemize}
+    \item $\lambda$ es la tasa de llegadas
+    \item $\mu$ es la tasa de servicio
+    \item $m$ es el número de servidores
+    \item $\rho = \frac{\lambda}{m\mu}$ es la utilización del sistema
+\end{itemize}
+
+Para este caso:
+\begin{align*}
+    \lambda &= 1/5 \text{ clientes/minuto} \\
+    \mu &= 1/6 \text{ clientes/minuto} \\
+    m &= 5 \\
+    \rho &= \frac{1/5}{5 \times 1/6} = \frac{1/5}{5/6} = 0.24 \\
+    \frac{\lambda}{\mu} &= 1.2
+\end{align*}
+
+\begin{align*}
+p(\text{cola}) &= \frac{\frac{1}{5!}(1.2)^5 \left( \frac{1}{1-0.24} \right)}{1 + \sum_{n=1}^{4} \frac{1}{n!}(1.2)^n + \frac{1}{5!}(1.2)^5 \left( \frac{1}{1-0.24} \right)} = 0.0082
+\end{align*}
+
+\textbf{Resultados simulados:}
+
+\begin{verbatim}
+Sistema de Colas Simple
+
+Tiempo promedio de llegada      5.000 minutos
+
+Tiempo promedio de atencion           6.000 minutos
+
+Numero de clientes           100
+
+Modo de simulación:              Erlang C (con cola)
+Número de servidores (m):        5
+
+Espera promedio en la cola      7.158 minutos
+
+Numero promedio en cola     1.249
+
+Uso de Servidores
+
+Uso del servidor 1 :           0.026
+Uso del servidor 2 :           0.012
+Uso del servidor 3 :           0.091
+Uso del servidor 4 :           0.032
+Uso del servidor 5 :           0.704
+Tiempo de terminacion de la simulacion     573.145 minutos>>> Modo Erlang C (con cola)
+Clientes que debieron esperar:              60
+Probabilidad de espera estimada (P_w):           0.6944
+\end{verbatim}
+
+\textbf{Análisis comparativo:}
+
+Al comparar este resultado con el experimento anterior con 2 servidores (donde la probabilidad de espera simulada fue $P_w = 0.7761$), se observa que, aunque la probabilidad de espera disminuye al aumentar el número de servidores, en este caso sigue siendo relativamente alta ($P_w = 0.6944$). Esto puede deberse a la alta variabilidad estadística por el bajo número de clientes simulados (100) o a la configuración de los parámetros de llegada y servicio. 
+
+Teóricamente, al aumentar los servidores, el sistema debería ser capaz de atender a más clientes sin que tengan que esperar, y la probabilidad de espera debería disminuir considerablemente. Para observar esta reducción de manera más clara y obtener una mejor aproximación al valor teórico, se recomienda aumentar el número de clientes simulados (por ejemplo, a 10,000 o más). Si la probabilidad de espera sigue siendo alta incluso con muestras grandes, es importante revisar la correcta interpretación de los parámetros y la implementación del simulador para descartar errores o malentendidos en la lógica del modelo.
 
 \section{Referencias}
 \renewcommand{\refname}{}
@@ -2282,13 +2475,13 @@ Esta experimentación establece una base sólida para la aplicación del simulad
 \bibitem{ref} \label{ref:modSim} A. M. Law, *Simulation Modeling and Analysis*, 5th ed. 
 New York, NY, USA: McGraw-Hill Education, Jan. 2014, ISBN 978-0-07-340132-4. 
 
-\bibitem{ref} \label{ref:matSim} J. E. Ortiz T., “Modelos Matemáticos \& Simulación,”
+\bibitem{ref} \label{ref:matSim} J. E. Ortiz T., "Modelos Matemáticos \& Simulación,"
  en *Apuntes de clase de la asignatura Modelos Estocásticos y Simulación en 
  Computación y Comunicaciones*, Departamento de Ingeniería de Sistemas e Industrial, 
  Universidad Nacional de Colombia, 2025. [En línea]. Disponible en: 
  \url{https://drive.google.com/file/d/1c886yU4SFk9A97DGWr8JHiF3nd2au1Ns/view?usp=sharing}
 
- \bibitem{ref} \label{ref:cimColas} J. E. UOrtiz, “Simulador del modelo de colas M/M/1,” 
+ \bibitem{ref} \label{ref:cimColas} J. E. UOrtiz, "Simulador del modelo de colas M/M/1," 
  código fuente en C++ (archivo .rar), basado en la sección 
  1.4.4 de Averill M. Law, *Simulation Modeling and Analysis*, 
  th ed., McGraw-Hill, 2014. [En línea]. Disponible en: 
