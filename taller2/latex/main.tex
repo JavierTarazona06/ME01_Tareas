@@ -1456,7 +1456,7 @@ Este manual proporciona una guía completa para el uso del simulador de sistemas
     \item Capacidad limitada $N$ (incluyendo clientes en servicio y en cola)
 \end{itemize}
 
-\subsubsection{Teoría del Sistema de Colas}
+\subsubsection{Características del Sistema de Colas}
 Un sistema de colas Geom/Geom/m/N se caracteriza por:
 \begin{itemize}
     \item \textbf{Proceso de llegada}: Geométrico con probabilidad $p$ de llegada por slot de tiempo
@@ -1807,8 +1807,8 @@ El programa modela un sistema de colas con:
     \item Disciplina FIFO
 \end{itemize}
 
-\section{Prerequisitos}
-\subsection{Software Requerido}
+\subsection{Prerequisitos}
+\subsubsection{Software Requerido}
 \begin{itemize}
     \item Compilador C++ compatible con C++11 o superior
     \item Bibliotecas estándar: \texttt{stdio.h}, \texttt{stdlib.h}, \texttt{math.h}
@@ -1816,16 +1816,17 @@ El programa modela un sistema de colas con:
     \item Sistema operativo: Windows/Linux/macOS
 \end{itemize}
 
-\subsection{Hardware Mínimo}
+\subsubsection{Hardware Mínimo}
 \begin{itemize}
     \item Procesador: Arquitectura x86/x64
     \item Memoria RAM: 512 MB
     \item Espacio en disco: 10 MB
 \end{itemize}
 
-\section{Estructura del Código}
-\subsection{Variables Globales Principales}
-\subsubsection{Parámetros del Sistema}
+\subsection{Estructura del Código}
+\subsubsection{Variables Globales Principales}
+\paragraph{Parámetros del Sistema}
+
 \begin{lstlisting}[language=C++]
 float media_entre_llegadas;    // Tiempo medio entre llegadas
 float media_atencion;          // Tiempo medio de servicio
@@ -1834,7 +1835,8 @@ int num_servidores;           // Numero de servidores (m)
 int modo;                     // ERLANG_B (0) o ERLANG_C (1)
 \end{lstlisting}
 
-\subsubsection{Estado del Sistema}
+\paragraph{Estado del Sistema}
+
 \begin{lstlisting}[language=C++]
 int servidores_ocupados;      // Numero actual de servidores ocupados
 int num_entra_cola;          // Numero de clientes en cola
@@ -1843,8 +1845,9 @@ float* tiempo_sig_evento;    // Array de eventos futuros
 float tiempo_llegada[LIMITE_COLA + 1]; // Tiempos de llegada en cola
 \end{lstlisting}
 
-\subsection{Funciones Principales}
-\subsubsection{\texttt{main()}}
+\subsubsection{Funciones Principales}
+\texttt{main()}
+
 \textbf{Propósito}: Función principal que coordina toda la simulación.
 
 \textbf{Funcionalidad}:
@@ -1860,7 +1863,8 @@ float tiempo_llegada[LIMITE_COLA + 1]; // Tiempos de llegada en cola
 media_entre_llegadas media_atencion num_esperas_requerido modo num_servidores
 \end{lstlisting}
 
-\subsubsection{\texttt{inicializar()}}
+\texttt{inicializar()}
+
 \textbf{Propósito}: Prepara el sistema para la simulación.
 
 \textbf{Gestión de memoria}:
@@ -1869,8 +1873,8 @@ area_estado_servidores = new float[num_servidores];
 tiempo_sig_evento = (float*) malloc((num_eventos + 1) * sizeof(float));
 \end{lstlisting}
 
-\section{Parámetros de Configuración}
-\subsection{Archivo de Entrada (\texttt{param.txt})}
+\subsection{Parámetros de Configuración}
+\subsubsection{Archivo de Entrada (\texttt{param.txt})}
 \begin{lstlisting}
 5.0 6.0 1000 1 3
 \end{lstlisting}
@@ -1884,8 +1888,8 @@ tiempo_sig_evento = (float*) malloc((num_eventos + 1) * sizeof(float));
     \item 3: Número de servidores
 \end{itemize}
 
-\section{Validación y Testing}
-\subsection{Verificación de Resultados Teóricos}
+\subsection{Validación y Testing}
+\subsubsection{Verificación de Resultados Teóricos}
 \textbf{Erlang B - Probabilidad de bloqueo}:
 \[ P_b = \frac{\frac{A^m}{m!}}{\sum_{k=0}^{m}\frac{A^k}{k!}} \]
 donde $A = \lambda/\mu$ (intensidad de tráfico)
@@ -1894,13 +1898,13 @@ donde $A = \lambda/\mu$ (intensidad de tráfico)
 \[ P_w = \frac{\frac{A^m}{m!} \cdot \frac{1}{1-\rho}}{\left[\sum_{k=0}^{m-1}\frac{A^k}{k!} + \frac{A^m}{m!} \cdot \frac{1}{1-\rho}\right]} \]
 donde $\rho = \lambda/(m \cdot \mu)$ (utilización del sistema)
 
-\section{Compilación y Ejecución}
-\subsection{Comando de Compilación}
+\subsection{Compilación y Ejecución}
+\subsubsection{Comando de Compilación}
 \begin{lstlisting}[language=bash]
 g++ "Sistema de Colas.cpp" -o SistemaDeColas
 \end{lstlisting}
 
-\subsection{Ejecución}
+\subsubsection{Ejecución}
 \begin{lstlisting}[language=bash]
 ./SistemaDeColas
 \end{lstlisting}
@@ -2661,6 +2665,16 @@ Los resultados sugieren un trade-off óptimo:
 
 Esta experimentación establece una base sólida para la aplicación del simulador en estudios más complejos y valida la metodología propuesta para el análisis de sistemas de colas discretos.
 
+\section{Conclusiones}
+El simulador de colas M/M/1 desarrollado en C++ ha demostrado ser una herramienta efectiva para modelar y analizar sistemas de colas simples. A través de la implementación de un modelo de colas M/M/1, se ha logrado simular el comportamiento de un sistema con llegadas y servicios exponenciales, permitiendo observar métricas clave como el tiempo promedio en el sistema, la utilización del servidor y el tamaño promedio de la cola.
+
+La restructuración del código siguiendo el modelo SAO (Sistema-Ambiente-Observatorio) y la implementación de los seis módulos fundamentales propuestos por Ortiz T. resultó en una arquitectura robusta y extensible. Esta modularización facilitó la evolución progresiva desde el modelo base M/M/1 hasta las implementaciones más complejas, demostrando la importancia del diseño arquitectónico en el desarrollo de simuladores escalables.
+El simulador M/M/m (Erlang B y C) ha permitido explorar configuraciones con múltiples servidores, proporcionando una comprensión más profunda de cómo la capacidad del sistema afecta las métricas de rendimiento. Los resultados obtenidos en los experimentos con Erlang B y C validan la teoría de colas y muestran cómo la utilización del sistema y la probabilidad de bloqueo cambian con el número de servidores y la tasa de llegada.
+Los experimentos realizados confirman que las implementaciones de los modelos M/M/1, M/M/m (Erlang B y C), y Geo/Geo/m/N reproducen adecuadamente el comportamiento teórico de los sistemas de colas estudiados. La convergencia sistemática hacia los valores teóricos, especialmente evidente en el modelo Geo/Geo/m/N con simulaciones extensas (2 millones de slots), valida tanto la correctitud de las implementaciones como la aplicabilidad práctica de estos modelos.
+
+La experimentación demostró que el tamaño muestral es crítico para la precisión de las estimaciones, particularmente para eventos raros como las probabilidades de bloqueo. En el modelo Geo/Geo/m/N, el error relativo en la probabilidad de bloqueo disminuyó dramáticamente desde 78.57\% (100K slots) hasta 0.64\% (2M slots), siguiendo el comportamiento esperado según la Ley de los Grandes Números. Este resultado establece guías prácticas para seleccionar duraciones de simulación apropiadas según el nivel de precisión requerido.
+
+Los resultados obtenidos proporcionan herramientas validadas para el análisis de sistemas de colas en aplicaciones prácticas. Los simuladores desarrollados permiten evaluar el impacto de diferentes configuraciones de servidores, tasas de llegada y capacidades del sistema, facilitando la toma de decisiones informadas en el diseño de sistemas de telecomunicaciones, centros de servicio y redes de computadoras. La implementación del modelo discreto Geo/Geo/m/N es particularmente valiosa para el análisis de sistemas digitales donde los eventos ocurren en intervalos de tiempo fijos.
 \section{Referencias}
 \renewcommand{\refname}{}
 \begin{thebibliography}{9}
