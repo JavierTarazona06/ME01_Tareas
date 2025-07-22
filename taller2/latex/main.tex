@@ -51,7 +51,7 @@
     \vspace{3cm}
 
     % Detalles del laboratorio y actividad
-    {\large \textbf{Taller 1} \par}
+    {\large \textbf{Taller 2} \par}
     \vspace{3cm}
 
     % Lista de integrantes
@@ -537,49 +537,111 @@ La simulación discreta de eventos (DES) modela el comportamiento de un sistema 
 \section{Descripción y Justificación del Problema a Resolver}\label{sec:descr}
 
 % Puedes colocar aquí subsecciones adicionales para otras simulaciones si lo deseas
+\subsection{Contexto del Problema}
+La teoría de colas constituye una herramienta fundamental en el análisis y optimización de sistemas donde los recursos limitados deben atender demandas aleatorias. En el ámbito de la ingeniería de sistemas y telecomunicaciones, la validación de modelos teóricos mediante simulación computacional es esencial para garantizar su aplicabilidad en entornos reales donde los supuestos matemáticos pueden no cumplirse de manera estricta.
 
-\subsection{Simulación del Modelo de Erlang (B y C)}\label{subsec:erlang}
+\subsection{Problema Central}
+El presente trabajo aborda la validación, restructuración y extensión de simuladores de sistemas de colas, con el objetivo de verificar la correspondencia entre resultados teóricos y empíricos en diferentes configuraciones de sistemas de espera. Específicamente, se busca resolver los siguientes desafíos:
 
-\subsubsection{Contexto del Problema}
-
-En el estudio de los sistemas de colas, los modelos de Erlang B y Erlang C constituyen herramientas fundamentales para la estimación del desempeño de sistemas con múltiples servidores. Estos modelos permiten analizar situaciones en las que los recursos son limitados, como ocurre en centros de llamadas, redes de telecomunicaciones, y sistemas de atención médica. En particular, el modelo Erlang B permite estimar la probabilidad de bloqueo en un sistema sin espera, mientras que Erlang C permite calcular la probabilidad de que un cliente deba esperar para ser atendido, cuando hay una cola de espera disponible.
-
-Sin embargo, las fórmulas analíticas de Erlang B y C, aunque precisas bajo supuestos teóricos estrictos (como llegadas y servicios distribuidos exponencialmente, disciplina FIFO, y número finito de servidores), pueden no ajustarse completamente a la realidad de los sistemas discretos. Por ello, se propone validar dichas fórmulas teóricas mediante simulación computacional, adaptando y extendiendo el simulador base (M/M/1) a un entorno más general con múltiples servidores, permitiendo así una comparación entre los resultados teóricos y los resultados simulados.
-
-\subsubsection{Problema Específico}
-
-Diseñar, adaptar y ejecutar un simulador de colas que permita estimar empíricamente los valores de las fórmulas de Erlang B y Erlang C, bajo distintos escenarios de estudio, y compararlos con sus valores teóricos. Se busca responder si los resultados obtenidos por simulación son lo suficientemente cercanos a los valores teóricos como para considerar el modelo confiable, incluso en casos prácticos donde los supuestos teóricos podrían no cumplirse de forma estricta.
-
-\subsubsection{Objetivo Principal}
-
-El objetivo principal es validar, mediante simulación discreta, el comportamiento de los modelos de Erlang B y C en diferentes configuraciones de parámetros (número de servidores, tasa de llegada y de servicio), y evaluar la precisión de sus resultados en comparación con las fórmulas teóricas. Para ello, se implementará y adaptará un simulador capaz de calcular la probabilidad de bloqueo (Erlang B) y la probabilidad de espera (Erlang C), así como métricas de desempeño asociadas.
-
-\subsubsection{Hipótesis de Investigación}
-
-Se plantea que, bajo una correcta implementación del modelo de colas y una cantidad suficiente de iteraciones o tiempo de simulación, los valores obtenidos por simulación de las fórmulas de Erlang B y C convergerán de forma razonable a los valores teóricos calculados analíticamente, validando así el uso práctico de dichas fórmulas en contextos reales.
-
-\subsubsection{Justificación de la Solución Propuesta}
-
-Dado que las fórmulas de Erlang B y C son ampliamente utilizadas en la ingeniería de tráfico y el diseño de sistemas, resulta crucial comprobar su validez mediante técnicas de simulación, especialmente cuando se implementan sistemas complejos en la práctica. La simulación permite observar el comportamiento del sistema bajo condiciones específicas que pueden ser difíciles de modelar con precisión de forma analítica. Asimismo, proporciona una herramienta flexible para explorar distintos escenarios y validar la robustez del modelo frente a cambios en los parámetros del sistema.
-
-Además, la simulación permite estudiar casos donde no se cumplen todos los supuestos de los modelos clásicos, como la distribución exacta de Poisson para las llegadas o el carácter estrictamente exponencial de los tiempos de servicio. Al obtener resultados simulados cercanos a los teóricos, se puede justificar el uso práctico de los modelos de Erlang como herramientas efectivas de planificación y diseño.
-
-\subsubsection{Métricas de Evaluación}
-
-Para comparar los resultados simulados con los teóricos, se utilizarán las siguientes métricas:
-
+\subsubsection{Validación del Modelo Base M/M/1}
+Verificar que el simulador proporcionado reproduzca fielmente el comportamiento del sistema M/M/1 teórico, garantizando:
 \begin{itemize}
-    \item \textbf{Probabilidad de bloqueo} ($\hat{p}_b$): estimada mediante simulación y comparada con la fórmula de Erlang B.
-    \item \textbf{Probabilidad de espera} ($\hat{p}_w$): estimada mediante simulación y comparada con la fórmula de Erlang C.
-    \item \textbf{Error relativo}: diferencia porcentual entre el valor teórico y el estimado por simulación.
+    \item Reproducibilidad de resultados mediante el uso controlado de generadores de números aleatorios
+    \item Validación de métricas fundamentales:
+    \begin{itemize}
+        \item Utilización del servidor
+        \item Tiempos de espera
+        \item Longitud de colas
+    \end{itemize}
 \end{itemize}
 
+\subsubsection{Restructuración Arquitectónica}
+Implementar una arquitectura modular basada en los seis módulos fundamentales propuestos por Ortiz T.:
+\begin{itemize}
+    \item Separación clara de responsabilidades:
+    \begin{itemize}
+        \item Inicialización
+        \item Manejo del tiempo
+        \item Procesamiento de eventos
+        \item Generación de variables aleatorias
+        \item Actualización de estadísticas
+        \item Generación de reportes
+    \end{itemize}
+    \item Beneficios:
+    \begin{itemize}
+        \item Facilita el mantenimiento
+        \item Mejora la extensibilidad
+        \item Permite la reutilización del código
+    \end{itemize}
+\end{itemize}
 
+\subsubsection{Extensión a Modelos Multiservidor (Erlang B y C)}
+Adaptar el simulador base para evaluar sistemas M/M/m:
+\begin{itemize}
+    \item Implementación de modelos:
+    \begin{itemize}
+        \item Erlang B (sistema sin cola con bloqueo)
+        \item Erlang C (sistema con cola infinita)
+    \end{itemize}
+    \item Aplicaciones:
+    \begin{itemize}
+        \item Análisis de escenarios realistas con múltiples recursos en paralelo
+        \item Cálculo de probabilidades de bloqueo y espera
+        \item Diseño de centros de llamadas y sistemas de telecomunicaciones
+    \end{itemize}
+\end{itemize}
+
+\subsubsection{Implementación de Modelo Discreto Geo/Geo/m/N}
+Desarrollar un simulador completamente nuevo para sistemas de tiempo discreto:
+\begin{itemize}
+    \item Características:
+    \begin{itemize}
+        \item Llegadas y servicios con distribuciones geométricas
+        \item Eventos en slots de tiempo fijos
+    \end{itemize}
+    \item Requerimientos:
+    \begin{itemize}
+        \item Implementación del algoritmo teórico de Robertazzi
+        \item Validación de resultados
+    \end{itemize}
+    \item Aplicaciones:
+    \begin{itemize}
+        \item Sistemas digitales
+        \item Redes de datos
+    \end{itemize}
+\end{itemize}
+
+\subsection{Justificación del Problema}
+\subsubsection{Relevancia Académica}
+La simulación de sistemas de colas representa un pilar fundamental en la formación de ingenieros de sistemas, proporcionando:
+\begin{itemize}
+    \item Comprensión profunda de la traducción de modelos matemáticos a implementaciones computacionales
+    \item Análisis de cómo las limitaciones teóricas afectan la aplicabilidad práctica
+\end{itemize}
+
+\subsubsection{Relevancia Práctica}
+Los sistemas de colas modelados tienen aplicaciones directas en:
+\begin{itemize}
+    \item \textbf{Telecomunicaciones}:
+    \begin{itemize}
+        \item Dimensionamiento de redes
+        \item Gestión de tráfico
+    \end{itemize}
+    \item \textbf{Sistemas de información}:
+    \begin{itemize}
+        \item Análisis de rendimiento de servidores
+        \item Optimización de bases de datos
+    \end{itemize}
+    \item \textbf{Servicios}:
+    \begin{itemize}
+        \item Optimización de centros de atención al cliente
+        \item Mejora de procesos de manufactura
+    \end{itemize}
+\end{itemize}
 
 %---------------------------------------------------------------------------------
 % Diseño solución ------------------------------------------------------------------
 %---------------------------------------------------------------------------------
-
 
 \section{Diseño de la solución} \label{sec:disSol}
 
@@ -1382,7 +1444,7 @@ La estructura del archivo incluye primero los parámetros de entrada, como los t
 
 % Manual de Usuario Geo Geo 
 
-\subsection{Modelo Geo/Geo/m/N}\label{subsec:geogeo}
+\subsection{Geo/Geo/m/N}\label{subsec:geogeo}
 
 Este manual proporciona una guía completa para el uso del simulador de sistemas de colas tipo Geom/Geom/m/N. El simulador permite analizar el comportamiento de sistemas con:
 \begin{itemize}
@@ -1392,7 +1454,7 @@ Este manual proporciona una guía completa para el uso del simulador de sistemas
     \item Capacidad limitada $N$ (incluyendo clientes en servicio y en cola)
 \end{itemize}
 
-\subsection{Teoría del Sistema de Colas}
+\subsubsection{Teoría del Sistema de Colas}
 Un sistema de colas Geom/Geom/m/N se caracteriza por:
 \begin{itemize}
     \item \textbf{Proceso de llegada}: Geométrico con probabilidad $p$ de llegada por slot de tiempo
@@ -1402,25 +1464,25 @@ Un sistema de colas Geom/Geom/m/N se caracteriza por:
     \item \textbf{Disciplina}: FIFO (First In, First Out)
 \end{itemize}
 
-\section{Requisitos del Sistema}
+\subsection{Requisitos del Sistema}
 
-\subsection{Requisitos de Hardware}
+\subsubsection{Requisitos de Hardware}
 \begin{itemize}
     \item Procesador: Cualquier procesador x86/x64 moderno
     \item Memoria RAM: Mínimo 512 MB
     \item Espacio en disco: 50 MB libres
 \end{itemize}
 
-\subsection{Requisitos de Software}
+\subsubsection{Requisitos de Software}
 \begin{itemize}
     \item Sistema operativo: Windows, Linux o macOS
     \item Compilador C++: GCC, Clang o Microsoft Visual C++
     \item Bibliotecas estándar de C++
 \end{itemize}
 
-\section{Instalación y Compilación}
+\subsection{Instalación y Compilación}
 
-\subsection{Estructura de Archivos}
+\subsubsection{Estructura de Archivos}
 El programa requiere los siguientes archivos:
 \begin{itemize}
     \item \texttt{simulador.cpp}: Código fuente principal
@@ -1428,7 +1490,7 @@ El programa requiere los siguientes archivos:
     \item \texttt{paramGeo.txt}: Archivo de parámetros de entrada
 \end{itemize}
 
-\subsection{Compilación}
+\subsubsection{Compilación}
 Para compilar el programa, utilice el siguiente comando:
 
 \begin{lstlisting}[language=bash]
@@ -1440,9 +1502,9 @@ En sistemas Windows con MinGW:
 g++ -o sistemaGeoGeo.exe sistemaGeoGeo.cpp -lm
 \end{lstlisting}
 
-\section{Configuración de Parámetros}
+\subsection{Configuración de Parámetros}
 
-\subsection{Archivo de Parámetros (paramGeo.txt)}
+\subsubsection{Archivo de Parámetros (paramGeo.txt)}
 Antes de ejecutar la simulación, debe crear el archivo \texttt{paramGeo.txt} con los parámetros del sistema:
 
 \begin{lstlisting}
@@ -1458,7 +1520,7 @@ Donde:
     \item \texttt{num\_slots}: Número de slots de tiempo a simular
 \end{itemize}
 
-\subsection{Ejemplo de Configuración}
+\subsubsection{Ejemplo de Configuración}
 \begin{lstlisting}
 5 2 0.3 0.4 100000
 \end{lstlisting}
@@ -1472,9 +1534,9 @@ Este ejemplo configura:
     \item Duración: 100,000 slots
 \end{itemize}
 
-\section{Ejecución del Simulador}
+\subsection{Ejecución del Simulador}
 
-\subsection{Comando de Ejecución}
+\subsubsection{Comando de Ejecución}
 Una vez compilado, ejecute el programa con:
 
 \begin{lstlisting}[language=bash]
@@ -1486,7 +1548,7 @@ En Windows:
 sistemaGeoGeo.exe
 \end{lstlisting}
 
-\subsection{Salida en Consola}
+\subsubsection{Salida en Consola}
 El programa mostrará información durante la ejecución:
 
 \begin{lstlisting}
@@ -1497,11 +1559,11 @@ Numero de slots: 100000
 Simulacion completada. Resultados guardados en archivos de texto.
 \end{lstlisting}
 
-\section{Archivos de Resultados}
+\subsection{Archivos de Resultados}
 
 El simulador genera tres archivos de salida:
 
-\subsection{estadisticas.txt}
+\subsubsection{estadisticas.txt}
 Contiene las probabilidades de estado simuladas:
 \begin{itemize}
     \item Distribución de probabilidades por estado
@@ -1510,7 +1572,7 @@ Contiene las probabilidades de estado simuladas:
     \item Probabilidad de bloqueo simulada
 \end{itemize}
 
-\subsection{comparacion\_teorica.txt}
+\subsubsection{comparacion\_teorica.txt}
 Compara los resultados simulados con los teóricos:
 \begin{itemize}
     \item Probabilidades simuladas vs. teóricas por estado
@@ -1518,7 +1580,7 @@ Compara los resultados simulados con los teóricos:
     \item Comparación de probabilidades de bloqueo
 \end{itemize}
 
-\subsection{resumen\_resultados.txt}
+\subsubsection{resumen\_resultados.txt}
 Presenta un resumen ejecutivo del sistema:
 \begin{itemize}
     \item Número total de slots simulados
@@ -1527,9 +1589,9 @@ Presenta un resumen ejecutivo del sistema:
     \item Throughput (clientes atendidos por slot)
 \end{itemize}
 
-\section{Ejemplos de Uso}
+\subsection{Ejemplos de Uso}
 
-\subsection{Ejemplo 1: Sistema Básico}
+\subsubsection{Ejemplo 1: Sistema Básico}
 
 \textbf{Configuración (paramGeo.txt):}
 \begin{lstlisting}
@@ -1544,7 +1606,7 @@ Presenta un resumen ejecutivo del sistema:
     \item 50\% probabilidad de servicio
 \end{itemize}
 
-\subsection{Ejemplo 2: Sistema Multi-servidor}
+\subsubsection{Ejemplo 2: Sistema Multi-servidor}
 
 \textbf{Configuración (paramGeo.txt):}
 \begin{lstlisting}
@@ -1559,11 +1621,11 @@ Presenta un resumen ejecutivo del sistema:
     \item 30\% probabilidad de servicio por servidor
 \end{itemize}
 
-\section{Solución de Problemas}
+\subsection{Solución de Problemas}
 
-\subsection{Errores Comunes}
+\subsubsection{Errores Comunes}
 
-\subsubsection{Error: No se pudo abrir 'paramGeo.txt'}
+\paragraph{Error: No se pudo abrir 'paramGeo.txt'}
 \paragraph{Causa:} El archivo de parámetros no existe o no está en el directorio correcto.
 
 \paragraph{Solución:} 
@@ -1573,7 +1635,7 @@ Presenta un resumen ejecutivo del sistema:
     \item Revise los permisos de lectura del archivo
 \end{enumerate}
 
-\subsubsection{Error: Formato incorrecto en 'paramGeo.txt'}
+\paragraph{Error: Formato incorrecto en 'paramGeo.txt'}
 \paragraph{Causa:} Los parámetros no están en el formato correcto.
 % Dejar un enter
 \paragraph{Solución:}
@@ -1583,7 +1645,7 @@ Presenta un resumen ejecutivo del sistema:
     \item Confirme que los valores numéricos son válidos
 \end{enumerate}
 
-\subsubsection{Error: No se pudieron crear archivos de salida}
+\paragraph{Error: No se pudieron crear archivos de salida}
 \paragraph{Causa:} Problemas de permisos de escritura.
 \paragraph{Solución:}
 \begin{enumerate}
@@ -1592,9 +1654,9 @@ Presenta un resumen ejecutivo del sistema:
     \item Ejecute desde un directorio con permisos adecuados
 \end{enumerate}
 
-\subsection{Optimización del Rendimiento}
+\subsubsection{Optimización del Rendimiento}
 
-\subsubsection{Selección del Número de Slots}
+\paragraph{Selección del Número de Slots}
 Para obtener resultados precisos:
 \begin{itemize}
     \item Use al menos 10,000 slots para sistemas simples
@@ -1850,7 +1912,7 @@ Para modificar o extender el código:
 %---------------------------------------------------------------------------------
 
 
-\section{Experimentación y Resultados: Modelo Geo/Geo/m/N}\label{sec:exp}
+\section{Experimentación y Resultados}\label{sec:exp}
 
 \subsection{Experimentación modelo M/M/1}
 
